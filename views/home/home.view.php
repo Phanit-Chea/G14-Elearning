@@ -79,7 +79,9 @@ Video START -->
 </section>
 <!-- =======================
 Video END -->
-
+<?php 
+session_start();
+if (!isset($_SESSION)): ?>
 <!-- =======================
 Category START -->
 <section>
@@ -1062,7 +1064,7 @@ Live courses START -->
 </section>
 <!-- =======================
 Live courses END -->
-
+<?php endif; ?>
 <!-- =======================
 Action box START -->
 <section class="py-5">
