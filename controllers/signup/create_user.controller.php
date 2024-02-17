@@ -11,7 +11,7 @@ require "../../models/user.model.php";
 
         $user = get_values_from_input($email);
         if(count($user)==0){
-            $isCreate =  createAccount($username,$email,$password);
+            $isCreate =  createAccount($username,$email, $code );
             header('Location: /signin');
         }else{
             echo 'account already exits';
