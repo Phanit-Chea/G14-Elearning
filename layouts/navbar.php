@@ -226,7 +226,7 @@
             <li> <a class="dropdown-item" href="#">Math & logic</a></li>
             <li> <hr class="dropdown-divider"></li>
             <li> <a class="dropdown-item bg-primary text-primary bg-opacity-10 rounded-2 mb-0" href="#">View all categories</a></li>
-          </ul>
+          </ul> 
         </li>
       </ul>
       <!-- Category menu END -->
