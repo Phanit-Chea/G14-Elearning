@@ -1,7 +1,7 @@
 <?php
 
 $hostname = "localhost";
-$database = "elearning";
+$database = "g14_elearning";
 $username = "root";
 $password = "";
 
