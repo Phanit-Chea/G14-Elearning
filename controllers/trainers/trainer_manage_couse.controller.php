@@ -1,3 +1,3 @@
 <?php
-require ("views/trainers/trainer_manage_course.html");
+require ("views/trainers/trainer_manage_course.php");
 ?>
