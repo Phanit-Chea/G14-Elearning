@@ -289,7 +289,11 @@
   
       <!-- Signout button  -->
       <div class="navbar-nav d-none d-lg-inline-block">
-        <button class="btn btn-danger-soft mb-0"><i class="fas fa-sign-in-alt me-2"></i>Sign Up</button>
+         <?php if (isset($_SESSION['login'])): ?>
+          <a href="controllers/signin/signout.controller.php" class="btn btn-danger-soft mb-0"><i class="fas fa-sign-in-alt me-2"></i>Sign Up</a>
+          <?php else: ?>
+          <a href="/signin" class="btn btn-danger-soft mb-0">Signin</a>
+          <?php endif; ?>
       </div>
       <!-- Right header content END -->
     

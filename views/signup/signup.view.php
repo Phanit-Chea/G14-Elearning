@@ -51,15 +51,19 @@
                             <a href="index.html" class="">
                                 <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>DarkPan</h3>
                             </a>
-                            <h3>Sign In</h3>
+                            <h3>Sign up</h3>
                         </div>
-                        <form action="controllers/signin/user_signin.controller.php" method = 'post'>
+                        <form action="controllers/signup/create_user.controller.php" method ="post">
                             <div class="form-floating mb-3">
+                            <input type="name" class="form-control" id="floatingInput" placeholder="name@example.com" name ="username">
+                            <label for="floatingInput">Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
                             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name ="email">
                             <label for="floatingInput">Email address</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name ="password">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                             <label for="floatingPassword">Password</label>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mb-4">
@@ -69,8 +73,8 @@
                             </div>
                             <a href="">Forgot Password</a>
                         </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
-                        <p class="text-center mb-0">Don't have an Account? <a href="/signup">Sign Up</a></p>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign up</button>
+                        <p class="text-center mb-0">Don't have an Account? <a href="/signin">Sign in</a></p>
                         </form>
                     </div>
                 </div>

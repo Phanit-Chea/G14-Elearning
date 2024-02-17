@@ -1,5 +1,6 @@
 <!-- =======================
 Main Banner START -->
+
 <section class="bg-light">
 	<div class="container pt-5 mt-0 mt-lg-5">
 
@@ -79,9 +80,10 @@ Video START -->
 </section>
 <!-- =======================
 Video END -->
-
+<?php 
+if (isset($_SESSION['login'])){?>
 <!-- =======================
-Category START -->
+Category START --> 
 <section>
 	<div class="container">
 		<div class="row g-4">
@@ -1062,7 +1064,7 @@ Live courses START -->
 </section>
 <!-- =======================
 Live courses END -->
-
+<?php }?>
 <!-- =======================
 Action box START -->
 <section class="py-5">
