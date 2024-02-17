@@ -1,3 +1,3 @@
 <?php
-require "views/trainers/trainer_dashboard.php";
+require "views/trainers/trainer_dashboard.view.php";
 ?>
