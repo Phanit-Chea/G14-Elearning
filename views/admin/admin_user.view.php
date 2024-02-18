@@ -1,10 +1,8 @@
-
-<div class="table-responsive">
-    <h2 class="m-3">Users List</h2>
-    <table class="table text-start align-middle table-bordered table-hover mb-0">
+<div class="table-responsive p-5 pt-3">
+    <h2 >Users List</h2>
+    <table class="table text-start align-middle table-bordered table-dark table-hover mb-0">
         <thead>
             <tr class="text-white">
-                <th scope="col"><input class="form-check-input" type="checkbox"></th>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
@@ -22,13 +20,12 @@
             ?>
             
             <tr>
-                <td><input class="form-check-input" type="checkbox"></td>
                 <td><?= $user['user_id'];?></td>
                 <td><?= $user['username'];?></td>
                 <td><?= $user['email'];?></td>
                 <td><?= $user['role_id'];?></td>
                 <td>
-                    <a class="btn btn-sm btn-primary" href="">Delete</a>
+                    <a class="btn btn-sm btn-primary" href="/controllers/admin/admin_crud_user/delete_user.controller.php?id=<?= $user['user_id']; ?>">Delete</a>
                     <a class="btn btn-sm btn-primary" href="">Edit</a>
                 </td>
             </tr>

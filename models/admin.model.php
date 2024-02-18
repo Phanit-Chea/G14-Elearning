@@ -43,10 +43,10 @@ function updatePost(string $title, string $description, int $id) : bool
     return $statement->rowCount() > 0;
 }
 
-function deletePost(int $id) : bool
+function deleteUser(int $id) : bool
 {
     global $connection;
-    $statement = $connection->prepare("delete from posts where id = :id");
-    $statement->execute([':id' => $id]);
+    $statement = $connection->prepare("DELETE from users where user_id = :user_id");
+    $statement->execute([':user_id' => $id]);
     return $statement->rowCount() > 0;
 }
