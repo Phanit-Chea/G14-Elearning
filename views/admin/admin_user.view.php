@@ -14,7 +14,6 @@
         </thead>
         <tbody>
             <?php
-                require "models/employee.model.php";
                 $statement = $connection->prepare('SELECT * FROM users');
                 $statement->execute();
                 $users = $statement->fetchAll();
