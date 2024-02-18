@@ -1,9 +1,15 @@
 
-<div class="table-responsive">
-    <table class="table text-start align-middle table-bordered table-hover mb-0">
+<?php
+require "models/admin.model.php";
+?>
+<div class="table-responsive p-5 pt-3">
+    <div class = "mb-3 d-flex justify-content-between align-items-center">
+        <h2>Users List</h2>
+        <a class="btn btn-primary" href="/add_category">Open modal for @mdo</a>
+    </div>
+    <table class="table text-start align-middle table-bordered table-dark table-hover mb-0">
         <thead>
             <tr class="text-white">
-                <th scope="col"><input class="form-check-input" type="checkbox"></th>
                 <th scope="col">ID</th>
                 <th scope="col">Categories Name</th>
                 <th scope="col">Action</th>
@@ -11,13 +17,11 @@
         </thead>
         <tbody>
             <?php
-                $statement = $connection->prepare('SELECT * from categories');
-                $statement->execute();
-                $categories = $statement->fetchAll();
+                $categories = getData();
                 foreach ($categories as $category):
+
             ?>
             <tr>
-                <td><input class="form-check-input" type="checkbox"></td>
                 <td><?= $category['category_id']?></td>
                 <td><?= $category['category_name']?></td>
                 <td>

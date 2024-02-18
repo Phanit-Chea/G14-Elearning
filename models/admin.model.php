@@ -50,3 +50,21 @@ function deletePost(int $id) : bool
     $statement->execute([':id' => $id]);
     return $statement->rowCount() > 0;
 }
+
+// ===============Function Create Category================
+function addCate($name, $description, $userId){
+    global $connection;
+    $statement=$connection->prepare("insert into categories (category_name, category_description, user_id) values(:name, :description, :userId)");
+    $statement->execute([
+        ':name'=> $name,
+        ':description'=> $description,
+        ':userId'=> $userId,
+    ]);
+}
+
+function getData(){
+    global $connection;
+    $statement = $connection->prepare("select * from categories");
+    $statement->execute();
+    return $statement->fetchAll();
+}
