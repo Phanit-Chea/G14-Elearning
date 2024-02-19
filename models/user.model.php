@@ -2,12 +2,12 @@
 function createAccount(string $name,$email,string $password, int $role = 2): bool{
 
     global $connection;
-    $statement = $connection->prepare("INSERT INTO users (username,email,password,role) VALUES(:username, :email, :password, :role)");
+    $statement = $connection->prepare("INSERT INTO users (username,email,password,role_id) VALUES(:username, :email, :password, :role_id)");
     $statement->execute([
         ':username'=>$name,
         ':email'=>$email,
         ':password'=>$password,
-        ':role'=>  $role
+        ':role_id'=>  $role
     ]);
     return $statement->rowCount() > 0;
 }
