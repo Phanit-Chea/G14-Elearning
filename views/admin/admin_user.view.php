@@ -24,7 +24,7 @@
                 <td><?= $user['email'];?></td>
                 <td><?= $user['role_id'];?></td>
                 <td>
-                    <a class="btn btn-sm btn-primary" href="/controllers/admin/admin_crud_user/delete_user.controller.php?id=<?= $user['user_id']; ?>">Delete</a>
+                    <a class="btn btn-sm btn-primary" href="controllers/admin/admin_crud_user/delete_user.controller.php?id=<?= $user['user_id']; ?>">Delete</a>
                     <a class="btn btn-sm btn-primary" href="">Edit</a>
                 </td>
             </tr>
