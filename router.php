@@ -11,6 +11,8 @@ $routes = [
     '/trainer_manage_payout'=>'controllers/trainers/trainer_manage_payout..controller.php',
     '/trainer_manage_orders'=>'controllers/trainers/trainer_manage_orders.controller.php',
     '/trainer_manage_earning'=>'controllers/trainers/trainer_manage_earning.controller.php',
+    '/trainer_create_category'=>'controllers/trainers/trainerr_create_category.controller.php',
+    '/trainer_manage_category'=>'controllers/trainers/trainer_manage_category.contoller.php',
     '/signup' => 'controllers/signup/signup.controller.php',
     '/signin' => 'controllers/signin/signin.controller.php',
 ];
