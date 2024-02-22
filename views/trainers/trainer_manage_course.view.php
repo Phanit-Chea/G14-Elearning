@@ -162,7 +162,7 @@
 										<li> <a class="dropdown-item" href="/trainer_manage_course"><i class="bi bi-basket-fill fa-fw me-1"></i>Course</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_create_course"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create
 												Course</a> </li>
-												<li> <a class="dropdown-item" href="/trainer_manage_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Category</a> </li>
+										<li> <a class="dropdown-item" href="/trainer_manage_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Category</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_create_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create
 												Category</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_earning"><i class="fas fa-chart-line fa-fw me-1"></i>Earnings</a> </li>
@@ -318,8 +318,9 @@ Main Banner START -->
 									</div>
 									<!-- Button -->
 									<div class="d-flex align-items-center mt-2 mt-md-0">
-										<a href="/trainer_create_course" class="btn btn-success mb-0">Create a
-											course</a>
+										<!-- <a href="/trainer_create_course" class="btn btn-success mb-0">Create a
+											course</a> -->
+										<button class="btn btn-primary" onclick="openModal()">Create Course</button>
 									</div>
 								</div>
 							</div>
@@ -773,10 +774,76 @@ Inner part END -->
 
 	</main>
 	<!-- **************** MAIN CONTENT END **************** -->
+	<!-- <div class="container"> -->
+		<button onclick="openModal()">Create Course</button>
+
+		<!-- <div id="modal" class="modal p-4">
+			<form action="/trainer_manage_course" method="POST" enctype="multipart/form-data">
+				<div class="mt-3 m-auto p-3 mb-1" style="background-color:black; border: 1px solid white; width:50%; border-radius:15px ">
+					<div class="modal-header">
+						<h4 class="modal-title" style="color:white">Create New course</h4>
+					</div>
+					<div class="form-group mt-3">
+						<input type="hidden" name="id" value="">
+						<input type="text" class="form-control bg-white" name="course_name" placeholder=" course_name" value="">
+					</div>
+					<div class="form-group mt-3">
+						<input type="text" class="form-control bg-white" name="course_duration" placeholder="Course duration" value="">
+					</div>
+					<div class="form-group mt-3">
+						<input type="text" class="form-control bg-white" name="course_price" placeholder="Course price" value="">
+					</div>
+					<div class="form-group mt-3">
+
+						<input class="form-control form-control-sm" id="formFileSm" type="file" name="course_image">
+					</div>
+					<select class="form-select mt-3" aria-label="Default select example" name="category">
+						<option selected>Select categories</option>
+						<option value="1">Web Design</option>
+						<option value="2">Web development</option>
+						<option value="3">IT software</option>
+						<option value="4">Network System Administrator</option>
+					</select>
+					<textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="3" name="description">Course description</textarea>
+
+					<button type="submit" class="btn btn-primary m-4">Create</button>
+					<button class="btn btn-danger m-4" onclick="closeModal()" id="modal">cancel</button>
+			</form>
+		</div> -->
+		<!-- Button trigger modal -->
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title text-primary" id="exampleModalLabel">Modal title</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form action="controllers/admin/category/admin_add_categories.controller.php" method="post">
+							<div class="form-floating mb-3">
+								<input type="text" class="form-control" id="name" name="name">
+								<label for="floatingInput">Category Name</label>
+							</div>
+							<div class="form-floating mb-4">
+								<input type="text" class="form-control" id="description" name="description">
+								<label for="floatingPassword">Description</label>
+							</div>
+							<button type="submit" class="btn btn-primary py-3 w-100 mb-4">Add Category</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
 
 	<!-- =======================
 Footer START -->
-	
+
 	<!-- =======================
 Footer END -->
 
@@ -791,6 +858,7 @@ Footer END -->
 
 	<!-- Template Functions -->
 	<script src="assets/js/functions.js"></script>
+	<script src="vendor/js/popup_form.js"></script>
 
 </body>
 

@@ -369,6 +369,7 @@ Inner part START -->
 					require "models/trainer.model.php";
 					require "database/database.php";
 					$list_trainers = get_trainers();
+					// print_r(get_trainers());
 					foreach ($list_trainers as $trainer):
 					
 						

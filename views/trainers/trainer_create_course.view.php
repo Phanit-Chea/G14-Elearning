@@ -316,12 +316,17 @@ Page Banner START -->
                     <div class="mb-4">
                         <input type="text" name="course_price" class="form-control form-control-lg" id="course_price" placeholder="Course Price">
                     </div>
+                    <select name="users" class="form-control form-control-lg mb-3">
+                        <option value="">who are you </option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                    </select>
                     <select name="category" class="form-control form-control-lg">
-                        <option value="option1">Choose Category</option>
-                        <option value="option1">Web Design</option>
-                        <option value="option2">Web development</option>
-                        <option value="option3">IT software</option>
-                        <option value="option3">Network System Administrato</option>
+                        <option value="Choose Category">Choose Category</option>
+                        <option value="1">Web Design</option>
+                        <option value="2">Web development</option>
+                        <option value="3">IT software</option>
+                        <option value="4">Network System Administraton</option>
                     </select>
                     <div class="mt-4">
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
