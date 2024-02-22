@@ -8,6 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $userId = 3;
     
     addCate($name, $description, $userId);
-    header('Location: /admin_categories');
+    header("location: /admin_categories");
 }
 
