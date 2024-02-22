@@ -19,10 +19,8 @@ function select_role(string $role){
     global $connection;
     $statement = $connection->prepare("SELECT roles.role_type FROM users INNER JOIN roles on roles.role_id = users.role_id WHERE roles.role_type = $role;");
     return $statement->execute();
-}
-function select_all_roles (string $role): array {
-    global $connection
-}
+};
+
 function create_course(string $course_name, string $duration, string $course_price,string $category_name) : bool{
     global $connection;
     $category_id = "select categories.category_id from courses inner join categories on categories.category_id = courses.category_id where categories.category_name = $category_name group by $category_name;";
