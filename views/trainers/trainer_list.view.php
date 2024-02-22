@@ -400,22 +400,6 @@ Inner part START -->
 										<div class="d-sm-flex justify-content-sm-between align-items-center">
 											<!-- Title -->
 											<h6 class="text-orange mb-0"><?php echo $trainer['category_name']?></h6>
-
-											<!-- Social button -->
-											<ul class="list-inline mb-0 mt-3 mt-sm-0">
-												<li class="list-inline-item">
-													<a class="mb-0 me-1 text-facebook" href="#"><i class="fab fa-fw fa-facebook-f"></i></a>
-												</li>
-												<li class="list-inline-item">
-													<a class="mb-0 me-1 text-instagram-gradient" href="#"><i class="fab fa-fw fa-instagram"></i></a>
-												</li>
-												<li class="list-inline-item">
-													<a class="mb-0 me-1 text-twitter" href="#"><i class="fab fa-fw fa-twitter"></i></a>
-												</li>
-												<li class="list-inline-item">
-													<a class="mb-0 text-linkedin" href="#"><i class="fab fa-fw fa-linkedin-in"></i></a>
-												</li>
-											</ul>
 										</div>
 									</div>
 								</div>
@@ -424,35 +408,7 @@ Inner part START -->
 					</div>
 
 					<?php endforeach;?>
-					<!-- Card item END -->
-
-					<!-- Card item START -->
-					
-					<!-- Card item END -->
-
-					<!-- Card item START -->
-					
-					<!-- Card item END -->
-
-					<!-- Card item START -->
-					
-					<!-- Card item END -->
-
-					<!-- Card item START -->
-					
-					<!-- Card item END -->
-
-					<!-- Card item START -->
-					
-					<!-- Card item END -->
-
-					<!-- Card item START -->
-					
-					<!-- Card item END -->
-
-					<!-- Card item START -->
-					
-					<!-- Card item END -->
+				
 
 				</div>
 				<!-- Instructor list END -->
