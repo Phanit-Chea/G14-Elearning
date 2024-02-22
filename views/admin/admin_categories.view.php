@@ -1,4 +1,3 @@
-
 <?php
 require "models/admin.model.php";
 ?>
@@ -30,8 +29,8 @@ require "models/admin.model.php";
                 <td><?= $category['category_id']?></td>
                 <td><?= $category['category_name']?></td>
                 <td>
-                <a class="btn btn-sm btn-primary" href="">Delete</a>
-                <a class="btn btn-sm btn-primary" href="">Edit</a>
+                <a onclick="return confirm('Do you want to delete this category?')" class="btn btn-sm btn-primary" href="controllers/admin/category/admin_delete_categories.controller.php?id=<?= $category['category_id'] ?>">Delete</a>
+                <a class="btn btn-sm btn-primary" href="/add_category?id=1">Edit</a>
                 </td>
             </tr>
             <?php endforeach;?>

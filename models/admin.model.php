@@ -68,3 +68,35 @@ function getData(){
     $statement->execute();
     return $statement->fetchAll();
 }
+
+// ===============Function Delete Category================
+
+function deleteCategory(int $id):bool {
+    global $connection;
+    $statement = $connection->prepare("delete from categories where category_id = :id");
+    $statement->execute([':id' => $id]);
+    return $statement->rowCount() > 0;
+}
+
+// ===============Function edit Category================
+function getCategory(int $id)
+{
+    global $connection;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+    $statement = $connection->prepare("select * from categories where category_id = :id");
+    $statement->execute([':id' => $id]);
+    return $statement->fetch();
+}
+
+function updateCategory(string $name, int $description, int $id) : bool
+{
+    global $connection;
+    $statement = $connection->prepare("update categories set category_name = :name, category_description = :description where category_id = :id");
+    $statement->execute([
+        ':name' => $name,
+        ':description' => $description,
+        ':id' => $id
+
+    ]);
+
+    return $statement->rowCount() > 0;
+}
