@@ -1,7 +1,7 @@
 <?php
 function get_trainers() :array{
     global $connection;
-    $statement = $connection->prepare("SELECT users.username,users.email,users.profile,users.profile,users.date_of_birth,roles.role_type,categories.category_name FROM users INNER JOIN roles on users.role_id = roles.role_id INNER JOIN categories ON users.user_id = categories.user_id WHERE roles.role_type = 'teacher';");
+    $statement= $connection->prepare("select users.username,users.image,categories.category_name from users inner join categories on categories.user_id = users.user_id;");
     $statement->execute();
     return $statement->fetchAll();
 
@@ -9,7 +9,7 @@ function get_trainers() :array{
 
 function get_students() :array{
     global $connection;
-    $statement = $connection->prepare("SELECT users.username,users.email,users.profile,users.profile,users.date_of_birth,roles.role_type,categories.category_name FROM users INNER JOIN roles on users.role_id = roles.role_id INNER JOIN categories ON users.user_id = categories.user_id WHERE roles.role_type = 'student';");
+    $statement = $connection->prepare("SELECT users.username,users.email,users.image,users.date_of_birth,roles.role_type,categories.category_name FROM users INNER JOIN roles on users.role_id = roles.role_id INNER JOIN categories ON users.user_id = categories.user_id WHERE roles.role_type = 'student';");
     $statement->execute();
     return $statement->fetchAll();
 

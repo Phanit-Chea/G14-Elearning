@@ -379,7 +379,7 @@ Inner part START -->
 							<div class="row g-0">
 								<!-- Image -->
 								<div class="col-md-4">
-									<img src="<?php echo $trainer['profile'] ?>" class="rounded-3" alt="...">
+									<img src="<?php echo $trainer['image'] ?>" class="rounded-3" alt="...">
 								</div>
 
 								<!-- Card body -->
