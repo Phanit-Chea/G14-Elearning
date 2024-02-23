@@ -1,8 +1,10 @@
 <?php
+session_start();
 require "../../database/database.php";
 require "../../models/user.model.php";
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $role_id = isset($_GET['role'])?$_GET['role']:null;
     $username = htmlspecialchars($_POST['username']);
     $email = htmlspecialchars($_POST['email']);
     $password = htmlspecialchars($_POST['password']);
@@ -24,8 +26,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 move_uploaded_file($tmppath, $direct);
             }
         }
-        $isCreate =  createAccount($username, $email, $code, $newname);
-        header('Location: /signin');
+        $_SESSION['login'] = 'login';
+        if($role_id){
+            $isCreate =  createAccount($username, $email, $code, $newname, $role_id);
+            header('Location: /');
+        }else{
+            $isCreate =  createAccount($username, $email, $code, $newname,2 );
+            header('Location: /');
+        }
+       
     } else {
         echo 'account already exits';
     }
