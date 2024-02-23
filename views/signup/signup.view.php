@@ -53,7 +53,7 @@
                             </a>
                             <h3>Sign up</h3>
                         </div>
-                        <form action="controllers/signup/create_user.controller.php" method ="post">
+                        <form action="controllers/signup/create_user.controller.php?role=<?= isset($_GET['role'])? $_GET['role'] : null  ?>" method ="post" enctype="multipart/form-data">
                             <div class="form-floating mb-3">
                             <input type="name" class="form-control" id="floatingInput" placeholder="name@example.com" name ="username">
                             <label for="floatingInput">Name</label>
@@ -65,6 +65,10 @@
                         <div class="form-floating mb-4">
                             <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                             <label for="floatingPassword">Password</label>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="">Profile:</label>
+                            <input type="file" class="form-control" name="image" >
                         </div>
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="form-check">

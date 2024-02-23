@@ -13,9 +13,7 @@
                 <!-- Logo END -->
 
                 <!-- Responsive navbar toggler -->
-                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-animation">
                         <span></span>
                         <span></span>
@@ -30,8 +28,7 @@
                     <ul class="navbar-nav navbar-nav-scroll mx-auto">
                         <!-- Nav item 1 Demos -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="demoMenu" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Demos</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="demoMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
                             <ul class="dropdown-menu" aria-labelledby="demoMenu">
                                 <li> <a class="dropdown-item" href="index.html">Home Default</a></li>
                                 <li> <a class="dropdown-item" href="index-2.html">Home Education</a></li>
@@ -83,8 +80,7 @@
 
                         <!-- Nav item 2 Pages -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Pages</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                             <ul class="dropdown-menu" aria-labelledby="pagesMenu">
                                 <!-- Dropdown submenu -->
                                 <li class="dropdown-submenu dropend">
@@ -156,40 +152,31 @@
 
                         <!-- Nav item 3 Account -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Accounts</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accounts</a>
                             <ul class="dropdown-menu" aria-labelledby="accounntMenu">
                                 <!-- Dropdown submenu -->
                                 <li class="dropdown-submenu dropend">
-                                    <a class="dropdown-item dropdown-toggle" href="/trainers"><i
-                                            class="fas fa-user-tie fa-fw me-1"></i>Instructor</a>
+                                    <a class="dropdown-item dropdown-toggle" href="/trainers"><i class="fas fa-user-tie fa-fw me-1"></i>Instructor</a>
                                     <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-                                        <li> <a class="dropdown-item" href="/trainer_dashboard"><i
-                                                    class="bi bi-grid-fill fa-fw me-1"></i>Dashboard</a> </li>
-                                        <li> <a class="dropdown-item" href="/trainer_manage_course"><i
-                                                    class="bi bi-basket-fill fa-fw me-1"></i>Courses</a> </li>
-                                        <li> <a class="dropdown-item" href="/trainer_create_course"><i
-                                                    class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create
+                                        <li> <a class="dropdown-item" href="/trainer_dashboard"><i class="bi bi-grid-fill fa-fw me-1"></i>Dashboard</a> </li>
+                                        <li> <a class="dropdown-item" href="/trainer_manage_course"><i class="bi bi-basket-fill fa-fw me-1"></i>Course</a> </li>
+                                        <li> <a class="dropdown-item" href="/trainer_create_course"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create
                                                 Course</a> </li>
-                                        <li> <a class="dropdown-item" href="/trainer_manage_earning"><i
-                                                    class="fas fa-chart-line fa-fw me-1"></i>Earnings</a> </li>
-                                        <li> <a class="dropdown-item" href="/trainer_manage_students"><i
-                                                    class="fas fa-user-graduate fa-fw me-1"></i>Students</a> </li>
-                                        <li> <a class="dropdown-item" href="/trainer_manage_orders"><i
-                                                    class="bi bi-cart-check-fill fa-fw me-1"></i>Orders</a> </li>
-                                        <li> <a class="dropdown-item" href="/trainer_manage_payout"><i
-                                                    class="fas fa-wallet fa-fw me-1"></i>Payout</a> </li>
+                                        <li> <a class="dropdown-item" href="/trainer_manage_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Category</a> </li>
+                                        <li> <a class="dropdown-item" href="/trainer_create_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create
+                                                Category</a> </li>
+                                        <li> <a class="dropdown-item" href="/trainer_manage_earning"><i class="fas fa-chart-line fa-fw me-1"></i>Earnings</a> </li>
+                                        <li> <a class="dropdown-item" href="/trainer_manage_students"><i class="fas fa-user-graduate fa-fw me-1"></i>Students</a> </li>
+                                        <li> <a class="dropdown-item" href="/trainer_manage_orders"><i class="bi bi-cart-check-fill fa-fw me-1"></i>Orders</a> </li>
+                                        <li> <a class="dropdown-item" href="/trainer_manage_payout"><i class="fas fa-wallet fa-fw me-1"></i>Payout</a> </li>
                                     </ul>
                                 </li>
 
                                 <hr class="dropdown-divider">
                         </li>
-                        <li> <a class="dropdown-item" href="instructor-edit-profile.html"><i
-                                    class="fas fa-fw fa-edit me-1"></i>Edit Profile</a> </li>
-                        <li> <a class="dropdown-item" href="instructor-setting.html"><i
-                                    class="fas fa-fw fa-cog me-1"></i>Settings</a> </li>
-                        <li> <a class="dropdown-item" href="instructor-delete-account.html"><i
-                                    class="fas fa-fw fa-trash-alt me-1"></i>Delete Profile</a> </li>
+                        <li> <a class="dropdown-item" href="instructor-edit-profile.html"><i class="fas fa-fw fa-edit me-1"></i>Edit Profile</a> </li>
+                        <li> <a class="dropdown-item" href="instructor-setting.html"><i class="fas fa-fw fa-cog me-1"></i>Settings</a> </li>
+                        <li> <a class="dropdown-item" href="instructor-delete-account.html"><i class="fas fa-fw fa-trash-alt me-1"></i>Delete Profile</a> </li>
                     </ul>
                     </li>
 
@@ -198,8 +185,7 @@
 
                     <!-- Nav item 5 link-->
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="advanceMenu" data-bs-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
+                        <a class="nav-link" href="#" id="advanceMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-ellipsis-h"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end min-w-auto" data-bs-popper="none">
@@ -222,8 +208,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="https://themes.getbootstrap.com/store/webestica/"
-                                    target="_blank">
+                                <a class="dropdown-item" href="https://themes.getbootstrap.com/store/webestica/" target="_blank">
                                     <i class="text-success fa-fw bi bi-cloud-download-fill me-2"></i>Buy Eduport!
                                 </a>
                             </li>
@@ -236,11 +221,8 @@
                     <div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
                         <div class="nav-item w-100">
                             <form class="position-relative">
-                                <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search"
-                                    aria-label="Search">
-                                <button
-                                    class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y"
-                                    type="submit"><i class="fas fa-search fs-6 "></i></button>
+                                <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
                             </form>
                         </div>
                     </div>
@@ -250,20 +232,16 @@
 
                 <!-- Profile START -->
                 <div class="dropdown ms-1 ms-lg-0">
-                    <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button"
-                        data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                         <img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
                     </a>
-                    <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3"
-                        aria-labelledby="profileDropdown">
+                    <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
                         <!-- Profile info -->
                         <li class="px-3">
                             <div class="d-flex align-items-center">
                                 <!-- Avatar -->
                                 <div class="avatar me-3">
-                                    <img class="avatar-img rounded-circle shadow" src="assets/images/avatar/01.jpg"
-                                        alt="avatar">
+                                    <img class="avatar-img rounded-circle shadow" src="assets/images/avatar/01.jpg" alt="avatar">
                                 </div>
                                 <div>
                                     <a class="h6" href="#">Lori Ferguson</a>
@@ -278,8 +256,7 @@
                         <li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a>
                         </li>
                         <li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
-                        <li><a class="dropdown-item bg-danger-soft-hover" href="#"><i
-                                    class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+                        <li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -307,8 +284,7 @@
         <section class="pt-0">
             <!-- Main banner background image -->
             <div class="container-fluid px-0">
-                <div class="bg-blue h-100px h-md-200px rounded-0"
-                    style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
+                <div class="bg-blue h-100px h-md-200px rounded-0" style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
                 </div>
             </div>
             <div class="container mt-n4">
@@ -320,23 +296,18 @@
                                 <!-- Avatar -->
                                 <div class="col-auto mt-4 mt-md-0">
                                     <div class="avatar avatar-xxl mt-n3">
-                                        <img class="avatar-img rounded-circle border border-white border-3 shadow"
-                                            src="assets/images/avatar/01.jpg" alt="">
+                                        <img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt="">
                                     </div>
                                 </div>
                                 <!-- Profile info -->
                                 <div class="col d-md-flex justify-content-between align-items-center mt-4">
                                     <div>
-                                        <h1 class="my-1 fs-4">Lori Stevens <i
-                                                class="bi bi-patch-check-fill text-info small"></i></h1>
+                                        <h1 class="my-1 fs-4">Lori Stevens <i class="bi bi-patch-check-fill text-info small"></i></h1>
                                         <ul class="list-inline mb-0">
-                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i
-                                                    class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
-                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i
-                                                    class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled
                                                 Students</li>
-                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i
-                                                    class="fas fa-book text-purple me-2"></i>25 Courses</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i>25 Courses</li>
                                         </ul>
                                     </div>
                                     <!-- Button -->
@@ -354,8 +325,7 @@
                         <hr class="d-xl-none">
                         <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
                             <a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
-                            <button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                            <button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                                 <i class="fas fa-sliders-h"></i>
                             </button>
                         </div>
@@ -377,39 +347,29 @@
                     <div class="col-xl-3">
                         <!-- Responsive offcanvas body START -->
                         <nav class="navbar navbar-light navbar-expand-xl mx-0">
-                            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                                aria-labelledby="offcanvasNavbarLabel">
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                                 <!-- Offcanvas header -->
                                 <div class="offcanvas-header bg-light">
                                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">My profile</h5>
-                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                                        aria-label="Close"></button>
+                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                 </div>
                                 <!-- Offcanvas body -->
                                 <div class="offcanvas-body p-3 p-xl-0">
                                     <div class="bg-dark border rounded-3 pb-0 p-3 w-100">
                                         <!-- Dashboard menu -->
                                         <div class="list-group list-group-dark list-group-borderless">
-                                            <a class="list-group-item" href="/trainer_dashboard"><i
-                                                    class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
-                                            <a class="list-group-item" href="/trainer_manage_course"><i
-                                                    class="bi bi-basket fa-fw me-2"></i>My Courses</a>
-                                            <a class="list-group-item" href="/trainer_manage_earning"><i
-                                                    class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
-                                            <a class="list-group-item active" href="/trainer_manage_students"><i
-                                                    class="bi bi-people fa-fw me-2"></i>Students</a>
-                                            <a class="list-group-item" href="/trainer_manage_orders"><i
-                                                    class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
+                                            <a class="list-group-item" href="/trainer_dashboard"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
+                                            <a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Category</a>
+                                            <a class="list-group-item" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
+                                            <a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
+                                            <a class="list-group-item active" href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
+                                            <a class="list-group-item" href="/trainer_manage_orders"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
 
-                                            <a class="list-group-item" href="instructor-edit-profile.html"><i
-                                                    class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
-                                            <a class="list-group-item" href="/trainer_manage_payout"><i
-                                                    class="bi bi-wallet2 fa-fw me-2"></i>Payouts</a>
+                                            <a class="list-group-item" href="instructor-edit-profile.html"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
+                                            <a class="list-group-item" href="/trainer_manage_payout"><i class="bi bi-wallet2 fa-fw me-2"></i>Payouts</a>
 
-                                            <a class="list-group-item" href="instructor-delete-account.html"><i
-                                                    class="bi bi-trash fa-fw me-2"></i>Delete Profile</a>
-                                            <a class="list-group-item text-danger bg-danger-soft-hover"
-                                                href="sign-in.html"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign
+                                            <a class="list-group-item" href="instructor-delete-account.html"><i class="bi bi-trash fa-fw me-2"></i>Delete Profile</a>
+                                            <a class="list-group-item text-danger bg-danger-soft-hover" href="sign-in.html"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign
                                                 Out</a>
                                         </div>
                                     </div>
@@ -437,9 +397,7 @@
                             <div class="col-sm-6 col-lg-4">
                                 <div class="text-center p-4 bg-light rounded-3">
                                     <h6 class="text-body">To be paid
-                                        <a tabindex="0" class="h6 mb-0" role="button" data-bs-toggle="popover"
-                                            data-bs-trigger="focus" data-bs-placement="top"
-                                            data-bs-content="After US royalty withholding tax">
+                                        <a tabindex="0" class="h6 mb-0" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top" data-bs-content="After US royalty withholding tax">
                                             <i class="bi bi-info-circle-fill small"></i>
                                         </a>
                                     </h6>
@@ -464,16 +422,14 @@
                                 <div class="col-sm-6 col-md-4">
                                     <span class="badge bg-dark text-white">Current Month</span>
                                     <h4 class="text-primary my-2">$35000</h4>
-                                    <p class="mb-0"><span class="text-success me-1">0.20%<i
-                                                class="bi bi-arrow-up"></i></span>vs last month</p>
+                                    <p class="mb-0"><span class="text-success me-1">0.20%<i class="bi bi-arrow-up"></i></span>vs last month</p>
                                 </div>
 
                                 <!-- Content -->
                                 <div class="col-sm-6 col-md-4">
                                     <span class="badge bg-dark text-white">Last Month</span>
                                     <h4 class="my-2">$28000</h4>
-                                    <p class="mb-0"><span class="text-danger me-1">0.10%<i
-                                                class="bi bi-arrow-down"></i></span>Then last month</p>
+                                    <p class="mb-0"><span class="text-danger me-1">0.10%<i class="bi bi-arrow-down"></i></span>Then last month</p>
                                 </div>
                             </div>
 
@@ -484,7 +440,7 @@
                         <!-- Chart END -->
 
                         <!-- Earning chart START -->
-                       
+
                         <!-- Earning chart END -->
 
                     </div>

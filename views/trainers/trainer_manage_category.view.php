@@ -1,4 +1,4 @@
-﻿<body>
+<body>
 
 	<!-- Header START -->
 	<header class="navbar-light navbar-sticky">
@@ -162,7 +162,7 @@
 										<li> <a class="dropdown-item" href="/trainer_manage_course"><i class="bi bi-basket-fill fa-fw me-1"></i>Course</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_create_course"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create
 												Course</a> </li>
-												<li> <a class="dropdown-item" href="/trainer_manage_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Category</a> </li>
+												<li> <a class="dropdown-item" href="/trainer_create_course"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Category</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_create_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create
 												Category</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_earning"><i class="fas fa-chart-line fa-fw me-1"></i>Earnings</a> </li>
@@ -364,7 +364,7 @@ Inner part START -->
 										<!-- Dashboard menu -->
 										<div class="list-group list-group-dark list-group-borderless">
 											<a class="list-group-item" href="/trainer_dashboard"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
-											<a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Category</a>
+											<a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Categories</a>
 											<a class="list-group-item" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
 											<a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
 											<a class="list-group-item active" href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
@@ -391,7 +391,7 @@ Inner part START -->
 						<div class="card border rounded-3">
 							<!-- Card header START -->
 							<div class="card-header border-bottom">
-								<h3 class="mb-0">My Courses List</h3>
+								<h3 class="mb-0">My Categoies List</h3>
 							</div>
 							<!-- Card header END -->
 
