@@ -12,9 +12,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $_SESSION['user']=$user;
     if(count($user)>0){
             if(password_verify($password,$user['password'])){
-                session_start();
+
                 $_SESSION['login'] = 'login';
-                header('Location: /');
+                header('Location: /admin');
             }else{
                 echo "wrong password";  
 

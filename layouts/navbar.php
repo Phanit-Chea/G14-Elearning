@@ -23,14 +23,15 @@
           <a class="nav-link" href="#" id="categoryMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="bi bi-grid-3x3-gap-fill me-3 fs-5 me-xl-1 d-xl-none"></i>
             <i class="bi bi-grid-3x3-gap-fill me-1 d-none d-xl-inline-block"></i>
-            <span class="d-none d-xl-inline-block">Category</span>
+            <span class="d-none d-xl-inline-block">Admin Page</span>
           </a>
   
           <ul class="dropdown-menu z-index-unset" aria-labelledby="categoryMenu">
   
+          <li> <a class="dropdown-item"  href="/signin?role=3" >Sign In</a> </li>
+
             <!-- Dropdown submenu -->
             <li class="dropdown-submenu dropend">
-              <a class="dropdown-item dropdown-toggle" href="#">Development</a>
               <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
                 <!-- dropdown submenu open right -->
                 <li class="dropdown-submenu dropend z-index-unset">
@@ -52,10 +53,9 @@
                 <li> <a class="dropdown-item" href="#">Software development tools</a> </li>
               </ul>
             </li>
-            <li> <a class="dropdown-item" href="#">Design</a></li>
             <!-- Dropdown submenu -->
             <li class="dropdown-submenu dropend">
-              <a class="dropdown-item dropdown-toggle" href="#">Marketing</a>
+              <!-- <a class="dropdown-item dropdown-toggle" href="#">Marketing</a> -->
               <div class="dropdown-menu dropdown-menu-start dropdown-width-lg" data-bs-popper="none">
                 <div class="row p-4">
                   <!-- Dropdown column item -->
@@ -216,16 +216,7 @@
                 </div>
               </div>
             </li>
-            <li> <a class="dropdown-item" href="#">Music</a></li>
-            <li> <a class="dropdown-item" href="#">Lifestyle</a></li>
-            <li> <a class="dropdown-item" href="#">IT & software</a></li>
-            <li> <a class="dropdown-item" href="#">Personal development</a></li>
-            <li> <a class="dropdown-item" href="#">Health & fitness</a></li>
-            <li> <a class="dropdown-item" href="#">Teaching</a></li>
-            <li> <a class="dropdown-item" href="#">Social science</a></li>
-            <li> <a class="dropdown-item" href="#">Math & logic</a></li>
             <li> <hr class="dropdown-divider"></li>
-            <li> <a class="dropdown-item bg-primary text-primary bg-opacity-10 rounded-2 mb-0" href="#">View all categories</a></li>
           </ul> 
         </li>
       </ul>
@@ -257,20 +248,6 @@
           <span class="visually-hidden">unread messages</span>
         </span>
       </div>
-  
-      <!-- Language -->
-      <!-- <div class="dropdown ms-1 ms-lg-0">
-        <a class="nav-link" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown"
-          aria-expanded="true">
-          <i class="fas fa-globe me-2"></i>
-            <span class="d-none d-lg-inline-block">Language</span>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end min-w-auto shadow pt-3" aria-labelledby="profileDropdown">
-          <li> <a class="dropdown-item" href="#"><img class="fa-fw me-2" src="assets/images/flags/uk.svg" alt="">English</a></li>
-          <li> <a class="dropdown-item" href="#"><img class="fa-fw me-2" src="assets/images/flags/gr.svg" alt="">German</a></li>
-          <li> <a class="dropdown-item" href="#"><img class="fa-fw me-2" src="assets/images/flags/sp.svg" alt="">French</a></li>
-        </ul>
-      </div> -->
   
       <!-- Language -->
       <ul class="navbar-nav navbar-nav-scroll me-3 d-none d-xl-block">
