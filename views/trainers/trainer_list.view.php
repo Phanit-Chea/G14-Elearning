@@ -371,7 +371,6 @@ Inner part START -->
 					$list_trainers = get_trainers();
 					foreach ($list_trainers as $trainer):
 					
-						
 					?>
 
 					<div class="col-lg-10 col-xl-6">
