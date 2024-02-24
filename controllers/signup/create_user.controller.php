@@ -1,12 +1,14 @@
 <?php
+session_start();
 require "../../database/database.php";
 require "../../models/user.model.php";
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $role_id = isset($_GET['role'])?$_GET['role']:null;
     $username = htmlspecialchars($_POST['username']);
     $email = htmlspecialchars($_POST['email']);
     $password = htmlspecialchars($_POST['password']);
-
+    $user = [];
     $code = password_hash($password, PASSWORD_BCRYPT);
 
     $user = get_values_from_input($email);
@@ -24,8 +26,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 move_uploaded_file($tmppath, $direct);
             }
         }
-        $isCreate =  createAccount($username, $email, $code, $newname);
-        header('Location: /signin');
+        
+
+        
+        $_SESSION['login'] = 'login';
+        if($role_id){
+            $isCreate =  createAccount($username, $email, $code, $newname, $role_id);
+            $user['role_id'] = $role_id;
+            $_SESSION['user'] = $user;
+            header('Location: /admin');
+        }else{
+            $isCreate =  createAccount($username, $email, $code, $newname,2 );
+            $user['image'] = $newname;
+            $user['role_id'] = 2;
+            $_SESSION['user'] = $user;
+            header('Location: /');
+        }
+       
     } else {
         echo 'account already exits';
     }

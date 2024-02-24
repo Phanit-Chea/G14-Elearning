@@ -28,9 +28,10 @@
   
           <ul class="dropdown-menu z-index-unset" aria-labelledby="categoryMenu">
   
+          <li> <a class="dropdown-item"  href="/signin?role=3" >Sign In</a> </li>
+
             <!-- Dropdown submenu -->
             <li class="dropdown-submenu dropend">
-              <!-- <a class="dropdown-item dropdown-toggle" href="#">Development</a> -->
               <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
                 <!-- dropdown submenu open right -->
                 <li class="dropdown-submenu dropend z-index-unset">
@@ -52,7 +53,6 @@
                 <li> <a class="dropdown-item" href="#">Software development tools</a> </li>
               </ul>
             </li>
-            <li> <a class="dropdown-item" href="/signup">Login</a></li>
             <!-- Dropdown submenu -->
             <li class="dropdown-submenu dropend">
               <!-- <a class="dropdown-item dropdown-toggle" href="#">Marketing</a> -->
@@ -216,16 +216,7 @@
                 </div>
               </div>
             </li>
-            <!-- <li> <a class="dropdown-item" href="#">Music</a></li>
-            <li> <a class="dropdown-item" href="#">Lifestyle</a></li>
-            <li> <a class="dropdown-item" href="#">IT & software</a></li>
-            <li> <a class="dropdown-item" href="#">Personal development</a></li>
-            <li> <a class="dropdown-item" href="#">Health & fitness</a></li>
-            <li> <a class="dropdown-item" href="#">Teaching</a></li>
-            <li> <a class="dropdown-item" href="#">Social science</a></li>
-            <li> <a class="dropdown-item" href="#">Math & logic</a></li> -->
-            <!-- <li> <hr class="dropdown-divider"></li> -->
-            <!-- <li> <a class="dropdown-item bg-primary text-primary bg-opacity-10 rounded-2 mb-0" href="#">View all categories</a></li> -->
+            <li> <hr class="dropdown-divider"></li>
           </ul> 
         </li>
       </ul>
@@ -259,20 +250,6 @@
       </div>
   
       <!-- Language -->
-      <!-- <div class="dropdown ms-1 ms-lg-0">
-        <a class="nav-link" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown"
-          aria-expanded="true">
-          <i class="fas fa-globe me-2"></i>
-            <span class="d-none d-lg-inline-block">Language</span>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end min-w-auto shadow pt-3" aria-labelledby="profileDropdown">
-          <li> <a class="dropdown-item" href="#"><img class="fa-fw me-2" src="assets/images/flags/uk.svg" alt="">English</a></li>
-          <li> <a class="dropdown-item" href="#"><img class="fa-fw me-2" src="assets/images/flags/gr.svg" alt="">German</a></li>
-          <li> <a class="dropdown-item" href="#"><img class="fa-fw me-2" src="assets/images/flags/sp.svg" alt="">French</a></li>
-        </ul>
-      </div> -->
-  
-      <!-- Language -->
       <ul class="navbar-nav navbar-nav-scroll me-3 d-none d-xl-block">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="language" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -290,11 +267,23 @@
       <!-- Signout button  -->
       <div class="navbar-nav d-none d-lg-inline-block">
          <?php if (isset($_SESSION['login'])): ?>
-          <a href="controllers/signin/signout.controller.php" class="btn btn-danger-soft mb-0"><i class="fas fa-sign-in-alt me-2"></i>Sign Up</a>
+          <a href="../controllers/signout/signout.controller.php" class="btn btn-danger-soft mb-0"><i class="fas fa-sign-in-alt me-2"></i>Sign out</a>
           <?php else: ?>
           <a href="/signin" class="btn btn-danger-soft mb-0">Signin</a>
           <?php endif; ?>
-          <img class="rounded-circle me-lg-2" src="../assets/images/avatar/<?=isset($_SESSION['user'])? $_SESSION['user']['image'] : '01.jpg'?>" alt="" style="width: 50px; height:50px;">
+          <?php 
+          if(isset($_SESSION['user'])){
+            if($_SESSION['user']['role_id'] !=3){?>
+              <img class="rounded-circle me-lg-2" src="../assets/images/avatar/<?=isset($_SESSION['user'])? $_SESSION['user']['image'] : '01.jpg'?>" alt="" style="width: 50px; height:50px;">
+          <?php }
+          }else{
+            $imgPF = "../assets/images/avatar/01.jpg";
+          }
+          ?>
+          <?php if(isset($imgPF)){
+             echo '<img class="rounded-circle me-lg-2" src="../assets/images/avatar/01.jpg" alt="" style="width: 50px; height:50px;">';
+          }
+          ?>
       </div>
       <!-- Right header content END -->
     
