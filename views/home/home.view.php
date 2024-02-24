@@ -41,7 +41,7 @@ Main Banner START -->
 				<div class="col-md-8 text-center mx-auto pb-5">
 					<form class="bg-body shadow rounded p-2">
 						<div class="input-group">
-							<input class="form-control border-0 me-1" type="search" placeholder="Find your course">
+							<input class="form-control border-0 me-1" type="search"  placeholder="Find your course">
 							<button type="button" class="btn btn-primary mb-0 rounded z-index-1"><i class="fas fa-search"></i></button>
 						</div>
 					</form>
