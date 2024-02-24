@@ -3,7 +3,8 @@ require "../../../database/database.php";
 require "../../../models/admin.model.php";
 
 
-$id = isset($_GET['id'])  ? $_GET['id'] : null;{
+$id = isset($_POST['id'])  ? $_POST['id'] : null;
+if($id){
 //    $categories = getCategory($id);
     $name = htmlspecialchars($_POST['name']);
     $description = htmlspecialchars($_POST['description']); 

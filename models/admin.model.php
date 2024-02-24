@@ -90,7 +90,7 @@ function deleteCategory(int $id):bool {
 function updateCategory(string $name, string $description, int $id) : bool
 {
     global $connection;
-    $statement = $connection->prepare("update categories set category_name = :name, category_description = :description where category_id = :id");
+    $statement = $connection->prepare("UPDATE categories SET category_name = :name, category_description = :description where category_id = :id");
     $statement->execute([
         ':name' => $name,
         ':description' => $description,
@@ -100,4 +100,3 @@ function updateCategory(string $name, string $description, int $id) : bool
 
     return $statement->rowCount() > 0;
 }
-
