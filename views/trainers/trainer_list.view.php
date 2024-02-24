@@ -366,49 +366,45 @@ Inner part START -->
 
 					<!-- Card item START -->
 					<?php
-					require "models/trainer.model.php";
-					require "database/database.php";
-					$list_trainers = get_trainers();
-					foreach ($list_trainers as $trainer):
-					
-						
+					foreach ($trainers as $trainer) :
+
 					?>
 
-					<div class="col-lg-10 col-xl-6">
-						<div class="card shadow p-2">
-							<div class="row g-0">
-								<!-- Image -->
-								<div class="col-md-4">
-									<img src="<?php echo $trainer['profile'] ?>" class="rounded-3" alt="...">
-								</div>
+						<div class="col-lg-10 col-xl-6">
+							<div class="card shadow p-2">
+								<div class="row g-0">
+									<!-- Image -->
+									<div class="col-md-4">
+										<img src="<?php echo $trainer['image'] ?>" class="rounded-3 " alt="...">
+									</div>
 
-								<!-- Card body -->
-								<div class="col-md-8">
-									<div class="card-body">
-										<!-- Title -->
-										<div class="d-sm-flex justify-content-sm-between mb-2 mb-sm-3">
-											<div>
-												<h5 class="card-title mb-0"><a href="#"><?php echo $trainer['username']?></a></h5>
-												<p class="small mb-2 mb-sm-0">Professor at Sigma College</p>
-											</div>
-											
-										</div>
-										<!-- Content -->
-										<p class="text-truncate-2 mb-3">Perceived end knowledge certainly day sweetness
-											why cordially. Ask a quick six seven offer see among.</p>
-										<!-- Info -->
-										<div class="d-sm-flex justify-content-sm-between align-items-center">
+									<!-- Card body -->
+									<div class="col-md-8">
+										<div class="card-body">
 											<!-- Title -->
-											<h6 class="text-orange mb-0"><?php echo $trainer['category_name']?></h6>
+											<div class="d-sm-flex justify-content-sm-between mb-2 mb-sm-3">
+												<div>
+													<h5 class="card-title mb-0"><a href="#"><?php echo $trainer['username'] ?></a></h5>
+													<p class="small mb-2 mb-sm-0">Professor at Sigma College</p>
+												</div>
+
+											</div>
+											<!-- Content -->
+											<p class="text-truncate-2 mb-3">Perceived end knowledge certainly day sweetness
+												why cordially. Ask a quick six seven offer see among.</p>
+											<!-- Info -->
+											<div class="d-sm-flex justify-content-sm-between align-items-center">
+												<!-- Title -->
+												<h6 class="text-orange mb-0"><?php echo $trainer['category_name'] ?></h6>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
 
-					<?php endforeach;?>
-				
+					<?php endforeach; ?>
+
 
 				</div>
 				<!-- Instructor list END -->
@@ -482,7 +478,7 @@ Action box END -->
 
 	<!-- =======================
 Footer START -->
-	
+
 	<!-- =======================
 Footer END -->
 

@@ -267,11 +267,23 @@
       <!-- Signout button  -->
       <div class="navbar-nav d-none d-lg-inline-block">
          <?php if (isset($_SESSION['login'])): ?>
-          <a href="controllers/signin/signout.controller.php" class="btn btn-danger-soft mb-0"><i class="fas fa-sign-in-alt me-2"></i>Sign Up</a>
+          <a href="../controllers/signout/signout.controller.php" class="btn btn-danger-soft mb-0"><i class="fas fa-sign-in-alt me-2"></i>Sign out</a>
           <?php else: ?>
           <a href="/signin" class="btn btn-danger-soft mb-0">Signin</a>
           <?php endif; ?>
-          <img class="rounded-circle me-lg-2" src="../assets/images/avatar/<?=isset($_SESSION['user'])? $_SESSION['user']['image'] : '01.jpg'?>" alt="" style="width: 50px; height:50px;">
+          <?php 
+          if(isset($_SESSION['user'])){
+            if($_SESSION['user']['role_id'] !=3){?>
+              <img class="rounded-circle me-lg-2" src="../assets/images/avatar/<?=isset($_SESSION['user'])? $_SESSION['user']['image'] : '01.jpg'?>" alt="" style="width: 50px; height:50px;">
+          <?php }
+          }else{
+            $imgPF = "../assets/images/avatar/01.jpg";
+          }
+          ?>
+          <?php if(isset($imgPF)){
+             echo '<img class="rounded-circle me-lg-2" src="../assets/images/avatar/01.jpg" alt="" style="width: 50px; height:50px;">';
+          }
+          ?>
       </div>
       <!-- Right header content END -->
     

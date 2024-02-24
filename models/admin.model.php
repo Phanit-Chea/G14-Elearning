@@ -29,14 +29,14 @@ function getPosts() : array
     return $statement->fetchAll();
 }
 
-function updatePost(string $title, string $description, int $id) : bool
+function updateUser(string $username, string $email, int $id) : bool
 {
     global $connection;
-    $statement = $connection->prepare("update posts set title = :title, description = :description where id = :id");
+    $statement = $connection->prepare("UPDATE users set username = :username, email = :email where user_id = :user_id");
     $statement->execute([
-        ':title' => $title,
-        ':description' => $description,
-        ':id' => $id
+        ':username' => $username,
+        ':email' => $email,
+        ':user_id' => $id
 
     ]);
 
