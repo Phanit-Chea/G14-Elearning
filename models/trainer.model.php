@@ -1,15 +1,15 @@
 <?php
 function get_trainers() :array{
     global $connection;
-    $statement = $connection->prepare("SELECT users.username,users.email,users.profile,users.profile,users.date_of_birth,roles.role_type,categories.category_name FROM users INNER JOIN roles on users.role_id = roles.role_id INNER JOIN categories ON users.user_id = categories.user_id WHERE roles.role_type = 'teacher';");
+    $statement = $connection->prepare("SELECT users.username,users.email,users.image,users.image, roles.role_type,categories.category_name FROM users INNER JOIN roles on users.role_id = roles.role_id INNER JOIN categories ON users.user_id = categories.user_id WHERE roles.role_type = 'teacher';");
     $statement->execute();
     return $statement->fetchAll();
 
 };
 
-function get_students() :array{
+function get_students_list() :array{
     global $connection;
-    $statement = $connection->prepare("SELECT users.username,users.email,users.profile,users.profile,users.date_of_birth,roles.role_type,categories.category_name FROM users INNER JOIN roles on users.role_id = roles.role_id INNER JOIN categories ON users.user_id = categories.user_id WHERE roles.role_type = 'student';");
+    $statement = $connection->prepare("SELECT * from students_list");
     $statement->execute();
     return $statement->fetchAll();
 
@@ -33,5 +33,5 @@ function create_course(string $course_name, string $duration, string $course_pri
     ]);
     return $statement->rowCount() > 0;
 }
-
 ?>
+

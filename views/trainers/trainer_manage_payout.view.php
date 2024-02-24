@@ -20,7 +20,6 @@
                         <span></span>
                     </span>
                 </button>
-
                 <!-- Main navbar START -->
                 <div class="navbar-collapse w-100 collapse" id="navbarCollapse">
 
