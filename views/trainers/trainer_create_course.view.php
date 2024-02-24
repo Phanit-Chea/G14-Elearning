@@ -299,7 +299,7 @@ Page Banner START -->
             </div>
         </section>
 
-        <section class="d-flex justify-content-around">
+        <!-- <section class="d-flex justify-content-around">
             <div class="card ml-6" style="width: 50rem; height: 50vh;">
                 <img src="assets/images/courses/4by3/22.jpg" class="card-img-top" alt="image">
             </div>
@@ -308,7 +308,7 @@ Page Banner START -->
                 <form action="/trainer_create_course" method="POST">
                     <div class="mb-4">
                         <!-- <label for="" class="form-label">Course Name</label> -->
-                        <input type="text" name="course_name" class="form-control form-control-lg" id="course_name" placeholder="Course Name" ​>
+                        <input type="text" name="course_name" class="form-control form-control-lg" id="course_name" placeholder="Course Name">
                     </div>
                     <div class="mb-4">
                         <input type="text" name="duration" class="form-control form-control-lg" id="course_duration" placeholder="Time duration">
@@ -337,7 +337,7 @@ Page Banner START -->
                 </form>
 
             </div>
-        </section>
+        <!-- </section> --> 
 
 
     </main>

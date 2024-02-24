@@ -366,13 +366,7 @@ Inner part START -->
 
 					<!-- Card item START -->
 					<?php
-					require "models/trainer.model.php";
-					require "database/database.php";
-					$list_trainers = get_trainers();
-					// print_r(get_trainers());
 					foreach ($list_trainers as $trainer):
-					
-						
 					?>
 
 					<div class="col-lg-10 col-xl-6">
@@ -380,7 +374,7 @@ Inner part START -->
 							<div class="row g-0">
 								<!-- Image -->
 								<div class="col-md-4">
-									<img src="<?php echo $trainer['profile'] ?>" class="rounded-3" alt="...">
+									<img src="<?php echo $trainer['image'] ?>" class="rounded-3" alt="...">
 								</div>
 
 								<!-- Card body -->
@@ -395,7 +389,7 @@ Inner part START -->
 											
 										</div>
 										<!-- Content -->
-										<p class="text-truncate-2 mb-3">Perceived end knowledge certainly day sweetness
+									 	<p class="text-truncate-2 mb-3">Perceived end knowledge certainly day sweetness
 											why cordially. Ask a quick six seven offer see among.</p>
 										<!-- Info -->
 										<div class="d-sm-flex justify-content-sm-between align-items-center">
@@ -425,35 +419,6 @@ Inner part START -->
 					</div>
 
 					<?php endforeach;?>
-					<!-- Card item END -->
-
-					<!-- Card item START -->
-					
-					<!-- Card item END -->
-
-					<!-- Card item START -->
-					
-					<!-- Card item END -->
-
-					<!-- Card item START -->
-					
-					<!-- Card item END -->
-
-					<!-- Card item START -->
-					
-					<!-- Card item END -->
-
-					<!-- Card item START -->
-					
-					<!-- Card item END -->
-
-					<!-- Card item START -->
-					
-					<!-- Card item END -->
-
-					<!-- Card item START -->
-					
-					<!-- Card item END -->
 
 				</div>
 				<!-- Instructor list END -->
