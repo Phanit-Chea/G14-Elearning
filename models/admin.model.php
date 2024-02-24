@@ -29,6 +29,8 @@ function getPosts() : array
     return $statement->fetchAll();
 }
 
+//===============function for user in page admin====================
+
 function updateUser(string $username, string $email, int $id) : bool
 {
     global $connection;
