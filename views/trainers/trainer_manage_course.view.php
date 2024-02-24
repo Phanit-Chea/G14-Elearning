@@ -778,45 +778,8 @@ Inner part END -->
 	<!-- <div class="container"> -->
 
 
-	<!-- <div id="modal" class="modal p-4">
-			<form action="/trainer_manage_course" method="POST" enctype="multipart/form-data">
-				<div class="mt-3 m-auto p-3 mb-1" style="background-color:black; border: 1px solid white; width:50%; border-radius:15px ">
-					<div class="modal-header">
-						<h4 class="modal-title" style="color:white">Create New course</h4>
-					</div>
-					<div class="form-group mt-3">
-						<input type="hidden" name="id" value="">
-						<input type="text" class="form-control bg-white" name="course_name" placeholder=" course_name" value="">
-					</div>
-					<div class="form-group mt-3">
-						<input type="text" class="form-control bg-white" name="course_duration" placeholder="Course duration" value="">
-					</div>
-					<div class="form-group mt-3">
-						<input type="text" class="form-control bg-white" name="course_price" placeholder="Course price" value="">
-					</div>
-					<div class="form-group mt-3">
 
-						<input class="form-control form-control-sm" id="formFileSm" type="file" name="course_image">
-					</div>
-					<select class="form-select mt-3" aria-label="Default select example" name="category">
-						<option selected>Select categories</option>
-						<option value="1">Web Design</option>
-						<option value="2">Web development</option>
-						<option value="3">IT software</option>
-						<option value="4">Network System Administrator</option>
-					</select>
-					<textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="3" name="description">Course description</textarea>
 
-					<button type="submit" class="btn btn-primary m-4">Create</button>
-					<button class="btn btn-danger m-4" onclick="closeModal()" id="modal">cancel</button>
-			</form>
-		</div> -->
-	<!-- Button trigger modal -->
-	<?php
-	require("database/database.php");
-	require("models/trainer.model.php");
-	var_dump(get_categories());
-	?>
 	<!-- Modal -->
 	<div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -827,36 +790,44 @@ Inner part END -->
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<form action="/trainer_manage_course" method="POST" enctype="multipart/form-data" class="w-100">
+
+					<form action="/trainer_create_course" method="POST" enctype="multipart/form-data" class="w-100">
 						<div class="form-group mt-3">
 							<input type="hidden" name="id" value="">
-							<input type="text" class="form-control bg-white" name="course_name" placeholder="course_name" value="">
+							<input type="text" class="form-control bg-white" name="course_name" placeholder="course_name" value="" required>
 						</div>
 						<div class="form-group mt-3">
-							<input type="text" class="form-control bg-white" name="course_duration" placeholder="Course duration" value="">
+							<input type="number" class="form-control bg-white" name="course_duration" placeholder="Course duration" value="" required>
 						</div>
 						<div class="form-group mt-3">
-							<input type="text" class="form-control bg-white" name="course_price" placeholder="Course price" value="">
+							<input type="text" class="form-control decimal-input" name="course_price" placeholder="Course Price" aria-label="Decimal Input" value="" required>
 						</div>
 						<div class="form-group mt-3">
-							<input class="form-control form-control-sm" id="formFileSm" type="file" name="course_image">
+							<input class="form-control form-control-sm" id="formFileSm" type="file" name="course_image" placeholder="Course Image" required>
 						</div>
-						<select class="form-select mt-3" aria-label="Default select example" name="course_category">
-							<?php
-							require("database/database.php");
-							require("models/trainer.model.php");
-							var_dump(get_categories());
-							?>
-							<option selected>Select categories</option>
-							<!-- <option value="1">Web Design</option>
-							<option value="2">Web development</option>
-							<option value="3">IT software</option>
-							<option value="4">Network System Administrator</option> -->
-						</select>
-						<textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="3" name="description">Course description</textarea>
+						<select class="form-select mt-3" aria-label="Default select example" name="teacher" required>
 
+							<option selected>Who are you?</option>
+							<?php
+							$trainers = get_trainers();
+							foreach($trainers as $trainer):
+							?>
+							<option value="<?php echo $trainer['user_id']?>"><?php echo $trainer['username']?></option>
+							<?php endforeach;?>
+							
+						</select>
+						<select class="form-select mt-3" aria-label="Default select example" name="course_category" required>
+							<option selected>Select categories</option>
+							<?php
+							$categories = get_categories();
+							foreach($categories as $category):
+							?>
+							<option value="<?php echo $category['category_id']?>"><?php echo $category['category_name']?></option>
+							<?php endforeach;?>
+						</select>
+						<textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="3" name="description" required>Course description</textarea>
 						<button type="submit" class="btn btn-primary m-4">Create</button>
-						<button class="btn btn-danger m-4" onclick="closeModal()" id="modal">cancel</button>
+						<button class="btn btn-danger m-4" id="modal" data-bs-dismiss="modal">cancel</button>
 					</form>
 				</div>
 			</div>
@@ -882,6 +853,8 @@ Footer END -->
 	<!-- Template Functions -->
 	<script src="assets/js/functions.js"></script>
 	<script src="vendor/js/popup_form.js"></script>
+
+
 
 </body>
 

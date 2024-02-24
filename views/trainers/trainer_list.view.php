@@ -366,59 +366,61 @@ Inner part START -->
 
 					<!-- Card item START -->
 					<?php
-					foreach ($list_trainers as $trainer):
+					// $trainers = get_trainers();
+					// print_r(get_categories());
+					foreach ($list_trainers as $trainer) :
 					?>
 
-					<div class="col-lg-10 col-xl-6">
-						<div class="card shadow p-2">
-							<div class="row g-0">
-								<!-- Image -->
-								<div class="col-md-4">
-									<img src="<?php echo $trainer['image'] ?>" class="rounded-3" alt="...">
-								</div>
+						<div class="col-lg-10 col-xl-6">
+							<div class="card shadow p-2">
+								<div class="row g-0">
+									<!-- Image -->
+									<div class="col-md-4">
+										<img src="<?php echo $trainer['image'] ?>" class="rounded-3" alt="...">
+									</div>
 
-								<!-- Card body -->
-								<div class="col-md-8">
-									<div class="card-body">
-										<!-- Title -->
-										<div class="d-sm-flex justify-content-sm-between mb-2 mb-sm-3">
-											<div>
-												<h5 class="card-title mb-0"><a href="#"><?php echo $trainer['username']?></a></h5>
-												<p class="small mb-2 mb-sm-0">Professor at Sigma College</p>
-											</div>
-											
-										</div>
-										<!-- Content -->
-									 	<p class="text-truncate-2 mb-3">Perceived end knowledge certainly day sweetness
-											why cordially. Ask a quick six seven offer see among.</p>
-										<!-- Info -->
-										<div class="d-sm-flex justify-content-sm-between align-items-center">
+									<!-- Card body -->
+									<div class="col-md-8">
+										<div class="card-body">
 											<!-- Title -->
-											<h6 class="text-orange mb-0"><?php echo $trainer['category_name']?></h6>
+											<div class="d-sm-flex justify-content-sm-between mb-2 mb-sm-3">
+												<div>
+													<h5 class="card-title mb-0"><a href="#"><?php echo $trainer['username'] ?></a></h5>
+													<p class="small mb-2 mb-sm-0">Professor at Sigma College</p>
+												</div>
 
-											<!-- Social button -->
-											<ul class="list-inline mb-0 mt-3 mt-sm-0">
-												<li class="list-inline-item">
-													<a class="mb-0 me-1 text-facebook" href="#"><i class="fab fa-fw fa-facebook-f"></i></a>
-												</li>
-												<li class="list-inline-item">
-													<a class="mb-0 me-1 text-instagram-gradient" href="#"><i class="fab fa-fw fa-instagram"></i></a>
-												</li>
-												<li class="list-inline-item">
-													<a class="mb-0 me-1 text-twitter" href="#"><i class="fab fa-fw fa-twitter"></i></a>
-												</li>
-												<li class="list-inline-item">
-													<a class="mb-0 text-linkedin" href="#"><i class="fab fa-fw fa-linkedin-in"></i></a>
-												</li>
-											</ul>
+											</div>
+											<!-- Content -->
+											<p class="text-truncate-2 mb-3">Perceived end knowledge certainly day sweetness
+												why cordially. Ask a quick six seven offer see among.</p>
+											<!-- Info -->
+											<div class="d-sm-flex justify-content-sm-between align-items-center">
+												<!-- Title -->
+												<h6 class="text-orange mb-0"><?php echo $trainer['category_name'] ?></h6>
+
+												<!-- Social button -->
+												<ul class="list-inline mb-0 mt-3 mt-sm-0">
+													<li class="list-inline-item">
+														<a class="mb-0 me-1 text-facebook" href="#"><i class="fab fa-fw fa-facebook-f"></i></a>
+													</li>
+													<li class="list-inline-item">
+														<a class="mb-0 me-1 text-instagram-gradient" href="#"><i class="fab fa-fw fa-instagram"></i></a>
+													</li>
+													<li class="list-inline-item">
+														<a class="mb-0 me-1 text-twitter" href="#"><i class="fab fa-fw fa-twitter"></i></a>
+													</li>
+													<li class="list-inline-item">
+														<a class="mb-0 text-linkedin" href="#"><i class="fab fa-fw fa-linkedin-in"></i></a>
+													</li>
+												</ul>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
 
-					<?php endforeach;?>
+					<?php endforeach; ?>
 
 				</div>
 				<!-- Instructor list END -->
@@ -492,7 +494,7 @@ Action box END -->
 
 	<!-- =======================
 Footer START -->
-	
+
 	<!-- =======================
 Footer END -->
 
@@ -507,6 +509,7 @@ Footer END -->
 
 	<!-- Template Functions -->
 	<script src="assets/js/functions.js"></script>
+
 
 </body>
 
