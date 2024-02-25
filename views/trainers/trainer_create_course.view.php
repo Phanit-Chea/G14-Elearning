@@ -299,7 +299,7 @@ Page Banner START -->
             </div>
         </section>
 
-        <section class="d-flex justify-content-around">
+        <!-- <section class="d-flex justify-content-around">
             <div class="card ml-6" style="width: 50rem; height: 50vh;">
                 <img src="assets/images/courses/4by3/22.jpg" class="card-img-top" alt="image">
             </div>
@@ -308,7 +308,7 @@ Page Banner START -->
                 <form action="/trainer_create_course" method="POST">
                     <div class="mb-4">
                         <!-- <label for="" class="form-label">Course Name</label> -->
-                        <input type="text" name="course_name" class="form-control form-control-lg" id="course_name" placeholder="Course Name" ​>
+                        <input type="text" name="course_name" class="form-control form-control-lg" id="course_name" placeholder="Course Name">
                     </div>
                     <div class="mb-4">
                         <input type="text" name="duration" class="form-control form-control-lg" id="course_duration" placeholder="Time duration">
@@ -316,12 +316,17 @@ Page Banner START -->
                     <div class="mb-4">
                         <input type="text" name="course_price" class="form-control form-control-lg" id="course_price" placeholder="Course Price">
                     </div>
+                    <select name="users" class="form-control form-control-lg mb-3">
+                        <option value="">who are you </option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                    </select>
                     <select name="category" class="form-control form-control-lg">
-                        <option value="option1">Choose Category</option>
-                        <option value="option1">Web Design</option>
-                        <option value="option2">Web development</option>
-                        <option value="option3">IT software</option>
-                        <option value="option3">Network System Administrato</option>
+                        <option value="Choose Category">Choose Category</option>
+                        <option value="1">Web Design</option>
+                        <option value="2">Web development</option>
+                        <option value="3">IT software</option>
+                        <option value="4">Network System Administraton</option>
                     </select>
                     <div class="mt-4">
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -332,7 +337,7 @@ Page Banner START -->
                 </form>
 
             </div>
-        </section>
+        <!-- </section> --> 
 
 
     </main>

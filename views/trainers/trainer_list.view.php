@@ -366,8 +366,8 @@ Inner part START -->
 
 					<!-- Card item START -->
 					<?php
-					foreach ($trainers as $trainer) :
-
+					$list_trainers = get_trainers();
+					foreach ($list_trainers as $trainer) :
 					?>
 
 						<div class="col-lg-10 col-xl-6">
@@ -375,7 +375,7 @@ Inner part START -->
 								<div class="row g-0">
 									<!-- Image -->
 									<div class="col-md-4">
-										<img src="<?php echo $trainer['image'] ?>" class="rounded-3 " alt="...">
+										<img src="<?php echo $trainer['image'] ?>" class="rounded-3" alt="...">
 									</div>
 
 									<!-- Card body -->
@@ -404,7 +404,6 @@ Inner part START -->
 						</div>
 
 					<?php endforeach; ?>
-
 
 				</div>
 				<!-- Instructor list END -->
@@ -493,6 +492,7 @@ Footer END -->
 
 	<!-- Template Functions -->
 	<script src="assets/js/functions.js"></script>
+
 
 </body>
 
