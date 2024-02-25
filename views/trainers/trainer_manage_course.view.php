@@ -810,20 +810,20 @@ Inner part END -->
 							<option selected>Who are you?</option>
 							<?php
 							$trainers = get_trainers();
-							foreach($trainers as $trainer):
+							foreach ($trainers as $trainer) :
 							?>
-							<option value="<?php echo $trainer['user_id']?>"><?php echo $trainer['username']?></option>
-							<?php endforeach;?>
-							
+								<option value="<?php echo $trainer['user_id'] ?>"><?php echo $trainer['username'] ?></option>
+							<?php endforeach; ?>
+
 						</select>
 						<select class="form-select mt-3" aria-label="Default select example" name="course_category" required>
 							<option selected>Select categories</option>
 							<?php
 							$categories = get_categories();
-							foreach($categories as $category):
+							foreach ($categories as $category) :
 							?>
-							<option value="<?php echo $category['category_id']?>"><?php echo $category['category_name']?></option>
-							<?php endforeach;?>
+								<option value="<?php echo $category['category_id'] ?>"><?php echo $category['category_name'] ?></option>
+							<?php endforeach; ?>
 						</select>
 						<textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="3" name="description" required>Course description</textarea>
 						<button type="submit" class="btn btn-primary m-4">Create</button>
