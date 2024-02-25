@@ -7,5 +7,12 @@ function get_trainers() :array{
 
 };
 
+function get_courses() :array{
+    global $connection;
+    $statement = $connection->prepare("select * from courses_list;");
+    $statement->execute();
+    return $statement->fetchAll();
 
+
+}
 
