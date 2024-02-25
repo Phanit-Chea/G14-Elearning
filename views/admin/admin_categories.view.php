@@ -2,15 +2,22 @@
 require "models/admin.model.php";
 ?>
 <div class="table-responsive p-5 pt-3">
-    <div class = "mb-3 d-flex justify-content-between align-items-center">
-        <h2>Users List</h2>
+    <!-- <div class = "mb-3 d-flex justify-content-between align-items-center"> -->
+      <h2>Categories List</h2>
 
+      <div class="d-flex justify-content-between w-100 mb-3">
+        
         <!-- Button trigger modal --> 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-modal"> 
-        Create Category 
+        <button type="button" class="btn btn-primary h-50 d-flex mt-3" data-bs-toggle="modal" data-bs-target="#add-modal"> 
+          Create Category 
         </button> 
 
-    </div>
+        <!-- input search -->
+        <form class="d-none d-md-flex  mt-3">
+          <input class="form-control bg-secondary border-0 w-100" id="search" name="search" type="search" placeholder="Search">
+        </form>
+      </div>
+    <!-- </div> -->
     <table class="table text-start align-middle table-bordered table-dark table-hover mb-0">
         <thead>
             <tr class="text-white">
@@ -21,7 +28,7 @@ require "models/admin.model.php";
         </thead>
 
         <!-- ==================Edit Category ============== -->
-            <tbody> 
+            <tbody id = "search_category"> 
             <?php 
                 $categories = getData(); 
                 foreach ($categories as $category): 
