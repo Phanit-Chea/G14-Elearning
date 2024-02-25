@@ -1,6 +1,6 @@
 <!-- =======================
 Main Banner START -->
-
+<script src="../../vendor/js/searchcourses.js" defer></script>
 <section class="bg-light">
 	<div class="container pt-5 mt-0 mt-lg-5">
 
@@ -39,12 +39,12 @@ Main Banner START -->
 				
 				<!-- Search course -->
 				<div class="col-md-8 text-center mx-auto pb-5">
-					<form class="bg-body shadow rounded p-2">
-						<div class="input-group">
-							<input class="form-control border-0 me-1" type="search" placeholder="Find your course">
-							<button type="button" class="btn btn-primary mb-0 rounded z-index-1"><i class="fas fa-search"></i></button>
-						</div>
-					</form>
+				<form action="" class="bg-body shadow rounded p-2" method="GET">
+					<div class="input-group">
+						<input  class="form-control border-0 me-1" type="text" name="search"  placeholder="Find your course" required>
+						<button type="submit" class="btn btn-primary mb-0 rounded z-index-1"><i class="fas fa-search"></i></button>
+					</div>
+				</form>
 				</div>
 			</div>
 		</div>
@@ -718,7 +718,7 @@ IT courses START -->
 			</div>
 		</div>
 
-		<div class="row g-4">
+		<div id="course" class="row g-4" >
 
 			<!-- Course item -->
 			<div class="col-sm-6 col-lg-4 col-xl-3">

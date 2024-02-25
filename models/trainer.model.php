@@ -7,6 +7,15 @@ function get_trainers(): array
     return $statement->fetchAll();
 };
 
+function get_courses() :array{
+    global $connection;
+    $statement = $connection->prepare("select * from courses_list;");
+    $statement->execute();
+    return $statement->fetchAll();
+
+
+}
+
 function create_course(string $course_name, int $duration, int $course_price, int $user_id, int $category_id, string $description, string $course_image): bool
 {
     global $connection;

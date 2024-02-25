@@ -1,10 +1,10 @@
-﻿<body>
+﻿<body class="pt-0">
 
 	<!-- Header START -->
-	<header class="navbar-light navbar-sticky">
+	<header class="navbar-light mt-0">
 		<!-- Logo Nav START -->
-		<nav class="navbar navbar-expand-xl">
-			<div class="container">
+		<nav class="navbar navbar-expand-xl mt-0">
+			<div class="container mt-0 d-flex align-items-center">
 				<!-- Logo START -->
 				<a class="navbar-brand" href="/trainers">
 					<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
@@ -369,7 +369,7 @@ Inner part START -->
 											<a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Category</a>
 											<a class="list-group-item" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
 											<a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
-											<a class="list-group-item active" href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
+											<a class="list-group-item " href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
 											<a class="list-group-item" href="/trainer_manage_orders"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
 
 											<a class="list-group-item" href="instructor-edit-profile.html"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
@@ -433,8 +433,7 @@ Inner part START -->
 										<thead>
 											<tr>
 												<th scope="col" class="border-0 rounded-start">Course Title</th>
-												<th scope="col" class="border-0">Enrolled</th>
-												<th scope="col" class="border-0">Status</th>
+												<th scope="col" class="border-0">Course Sold</th>
 												<th scope="col" class="border-0">Price</th>
 												<th scope="col" class="border-0 rounded-end">Action</th>
 											</tr>
@@ -443,302 +442,41 @@ Inner part START -->
 										<!-- Table body START -->
 										<tbody>
 											<!-- Table item -->
-											<tr>
-												<!-- Course item -->
-												<td>
-													<div class="d-flex align-items-center">
-														<!-- Image -->
-														<div class="w-100px">
-															<img src="assets/images/courses/4by3/08.jpg" class="rounded" alt="">
-														</div>
-														<div class="mb-0 ms-2">
-															<!-- Title -->
-															<h6><a href="#">Building Scalable APIs with GraphQL</a></h6>
-															<!-- Info -->
-															<div class="d-sm-flex">
-																<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>18
-																	lectures</p>
-																<p class="h6 fw-light mb-0 small"><i class="fas fa-check-circle text-success me-2"></i>6
-																	Completed</p>
+											<?php
+											$courses = get_courses();
+											foreach ($courses as $course) :
+											?>
+												<tr>
+													<!-- Course item -->
+													<td>
+														<div class="d-flex align-items-center">
+															<!-- Image -->
+															<div class="w-100px">
+																<img src="assets/images/courses/4by3/<?php echo $course['course_image'] ?>" class="rounded" alt="">
+															</div>
+															<div class="mb-0 ms-4">
+																<!-- Title -->
+																<h5><a href="#"><?php echo $course['course_name'] ?></a></h5>
+																<!-- Info -->
+																<div class="d-sm-flex">
+																	<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i><?php echo $course['lesson_count'] ?>
+																		lessons</p>
+																</div>
 															</div>
 														</div>
-													</div>
-												</td>
-												<!-- Enrolled item -->
-												<td class="text-center text-sm-start">125</td>
-												<!-- Status item -->
-												<td>
-													<div class="badge bg-success bg-opacity-10 text-success">Live</div>
-												</td>
-												<!-- Price item -->
-												<td>$250</td>
-												<!-- Action item -->
-												<td>
-													<a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
-													<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
-												</td>
-											</tr>
+													</td>
+													<!-- Enrolled item -->
+													<td class="text-center text-sm-start"><?php echo $course['sold_lesson_count'] ?></td>
+													<td><?php echo $course['course_price'] ?></td>
+													<!-- Action item -->
+													<td>
+														<a href="<?php $course['course_id'] ?>" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
+														<a href="<?php $course['course_id'] ?>" class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></a>
+													</td>
+												</tr>
+											<?php endforeach; ?>
 
-											<!-- Table item -->
-											<tr>
-												<!-- Course item -->
-												<td>
-													<div class="d-flex align-items-center">
-														<!-- Image -->
-														<div class="w-100px">
-															<img src="assets/images/courses/4by3/10.jpg" class="rounded" alt="">
-														</div>
-														<div class="mb-0 ms-2">
-															<!-- Title -->
-															<h6><a href="#">Bootstrap 5 From Scratch</a></h6>
-															<!-- Info -->
-															<div class="d-sm-flex">
-																<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>0
-																	lectures</p>
-																<p class="h6 fw-light mb-0 small"><i class="fas fa-check-circle text-success me-2"></i>0
-																	Completed</p>
-															</div>
-														</div>
-													</div>
-												</td>
-												<!-- Enrolled item -->
-												<td class="text-center text-sm-start">145</td>
-												<!-- Status item -->
-												<td>
-													<div class="badge bg-secondary bg-opacity-10 text-secondary">Disable
-													</div>
-												</td>
-												<!-- Price item -->
-												<td>$350</td>
-												<!-- Action item -->
-												<td>
-													<a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
-													<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
-												</td>
-											</tr>
 
-											<!-- Table item -->
-											<tr>
-												<!-- Course item -->
-												<td>
-													<div class="d-flex align-items-center">
-														<!-- Image -->
-														<div class="w-100px">
-															<img src="assets/images/courses/4by3/06.jpg" class="rounded" alt="">
-														</div>
-														<div class="mb-0 ms-2">
-															<!-- Title -->
-															<h6><a href="#">Angular – The Complete Guider</a></h6>
-															<!-- Info -->
-															<div class="d-sm-flex">
-																<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>37
-																	lectures</p>
-																<p class="h6 fw-light mb-0 small"><i class="fas fa-check-circle text-success me-2"></i>20
-																	Completed</p>
-															</div>
-														</div>
-													</div>
-												</td>
-												<!-- Enrolled item -->
-												<td class="text-center text-sm-start">145</td>
-												<!-- Status item -->
-												<td>
-													<div class="badge bg-success bg-opacity-10 text-success">Live</div>
-												</td>
-												<!-- Price item -->
-												<td>$652</td>
-												<!-- Action item -->
-												<td>
-													<a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
-													<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
-												</td>
-											</tr>
-
-											<!-- Table item -->
-											<tr>
-												<!-- Course item -->
-												<td>
-													<div class="d-flex align-items-center">
-														<!-- Image -->
-														<div class="w-100px">
-															<img src="assets/images/courses/4by3/02.jpg" class="rounded" alt="">
-														</div>
-														<div class="mb-0 ms-2">
-															<!-- Title -->
-															<h6><a href="#">Graphic Design Masterclass</a></h6>
-															<!-- Info -->
-															<div class="d-sm-flex">
-																<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>58
-																	lectures</p>
-																<p class="h6 fw-light mb-0 small"><i class="fas fa-check-circle text-success me-2"></i>0
-																	Completed</p>
-															</div>
-														</div>
-													</div>
-												</td>
-												<!-- Enrolled item -->
-												<td class="text-center text-sm-start">0</td>
-												<!-- Status item -->
-												<td>
-													<div class="badge bg-info bg-opacity-10 text-info">Applied</div>
-												</td>
-												<!-- Price item -->
-												<td>$245</td>
-												<!-- Action item -->
-												<td>
-													<a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
-													<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
-												</td>
-											</tr>
-
-											<!-- Table item -->
-											<tr>
-												<!-- Course item -->
-												<td>
-													<div class="d-flex align-items-center">
-														<!-- Image -->
-														<div class="w-100px">
-															<img src="assets/images/courses/4by3/04.jpg" class="rounded" alt="">
-														</div>
-														<div class="mb-0 ms-2">
-															<!-- Title -->
-															<h6><a href="#">Learn Invision</a></h6>
-															<!-- Info -->
-															<div class="d-sm-flex">
-																<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>16
-																	lectures</p>
-																<p class="h6 fw-light mb-0 small"><i class="fas fa-check-circle text-success me-2"></i>0
-																	Completed</p>
-															</div>
-														</div>
-													</div>
-												</td>
-												<!-- Enrolled item -->
-												<td class="text-center text-sm-start">0</td>
-												<!-- Status item -->
-												<td>
-													<div class="badge bg-danger bg-opacity-10 text-danger">Rejected
-													</div>
-												</td>
-												<!-- Price item -->
-												<td>$365</td>
-												<!-- Action item -->
-												<td>
-													<a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
-													<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
-												</td>
-											</tr>
-
-											<!-- Table item -->
-											<tr>
-												<!-- Course item -->
-												<td>
-													<div class="d-flex align-items-center">
-														<!-- Image -->
-														<div class="w-100px">
-															<img src="assets/images/courses/4by3/03.jpg" class="rounded" alt="">
-														</div>
-														<div class="mb-0 ms-2">
-															<!-- Title -->
-															<h6><a href="#">Create a Design System in Figma</a></h6>
-															<!-- Info -->
-															<div class="d-sm-flex">
-																<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>25
-																	lectures</p>
-																<p class="h6 fw-light mb-0 small"><i class="fas fa-check-circle text-success me-2"></i>0
-																	Completed</p>
-															</div>
-														</div>
-													</div>
-												</td>
-												<!-- Enrolled item -->
-												<td class="text-center text-sm-start">0</td>
-												<!-- Status item -->
-												<td>
-													<div class="badge bg-info bg-opacity-10 text-info">Applied</div>
-												</td>
-												<!-- Price item -->
-												<td>$135</td>
-												<!-- Action item -->
-												<td>
-													<a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
-													<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
-												</td>
-											</tr>
-
-											<!-- Table item -->
-											<tr>
-												<!-- Course item -->
-												<td>
-													<div class="d-flex align-items-center">
-														<!-- Image -->
-														<div class="w-100px">
-															<img src="assets/images/courses/4by3/07.jpg" class="rounded" alt="">
-														</div>
-														<div class="mb-0 ms-2">
-															<!-- Title -->
-															<h6><a href="#">Deep Learning with React-Native</a></h6>
-															<!-- Info -->
-															<div class="d-sm-flex">
-																<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>18
-																	lectures</p>
-																<p class="h6 fw-light mb-0 small"><i class="fas fa-check-circle text-success me-2"></i>10
-																	Completed</p>
-															</div>
-														</div>
-													</div>
-												</td>
-												<!-- Enrolled item -->
-												<td class="text-center text-sm-start">186</td>
-												<!-- Status item -->
-												<td>
-													<div class="badge bg-success bg-opacity-10 text-success">Live</div>
-												</td>
-												<!-- Price item -->
-												<td>$256</td>
-												<!-- Action item -->
-												<td>
-													<a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
-													<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
-												</td>
-											</tr>
-
-											<!-- Table item -->
-											<tr>
-												<!-- Course item -->
-												<td>
-													<div class="d-flex align-items-center">
-														<!-- Image -->
-														<div class="w-100px">
-															<img src="assets/images/courses/4by3/11.jpg" class="rounded" alt="">
-														</div>
-														<div class="mb-0 ms-2">
-															<!-- Title -->
-															<h6><a href="#">Build Responsive Websites with HTML</a></h6>
-															<!-- Info -->
-															<div class="d-sm-flex">
-																<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>42
-																	lectures</p>
-																<p class="h6 fw-light mb-0 small"><i class="fas fa-check-circle text-success me-2"></i>25
-																	Completed</p>
-															</div>
-														</div>
-													</div>
-												</td>
-												<!-- Enrolled item -->
-												<td class="text-center text-sm-start">345</td>
-												<!-- Status item -->
-												<td>
-													<div class="badge bg-success bg-opacity-10 text-success">Live</div>
-												</td>
-												<!-- Price item -->
-												<td>$222</td>
-												<!-- Action item -->
-												<td>
-													<a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
-													<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
-												</td>
-											</tr>
 										</tbody>
 										<!-- Table body END -->
 									</table>
