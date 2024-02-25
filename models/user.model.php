@@ -26,3 +26,4 @@ function get_values_from_input( string $email){
         return [];
     }
 }
+
