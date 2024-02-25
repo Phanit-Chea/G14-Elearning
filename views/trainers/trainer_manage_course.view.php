@@ -319,9 +319,9 @@ Main Banner START -->
 									<!-- Button -->
 									<div class="d-flex align-items-center mt-2 mt-md-0">
 										<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-modal">
-											Create Category
+											Create Course
 										</button>
-										<!-- <a href="/trainer_manage_course">Create Course</button> -->
+
 									</div>
 								</div>
 							</div>
@@ -442,6 +442,7 @@ Inner part START -->
 										<!-- Table body START -->
 										<tbody>
 											<!-- Table item -->
+											<!-- ============loop for create list course======= -->
 											<?php
 											$courses = get_courses();
 											foreach ($courses as $course) :
@@ -515,9 +516,7 @@ Inner part END -->
 	<!-- **************** MAIN CONTENT END **************** -->
 	<!-- <div class="container"> -->
 
-
-
-
+	<!-- //=========form for create course============= -->
 	<!-- Modal -->
 	<div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -529,7 +528,7 @@ Inner part END -->
 				</div>
 				<div class="modal-body">
 
-					<form action="/trainer_create_course" method="POST" enctype="multipart/form-data" class="w-100">
+					<form action="controllers/trainers/trainer_create_course.controller.php" method="POST" enctype="multipart/form-data" class="w-100">
 						<div class="form-group mt-3">
 							<input type="hidden" name="id" value="">
 							<input type="text" class="form-control bg-white" name="course_name" placeholder="course_name" value="" required>
@@ -572,7 +571,6 @@ Inner part END -->
 		</div>
 	</div>
 
-
 	<!-- =======================
 Footer START -->
 
@@ -591,8 +589,6 @@ Footer END -->
 	<!-- Template Functions -->
 	<script src="assets/js/functions.js"></script>
 	<script src="vendor/js/popup_form.js"></script>
-
-
 
 </body>
 
