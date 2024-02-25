@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $img_erro = $course_image['error'];
         $ext = pathinfo($imagename, PATHINFO_EXTENSION);
         $newname = uniqid("", true) . "." . $ext;
-        $direct = "assets/images/avatar/" . $newname;
+        $direct = "assets/images/courses/4by3/" . $newname;
         if ($img_erro == 0) {
             move_uploaded_file($tmppath, $direct);
         }
@@ -32,3 +32,5 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     create_course($course_name, $course_duration, $course_price, $user_id, $course_category, $course_description, $newname);
 }
 require("views/trainers/trainer_manage_course.view.php");
+
+
