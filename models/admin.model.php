@@ -70,7 +70,6 @@ function getData(){
 }
 
 // ===============Function Delete Category================
-
 function deleteCategory(int $id):bool {
     global $connection;
     $statement = $connection->prepare("delete from categories where category_id = :id");
@@ -79,14 +78,6 @@ function deleteCategory(int $id):bool {
 }
 
 // ===============Function edit Category================
-// function getCategory(int $id)
-// {
-//     global $connection;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-//     $statement = $connection->prepare("select * from categories where category_id = :id");
-//     $statement->execute([':id' => $id]);
-//     return $statement->fetch();
-// }
-
 function updateCategory(string $name, string $description, int $id) : bool
 {
     global $connection;
@@ -99,4 +90,14 @@ function updateCategory(string $name, string $description, int $id) : bool
     ]);
 
     return $statement->rowCount() > 0;
+}
+
+// ============= Search Category  ================= 
+function searchCategory(string $input): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM categories WHERE category_name LIKE :input");
+    $statement->bindValue(':input', '%' . $input . '%');
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
 }

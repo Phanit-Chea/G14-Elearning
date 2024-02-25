@@ -8,7 +8,8 @@ $routes = [
     '/admin_user' => 'controllers/admin/admin_user.controller.php',
     '/admin_categories' => 'controllers/admin/admin_categories.controller.php',
     '/admin_edit_categories' => 'controllers/admin/admin_edit_categories.controller.php',
-    '/add_category' => 'controllers/admin/category/category.controller.php',
+    '/admin_edit_categories' => 'controllers/admin/admin_edit_categories.controller.php',
+    '/add_search_category' => 'controllers/admin/category/admin_search_ccategories.controller.php',
     '/admin_student_history' => 'controllers/admin/admin_student_history.controller.php',
     '/signin' => 'controllers/signin/signin.controller.php',
 ];
@@ -20,7 +21,16 @@ if (array_key_exists($uri, $routes)) {
    $page = 'views/errors/404.php';
 }
 
-require "layouts/admin/header.php";
-require "layouts/admin/navbar.php";
-require $page;
-require "layouts/admin/footer.php";
+// require "layouts/admin/header.php";
+// require "layouts/admin/navbar.php";
+// require $page;
+// require "layouts/admin/footer.php";
+
+if(!urlIs('/add_search_category')){ 
+    require "layouts/admin/header.php"; 
+    require "layouts/admin/navbar.php"; 
+} 
+require $page; 
+if(!urlIs('/add_search_category')){ 
+    require "layouts/admin/footer.php"; 
+}
