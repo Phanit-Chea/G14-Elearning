@@ -1,4 +1,5 @@
-﻿<body class="pt-0">
+﻿<script src="../../vendor/js/searchcourseontrainer.js"defer></script>
+<body class="pt-0">
 
 	<!-- Header START -->
 	<header class="navbar-light mt-0">
@@ -405,13 +406,13 @@ Inner part START -->
 									<!-- Search -->
 									<div class="col-md-8">
 										<form class="rounded position-relative">
-											<input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
+											<input id="search" class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
 											<button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
 										</form>
 									</div>
 
 									<!-- Select option -->
-									<div class="col-md-3">
+									<div id="course" class="col-md-3">
 										<!-- Short by filter -->
 										<form>
 											<select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm">
