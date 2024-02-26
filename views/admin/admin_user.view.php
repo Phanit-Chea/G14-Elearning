@@ -1,3 +1,4 @@
+<script src="vendor/js/search_name.js" defer></script>
 <div class="table-responsive p-5 pt-3">
     <h2>Users List</h2>
     <form class="d-none d-md-flex mb-3 mt-4">
@@ -39,9 +40,9 @@
                     </td>
                     <td>
                         <a onclick="return confirm('Do you want to delete this user?')" class="btn btn-sm btn-primary"
-                            href="/controllers/admin/admin_crud_user/delete_user.controller.php?id=<?= $user['user_id']; ?>">Delete</a>
+                            href="/controllers/admin/admin_crud_user/delete_user.controller.php?id=<?= $user['user_id']; ?>"><i class="bi bi-trash-fill"></i></a>
                         <a class="btn btn-sm btn-warning" data-bs-toggle="modal"
-                            data-bs-target="#edit<?= $user['user_id']; ?>">Edit</a>
+                            data-bs-target="#edit<?= $user['user_id']; ?>"><i class="bi bi-pencil-square"></i></a>
 
                         <div class="modal fade" id="edit<?= $user['user_id']; ?>" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -49,7 +50,7 @@
 
                                 <div class="modal-content bg-secondary">
                                     <div class="modal-header ">
-                                        <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+                                        <h5 class="modal-title text-warning" id="exampleModalLabel">Edit User</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
@@ -74,7 +75,7 @@
 
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                            <button type="submit" class="btn btn-warning text-black">Save changes</button>
                                         </form>
                                     </div>
                                 </div>
