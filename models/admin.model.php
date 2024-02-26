@@ -30,6 +30,7 @@ function getPosts(): array
 }
 
 function updateUser(string $username, string $email, int $id): bool
+
 {
     global $connection;
     $statement = $connection->prepare("UPDATE users set username = :username, email = :email where user_id = :user_id");
