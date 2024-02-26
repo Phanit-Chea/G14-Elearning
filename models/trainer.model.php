@@ -44,3 +44,18 @@ function get_categories()
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 };
+
+// ========== delete course ======== //
+function delete_course(int $id): bool {
+    global $connection;
+    $statement = $connection->prepare("
+        DELETE cl
+        FROM courses_list AS cl
+        INNER JOIN courses AS c ON cl.course_id = c.course_id
+        WHERE cl.course_id = :course_id
+    ");
+    $statement->execute([
+        ':course_id' => $id,
+    ]);
+    return $statement->rowCount() > 0;
+}

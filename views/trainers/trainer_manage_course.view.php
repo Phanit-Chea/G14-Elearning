@@ -362,12 +362,12 @@ Inner part START -->
 								</div>
 								<!-- Offcanvas body -->
 								<div class="offcanvas-body p-3 p-xl-0">
-									<div class="bg-dark border rounded-3 pb-0 p-3 w-100">
+									<div class="bg-dark border rounded-3 pb-0 p-3 w-100" id="menu_list">
 										<!-- Dashboard menu -->
-										<div class="list-group list-group-dark list-group-borderless">
+										<div class="list-group list-group-dark list-group-borderless" id="list_menu">
 											<a class="list-group-item" href="/trainer_dashboard"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
 											<a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Category</a>
-											<a class="list-group-item" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
+											<a class="list-group-item active" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
 											<a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
 											<a class="list-group-item " href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
 											<a class="list-group-item" href="/trainer_manage_orders"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
@@ -471,8 +471,8 @@ Inner part START -->
 													<td><?php echo $course['course_price'] ?></td>
 													<!-- Action item -->
 													<td>
-														<a href="<?php $course['course_id'] ?>" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
-														<a href="<?php $course['course_id'] ?>" class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></a>
+														<a href="/trainer_delete_course?id=<?php echo $course['course_id'] ?>" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
+														<a href="/trainer_delete_course?id=<?= $course['course_id'] ?>" class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></a>
 													</td>
 												</tr>
 											<?php endforeach; ?>
@@ -589,6 +589,7 @@ Footer END -->
 	<!-- Template Functions -->
 	<script src="assets/js/functions.js"></script>
 	<script src="vendor/js/popup_form.js"></script>
+	<script src="vendor/js/trainer_menu.js"></script>
 
 </body>
 
