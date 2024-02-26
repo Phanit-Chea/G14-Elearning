@@ -1,4 +1,6 @@
 <?php
+
+//==============get list trainers =================//
 function get_trainers(): array
 {
     global $connection;
@@ -7,15 +9,16 @@ function get_trainers(): array
     return $statement->fetchAll();
 };
 
-function get_courses() :array{
+//===============get list course =============//
+function get_courses(): array
+{
     global $connection;
     $statement = $connection->prepare("select * from courses_list;");
     $statement->execute();
     return $statement->fetchAll();
+};
 
-
-}
-
+//================create course ====================//
 function create_course(string $course_name, int $duration, int $course_price, int $user_id, int $category_id, string $description, string $course_image): bool
 {
     global $connection;
@@ -30,8 +33,9 @@ function create_course(string $course_name, int $duration, int $course_price, in
         ':course_image' => $course_image,
     ]);
     return $statement->rowCount() > 0;
-}
+};
 
+//==================get list categories ================
 function get_categories()
 {
     global $connection;
@@ -39,4 +43,4 @@ function get_categories()
     $statement->execute();
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
-}
+};
