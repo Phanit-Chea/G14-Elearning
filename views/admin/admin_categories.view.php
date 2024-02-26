@@ -38,18 +38,18 @@ require "models/admin.model.php";
                 <td><?= $category['category_id']?></td> 
                 <td><?= $category['category_name']?></td> 
                 <td> 
-                    <a onclick="return confirm('Do you want to delete this category?')" class="btn btn-sm btn-primary" href="controllers/admin/category/admin_delete_categories.controller.php?id=<?= $category['category_id'] ?>">Delete</a> 
-                    <button type='button' class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#edit-modal<?= $category['category_id'] ?>">Edit</button> 
+                    <a onclick="return confirm('Do you want to delete this category?')" class="btn btn-sm btn-primary" href="controllers/admin/category/admin_delete_categories.controller.php?id=<?= $category['category_id'] ?>"><i class="bi bi-trash-fill"></i></a> 
+                    <button type='button' class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#edit-modal<?= $category['category_id'] ?>"><i class="bi bi-pencil-square"></i></button> 
                 </td> 
             </tr> 
             <div class="modal fade" id="edit-modal<?= $category['category_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
               <div class="modal-dialog"> 
                 <div class="modal-content"> 
-                  <div class="modal-header"> 
-                    <h5 class="modal-title text-primary" id="exampleModalLabel">Modal title</h5> 
+                  <div class="modal-header bg-secondary"> 
+                    <h5 class="modal-title text-warning " id="exampleModalLabel">Modal title</h5> 
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
                   </div> 
-                  <div class="modal-body"> 
+                  <div class="modal-body bg-secondary"> 
                   <form action="controllers/admin/category/admin_edit_categories.controller.php" method="post"> 
                   <input type="hidden" class="form-control" value="<?= $category['category_id'] ?>" id="id" name="id"> 
                       <div class="form-floating mb-3"> 
@@ -60,7 +60,7 @@ require "models/admin.model.php";
                           <input type="text" class="form-control" value="<?= $category['category_description'] ?>" id="description" name="description"> 
                           <label for="floatingPassword">Description</label> 
                       </div> 
-                      <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Add Category</button> 
+                      <button type="submit" class="btn btn-warning text-black py-3 w-100 mb-4">Update Category</button> 
                 </form> 
       </div> 
     </div> 
@@ -76,14 +76,14 @@ require "models/admin.model.php";
 
 <!-- ========================= show popup form when create category ================= -->
 <!-- Modal --> 
-<div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+<div class="modal fade " id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
   <div class="modal-dialog"> 
     <div class="modal-content"> 
-      <div class="modal-header"> 
+      <div class="modal-header bg-secondary"> 
         <h5 class="modal-title text-primary" id="exampleModalLabel">New Category</h5> 
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
       </div> 
-      <div class="modal-body"> 
+      <div class="modal-body bg-secondary"> 
       <form action="controllers/admin/category/admin_add_categories.controller.php" method="post"> 
                     <div class="form-floating mb-3"> 
                         <input type="text" class="form-control" id="name" name="name"> 
@@ -93,7 +93,7 @@ require "models/admin.model.php";
                         <input type="text" class="form-control" id="description" name="description"> 
                         <label for="floatingPassword">Description</label> 
                     </div> 
-                    <button type="submit" class="btn btn-primary py-3 w-100 mb-4"  style="background-color: orange;">Add Category</button> 
+                    <button type="submit" class="btn btn-primary py-3 w-100 mb-4" >Add Category</button> 
                 </form> 
       </div> 
     </div> 
