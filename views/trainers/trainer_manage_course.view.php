@@ -472,7 +472,7 @@ Inner part START -->
 													<!-- Action item -->
 													<td>
 														<a href="/trainer_delete_course?id=<?php echo $course['course_id'] ?>" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
-														<a href="/trainer_delete_course?id=<?= $course['course_id'] ?>" class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></a>
+														<a href="controllers/trainers/trainer_delete_course.controller.php?id=<?= $course['course_id'] ?>" class="btn btn-sm btn-danger-soft btn-round mb-0" onclick="return confirm('Do you want to delete this Course?')"><i class="fas fa-fw fa-times"></i></a>
 													</td>
 												</tr>
 											<?php endforeach; ?>
