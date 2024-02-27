@@ -14,8 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
                 <td><?=  $category['category_id']?></td> 
                 <td><?=  $category['category_name']?></td> 
                 <td> 
-                    <a onclick="return confirm('Do you want to delete this category?')" class="btn btn-sm btn-primary" href="controllers/admin/category/admin_delete_categories.controller.php?id=<?= $category['category_id'] ?>">Delete</a> 
-                    <button type='button' class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#edit-modal<?=  $category['category_id'] ?>">Edit</button> 
+                    <a onclick="return confirm('Do you want to delete this category?')" class="btn btn-sm btn-primary" href="controllers/admin/category/admin_delete_categories.controller.php?id=<?= $category['category_id'] ?>"><i class="bi bi-trash-fill"></i></a> 
+                    <button type='button' class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#edit-modal<?= $category['category_id'] ?>"><i class="bi bi-pencil-square"></i></button> 
                 </td> 
             </tr> 
             <div class="modal fade" id="edit-modal<?= $category['category_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
