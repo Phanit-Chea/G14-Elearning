@@ -5,9 +5,10 @@ require "../../../models/admin.model.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $name = htmlspecialchars($_POST['name']);
     $description = htmlspecialchars($_POST['description']);
-    $userId = 3;
+    $userId = 55;
     
     addCate($name, $description, $userId);
-    header('Location: /admin_categories');
+    header("location: /admin_categories");
 }
+
 

@@ -24,6 +24,9 @@ if (array_key_exists($uri, $routes)) {
    $page = 'views/errors/404.php';
 }
 require "layouts/header.php";
-require "layouts/navbar.php";
 require $page;
 require "layouts/footer.php";
+
+if (urlIs('/')){
+    require "layouts/navbar.php";
+}

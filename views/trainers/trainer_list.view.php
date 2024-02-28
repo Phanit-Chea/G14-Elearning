@@ -160,11 +160,7 @@
 									<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
 										<li> <a class="dropdown-item" href="/trainer_dashboard"><i class="bi bi-grid-fill fa-fw me-1"></i>Dashboard</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_course"><i class="bi bi-basket-fill fa-fw me-1"></i>Courses</a> </li>
-										<li> <a class="dropdown-item" href="/trainer_create_course"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create
-												Course</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Category</a> </li>
-										<li> <a class="dropdown-item" href="/trainer_create_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create
-												Category</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_earning"><i class="fas fa-chart-line fa-fw me-1"></i>Earnings</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_students"><i class="fas fa-user-graduate fa-fw me-1"></i>Students</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_orders"><i class="bi bi-cart-check-fill fa-fw me-1"></i>Orders</a> </li>
@@ -366,8 +362,8 @@ Inner part START -->
 
 					<!-- Card item START -->
 					<?php
-					foreach ($trainers as $trainer) :
-
+					$list_trainers = get_trainers();
+					foreach ($list_trainers as $trainer) :
 					?>
 
 						<div class="col-lg-10 col-xl-6">
@@ -375,7 +371,7 @@ Inner part START -->
 								<div class="row g-0">
 									<!-- Image -->
 									<div class="col-md-4">
-										<img src="<?php echo $trainer['image'] ?>" class="rounded-3 " alt="...">
+										<img src="<?php echo $trainer['image'] ?>" class="rounded-3" alt="...">
 									</div>
 
 									<!-- Card body -->
@@ -404,7 +400,6 @@ Inner part START -->
 						</div>
 
 					<?php endforeach; ?>
-
 
 				</div>
 				<!-- Instructor list END -->
@@ -493,6 +488,7 @@ Footer END -->
 
 	<!-- Template Functions -->
 	<script src="assets/js/functions.js"></script>
+
 
 </body>
 
