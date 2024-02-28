@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const search_course = document.querySelector('');
-    const courses = document.querySelectorAll(' .col-sm-6');
-    search_course.addEventListener('input', function () {
-    const search_item = search_course.value.trim().toLowerCase();
-            courses.forEach(function (course) {
-            const course_name = course.querySelector('.card-text').firstElementChild.textContent.toLowerCase();
-            if (course_name.includes(search_item)) {
-                course.style.display = 'block';
+    const search_user = document.querySelector('#search_user');
+    const users = document.querySelectorAll('tbody tr');
+    
+    search_user.addEventListener('input', function () {
+        const search_item = search_user.value.trim().toLowerCase();
+        
+        users.forEach(function (user) {
+            const user_name = user.querySelector('td:nth-child(2)').textContent.toLowerCase();
+            
+            if (user_name.includes(search_item)) {
+                user.style.display = 'table-row';
             } else {
-                course.style.display = 'none';
+                user.style.display = 'none';
             }
         });
     });
