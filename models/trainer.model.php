@@ -50,3 +50,4 @@ function get_categories()
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 };
+
