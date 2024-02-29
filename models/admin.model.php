@@ -38,7 +38,6 @@ function updateUser(string $username, string $email, int $id): bool
         ':username' => $username,
         ':email' => $email,
         ':user_id' => $id
-
     ]);
 
     return $statement->rowCount() > 0;

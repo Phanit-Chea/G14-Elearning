@@ -44,3 +44,30 @@ function get_categories()
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 };
+
+// ======= get one course ========================= //
+function get_course(int $id): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM courses WHERE course_id = :id");
+    $statement->execute([':id' => $id]);
+    return $statement->fetch(PDO::FETCH_ASSOC);
+}
+
+// ================ update course =================== //
+function update_course(string $course_name, int $course_duration, int $course_price, int $category_id, string $course_description, string $course_image, int $course_id): bool
+{
+    global $connection;
+    $statement = $connection->prepare("UPDATE courses SET course_name = :course_name, course_duration = :course_duration, course_price = :course_price, category_id = :category_id, description = :course_description, course_image = :course_image WHERE course_id = :course_id");
+    $statement->execute([
+        ':course_name' => $course_name,
+        ':course_duration' => $course_duration,
+        ':course_price' => $course_price,
+        ':category_id' => $category_id,
+        ':course_description' => $course_description,
+        ':course_image' => $course_image,
+        ':course_id' => $course_id
+
+    ]);
+    return $statement->rowCount() > 0;
+};
