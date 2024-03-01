@@ -455,7 +455,7 @@ Inner part START -->
 														<div class="d-flex align-items-center">
 															<!-- Image -->
 															<div class="w-100px">
-																<img src="assets/images/courses/4by3/<?php echo $course['course_image'] ?>" class="rounded" alt="">
+																<img src="<?php echo $course['course_image'] ?>" class="rounded" alt="">
 															</div>
 															<div class="mb-0 ms-4">
 																<!-- Title -->
@@ -473,7 +473,7 @@ Inner part START -->
 													<td><?php echo $course['course_price'] ?></td>
 													<!-- Action item -->
 													<td>
-														<a href="/controllers/trainers/trainer_edit_course.controller.php?id=<?= $course['course_id'] ?>" class="btn btn-sm btn-success-soft btn-round me-1 mb-0" ><i class="far fa-fw fa-edit"></i></a>
+														<a href="/trainer_edit_course?id=<?= $course['course_id'] ?>" class="btn btn-sm btn-success-soft btn-round me-1 mb-0" ><i class="far fa-fw fa-edit"></i></a>
 														<!-- <a href="controllers/trainers/trainer_edit_course.controller.php?id=<?= $course['course_id'] ?>" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"  ><i class="far fa-fw fa-edit"></i></a> -->
 														<a href="<?php $course['course_id'] ?>" class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></a>
 													</td>

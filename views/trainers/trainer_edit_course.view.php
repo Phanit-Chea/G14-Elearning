@@ -294,7 +294,6 @@
                             <input type="text" class="form-control" id="course_price" name="course_price" placeholder="Enter course price" value="<?= $course['course_price']; ?>" required>
                         </div>
                     </div>
-
                     <div class="form-group mt-3 col-sm-12">
                         <select class="form-select" id="course_category" name="course_category" required>
                             <?php
