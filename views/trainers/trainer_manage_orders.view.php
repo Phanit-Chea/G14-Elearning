@@ -365,10 +365,8 @@
                                             <a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
                                             <a class="list-group-item active" href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
                                             <a class="list-group-item" href="/trainer_manage_orders"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
-
                                             <a class="list-group-item" href="instructor-edit-profile.html"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
                                             <a class="list-group-item" href="/trainer_manage_payout"><i class="bi bi-wallet2 fa-fw me-2"></i>Payouts</a>
-
                                             <a class="list-group-item" href="instructor-delete-account.html"><i class="bi bi-trash fa-fw me-2"></i>Delete Profile</a>
                                             <a class="list-group-item text-danger bg-danger-soft-hover" href="sign-in.html"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign
                                                 Out</a>
@@ -431,38 +429,32 @@
                                                 <th scope="col" class="border-0">Order ID</th>
                                                 <th scope="col" class="border-0">Date</th>
                                                 <th scope="col" class="border-0">Amount</th>
-                                                <th scope="col" class="border-0 rounded-end">Payment</th>
+                                                <!-- <th scope="col" class="border-0 rounded-end">Payment</th> -->
                                             </tr>
                                         </thead>
 
                                         <!-- Table body START -->
                                         <tbody>
-                                            <!-- Table item -->
+                                            <?php
+                                            foreach ($orders as $order)
+                                            
+                                            ?>
+
                                             <tr>
-                                                <!-- Table data -->
+                                                
                                                 <td>
-                                                    <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">The complete Digital
-                                                            Marketing Course - 8 Course in 1</a></h6>
+                                                    <h6 class="mt-2 mt-lg-0 mb-0"><a href="#"><?php echo $order['course_name']; ?></a></h6>
                                                 </td>
 
                                                 <!-- Table data -->
                                                 <td class="text-center text-sm-start text-primary-hover">
-                                                    <a href="#" class="text-body"><u>#125489</u></a>
+                                                    <a href="#" class="text-body"><u>#<?php echo $order['order_id']; ?></u></a>
                                                 </td>
-
-                                                <!-- Table data -->
-                                                <td>18/8/2021</td>
-
-                                                <!-- Table data -->
-                                                <td>$356</td>
-
-                                                <!-- Table data -->
-                                                <td>Credit Card</td>
+                                                <td><?php echo $order['date']; ?></td>
+                                                <td><?php echo $order['amount']; ?></td>
+                                               
                                             </tr>
-
-                                            <!-- Table item -->
                                             <tr>
-                                                <!-- Table data -->
                                                 <td>
                                                     <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">Time Management Mastery:
                                                             Do More, Stress Less</a></h6>
@@ -472,14 +464,15 @@
                                                     <a href="#" class="text-body"><u>#235486</u></a>
                                                 </td>
 
-                                                <!-- Table data -->
+                                                
+
                                                 <td>25/7/2021</td>
 
-                                                <!-- Table data -->
+                                               
                                                 <td>$186</td>
 
                                                 <!-- Table data -->
-                                                <td>Debit Card</td>
+                                                <!-- <td>Debit Card</td> -->
                                             </tr>
 
                                             <!-- Table item -->
@@ -501,7 +494,7 @@
                                                 <td>$450</td>
 
                                                 <!-- Table data -->
-                                                <td>Paypal</td>
+                                                <!-- <td>Paypal</td> -->
                                             </tr>
 
                                             <!-- Table item -->
@@ -523,7 +516,7 @@
                                                 <td>$0</td>
 
                                                 <!-- Table data -->
-                                                <td>Free</td>
+                                                <!-- <td>Free</td> -->
                                             </tr>
 
                                             <!-- Table item -->
@@ -545,7 +538,7 @@
                                                 <td>$250</td>
 
                                                 <!-- Table data -->
-                                                <td>Credit Card</td>
+                                                <!-- <td>Credit Card</td> -->
                                             </tr>
 
                                             <!-- Table item -->
@@ -567,7 +560,7 @@
                                                 <td>$325</td>
 
                                                 <!-- Table data -->
-                                                <td>Debit Card</td>
+                                                <!-- <td>Debit Card</td> -->
                                             </tr>
                                         </tbody>
                                         <!-- Table body END -->
