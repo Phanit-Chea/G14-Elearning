@@ -44,3 +44,11 @@ function get_categories()
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 };
+// ====================get list orders========================
+function get_orders()
+{
+    global $connection;
+    $statement = $connection->prepare("select * from orders_list");
+    $statement->execute();
+    return $statement->fetchAll();
+}
