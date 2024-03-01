@@ -1,3 +1,6 @@
+<?php 
+require 'layouts/trainer/navbar.php';
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +10,9 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class=" bg-secondary">
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <div class="row justify-content-center">
     <div class="col-lg-6">
       <div class="card shadow">
@@ -18,15 +21,15 @@
           <form>
             <div class="mb-3">
               <label for="name" class="form-label fw-bold">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Enter your name">
+              <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
             </div>
             <div class="mb-3">
               <label for="email" class="form-label fw-bold">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Enter your email">
+              <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
             </div>
             <div class="mb-3">
               <label for="profile" class="form-label fw-bold">Profile Picture</label>
-              <input type="file" class="form-control" id="profile" accept="image/*">
+              <input type="file" class="form-control" id="profile" accept="image/*" required>
             </div>
             <button type="submit" class="btn btn-primary rounded-pill">Submit</button>
           </form>

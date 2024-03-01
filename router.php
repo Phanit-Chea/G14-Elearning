@@ -13,6 +13,7 @@ $routes = [
     '/trainer_manage_earning'=>'controllers/trainers/trainer_manage_earning.controller.php',
     '/trainer_create_category'=>'controllers/trainers/trainerr_create_category.controller.php',
     '/trainer_manage_category'=>'controllers/trainers/trainer_manage_category.contoller.php',
+    '/trainer_edit_profile'=>'controllers/trainers/trainer_edit_profile.controller.php',
     '/signup' => 'controllers/signup/signup.controller.php',
     '/signin' => 'controllers/signin/signin.controller.php',
 ];

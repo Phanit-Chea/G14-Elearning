@@ -1,7 +1,7 @@
 
 <!-- =======================
 Footer START -->
-<footer class="pt-5">
+<footer class="pt-5 bg-white">
 	<div class="container">
 		<!-- Row START -->
 		<div class="row g-4">
