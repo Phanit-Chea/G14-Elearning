@@ -11,6 +11,7 @@ $routes = [
     '/add_search_category' => 'controllers/admin/category/admin_search_ccategories.controller.php',
     '/admin_student_history' => 'controllers/admin/admin_student_history.controller.php',
     '/signin' => 'controllers/signin/signin.controller.php',
+
 ];
 
 if (array_key_exists($uri, $routes)) {

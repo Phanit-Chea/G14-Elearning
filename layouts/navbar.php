@@ -2,7 +2,7 @@
 <!-- Header START -->
 <header class="navbar-light navbar-sticky navbar-transparent">
   <!-- Logo Nav START -->
-  <nav class="navbar navbar-expand-xl">
+  <nav class="navbar navbar-expand-xl fixed-top bg-white">
     <div class="container">
       <!-- Logo START -->
       <a class="navbar-brand" href="index.html">
@@ -20,12 +20,8 @@
       <!-- Category menu START -->
       <ul class="navbar-nav navbar-nav-scroll dropdown-clickable">
         <li class="nav-item dropdown dropdown-menu-shadow-stacked">
-          <a class="nav-link" href="#" id="categoryMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="bi bi-grid-3x3-gap-fill me-3 fs-5 me-xl-1 d-xl-none"></i>
-            <i class="bi bi-grid-3x3-gap-fill me-1 d-none d-xl-inline-block"></i>
-            <span class="d-none d-xl-inline-block">Admin Page</span>
-          </a>
-  
+
+
           <ul class="dropdown-menu z-index-unset" aria-labelledby="categoryMenu">
   
           <li> <a class="dropdown-item"  href="/signin?role=3" >Sign In</a> </li>
@@ -228,7 +224,7 @@
         <div class="col-xl-8">
           <div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
             <div class="nav-item w-100">
-              <form class="rounded position-relative">
+              <form class="rounded position-relative ">
                 <input id="search" class="form-control pe-5 bg-secondary bg-opacity-10 border-0" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y"
                   type="submit"><i class="fas fa-search fs-6 text-primary"></i></button>
