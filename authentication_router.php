@@ -4,6 +4,7 @@ $page = "";
 $routes = [
     '/signin' => 'controllers/signin/signin.controller.php',
     '/signup' => 'controllers/signup/signup.controller.php',
+    '/admin2024*pnc*' => 'controllers/admin/admin_home/login_admin.controller.php',
     // '/trainer-review' => 'controllers/reviews/review.controller.php',
     // '/trainer-classroom' => 'controllers/classroom/classroom.controller.php',
 ];
