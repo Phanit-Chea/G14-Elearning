@@ -162,11 +162,7 @@
 									<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
 										<li> <a class="dropdown-item" href="/trainer_dashboard"><i class="bi bi-grid-fill fa-fw me-1"></i>Dashboard</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_course"><i class="bi bi-basket-fill fa-fw me-1"></i>Course</a> </li>
-										<li> <a class="dropdown-item" href="/trainer_create_course"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create
-												Course</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Category</a> </li>
-										<li> <a class="dropdown-item" href="/trainer_create_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create
-												Category</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_earning"><i class="fas fa-chart-line fa-fw me-1"></i>Earnings</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_students"><i class="fas fa-user-graduate fa-fw me-1"></i>Students</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_orders"><i class="bi bi-cart-check-fill fa-fw me-1"></i>Orders</a> </li>
@@ -473,7 +469,7 @@ Inner part START -->
 													<td><?php echo $course['course_price'] ?></td>
 													<!-- Action item -->
 													<td>
-														<a href="/controllers/trainers/trainer_edit_course.controller.php?id=<?= $course['course_id'] ?>" class="btn btn-sm btn-success-soft btn-round me-1 mb-0" ><i class="far fa-fw fa-edit"></i></a>
+														<a href="/controllers/trainers/trainer_edit_course.controller.php?id=<?= $course['course_id'] ?>" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
 														<!-- <a href="controllers/trainers/trainer_edit_course.controller.php?id=<?= $course['course_id'] ?>" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"  ><i class="far fa-fw fa-edit"></i></a> -->
 														<a href="<?php $course['course_id'] ?>" class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></a>
 													</td>
@@ -583,7 +579,7 @@ Inner part END -->
 	</div>
 
 	<!-- =============form for edit course -->
-	
+
 	<div class="modal fade" id="edit_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content bg-secondary">
