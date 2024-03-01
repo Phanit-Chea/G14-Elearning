@@ -1,7 +1,7 @@
-<?php 
+﻿<?php 
 require 'layouts/trainer/navbar.php';
  ?>
-
+<script src="../../vendor/js/searchcourseontrainer.js"></script>
 				<!-- Profile START -->
 				<div class="dropdown ms-1 ms-lg-0">
 					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
