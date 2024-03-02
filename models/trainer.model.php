@@ -44,3 +44,18 @@ function get_categories()
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 };
+
+//================Edit profile========================
+function edit_profile(string $username, string $email, string $image, int $id)
+{
+    global $connection;
+    $statement = $connection->prepare("UPDATE trainer SET username = :username, email = :email, image = :image WHERE user_id = :user_id ");
+    $statement->execute([
+        ':username' => $username,
+        ':email' => $email,
+        ':image' => $image,
+        ':user_id' => $id
+    ]);
+    return $statement->rowCount() > 0;
+
+}

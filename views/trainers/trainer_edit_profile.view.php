@@ -18,7 +18,7 @@ require 'layouts/trainer/navbar.php';
       <div class="card shadow">
         <div class="card-body">
           <h5 class="card-title fw-bold">User Information</h5>
-          <form>
+          <form action="#" method="POST">
             <div class="mb-3">
               <label for="name" class="form-label fw-bold">Name</label>
               <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
