@@ -81,7 +81,7 @@ Video START -->
 <!-- =======================
 Video END -->
 <?php 
-if (isset($_SESSION['login'])){?>
+if (isset($_SESSION['login']) && $_SESSION['login'] == 'login'){?>
 <!-- =======================
 Category START --> 
 <section>

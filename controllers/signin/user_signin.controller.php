@@ -2,6 +2,8 @@
 session_start();
 require "../../database/database.php";
 require "../../models/user.model.php";
+$_SESSION['worngEmail'] = '';
+$_SESSION['worngPassword'] = '';
 
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -13,18 +15,25 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     if ($_SESSION['user']['role_id']==3 && $password == '5555'){
         $_SESSION['login'] = 'login';
         header('Location: /admin');
+        $_SESSION['worngEmail'] = '';
+        $_SESSION['worngPassword'] = '';
     }
     elseif(count($user)>0){
             if(password_verify($password,$user['password'])){
 
                 $_SESSION['login'] = 'login';
                 header('Location: /');
+                $_SESSION['worngEmail'] = '';
+                $_SESSION['worngPassword'] = '';
             }else{
-                echo "<script>alert('wrong password')</script>";
-                header("location:/signin");  
+                header("location:/signin");
+                $_SESSION['worngPassword'] = 'your password is wrong'; 
+
             }
     }else{
-        echo "wrong email";
+        header("location:/signin"); 
+        $_SESSION['worngEmail'] = 'your email is wrong'; 
+
     }
 }
 
