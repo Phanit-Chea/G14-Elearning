@@ -2,6 +2,7 @@
 session_start();
 require "../../database/database.php";
 require "../../models/user.model.php";
+$_SESSION['duplicate']="";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $role_id = isset($_GET['role'])?$_GET['role']:null;
@@ -35,16 +36,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $user['role_id'] = $role_id;
             $_SESSION['user'] = $user;
             header('Location: /admin');
+            $_SESSION['duplicate']="";
+
         }else{
             $isCreate =  createAccount($username, $email, $code, $newname,2 );
             $user['image'] = $newname;
             $user['role_id'] = 2;
             $_SESSION['user'] = $user;
             header('Location: /');
+            $_SESSION['duplicate']="";
+
         }
        
     } else {
-        echo 'account already exits';
+        // echo 'account already exits';
+        $_SESSION['duplicate']="your email is duplicate";
+        header("Location:/signup");
+
     }
 }
 
