@@ -50,7 +50,7 @@
 										<li> <a class="dropdown-item" href="/trainer_manage_course"><i class="bi bi-basket-fill fa-fw me-1"></i>Course</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_create_course"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create
 												Course</a> </li>
-										<li> <a class="dropdown-item" href="/trainer_create_course"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Category</a> </li>
+										<li> <a class="dropdown-item" href="/trainer_manage_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Category</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_create_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create Category</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_earning"><i class="fas fa-chart-line fa-fw me-1"></i>Earnings</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_students"><i class="fas fa-user-graduate fa-fw me-1"></i>Students</a> </li>

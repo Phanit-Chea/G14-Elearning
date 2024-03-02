@@ -53,13 +53,14 @@ function deleteUser(int $id): bool
 }
 
 // ===============Function Create Category================
-function addCate($name, $description, $userId)
+function addCate($name, $description, $image, $userId)
 {
     global $connection;
-    $statement = $connection->prepare("insert into categories (category_name, category_description, user_id) values(:name, :description, :userId)");
+    $statement = $connection->prepare("insert into categories (category_name, category_description, category_image, user_id) values(:name, :description, :image, :userId)");
     $statement->execute([
         ':name' => $name,
         ':description' => $description,
+        ':image' => $image,
         ':userId' => $userId,
     ]);
 }
@@ -81,12 +82,13 @@ function deleteCategory(int $id):bool {
 }
 
 // ===============Function edit Category================
-function updateCategory(string $name, string $description, int $id) : bool
+function updateCategory(string $name,  string $image, string $description, int $id) : bool
 {
     global $connection;
-    $statement = $connection->prepare("UPDATE categories SET category_name = :name, category_description = :description where category_id = :id");
+    $statement = $connection->prepare("UPDATE categories SET category_name = :name, category_image = :image, category_description = :description where category_id = :id");
     $statement->execute([
         ':name' => $name,
+        ':image' => $image,
         ':description' => $description,
         ':id' => $id
 
@@ -103,4 +105,14 @@ function searchCategory(string $input): array
     $statement->bindValue(':input', '%' . $input . '%');
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+// ================ get category by id ==================
+function getCategory(int $id)
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM categories WHERE category_id = :id ");
+    $statement->execute([":id" => $id]);
+    return $statement->fetch();
 }
