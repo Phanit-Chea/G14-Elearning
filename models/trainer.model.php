@@ -48,7 +48,10 @@ function get_categories()
 function get_orders()
 {
     global $connection;
-    $statement = $connection->prepare("select * from orders_list");
+    $statement = $connection->prepare("  SELECT users.username, courses.course_name, history_user_buy_course.purchase_date, history_user_buy_course.purchase_price FROM users INNER JOIN history_user_buy_course ON users.user_id = history_user_buy_course.user_id INNER JOIN courses ON courses.course_id = history_user_buy_course.course_id;");
     $statement->execute();
     return $statement->fetchAll();
+
+    
 }
+
