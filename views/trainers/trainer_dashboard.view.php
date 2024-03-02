@@ -312,9 +312,10 @@ Page Banner START -->
 											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
 											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled
 												Students</li>
-											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i>25 Courses</li>
+											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i><?php echo (total_course()); ?> Courses</li>
 										</ul>
 									</div>
+									<?php echo (total_course()); ?>
 									<!-- Button -->
 									<div class="d-flex align-items-center mt-2 mt-md-0">
 										<a href="/trainer_create_course" class="btn btn-success mb-0">Create a
@@ -383,31 +384,31 @@ Page content START -->
 						<!-- Responsive offcanvas body END -->
 					</div>
 					<!-- Right sidebar END -->
-
+				
 					<!-- Main content START -->
 					<div class="col-xl-9">
 
 						<!-- Counter boxes START -->
-						<div class="row g-4">
+						<div class="row g-2">
 							<!-- Counter item -->
-							<div class="col-sm-6 col-lg-4">
+							<div class="col-sm-6 col-lg-6">
 								<div class="d-flex justify-content-center align-items-center p-4 bg-warning bg-opacity-15 rounded-3">
 									<span class="display-6 text-warning mb-0"><i class="fas fa-tv fa-fw"></i></span>
 									<div class="ms-4">
 										<div class="d-flex">
-											<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="25" data-purecounter-delay="200">0</h5>
+											<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="<?php echo (total_course()); ?>" data-purecounter-delay="200">0</h5>
 										</div>
 										<span class="mb-0 h6 fw-light">Total Courses</span>
 									</div>
 								</div>
 							</div>
 							<!-- Counter item -->
-							<div class="col-sm-6 col-lg-4">
+							<div class="col-sm-6 col-lg-6">
 								<div class="d-flex justify-content-center align-items-center p-4 bg-purple bg-opacity-10 rounded-3">
 									<span class="display-6 text-purple mb-0"><i class="fas fa-user-graduate fa-fw"></i></span>
 									<div class="ms-4">
 										<div class="d-flex">
-											<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="25" data-purecounter-delay="200">0</h5>
+											<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="<?php echo (total_course()); ?>" data-purecounter-delay="200">0</h5>
 											<span class="mb-0 h5">K+</span>
 										</div>
 										<span class="mb-0 h6 fw-light">Total Students</span>
@@ -415,7 +416,7 @@ Page content START -->
 								</div>
 							</div>
 							<!-- Counter item -->
-							<div class="col-sm-6 col-lg-4">
+							<!-- <div class="col-sm-6 col-lg-4">
 								<div class="d-flex justify-content-center align-items-center p-4 bg-info bg-opacity-10 rounded-3">
 									<span class="display-6 text-info mb-0"><i class="fas fa-gem fa-fw"></i></span>
 									<div class="ms-4">
@@ -426,23 +427,23 @@ Page content START -->
 										<span class="mb-0 h6 fw-light">Enrolled Students</span>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<!-- Counter boxes END -->
 
 						<!-- Chart START -->
 						<div class="row mt-5">
 							<div class="col-12">
-								<div class="card card-body border p-4 h-100">
-									<div class="row g-4">
+								<div class="card card-body border p-4 h-100 d-flex justify-content-around">
+									<div class="row g-2 ">
 										<!-- Content -->
-										<div class="col-sm-6 col-md-4">
+										<div class="col-sm-6 col-md-6 d-flex justify-content-center flex-column align-items-center">
 											<span class="badge bg-dark text-white">Current Month</span>
 											<h4 class="text-primary my-2">$35000</h4>
 											<p class="mb-0"><span class="text-success me-1">0.20%<i class="bi bi-arrow-up"></i></span>vs last month</p>
 										</div>
 										<!-- Content -->
-										<div class="col-sm-6 col-md-4">
+										<div class="col-sm-6 col-md-6 d-flex justify-content-center flex-column align-items-center">
 											<span class="badge bg-dark text-white">Last Month</span>
 											<h4 class="my-2">$28000</h4>
 											<p class="mb-0"><span class="text-danger me-1">0.10%<i class="bi bi-arrow-down"></i></span>Then last month</p>

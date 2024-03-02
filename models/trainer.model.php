@@ -44,3 +44,19 @@ function get_categories()
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 };
+
+// ======== total course =========
+function total_course() {
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(c.course_name) AS total FROM courses c;");
+    $statement->execute();
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result['total'];
+};
+
+// ======== total student in each course ============
+
+// function total_student_in_course(){
+//     global $connection;
+//     $statement = $connection->prepare(" SELECT count(users.user_id) from courses INNER JOIN users on users.user_id = courses.user_id where users.role_id  = 2 group by users.username ")
+// }
