@@ -49,7 +49,7 @@ function get_categories()
 function edit_profile(string $username, string $email, string $image, int $id)
 {
     global $connection;
-    $statement = $connection->prepare("UPDATE trainer SET username = :username, email = :email, image = :image WHERE user_id = :user_id ");
+    $statement = $connection->prepare("UPDATE users SET username = :username, email = :email, image = :image WHERE user_id = :user_id ");
     $statement->execute([
         ':username' => $username,
         ':email' => $email,
