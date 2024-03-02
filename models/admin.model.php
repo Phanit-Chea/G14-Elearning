@@ -68,7 +68,7 @@ function addCate($name, $description, $image, $userId)
 function getData()
 {
     global $connection;
-    $statement = $connection->prepare("select * from categories");
+    $statement = $connection->prepare("select * from categories ORDER BY category_id DESC");
     $statement->execute();
     return $statement->fetchAll();
 }
