@@ -310,7 +310,7 @@ require 'layouts/trainer/navbar.php';
                                                 <!-- Table data -->
                                                 <td>2/6/2021</td>
 
-                                                <!-- Table data -->
+           t                                     <!-- Table data -->
                                                 <td>$250</td>
 
                                                 <!-- Table data -->
