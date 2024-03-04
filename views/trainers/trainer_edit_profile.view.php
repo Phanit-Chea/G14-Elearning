@@ -1,6 +1,6 @@
 <?php 
 require 'layouts/trainer/navbar.php';
- ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +10,8 @@ require 'layouts/trainer/navbar.php';
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class=" bg-secondary">
+<body class="bg-secondary">
+
 
 <div class="container mt-5 mb-5">
   <div class="row justify-content-center">
@@ -18,18 +19,26 @@ require 'layouts/trainer/navbar.php';
       <div class="card shadow">
         <div class="card-body">
           <h5 class="card-title fw-bold">User Information</h5>
-          <form action="#" method="POST">
+          <form action="#" method="POST" id="myForm" onsubmit="return validateForm()">
             <div class="mb-3">
               <label for="name" class="form-label fw-bold">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+              <input type="text" class="form-control" id="name" placeholder="Enter your new name">
+              <div id="nameError" class="error-message"></div>
             </div>
             <div class="mb-3">
               <label for="email" class="form-label fw-bold">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+              <input type="email" class="form-control" id="email" placeholder="Enter your email">
+              <div id="emailError" class="error-message"></div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label fw-bold">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Enter your password">
+              <div id="passwordError" class="error-message"></div>
             </div>
             <div class="mb-3">
               <label for="profile" class="form-label fw-bold">Profile Picture</label>
-              <input type="file" class="form-control" id="profile" accept="image/*" required>
+              <input type="file" class="form-control" id="profile" accept="image/*">
+              <div id="profileError" class="error-message"></div>
             </div>
             <button type="submit" class="btn btn-primary rounded-pill">Submit</button>
           </form>
