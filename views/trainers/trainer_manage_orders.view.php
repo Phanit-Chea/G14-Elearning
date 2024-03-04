@@ -186,7 +186,6 @@ require 'layouts/trainer/navbar.php';
                                     </div>
                                 </div>
                                 <!-- Search and select END -->
-
                                 <!-- Order list table START -->
                                 <div class="table-responsive border-0">
                                     <!-- Table START -->
@@ -194,204 +193,29 @@ require 'layouts/trainer/navbar.php';
                                         <!-- Table head -->
                                         <thead>
                                             <tr>
-<<<<<<< HEAD
                                                 <th scope="" class="border-0 rounded-start">Course name</th>
-                                                <!-- <th scope="col" class="border-0">Order ID</th> -->
-                                                <th scope="" class="border-0">Date</th>
-                                                <th scope="col" class="border-0 rounded-end"></th>
-                                                <th scope="col" class="border-0">Amount</th>
-=======
-                                                <th scope="col" class="border-0 rounded-start">Course name</th>
-                                                <!-- <th scope="col" class="border-0">Order ID</th> -->
+                                                <th scope="col" class="border-0">Order ID</th>
                                                 <th scope="col" class="border-0">Date</th>
-                                                <!-- <th scope="col" class="border-0">Amount</th> -->
-                                                <!-- <th scope="col" class="border-0 rounded-end">Payment</th> -->
->>>>>>> 444b0bd6810a9c6ad20f4fc872834b22b51515d0
+                                                <th scope="col" class="border-0">Amount</th>
                                             </tr>
                                         </thead>
-
                                         <!-- Table body START -->
                                         <tbody>
                                             <?php
-<<<<<<< HEAD
-                                            // $orders = get_orders();
                                             foreach ($orders as $order) :
-                                               
-=======
-                                            foreach ($orders as $order) :
->>>>>>> 444b0bd6810a9c6ad20f4fc872834b22b51515d0
-
                                             ?>
-
                                                 <tr>
-
                                                     <td>
-<<<<<<< HEAD
-                                                        <h6 class="mt-2 mt-lg-0 mb-0"><a href="#"><?php echo $order['course_name']; ?></a></h6>
-                                                        
-=======
-                                                        <h6 class="mt-2 mt-lg-0 mb-0"><a href="#"><?php echo $order['username'] ?></a></h6>
->>>>>>> 444b0bd6810a9c6ad20f4fc872834b22b51515d0
+                                                        <h6 class="mt-2 mt-lg-0 mb-0"><a href="#"><?php echo $order['course_name'] ?></a></h6>
                                                     </td>
-
-                                                    <!-- Table data -->
-                                                    <td class="text-center text-sm-start text-primary-hover">
-<<<<<<< HEAD
-                                                        <a href="#" class="text-body"><?php echo $order['username'] ?><u>
-                                                            </u></a>
-                                                          
-                                                    <td><?php echo $order['purchase_date'] ?></td>
-                                                    <td><?php echo $order['purchase_price'] ?></td>
-=======
-                                                        <a href="#" class="text-body"><u>
-                                                            </u></a>
-                                                    
-                                                    <td><?php echo $order[' purchase_date'] ?></td>
-                                                    <td><?php echo $order[' purchase_price'] ?></td>
->>>>>>> 444b0bd6810a9c6ad20f4fc872834b22b51515d0
-
+                                                        <td class="text-center text-sm-start text-primary-hover">
+                                                            <a href="#" class="text-body"><?php echo $order['username'] ?><u>
+                                                                </u></a>
+                                                        <td><?php echo $order['purchase_date'] ?></td>
+                                                        <td><?php echo $order['purchase_price'] ?></td>
                                                     </td>
-
                                                 <tr>
                                                 <?php endforeach; ?>
-<<<<<<< HEAD
-                                                <!-- <td>
-=======
-                                                <td>
->>>>>>> 444b0bd6810a9c6ad20f4fc872834b22b51515d0
-                                                    <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">Time Management Mastery:
-                                                            Do More, Stress Less</a></h6>
-                                                </td> -->
-                                                <!-- Table data -->
-                                                <!-- <td class="text-center text-sm-start text-primary-hover">
-                                                    <a href="#" class="text-body"><u>#235486</u></a>
-                                                </td> -->
-
-
-
-                                                <!-- <td>25/7/2021</td> -->
-
-
-                                                <!-- <td>$186</td> -->
-
-                                                <!-- Table data -->
-                                                <!-- <td>Debit Card</td> -->
-                                                </tr>
-
-                                                <!-- Table item -->
-                                                <tr>
-                                                    <!-- Table data -->
-<<<<<<< HEAD
-                                                    <!-- <td>
-                                                        <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">Building Scalable APIs
-                                                                with GraphQL</a></h6>
-                                                    </td> -->
-=======
-                                                    <td>
-                                                        <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">Building Scalable APIs
-                                                                with GraphQL</a></h6>
-                                                    </td>
->>>>>>> 444b0bd6810a9c6ad20f4fc872834b22b51515d0
-                                                    <!-- Table data -->
-                                                    <!-- <td class="text-center text-sm-start text-primary-hover">
-                                                    <a href="#" class="text-body"><u>#0215789</u></a>
-                                                </td> -->
-
-                                                    <!-- Table data -->
-                                                    <!-- <td>4/9/2020</td> -->
-
-                                                    <!-- Table data -->
-                                                    <!-- <td>$450</td> -->
-
-                                                    <!-- Table data -->
-                                                    <!-- <td>Paypal</td> -->
-                                                </tr>
-
-                                                <!-- Table item -->
-                                                <tr>
-                                                    <!-- Table data -->
-<<<<<<< HEAD
-                                                    <!-- <td>
-                                                        <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">Sketch from A to Z: for
-                                                                app designer</a></h6>
-                                                    </td> -->
-=======
-                                                    <td>
-                                                        <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">Sketch from A to Z: for
-                                                                app designer</a></h6>
-                                                    </td>
->>>>>>> 444b0bd6810a9c6ad20f4fc872834b22b51515d0
-                                                    <!-- Table data -->
-                                                    <!-- <td class="text-center text-sm-start text-primary-hover">
-                                                    <a href="#" class="text-body"><u>#0135689</u></a>
-                                                </td> -->
-
-                                                    <!-- Table data -->
-                                                    <!-- <td>5/6/2021</td> -->
-
-                                                    <!-- Table data -->
-                                                    <!-- <td>$0</td> -->
-
-                                                    <!-- Table data -->
-                                                    <!-- <td>Free</td> -->
-                                                </tr>
-
-                                                <!-- Table item -->
-                                                <tr>
-                                                    <!-- Table data -->
-<<<<<<< HEAD
-                                                    <!-- <td>
-                                                        <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">Build Responsive Websites
-                                                                with HTML</a></h6>
-                                                    </td> -->
-=======
-                                                    <td>
-                                                        <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">Build Responsive Websites
-                                                                with HTML</a></h6>
-                                                    </td>
->>>>>>> 444b0bd6810a9c6ad20f4fc872834b22b51515d0
-                                                    <!-- Table data -->
-                                                    <!-- <td class="text-center text-sm-start text-primary-hover">
-                                                    <a href="#" class="text-body"><u>#0587623</u></a>
-                                                </td> -->
-
-                                                    <!-- Table data -->
-                                                    <!-- <td>2/6/2021</td> -->
-
-                                                    <!-- Table data -->
-                                                    <!-- <td>$250</td> -->
-
-                                                    <!-- Table data -->
-                                                    <!-- <td>Credit Card</td> -->
-                                                </tr>
-
-                                                <!-- Table item -->
-                                                <tr>
-                                                    <!-- Table data -->
-<<<<<<< HEAD
-                                                    <!-- <td>
-                                                        <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">JavaScript: Full
-                                                                Understanding</a></h6>
-                                                    </td> -->
-=======
-                                                    <td>
-                                                        <h6 class="mt-2 mt-lg-0 mb-0"><a href="#">JavaScript: Full
-                                                                Understanding</a></h6>
-                                                    </td>
->>>>>>> 444b0bd6810a9c6ad20f4fc872834b22b51515d0
-                                                    <!-- Table data -->
-                                                    <!-- <td class="text-center text-sm-start text-primary-hover">
-                                                    <a href="#" class="text-body"><u>#0215789</u></a>
-                                                </td> -->
-
-                                                    <!-- Table data -->
-                                                    <!-- <td>14/1/2021</td> -->
-
-                                                    <!-- Table data -->
-                                                    <!-- <td>$325</td> -->
-
-                                                    <!-- Table data -->
-                                                    <!-- <td>Debit Card</td> -->
                                                 </tr>
                                         </tbody>
                                         <!-- Table body END -->
@@ -399,7 +223,6 @@ require 'layouts/trainer/navbar.php';
                                     <!-- Table END -->
                                 </div>
                                 <!-- Order list table END -->
-
                                 <!-- Pagination START -->
                                 <div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
                                     <!-- Content -->
