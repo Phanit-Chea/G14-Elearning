@@ -73,8 +73,8 @@
                             <div class="form-floating mb-2">
                                 <select class="form-select" aria-label="Default select example" name="choice">
                                     <option selected class="d-flex align-items-center justify-content-center">Please choice your role</option>
-                                    <option value="1">I'm a student</option>
-                                    <option value="2">I'm a teacher</option>
+                                    <option value="1">I'm a teacher</option>
+                                    <option value="2">I'm a student</option>
                                 </select>
                             </div>
                             <div class="form-group mb-2">
