@@ -1,6 +1,7 @@
 ﻿<?php 
 require 'layouts/trainer/navbar.php';
  ?>
+ <script src="../../vendor/js/search_list_trainers.js"></script>
 
 				<!-- Profile START -->
 				<div class="dropdown ms-1 ms-lg-0">
@@ -86,7 +87,7 @@ Inner part START -->
 					<div class="col-sm-6 col-xl-4">
 						<form class="bg-body shadow rounded p-2">
 							<div class="input-group input-borderless">
-								<input class="form-control me-1" type="search" placeholder="Search instructor">
+								<input id="trainer" class="form-control me-1" type="search" placeholder="Search instructor">
 								<button type="button" class="btn btn-primary mb-0 rounded"><i class="fas fa-search"></i></button>
 							</div>
 						</form>
