@@ -56,7 +56,7 @@ require "models/admin.model.php";
                 <form action="controllers/admin/category/admin_edit_categories.controller.php" method="post" enctype="multipart/form-data">
                   <input type="hidden" class="form-control" value="<?= $category['category_id'] ?>" id="id" name="id">
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" value="<?= $category['category_name'] ?>" id="name" name="name">
+                    <input type="text" class="form-control text-white" value="<?= $category['category_name'] ?>" id="name" name="name">
                     <label for="floatingInput">Category Name</label>
                   </div>
 
@@ -67,7 +67,7 @@ require "models/admin.model.php";
                   </div>
 
                   <div class="form-floating mb-4">
-                    <input type="text" class="form-control" value="<?= $category['category_description'] ?>" id="description" name="description">
+                    <input type="text" class="form-control text-white" value="<?= $category['category_description'] ?>" id="description" name="description">
                     <label for="floatingPassword">Description</label>
                   </div>
                   <button type="submit" class="btn btn-warning text-black py-3 w-100 mb-4">Update Category</button>
