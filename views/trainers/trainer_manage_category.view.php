@@ -176,8 +176,8 @@ Inner part START -->
 									<!-- Search -->
 									<div class="col-md-8">
 										<form class="rounded position-relative">
-											<input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
-											<button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+											<input class="form-control pe-5 bg-transparent" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
+											<!-- <button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button> -->
 										</form>
 									</div>
 
@@ -302,7 +302,7 @@ Inner part END -->
 														<!--image  -->
 														<div class="form-floating mb-3">
 															<label for="image" class="form-label"></label>
-															<input type="file" name="image" class="form-control bg-dark text-white" id="image">
+															<input type="file" name="image" class="form-control text-white" id="image">
 														</div>
 
 														<div class="form-floating mb-4">

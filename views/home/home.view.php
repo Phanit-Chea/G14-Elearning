@@ -1,3 +1,6 @@
+<?php
+require "models/admin.model.php";
+?>
 <!-- =======================
 Main Banner START -->
 <script src="../../vendor/js/searchcourses.js" defer></script>
@@ -80,129 +83,41 @@ Video START -->
 </section>
 <!-- =======================
 Video END -->
+<?php 
+if (isset($_SESSION['login'])){?>
+<!-- =======================
+Category START --> 
+
+
+<section>
+
+	<div class="container">
+		<div class="row g-4">
 <?php
-if (isset($_SESSION['login']) && $_SESSION['login'] == 'login') { ?>
-	<!-- =======================
-Category START -->
-	<section>
-		<div class="container">
-			<div class="row g-4">
+      $categories = getData();
+      foreach ($categories as $num => $category) :
 
-				<!-- Category item -->
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card card-body shadow rounded-3">
-						<div class="d-flex align-items-center">
-							<!-- Icon -->
-							<div class="icon-lg bg-purple bg-opacity-10 rounded-circle text-purple"><i class="fas fa-tools"></i></div>
-							<div class="ms-3">
-								<h5 class="mb-0"><a href="#" class="stretched-link">Math &amp; Logic</a></h5>
-								<span>89 Courses</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Category item -->
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card card-body shadow rounded-3">
-						<div class="d-flex align-items-center">
-							<!-- Icon -->
-							<div class="icon-lg bg-danger bg-opacity-10 rounded-circle text-danger"><i class="fas fa-heartbeat"></i></div>
-							<div class="ms-3">
-								<h5 class="mb-0"><a href="#" class="stretched-link">Health &amp; Fitness</a></h5>
-								<span>95 Courses</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Category item -->
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card card-body shadow rounded-3">
-						<div class="d-flex align-items-center">
-							<!-- Icon -->
-							<div class="icon-lg bg-blue bg-opacity-10 rounded-circle text-blue"><i class="fas fa-photo-video"></i></div>
-							<div class="ms-3">
-								<h5 class="mb-0"><a href="#" class="stretched-link">Photography</a></h5>
-								<span>38 Courses</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Category item -->
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card card-body shadow rounded-3">
-						<div class="d-flex align-items-center">
-							<!-- Icon -->
-							<div class="icon-lg bg-success bg-opacity-10 rounded-circle text-success"><i class="fas fa-laptop-code"></i></div>
-							<div class="ms-3">
-								<h5 class="mb-0"><a href="#" class="stretched-link">Development</a></h5>
-								<span>105 Courses</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Category item -->
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card card-body shadow rounded-3">
-						<div class="d-flex align-items-center">
-							<!-- Icon -->
-							<div class="icon-lg bg-orange bg-opacity-10 rounded-circle text-orange"><i class="fas fa-crop-alt"></i></div>
-							<div class="ms-3">
-								<h5 class="mb-0"><a href="#" class="stretched-link">Design</a></h5>
-								<span>72 Courses</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Category item -->
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card card-body shadow rounded-3">
-						<div class="d-flex align-items-center">
-							<!-- Icon -->
-							<div class="icon-lg bg-primary bg-opacity-10 rounded-circle text-primary"><i class="fas fa-business-time"></i></div>
-							<div class="ms-3">
-								<h5 class="mb-0"><a href="#" class="stretched-link">Business</a></h5>
-								<span>68 Courses</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Category item -->
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card card-body shadow rounded-3">
-						<div class="d-flex align-items-center">
-							<!-- Icon -->
-							<div class="icon-lg bg-info bg-opacity-10 rounded-circle text-info"><i class="fas fa-music"></i></div>
-							<div class="ms-3">
-								<h5 class="mb-0"><a href="#" class="stretched-link">Music</a></h5>
-								<span>51 Courses</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Category item -->
-				<div class="col-sm-6 col-lg-4 col-xl-3">
-					<div class="card card-body shadow rounded-3">
-						<div class="d-flex align-items-center">
-							<!-- Icon -->
-							<div class="icon-lg bg-warning bg-opacity-15 rounded-circle text-warning"><i class="fas fa-palette"></i></div>
-							<div class="ms-3">
-								<h5 class="mb-0"><a href="#" class="stretched-link">Painting</a></h5>
-								<span>69 Courses</span>
-							</div>
+?>
+			<!-- Category item -->
+			<div class="col-sm-6 col-lg-4 col-xl-3">
+				<div class="card card-body shadow rounded-3">
+					<div class="d-flex align-items-center">
+						<!-- Icon -->
+						<div class="icon-lg bg-blue bg-opacity-10 rounded-circle text-blue"><i class="fas fa-photo-video"></i></div>
+						<div class="ms-3">
+							<h5 class="mb-0"><a href="#" class="stretched-link" value="<?= $category['category_name'] ?>"></a><?= $category['category_name'] ?></h5>
+							<span>38 Courses</span>
 						</div>
 					</div>
 				</div>
 			</div>
+			
+			<?php endforeach; ?>
 		</div>
-	</section>
-	<!-- =======================
+	</div>
+</section>
+
+<!-- =======================
 Category END -->
 
 	<!-- =======================
