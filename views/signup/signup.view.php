@@ -83,8 +83,8 @@
                             </div>
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                    <input type="checkbox" class="form-check-input" id="showPasswordCheckbox">
+                                    <label class="form-check-label" for="showPasswordCheckbox">Show password</label>
                                 </div>
                                 <a href="">Forgot Password</a>
                             </div>
@@ -111,6 +111,21 @@
 
     <!-- Template Javascript -->
     <script src="vendor/js/main.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
+            const passwordInput = document.getElementById("floatingPassword");
+
+            showPasswordCheckbox.addEventListener("change", function () {
+                if (showPasswordCheckbox.checked) {
+                    passwordInput.type = "text";
+                } else {
+                    passwordInput.type = "password";
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
