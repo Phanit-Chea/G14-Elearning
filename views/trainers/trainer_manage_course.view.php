@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<script src="../../vendor/js/searchcourseontrainer.js" defer></script>
 
 <body class="pt-0">
@@ -228,11 +229,14 @@
 				</div>
 				<!-- Main navbar END -->
 
+=======
+﻿<?php 
+require 'layouts/trainer/navbar.php';
+ ?>
+<script src="../../vendor/js/searchcourseontrainer.js"></script>
+>>>>>>> 02b644f87787143617fee26cc71cc7a686dce13f
 				<!-- Profile START -->
 				<div class="dropdown ms-1 ms-lg-0">
-					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-						<img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
-					</a>
 					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
 						<!-- Profile info -->
 						<li class="px-3">

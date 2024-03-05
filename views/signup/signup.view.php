@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,8 +15,8 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
-    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -45,40 +46,50 @@
         <!-- Sign In Start -->
         <div class="container-fluid">
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
-                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
-                    <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+                    <div class="bg-secondary rounded p-2 p-sm-4 my-2 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <a href="index.html" class="">
                                 <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>DarkPan</h3>
                             </a>
                             <h3>Sign up</h3>
                         </div>
-                        <form action="controllers/signup/create_user.controller.php?role=<?= isset($_GET['role'])? $_GET['role'] : null  ?>" method ="post" enctype="multipart/form-data">
-                            <div class="form-floating mb-3">
-                            <input type="name" class="form-control" id="floatingInput" placeholder="name@example.com" name ="username">
-                            <label for="floatingInput">Name</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name ="email">
-                            <label for="floatingInput">Email address</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
-                            <label for="floatingPassword">Password</label>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="">Profile:</label>
-                            <input type="file" class="form-control" name="image" >
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        <form action="controllers/signup/create_user.controller.php?role=<?= isset($_GET['role']) ? $_GET['role'] : null  ?>" method="post" enctype="multipart/form-data">
+                            <div class="form-floating mb-2">
+                                <input type="name" class="form-control" id="floatingInput" placeholder="name@example.com" name="username">
+                                <label for="floatingInput">Name</label>
                             </div>
-                            <a href="">Forgot Password</a>
-                        </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign up</button>
-                        <p class="text-center mb-0">Don't have an Account? <a href="/signin">Sign in</a></p>
+                            <div class="form-floating mb-2">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+                                <label for="floatingInput">Email</label>
+                                <?php if(isset($_SESSION['duplicate'])): ?>
+                                <span style="color :red;"><?= $_SESSION['duplicate']?></span>
+                                <?php endif;?>
+                            </div>
+                            <div class="form-floating mb-2">
+                                <input type="password" class="form-control" id="floatingPassword"  name="password" placeholder="Password">
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                            <div class="form-floating mb-2">
+                                <select class="form-select" aria-label="Default select example" name="choice">
+                                    <option selected class="d-flex align-items-center justify-content-center">Please choice your role</option>
+                                    <option value="1">I'm a teacher</option>
+                                    <option value="2">I'm a student</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-2">
+                                <!-- <label for="">Profile:</label> -->
+                                <input type="file" class="form-control" name="image">
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                                <a href="">Forgot Password</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign up</button>
+                            <p class="text-center mb-0">Don't have an Account? <a href="/signin">Sign in</a></p>
                         </form>
                     </div>
                 </div>

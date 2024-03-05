@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,10 +61,16 @@
                             <div class="form-floating mb-3">
                             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name ="email">
                             <label for="floatingInput">Email address</label>
+                            <?php if(isset($_SESSION['worngEmail'])): ?>
+                            <span style="color: red;"><?= $_SESSION['worngEmail']?></span>
+                            <?php endif; ?>
                         </div>
                         <div class="form-floating mb-4">
                             <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name ="password">
                             <label for="floatingPassword">Password</label>
+                            <?php if(isset($_SESSION['worngPassword'])): ?>
+                            <span style="color: red;"><?= $_SESSION['worngPassword']?></span>
+                            <?php endif; ?>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="form-check">
