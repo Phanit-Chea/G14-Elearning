@@ -10,7 +10,7 @@ Footer START -->
 			<div class="col-lg-3">
 				<!-- logo -->
 				<a class="me-0" href="index.html">
-					<img class="light-mode-item h-40px" src="assets/images/logo.svg" alt="logo">
+					<img class="light-mode-item h-40px" src="assets/images/courses/4by3/photo_2024-03-04_07-59-04.jpg" alt="logo" >
 					<img class="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo">
 				</a>
 				<p class="my-3">Eduport education theme, built specifically for the education centers which is dedicated to teaching and involve learners.</p>
