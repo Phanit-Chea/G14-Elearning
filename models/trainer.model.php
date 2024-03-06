@@ -19,10 +19,10 @@ function get_courses(): array
 };
 
 //================create course ====================//
-function create_course(string $course_name, int $duration, int $course_price, int $user_id, int $category_id, string $description, string $course_image): bool
+function create_course(string $course_name, int $duration, int $course_price, int $user_id, int $category_id, string $description, string $course_image,string $video): bool
 {
     global $connection;
-    $statement = $connection->prepare("INSERT INTO courses (course_name, course_duration, course_price, user_id, category_id, description, course_image) VALUES (:course_name, :course_duration, :course_price, :user_id, :category_id, :description, :course_image)");
+    $statement = $connection->prepare("INSERT INTO courses (course_name, course_duration, course_price, user_id, category_id, description, course_image,video_path_file) VALUES (:course_name, :course_duration, :course_price, :user_id, :category_id, :description, :course_image,:video_path_file)");
     $statement->execute([
         ':course_name' => $course_name,
         ':course_duration' => $duration,
@@ -31,6 +31,7 @@ function create_course(string $course_name, int $duration, int $course_price, in
         ':category_id' => $category_id,
         ':description' => $description,
         ':course_image' => $course_image,
+        ':video_path_file' => $video
     ]);
     return $statement->rowCount() > 0;
 };
@@ -44,3 +45,35 @@ function get_categories()
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 };
+
+// == insert video 
+
+// ====== select row count of table ===========
+// function get_nb_row(){
+//     global $connection;
+//     $statement = $connection->prepare("SELECT COUTN(*) AS row_count FROM users;");
+//     $statement->execute();
+//     return $statement->rowCount()>0;
+// }
+
+function get_last_user_id()
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT user_id
+    FROM users
+    ORDER BY user_id DESC
+    LIMIT 1;");
+    $statement->execute();
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result['user_id'];
+}
+
+// ======= get user_id sign in ==========
+function get_user_signin($email) {
+    global $connection;
+    $statement = $connection->prepare("SELECT users.user_id FROM users WHERE users.email = :email;");
+    $statement->execute([
+        ':email' => $email
+    ]);
+    return $statement->rowCount() > 0;
+}

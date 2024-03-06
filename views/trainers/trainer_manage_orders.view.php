@@ -81,17 +81,10 @@ require 'layouts/trainer/navbar.php';
                                         </ul>
                                     </div>
                                     <!-- Button -->
-                                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                                        <a href="instructor-create-course.html" class="btn btn-success mb-0">Create a
-                                            course</a>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                        <!-- Profile banner END -->
-
-                        <!-- Advanced filter responsive toggler START -->
-                        <!-- Divider -->
                         <hr class="d-xl-none">
                         <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
                             <a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
@@ -99,16 +92,11 @@ require 'layouts/trainer/navbar.php';
                                 <i class="fas fa-sliders-h"></i>
                             </button>
                         </div>
-                        <!-- Advanced filter responsive toggler END -->
+
                     </div>
                 </div>
             </div>
         </section>
-        <!-- =======================
-        Page Banner END -->
-
-        <!-- =======================
-        Page content START -->
         <section class="pt-0">
             <div class="container">
                 <div class="row">
@@ -132,8 +120,8 @@ require 'layouts/trainer/navbar.php';
                                             <a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Category</a>
                                             <a class="list-group-item" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
                                             <a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
-                                            <a class="list-group-item active" href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
-                                            <a class="list-group-item" href="/trainer_manage_orders"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
+                                            <a class="list-group-item " href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
+                                            <a class="list-group-item active" href="/trainer_manage_orders"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
 
                                             <a class="list-group-item" href="/trainer_edit_profile"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
                                             <a class="list-group-item" href="/trainer_manage_payout"><i class="bi bi-wallet2 fa-fw me-2"></i>Payouts</a>

@@ -1,4 +1,4 @@
-<?php session_start()?>
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,22 +56,22 @@
                         </div>
                         <form action="controllers/signup/create_user.controller.php?role=<?= isset($_GET['role']) ? $_GET['role'] : null  ?>" method="post" enctype="multipart/form-data">
                             <div class="form-floating mb-2">
-                                <input type="name" class="form-control" id="floatingInput" placeholder="name@example.com" name="username">
+                                <input type="name" class="form-control" id="floatingInput" placeholder="name@example.com" name="username" required>
                                 <label for="floatingInput">Name</label>
                             </div>
                             <div class="form-floating mb-2">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" required>
                                 <label for="floatingInput">Email</label>
-                                <?php if(isset($_SESSION['duplicate'])): ?>
-                                <span style="color :red;"><?= $_SESSION['duplicate']?></span>
-                                <?php endif;?>
+                                <?php if (isset($_SESSION['duplicate'])) : ?>
+                                    <span style="color :red;"><?= $_SESSION['duplicate'] ?></span>
+                                <?php endif; ?>
                             </div>
                             <div class="form-floating mb-2">
-                                <input type="password" class="form-control" id="floatingPassword"  name="password" placeholder="Password">
+                                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required>
                                 <label for="floatingPassword">Password</label>
                             </div>
                             <div class="form-floating mb-2">
-                                <select class="form-select" aria-label="Default select example" name="choice">
+                                <select class="form-select" aria-label="Default select example" name="choice" required>
                                     <option selected class="d-flex align-items-center justify-content-center">Please choice your role</option>
                                     <option value="1">I'm a teacher</option>
                                     <option value="2">I'm a student</option>
@@ -88,7 +88,11 @@
                                 </div>
                                 <a href="">Forgot Password</a>
                             </div>
-                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign up</button>
+                            <?php
+                            require 'models/trainer.model.php';
+                            $nb_row = get_last_user_id() + 1;
+                            ?>
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4"><input type="hidden" name="user_id" id="sign_up" value="$nb_row">Sign up</button>
                             <p class="text-center mb-0">Don't have an Account? <a href="/signin">Sign in</a></p>
                         </form>
                     </div>
@@ -117,7 +121,7 @@
             const showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
             const passwordInput = document.getElementById("floatingPassword");
 
-            showPasswordCheckbox.addEventListener("change", function () {
+            showPasswordCheckbox.addEventListener("change", function() {
                 if (showPasswordCheckbox.checked) {
                     passwordInput.type = "text";
                 } else {
