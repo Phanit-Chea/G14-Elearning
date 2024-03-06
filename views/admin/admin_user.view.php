@@ -1,9 +1,10 @@
 <script src="vendor/js/search_name.js" defer></script>
 <div class="table-responsive p-5 pt-3">
     <h2>Users List</h2>
-    <form class="d-none d-md-flex mb-3 mt-4">
-        <input class="form-control bg-secondary border-0 w-25" type="search" placeholder="Search">
+    <form>
+        <input type="text" id="search_user" placeholder="Search Username" class="form-control bg-secondary border-0 w-25 mt-4 mb-3 ">
     </form>
+
     <table class="table text-start align-middle table-bordered table-dark table-hover mb-0">
         <thead>
             <tr class="text-white">
@@ -23,7 +24,7 @@
 
             foreach ($users as $user):
                 ?>
-                
+
                 <tr>
                     <td>
                         <?= $id; ?>
@@ -40,7 +41,8 @@
                     </td>
                     <td>
                         <a onclick="return confirm('Do you want to delete this user?')" class="btn btn-sm btn-primary"
-                            href="/controllers/admin/admin_crud_user/delete_user.controller.php?id=<?= $user['user_id']; ?>"><i class="bi bi-trash-fill"></i></a>
+                            href="/controllers/admin/admin_crud_user/delete_user.controller.php?id=<?= $user['user_id']; ?>"><i
+                                class="bi bi-trash-fill"></i></a>
                         <a class="btn btn-sm btn-warning" data-bs-toggle="modal"
                             data-bs-target="#edit<?= $user['user_id']; ?>"><i class="bi bi-pencil-square"></i></a>
 
@@ -86,4 +88,5 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+
 </div>

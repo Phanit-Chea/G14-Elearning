@@ -27,6 +27,8 @@
 
 	<!-- Theme CSS -->
 	<link id="style-switch" rel="stylesheet" type="text/css" href="vendor/css/style.css">
+	<link id="style-switch" rel="stylesheet" type="text/css" href="vendor/css/popup_form.css">
+	
 
 
 	<!-- Link and script for Ajax --> 
