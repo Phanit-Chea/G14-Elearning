@@ -33,7 +33,7 @@
 							<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
 							<ul class="dropdown-menu" aria-labelledby="pagesMenu">
 								<!-- Dropdown submenu -->
-								<li> <a class="dropdown-item" href="/student">Student</a></li>
+								<li> <a class="dropdown-item" href="/trainers">Trainer</a></li>
 								<li> <a class="dropdown-item" href="/">Home</a></li>
 							</ul>
 						</li>
@@ -83,7 +83,7 @@
 				<!-- Profile START -->
 				<div class="dropdown ms-1 ms-lg-0">
 					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-						<img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
+						<img class="avatar-img rounded-circle" src="assets/images/avatar/p.jpg" alt="avatar">
 					</a>
 					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
 						<!-- Profile info -->

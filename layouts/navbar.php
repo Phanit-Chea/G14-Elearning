@@ -269,14 +269,14 @@
         <?php
         if (isset($_SESSION['user'])) {
           if ($_SESSION['user']['role_id'] != 3) { ?>
-            <img class="rounded-circle me-lg-2" src="../assets/images/avatar/<?= isset($_SESSION['user']) ? $_SESSION['user']['image'] : '01.jpg' ?>" alt="" style="width: 50px; height:50px;">
+            <img class="rounded-circle me-lg-2" src="../assets/images/avatar/<?= isset($_SESSION['user']) ? $_SESSION['user']['image'] : 'p.jpg' ?>" alt="" style="width: 50px; height:50px;">
         <?php }
         } else {
-          $imgPF = "../assets/images/avatar/01.jpg";
+          $imgPF = "../assets/images/avatar/p.jpg";
         }
         ?>
         <?php if (isset($imgPF)) {
-          echo '<img class="rounded-circle me-lg-2" src="../assets/images/avatar/01.jpg" alt="" style="width: 50px; height:50px;">';
+          echo '<img class="rounded-circle me-lg-2" src="../assets/images/avatar/p.jpg" alt="" style="width: 50px; height:50px;">';
         }
         ?>
       </div>
