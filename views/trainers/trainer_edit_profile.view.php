@@ -31,7 +31,7 @@ require 'layouts/trainer/navbar.php';
           <form action="#" method="POST" id="myForm" onsubmit="return validateForm()">
             <div class="mb-3">
               <label for="name" class="form-label fw-bold">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Enter your new name">
+              <input type="text" class="form-control" id="name" placeholder="Enter your new name" value="<?php echo $username; ?>">
               <div id="nameError" class="error-message"></div>
             </div>
             <div class="mb-3">
@@ -50,11 +50,11 @@ require 'layouts/trainer/navbar.php';
               <div id="passwordError" class="error-message"></div>
             </div>
             <div class="mb-3">
-              <label for="profile" class="form-label fw-bold">Profile Picture</label>
+              <label for="profile" class="form-label fw-bold">Choose New Profile</label>
               <input type="file" class="form-control" id="profile" accept="image/*">
               <div id="profileError" class="error-message"></div>
             </div>
-            <button type="submit" class="btn btn-primary rounded-pill">Submit</button>
+            <button type="submit" class="btn btn-primary rounded-pill">Save change</button>
           </form>
         </div>
       </div>
