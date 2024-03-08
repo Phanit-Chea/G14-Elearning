@@ -54,17 +54,34 @@ require 'layouts/trainer/navbar.php';
         <div class="container-fluid px-0">
             <div class="bg-blue h-100px h-md-200px rounded-0" style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
             </div>
-        </div>
-        <div class="container mt-n4">
-            <div class="row">
-                <!-- Profile banner START -->
-                <div class="col-12">
-                    <div class="card bg-transparent card-body p-0">
-                        <div class="row d-flex justify-content-between">
-                            <!-- Avatar -->
-                            <div class="col-auto mt-4 mt-md-0">
-                                <div class="avatar avatar-xxl mt-n3">
-                                    <img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt="">
+            <div class="container mt-n4">
+                <div class="row">
+                    <!-- Profile banner START -->
+                    <div class="col-12">
+                        <div class="card bg-transparent card-body p-0">
+                            <div class="row d-flex justify-content-between">
+                                <!-- Avatar -->
+                                <div class="col-auto mt-4 mt-md-0">
+                                    <div class="avatar avatar-xxl mt-n3">
+                                        <img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/<?php echo $profileImage; ?>" alt="">
+                                    </div>
+                                </div>
+                                <!-- Profile info -->
+                                <div class="col d-md-flex justify-content-between align-items-center mt-4">
+                                    <div>
+                                        <h1 class="my-1 fs-4"><?php echo $username; ?>  <i class="bi bi-patch-check-fill text-info small"></i></h1>
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled
+                                                Students</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i>25 Courses</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Button -->
+                                    <div class="d-flex align-items-center mt-2 mt-md-0">
+                                        <a href="instructor-create-course.html" class="btn btn-success mb-0">Create a
+                                            course</a>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Profile info -->
@@ -108,27 +125,27 @@ require 'layouts/trainer/navbar.php';
         <div class="container">
             <div class="row">
 
-                <!-- Right sidebar START -->
-                <div class="col-xl-3">
-                    <!-- Responsive offcanvas body START -->
-                    <nav class="navbar navbar-light navbar-expand-xl mx-0">
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                            <!-- Offcanvas header -->
-                            <div class="offcanvas-header bg-light">
-                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">My profile</h5>
-                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                            </div>
-                            <!-- Offcanvas body -->
-                            <div class="offcanvas-body p-3 p-xl-0">
-                                <div class="bg-dark border rounded-3 pb-0 p-3 w-100">
-                                    <!-- Dashboard menu -->
-                                    <div class="list-group list-group-dark list-group-borderless">
-                                        <a class="list-group-item" href="/trainer_dashboard"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
-                                        <a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Category</a>
-                                        <a class="list-group-item" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
-                                        <a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
-                                        <a class="list-group-item " href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
-                                        <a class="list-group-item" href="/trainer_manage_orders"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
+                    <!-- Right sidebar START -->
+                    <div class="col-xl-3">
+                        <!-- Responsive offcanvas body START -->
+                        <nav class="navbar navbar-light navbar-expand-xl mx-0">
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                                <!-- Offcanvas header -->
+                                <div class="offcanvas-header bg-light">
+                                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">My profile</h5>
+                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <!-- Offcanvas body -->
+                                <div class="offcanvas-body p-3 p-xl-0">
+                                    <div class="bg-dark border rounded-3 pb-0 p-3 w-100">
+                                        <!-- Dashboard menu -->
+                                        <div class="list-group list-group-dark list-group-borderless">
+                                            <a class="list-group-item" href="/trainer_dashboard"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
+                                            <a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Category</a>
+                                            <a class="list-group-item" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
+                                            <a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
+                                            <a class="list-group-item " href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
+                                            <a class="list-group-item" href="/trainer_manage_orders"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
 
                                         <a class="list-group-item" href="/trainer_edit_profile"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
                                         <a class="list-group-item active" href="/trainer_manage_payout"><i class="bi bi-wallet2 fa-fw me-2"></i>Payouts</a>
