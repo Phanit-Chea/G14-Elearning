@@ -1,3 +1,4 @@
+<script src="../../vendor/js/search_category.js" defer></script>
 <body>
 
 	<!-- Header START -->
