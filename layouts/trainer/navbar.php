@@ -1,3 +1,4 @@
+<script src="../../vendor/js/search_category.js" defer></script>
 <body>
 
 	<!-- Header START -->
@@ -33,7 +34,7 @@
 							<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
 							<ul class="dropdown-menu" aria-labelledby="pagesMenu">
 								<!-- Dropdown submenu -->
-								<li> <a class="dropdown-item" href="/">Student</a></li>
+								<li> <a class="dropdown-item" href="/student">Student</a></li>
 								<li> <a class="dropdown-item" href="/">Home</a></li>
 							</ul>
 						</li>

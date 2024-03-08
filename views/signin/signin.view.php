@@ -62,7 +62,7 @@ session_start();
                         <form action="controllers/signin/user_signin.controller.php" method='post'>
                             <div class="form-floating mb-3">
                                 <input type="email" class="form-control" id="floatingInput"
-                                    placeholder="name@example.com" name="email">
+                                    placeholder="name@example.com" name="email" required>
                                 <label for="floatingInput">Email address</label>
                                 <?php if (isset($_SESSION['worngEmail'])): ?>
                                     <span style="color: red;">
@@ -72,7 +72,7 @@ session_start();
                             </div>
                             <div class="form-floating mb-4">
                                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-                                    name="password">
+                                    name="password" required>
                                 <label for="floatingPassword">Password</label>
                                 <?php if (isset($_SESSION['worngPassword'])): ?>
                                     <span style="color: red;">
@@ -84,13 +84,14 @@ session_start();
                                 <input type="checkbox" class="form-check-input" id="showPasswordCheckbox">
                                 <label class="form-check-label" for="showPasswordCheckbox">Show password</label>
                             </div>
-                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4"><input type="hidden" name="" id="" value="">Sign In</button>
                             <p class="text-center mb-0">Don't have an Account? <a href="/signup">Sign Up</a></p>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+       
         <!-- Sign In End -->
     </div>
 

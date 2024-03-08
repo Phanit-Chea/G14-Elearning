@@ -81,17 +81,10 @@ require 'layouts/trainer/navbar.php';
                                         </ul>
                                     </div>
                                     <!-- Button -->
-                                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                                        <a href="instructor-create-course.html" class="btn btn-success mb-0">Create a
-                                            course</a>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                        <!-- Profile banner END -->
-
-                        <!-- Advanced filter responsive toggler START -->
-                        <!-- Divider -->
                         <hr class="d-xl-none">
                         <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
                             <a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
@@ -99,16 +92,11 @@ require 'layouts/trainer/navbar.php';
                                 <i class="fas fa-sliders-h"></i>
                             </button>
                         </div>
-                        <!-- Advanced filter responsive toggler END -->
+
                     </div>
                 </div>
             </div>
         </section>
-        <!-- =======================
-        Page Banner END -->
-
-        <!-- =======================
-        Page content START -->
         <section class="pt-0">
             <div class="container">
                 <div class="row">

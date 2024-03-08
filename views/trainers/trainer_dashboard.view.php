@@ -92,10 +92,7 @@ Page Banner START -->
 								</div>
 							</div>
 						</div>
-						<!-- Profile banner END -->
 
-						<!-- Advanced filter responsive toggler START -->
-						<!-- Divider -->
 						<hr class="d-xl-none">
 						<div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
 							<a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
@@ -131,7 +128,7 @@ Page content START -->
 									<div class="bg-dark border rounded-3 pb-0 p-3 w-100">
 										<!-- Dashboard menu -->
 										<div class="list-group list-group-dark list-group-borderless">
-											<a class="list-group-item" href="/trainer_dashboard"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
+											<a class="list-group-item active" href="/trainer_dashboard"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
 											<a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Category</a>
 											<a class="list-group-item" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
 											<a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>

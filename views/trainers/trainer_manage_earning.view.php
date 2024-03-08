@@ -79,18 +79,9 @@ require 'layouts/trainer/navbar.php';
                                             <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i>25 Courses</li>
                                         </ul>
                                     </div>
-                                    <!-- Button -->
-                                    <div class="d-flex align-items-center mt-2 mt-md-0">
-                                        <a href="instructor-create-course.html" class="btn btn-success mb-0">Create a
-                                            course</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Profile banner END -->
-
-                        <!-- Advanced filter responsive toggler START -->
-                        <!-- Divider -->
                         <hr class="d-xl-none">
                         <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
                             <a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
