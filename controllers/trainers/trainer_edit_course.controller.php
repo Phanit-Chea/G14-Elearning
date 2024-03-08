@@ -2,9 +2,8 @@
 require("database/database.php");
 require("models/trainer.model.php");
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $course = get_course($id);
+if (isset($_POST['course_id'])) {
+    $id = $_POST['course_id'];
+    course_info($id);
 }
-
-require "views/trainers/trainer_edit_course.view.php";
+require("views/trainers/trainer_edit_course.view.php");
