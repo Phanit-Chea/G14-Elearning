@@ -1,12 +1,10 @@
 ﻿<?php 
 require 'layouts/trainer/navbar.php';
  ?>
+ <script src="../../vendor/js/search_list_trainers.js"></script>
 
 				<!-- Profile START -->
 				<div class="dropdown ms-1 ms-lg-0">
-					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-						<img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
-					</a>
 					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
 						<!-- Profile info -->
 						<li class="px-3">
@@ -89,7 +87,7 @@ Inner part START -->
 					<div class="col-sm-6 col-xl-4">
 						<form class="bg-body shadow rounded p-2">
 							<div class="input-group input-borderless">
-								<input class="form-control me-1" type="search" placeholder="Search instructor">
+								<input id="trainer" class="form-control me-1" type="search" placeholder="Search instructor">
 								<button type="button" class="btn btn-primary mb-0 rounded"><i class="fas fa-search"></i></button>
 							</div>
 						</form>

@@ -41,6 +41,26 @@
 .form-container button:hover {
   background-color: #008080;
 } */
+.file-input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.file-input-wrapper input[type="file"] {
+  display: none;
+}
+
+.file-input-wrapper label {
+  display: inline-block;
+  background-color: #e9e9e9;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.file-input-wrapper label i {
+  margin-right: 5px;
+}
  .modal {
   display: flex;
   display: none;

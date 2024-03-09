@@ -1,55 +1,9 @@
-﻿<?php 
+﻿﻿<script src="../../vendor/js/searchcourseontrainer.js" defer></script>
+<?php
 require 'layouts/trainer/navbar.php';
- ?>
-<script src="../../vendor/js/searchcourseontrainer.js"></script>
-				<!-- Profile START -->
-				<div class="dropdown ms-1 ms-lg-0">
-					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
-						<!-- Profile info -->
-						<li class="px-3">
-							<div class="d-flex align-items-center">
-								<!-- Avatar -->
-								<div class="avatar me-3">
-									<img class="avatar-img rounded-circle shadow" src="assets/images/avatar/01.jpg" alt="avatar">
-								</div>
-								<div>
-									<a class="h6" href="#">Lori Ferguson</a>
-									<p class="small m-0">example@gmail.com</p>
-								</div>
-							</div>
-							<hr>
-						</li>
-						<!-- Links -->
-						<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a>
-						</li>
-						<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a>
-						</li>
-						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
-						<li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
-						<li>
-							<hr class="dropdown-divider">
-						</li>
-						<!-- Dark mode switch START -->
-						<li>
-							<div class="modeswitch-wrap" id="darkModeSwitch">
-								<div class="modeswitch-item">
-									<div class="modeswitch-icon"></div>
-								</div>
-								<span>Dark mode</span>
-							</div>
-						</li>
-						<!-- Dark mode switch END -->
-					</ul>
-				</div>
-				<!-- Profile START -->
-			</div>
-		</nav>
-		<!-- Logo Nav END -->
-	</header>
+?>
 
-
-
-	<!-- Header END -->
+<body class="pt-0">
 
 	<!-- **************** MAIN CONTENT START **************** -->
 	<main>
@@ -71,13 +25,13 @@ Main Banner START -->
 								<!-- Avatar -->
 								<div class="col-auto mt-4 mt-md-0">
 									<div class="avatar avatar-xxl mt-n3">
-										<img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt="">
+										<img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/<?php echo $profileImage; ?>" alt="">
 									</div>
 								</div>
 								<!-- Profile info -->
 								<div class="col d-md-flex justify-content-between align-items-center mt-4">
 									<div>
-										<h1 class="my-1 fs-4">Lori Stevens <i class="bi bi-patch-check-fill text-info small"></i></h1>
+										<h1 class="my-1 fs-4"><?php echo $username; ?> <i class="bi bi-patch-check-fill text-info small"></i></h1>
 										<ul class="list-inline mb-0">
 											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
 											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled
@@ -87,7 +41,7 @@ Main Banner START -->
 									</div>
 									<!-- Button -->
 									<div class="d-flex align-items-center mt-2 mt-md-0">
-										<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-modal">
+										<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#add-modal">
 											Create Course
 										</button>
 
@@ -136,7 +90,8 @@ Inner part START -->
 										<div class="list-group list-group-dark list-group-borderless">
 											<a class="list-group-item" href="/trainer_dashboard"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
 											<a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Category</a>
-											<a class="list-group-item" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
+											<a class="list-group-item active" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
+											<a class="list-group-item" href="/trainer_manage_lesson"><i class="bi bi-basket fa-fw me-2"></i>My Lessons</a>
 											<a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
 											<a class="list-group-item " href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
 											<a class="list-group-item" href="/trainer_manage_orders"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
@@ -216,33 +171,37 @@ Inner part START -->
 											$courses = get_courses();
 											foreach ($courses as $course) :
 											?>
+
 												<tr>
-													<!-- Course item -->
 													<td>
 														<div class="d-flex align-items-center">
-															<!-- Image -->
-															<div class="w-100px">
-																<img src="assets/images/courses/4by3/<?php echo $course['course_image'] ?>" class="rounded" alt="">
+															<div class="w-60px">
+																<img src="../../assets/images/courses/4by3/<?= $course['course_image'] ?>" alt="" class="rounded" style="width: 100px; height : 50px;">
 															</div>
-															<div class="mb-0 ms-4">
-																<!-- Title -->
-																<h5><a href="#"><?php echo $course['course_name'] ?></a></h5>
-																<!-- Info -->
+															<div class="mb-0 ms-2">
+																<h6><a href=""><?php echo $course['course_name'] ?></a></h6>
 																<div class="d-sm-flex">
-																	<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i><?php echo $course['lesson_count'] ?>
-																		lessons</p>
+																	<p class="h6 fw-light mb-0 small me-3">
+																		<i class="fa fa-table text-orange me-2"></i> 18 lessons
+																	</p>
+																	<p class="h6 fw-light mb-0 small">
+																		<i class="fas fa-check-circle text-success me-2"></i> 6 Completed
+																	</p>
 																</div>
 															</div>
 														</div>
 													</td>
-													<!-- Enrolled item -->
-													<td class="text-center text-sm-start"><?php echo $course['sold_lesson_count'] ?></td>
-													<td><?php echo $course['course_price'] ?></td>
-													<!-- Action item -->
-													<td>
-														<a href="/controllers/trainers/trainer_edit_course.controller.php?id=<?= $course['course_id'] ?>" class="btn btn-sm btn-success-soft btn-round me-1 mb-0" ><i class="far fa-fw fa-edit"></i></a>
-														<!-- <a href="controllers/trainers/trainer_edit_course.controller.php?id=<?= $course['course_id'] ?>" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"  ><i class="far fa-fw fa-edit"></i></a> -->
-														<a href="<?php $course['course_id'] ?>" class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></a>
+													<td class="text-center text-sm-center"><?php echo $course['lesson_count'] ?></td>
+													<td><?php echo $course['course_price'] ?>$</td>
+													<td class="d-flex text-center text-sm-center p-5">
+														<form action="/trainer_edit_course" method="post">
+															<input type="hidden" name="course_id" value="<?= $course['course_id'] ?>">
+															<button type="submit" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></button>
+														</form>
+														<form action="" method="post">
+															<input type="hidden" name="course_id" value="<?= $course['course_id'] ?>">
+															<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
+														</form>
 													</td>
 												</tr>
 											<?php endforeach; ?>
@@ -288,7 +247,6 @@ Inner part END -->
 
 	<!-- //=========form for create course============= -->
 	<!-- Modal -->
-
 	<div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 
@@ -298,119 +256,44 @@ Inner part END -->
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<form action="controllers/trainers/trainer_create_course.controller.php" method="POST" enctype="multipart/form-data" class="w-100 row g-2">
-						<div class="form-group mt-3 ">
-							<input type="text" class="form-control" id="course_name" name="course_name" placeholder="Enter course name" required>
-						</div>
-						<div class="form-group mt-3 col-sm-6">
-							<input type="number" class="form-control" id="course_duration" name="course_duration" placeholder="Enter course duration" required>
-						</div>
-						<div class="form-group mt-3 col-sm-6">
-							<div class="input-group">
-								<span class="input-group-text">$</span>
-								<input type="text" class="form-control" id="course_price" name="course_price" placeholder="Enter course price" required>
-							</div>
-						</div>
-						<div class="form-group mt-3 col-sm-6">
-							<input class="form-control" id="course_image" type="file" name="course_image" required>
-						</div>
-						<div class="form-group mt-3 col-sm-6">
-							<select class="form-select" id="teacher" name="teacher" required>
-								<option selected disabled>Select teacher</option>
-								<?php
-								$trainers = get_trainers();
-								foreach ($trainers as $trainer) :
-								?>
-									<option value="<?php echo $trainer['user_id'] ?>"><?php echo $trainer['username'] ?></option>
-								<?php endforeach; ?>
-							</select>
-						</div>
-						<div class="form-group mt-3 col-sm-12">
-							<select class="form-select" id="course_category" name="course_category" required>
-								<option selected disabled>Select category</option>
-								<?php
-								$categories = get_categories();
-								foreach ($categories as $category) :
-								?>
-									<option value="<?php echo $category['category_id'] ?>"><?php echo $category['category_name'] ?></option>
-								<?php endforeach; ?>
-							</select>
-						</div>
-						<div class="form-group mt-3 col-12">
-							<textarea class="form-control" id="description" rows="3" name="description" required></textarea>
-						</div>
-						<div class="col-12">
-							<button type="submit" class="btn btn-primary">Create</button>
-							<button class="btn btn-secondary" id="modal" data-bs-dismiss="modal">Cancel</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
 
-	<!-- =============form for edit course -->
-	
-	<div class="modal fade" id="edit_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content bg-secondary">
-				<div class="modal-header ">
-					<h5 class="modal-title" id="exampleModalLabel">Edit Course</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<form action="controllers/trainers/trainer_edit_course.controller.php" method="POST" enctype="multipart/form-data" class="w-100 row g-2">
-						<div class="form-group mt-3 ">
-							<!-- <label for="course_name" class="form-label">Course Name</label> -->
-							<input type="text" class="form-control" id="course_name" name="course_name" placeholder="Enter course name" required>
+					<form action="controllers/trainers/trainer_create_course.controller.php" method="POST" enctype="multipart/form-data" class="w-100">
+						<div class="form-group mt-3">
+							<input type="hidden" name="id" value="">
+							<input type="text" class="form-control bg-white" name="course_name" placeholder="course_name" value="" required>
 						</div>
-						<div class="form-group mt-3 col-sm-6">
-							<!-- <label for="course_duration" class="form-label">Course Duration</label> -->
-							<input type="number" class="form-control" id="course_duration" name="course_duration" placeholder="Enter course duration" required>
+						<div class="form-group mt-3">
+							<input type="number" class="form-control bg-white" name="course_duration" placeholder="Course duration" value="" required>
 						</div>
-						<div class="form-group mt-3 col-sm-6">
-							<!-- <label for="course_price" class="form-label">Course Price</label> -->
-							<div class="input-group">
-								<span class="input-group-text">$</span>
-								<input type="text" class="form-control" id="course_price" name="course_price" placeholder="Enter course price" required>
-							</div>
+						<div class="form-group mt-3">
+							<input type="text" class="form-control decimal-input" name="course_price" placeholder="Course Price" aria-label="Decimal Input" value="" required>
 						</div>
-						<div class="form-group mt-3 col-sm-6">
-							<!-- <label for="course_image" class="form-label">Course Image</label> -->
-							<input class="form-control" id="course_image" type="file" name="course_image" required>
+						<div class="form-group mt-3">
+							<input class="form-control form-control-sm" id="formFileSm" type="file" name="course_image" placeholder="Course Image" required>
 						</div>
-						<div class="form-group mt-3 col-sm-6">
-							<!-- <label for="teacher" class="form-label">Teacher</label> -->
-							<select class="form-select" id="teacher" name="teacher" required>
-								<option selected disabled>Select teacher</option>
-								<?php
-								$trainers = get_trainers();
-								foreach ($trainers as $trainer) :
-								?>
-									<option value="<?php echo $trainer['user_id'] ?>"><?php echo $trainer['username'] ?></option>
-								<?php endforeach; ?>
-							</select>
-						</div>
-						<div class="form-group mt-3 col-sm-12">
-							<!-- <label for="course_category" class="form-label">Course Category</label> -->
-							<select class="form-select" id="course_category" name="course_category" required>
-								<option selected disabled>Select category</option>
-								<?php
-								$categories = get_categories();
-								foreach ($categories as $category) :
-								?>
-									<option value="<?php echo $category['category_id'] ?>"><?php echo $category['category_name'] ?></option>
-								<?php endforeach; ?>
-							</select>
-						</div>
-						<div class="form-group mt-3 col-12">
-							<!-- <label for="description" class="form-label">Course Description</label> -->
-							<textarea class="form-control" id="description" rows="3" name="description" required></textarea>
-						</div>
-						<div class="col-12">
-							<button type="submit" class="btn btn-success">Update</button>
-							<button class="btn btn-secondary" id="modal" data-bs-dismiss="modal">Cancel</button>
-						</div>
+						<select class="form-select mt-3" aria-label="Default select example" name="teacher" required>
+
+							<option selected>Who are you?</option>
+							<?php
+							$trainers = get_trainers();
+							foreach ($trainers as $trainer) :
+							?>
+								<option value="<?php echo $trainer['user_id'] ?>"><?php echo $trainer['username'] ?></option>
+							<?php endforeach; ?>
+
+						</select>
+						<select class="form-select mt-3" aria-label="Default select example" name="course_category" required>
+							<option selected>Select categories</option>
+							<?php
+							$categories = get_categories();
+							foreach ($categories as $category) :
+							?>
+								<option value="<?php echo $category['category_id'] ?>"><?php echo $category['category_name'] ?></option>
+							<?php endforeach; ?>
+						</select>
+						<textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="3" name="description" required>Course description</textarea>
+						<button type="submit" class="btn btn-primary m-4">Create</button>
+						<button class="btn btn-danger m-4" id="modal" data-bs-dismiss="modal">cancel</button>
 					</form>
 				</div>
 			</div>
@@ -434,6 +317,7 @@ Footer END -->
 	<!-- Template Functions -->
 	<script src="assets/js/functions.js"></script>
 	<script src="vendor/js/popup_form.js"></script>
+
 
 </body>
 
