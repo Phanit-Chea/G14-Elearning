@@ -23,7 +23,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="/trainers" class="dropdown-item">Trainer</a>
-                            <a href="/" class="dropdown-item">Student</a>
+                            <a href="/student" class="dropdown-item">Student</a>
                             <a href="/" class="dropdown-item">Home</a>
                         </div>
                     </div>
