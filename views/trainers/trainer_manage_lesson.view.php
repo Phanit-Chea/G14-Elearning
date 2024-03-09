@@ -41,8 +41,8 @@ Main Banner START -->
 									</div>
 									<!-- Button -->
 									<div class="d-flex align-items-center mt-2 mt-md-0">
-										<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#add-modal">
-											Create Course
+										<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#add_modal">
+											Create Lesson
 										</button>
 
 									</div>
@@ -90,8 +90,8 @@ Inner part START -->
 										<div class="list-group list-group-dark list-group-borderless">
 											<a class="list-group-item" href="/trainer_dashboard"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
 											<a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Category</a>
-											<a class="list-group-item active" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
-											<a class="list-group-item" href="/trainer_manage_lesson"><i class="bi bi-basket fa-fw me-2"></i>My Lessons</a>
+											<a class="list-group-item " href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
+											<a class="list-group-item active" href="/trainer_manage_lesson"><i class="bi bi-basket fa-fw me-2"></i>My Lessons</a>
 											<a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
 											<a class="list-group-item " href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
 											<a class="list-group-item" href="/trainer_manage_orders"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
@@ -117,7 +117,7 @@ Inner part START -->
 						<div class="card border rounded-3">
 							<!-- Card header START -->
 							<div class="card-header border-bottom">
-								<h3 class="mb-0">My Courses List</h3>
+								<h3 class="mb-0">My Lesson List</h3>
 							</div>
 							<!-- Card header END -->
 
@@ -156,9 +156,10 @@ Inner part START -->
 										<!-- Table head -->
 										<thead>
 											<tr>
-												<th scope="col" class="border-0 rounded-start">Course Title</th>
-												<th scope="col" class="border-0">Course Sold</th>
-												<th scope="col" class="border-0">Price</th>
+												<th scope="col" class="border-0 rounded-start">Lesson Title</th>
+												<th scope="col" class="border-0">Course</th>
+												<th scope="col" class="border-0">Enrolled</th>
+												<th scope="col" class="border-0">Status</th>
 												<th scope="col" class="border-0 rounded-end">Action</th>
 											</tr>
 										</thead>
@@ -174,34 +175,38 @@ Inner part START -->
 												<tr>
 													<!-- Course item -->
 													<td>
-														<div class="d-flex align-items-center">
+														<div class="d-flex juctify-content-start">
 															<!-- Image -->
-															<div class="w-100px">
+															<!-- <div class="w-100px">
 																<img src="../../assets/images/courses/4by3/<?= $course['course_image'] ?>" class="rounded" alt="" style="width: 100px; height : 100px;">
-															</div>
+															</div> -->
 															<div class="mb-0 ms-4">
 																<!-- Title -->
 																<h5><a href="#"><?php echo $course['course_name'] ?></a></h5>
 																<!-- Info -->
 																<div class="d-sm-flex">
 																	<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i><?php echo $course['lesson_count'] ?>
-																		lessons</p>
+																		Free</p>
+																	<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i><?php echo $course['lesson_count'] ?>
+																		Premium</p>
 																</div>
 															</div>
 														</div>
 													</td>
 													<!-- Enrolled item -->
 													<td class="text-center text-sm-start"><?php echo $course['sold_lesson_count'] ?></td>
-													<td><?php echo $course['course_price'] ?></td>
+													<td class="text-center text-sm-start"><?php echo $course['sold_lesson_count'] ?></td>
+													<td class="text-center text-sm-start"><?php echo $course['sold_lesson_count'] ?></td>
+
 													<!-- Action item -->
-													<td class="d-flex text-center text-sm-start p-6	">
+													<td class="d-flex text-center text-sm-start p-5">
 														<form action="/trainer_edit_course" method="post">
 															<input type="hidden" name="course_id" value="<?= $course['course_id'] ?>">
 															<button type="submit" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></button>
 														</form>
 														<form action="">
-															<input type="hidden" name="cours_id" value="<?= $course['course_id'] ?>">
-															<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></button>
+															<input type="hidden" name="course_id" value="<?= $course['course_id'] ?>">
+															<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
 														</form>
 													</td>
 												</tr>
@@ -248,7 +253,7 @@ Inner part END -->
 
 	<!-- //=========form for create course============= -->
 	<!-- Modal -->
-	<div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<!-- <div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 
 			<div class="modal-content bg-secondary">
@@ -295,6 +300,39 @@ Inner part END -->
 						<textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="3" name="description" required>Course description</textarea>
 						<button type="submit" class="btn btn-primary m-4">Create</button>
 						<button class="btn btn-danger m-4" id="modal" data-bs-dismiss="modal">cancel</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<div class="modal fade" id="add_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header bg-sucess">
+					<h5 class="modal-title text-primary" id="exampleModalLabel">New Lesson</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body bg-secondary">
+					<form action="controllers/trainers/trainer_manage_lesson.controller.php" method="post">
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" id="name" name="lesson_title">
+							<label for="name">Lesson Title</label>
+						</div>
+
+						<div class="form-floating mb-4">
+							<select class="form-select" id="category" name="lesson_course" aria-label="Select Course">
+								<option selected disabled>Select Course</option>
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+							</select>
+							<label for="category">Course</label>
+						</div>
+						<div class="form-floating mb-4">
+							<input type="text" class="form-control" id="description" name="lesson_title">
+							<label for="description">Description</label>
+						</div>
+						<button type="submit" class="btn btn-primary py-3 w-100 mb-4">Add Lesson</button>
 					</form>
 				</div>
 			</div>
