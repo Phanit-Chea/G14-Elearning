@@ -25,13 +25,13 @@ Main Banner START -->
 								<!-- Avatar -->
 								<div class="col-auto mt-4 mt-md-0">
 									<div class="avatar avatar-xxl mt-n3">
-										<img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt="">
+										<img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/<?php echo $profileImage; ?>" alt="">
 									</div>
 								</div>
 								<!-- Profile info -->
 								<div class="col d-md-flex justify-content-between align-items-center mt-4">
 									<div>
-										<h1 class="my-1 fs-4">Lori Stevens <i class="bi bi-patch-check-fill text-info small"></i></h1>
+										<h1 class="my-1 fs-4"><?php echo $username; ?> <i class="bi bi-patch-check-fill text-info small"></i></h1>
 										<ul class="list-inline mb-0">
 											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
 											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled
@@ -300,7 +300,6 @@ Inner part END -->
 			</div>
 		</div>
 	</div>
-
 	<!-- =======================
 Footer START -->
 
