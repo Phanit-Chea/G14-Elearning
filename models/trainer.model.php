@@ -93,16 +93,17 @@ function update_course(int $course_id, string $course_name, int $course_duration
         ':course_duration' => $course_duration,
         ':course_price' => $course_price,
         ':category_id' => $course_category,
-        ':description' => $course_description       
+        ':description' => $course_description
     ]);
 }
 
-function update_image($course_id, $image){
+function update_image($course_id, $image)
+{
     global $connection;
     $statement = $connection->prepare("UPDATE courses SET course_image = :course_image where course_id = :course_id;");
     $statement->execute([
-        ':course_image'=> $image,
-        ':course_id'=>$course_id
+        ':course_image' => $image,
+        ':course_id' => $course_id
     ]);
 }
 
@@ -124,5 +125,29 @@ function insert_video($video_path, $course_name)
         ':title' => $course_name,
         ':file_path' => $video_path,
         ':video_type' => "Free"
+    ]);
+}
+
+// ========== get number of course =====
+function get_nb_course($user_id)
+{
+    global $connection;
+    $statement = $connection->prepare(" select courses.course_name,courses.course_id from courses inner join users on users.user_id = courses.user_id where users.user_id = :user_id;");
+    $statement->execute([
+        ':user_id' => $user_id,
+    ]);
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+// ==== insert into lessons =======
+function insert_lesson($lesson_title, $lesson_course, $lesson_description)
+{
+    global $connection;
+    $statement = $connection->prepare("INSERT INTO lessons (title, course_id, lesson_description) VALUES (:title, :course, :description)");
+    $statement->execute([
+        ':title' => $lesson_title,
+        ':course' => $lesson_course,
+        ':description' => $lesson_description
     ]);
 }

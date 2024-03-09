@@ -248,63 +248,14 @@ Inner part START -->
 Inner part END -->
 
 	</main>
-	<!-- **************** MAIN CONTENT END **************** -->
-	<!-- <div class="container"> -->
+	<?php
+	if (isset($_SESSION['user'])) {
+		$user_id = $_SESSION['user']['user_id'];
+	}
 
-	<!-- //=========form for create course============= -->
-	<!-- Modal -->
-	<!-- <div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
+	?>
 
-			<div class="modal-content bg-secondary">
-				<div class="modal-header ">
-					<h5 class="modal-title" id="exampleModalLabel">Create Course</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
 
-					<form action="controllers/trainers/trainer_create_course.controller.php" method="POST" enctype="multipart/form-data" class="w-100">
-						<div class="form-group mt-3">
-							<input type="hidden" name="id" value="">
-							<input type="text" class="form-control bg-white" name="course_name" placeholder="course_name" value="" required>
-						</div>
-						<div class="form-group mt-3">
-							<input type="number" class="form-control bg-white" name="course_duration" placeholder="Course duration" value="" required>
-						</div>
-						<div class="form-group mt-3">
-							<input type="text" class="form-control decimal-input" name="course_price" placeholder="Course Price" aria-label="Decimal Input" value="" required>
-						</div>
-						<div class="form-group mt-3">
-							<input class="form-control form-control-sm" id="formFileSm" type="file" name="course_image" placeholder="Course Image" required>
-						</div>
-						<select class="form-select mt-3" aria-label="Default select example" name="teacher" required>
-
-							<option selected>Who are you?</option>
-							<?php
-							$trainers = get_trainers();
-							foreach ($trainers as $trainer) :
-							?>
-								<option value="<?php echo $trainer['user_id'] ?>"><?php echo $trainer['username'] ?></option>
-							<?php endforeach; ?>
-
-						</select>
-						<select class="form-select mt-3" aria-label="Default select example" name="course_category" required>
-							<option selected>Select categories</option>
-							<?php
-							$categories = get_categories();
-							foreach ($categories as $category) :
-							?>
-								<option value="<?php echo $category['category_id'] ?>"><?php echo $category['category_name'] ?></option>
-							<?php endforeach; ?>
-						</select>
-						<textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="3" name="description" required>Course description</textarea>
-						<button type="submit" class="btn btn-primary m-4">Create</button>
-						<button class="btn btn-danger m-4" id="modal" data-bs-dismiss="modal">cancel</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div> -->
 	<div class="modal fade" id="add_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -313,7 +264,7 @@ Inner part END -->
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body bg-secondary">
-					<form action="controllers/trainers/trainer_manage_lesson.controller.php" method="post">
+					<form action="controllers/trainers/trainer_create_lesson.controller.php" method="post">
 						<div class="form-floating mb-3">
 							<input type="text" class="form-control" id="name" name="lesson_title">
 							<label for="name">Lesson Title</label>
@@ -322,14 +273,17 @@ Inner part END -->
 						<div class="form-floating mb-4">
 							<select class="form-select" id="category" name="lesson_course" aria-label="Select Course">
 								<option selected disabled>Select Course</option>
-								<option value="1">One</option>
-								<option value="2">Two</option>
-								<option value="3">Three</option>
+								<?php
+								$courses = get_nb_course($user_id);
+								foreach ($courses as $course) :
+								?>
+									<option value="<?= $course['course_id'] ?>"><?= $course['course_name'] ?></option>
+								<?php endforeach; ?>
 							</select>
 							<label for="category">Course</label>
 						</div>
 						<div class="form-floating mb-4">
-							<input type="text" class="form-control" id="description" name="lesson_title">
+							<input type="text" class="form-control" id="description" name="lesson_description">
 							<label for="description">Description</label>
 						</div>
 						<button type="submit" class="btn btn-primary py-3 w-100 mb-4">Add Lesson</button>
