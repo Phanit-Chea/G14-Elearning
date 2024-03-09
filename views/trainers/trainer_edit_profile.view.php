@@ -36,7 +36,7 @@ require 'layouts/trainer/navbar.php';
             </div>
             <div class="mb-3">
               <label for="email" class="form-label fw-bold">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Enter your email">
+              <input type="email" class="form-control" id="email" placeholder="Enter your email" value="<?php echo $email; ?>">
               <div id="emailError" class="error-message"></div>
             </div>
             <div class="mb-3">
