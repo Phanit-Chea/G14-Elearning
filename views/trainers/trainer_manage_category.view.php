@@ -95,26 +95,6 @@ Main Banner START -->
 									
 								</div>
 							</div>
-							<!-- Profile info -->
-							<div class="col d-md-flex justify-content-between align-items-center mt-4">
-								<div>
-									<h1 class="my-1 fs-4">Lori Stevens <i class="bi bi-patch-check-fill text-info small"></i></h1>
-									<ul class="list-inline mb-0">
-										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
-										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled
-											Students</li>
-										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i>25 Courses</li>
-									</ul>
-								</div>
-
-								<!-- Button -->
-								<div class="d-flex align-items-center mt-2 mt-md-0">
-									<button type="button" class="btn btn-primary h-50 d-flex mt-3" data-bs-toggle="modal" data-bs-target="#add-modal">
-										Create Category
-									</button>
-								</div>
-
-							</div>
 						</div>
 					</div>
 					<!-- Profile banner END -->
@@ -157,7 +137,7 @@ Inner part START -->
 										<!-- Dashboard menu -->
 										<div class="list-group list-group-dark list-group-borderless">
 											<a class="list-group-item" href="/trainer_dashboard"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
-											<a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Categories</a>
+											<a class="list-group-item active" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Categories</a>
 											<a class="list-group-item" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
 											<a class="list-group-item" href="/trainer_manage_lesson"><i class="bi bi-basket fa-fw me-2"></i>My Lessons</a>
 											<a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
