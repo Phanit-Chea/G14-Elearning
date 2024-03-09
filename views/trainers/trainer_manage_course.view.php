@@ -171,37 +171,36 @@ Inner part START -->
 											$courses = get_courses();
 											foreach ($courses as $course) :
 											?>
+
 												<tr>
-													<!-- Course item -->
 													<td>
 														<div class="d-flex align-items-center">
-															<!-- Image -->
-															<div class="w-100px">
-																<img src="../../assets/images/courses/4by3/<?= $course['course_image'] ?>" class="rounded" alt="" style="width: 100px; height : 100px;">
+															<div class="w-60px">
+																<img src="../../assets/images/courses/4by3/<?= $course['course_image'] ?>" alt="" class="rounded" style="width: 100px; height : 50px;">
 															</div>
-															<div class="mb-0 ms-4">
-																<!-- Title -->
-																<h5><a href="#"><?php echo $course['course_name'] ?></a></h5>
-																<!-- Info -->
+															<div class="mb-0 ms-2">
+																<h6><a href=""><?php echo $course['course_name'] ?></a></h6>
 																<div class="d-sm-flex">
-																	<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i><?php echo $course['lesson_count'] ?>
-																		lessons</p>
+																	<p class="h6 fw-light mb-0 small me-3">
+																		<i class="fa fa-table text-orange me-2"></i> 18 lessons
+																	</p>
+																	<p class="h6 fw-light mb-0 small">
+																		<i class="fas fa-check-circle text-success me-2"></i> 6 Completed
+																	</p>
 																</div>
 															</div>
 														</div>
 													</td>
-													<!-- Enrolled item -->
-													<td class="text-center text-sm-start"><?php echo $course['sold_lesson_count'] ?></td>
-													<td><?php echo $course['course_price'] ?></td>
-													<!-- Action item -->
-													<td class="d-flex text-center text-sm-start p-6	">
+													<td class="text-center text-sm-center"><?php echo $course['lesson_count'] ?></td>
+													<td><?php echo $course['course_price'] ?>$</td>
+													<td class="d-flex text-center text-sm-center p-5">
 														<form action="/trainer_edit_course" method="post">
 															<input type="hidden" name="course_id" value="<?= $course['course_id'] ?>">
 															<button type="submit" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></button>
 														</form>
-														<form action="">
-															<input type="hidden" name="cours_id" value="<?= $course['course_id'] ?>">
-															<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></button>
+														<form action="" method="post">
+															<input type="hidden" name="course_id" value="<?= $course['course_id'] ?>">
+															<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
 														</form>
 													</td>
 												</tr>

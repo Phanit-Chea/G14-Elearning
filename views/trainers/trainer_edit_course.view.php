@@ -72,4 +72,6 @@ require 'layouts/trainer/navbar.php';
         </main>
     <?php endforeach; ?>
 </body>
+
+
 <script src="vendor/js/change_image.js" defer></script>
