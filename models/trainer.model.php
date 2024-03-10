@@ -96,7 +96,7 @@ function update_course(int $course_id, string $course_name, int $course_duration
         ':description' => $course_description
     ]);
 }
-
+// ============ update image ==========
 function update_image($course_id, $image)
 {
     global $connection;
@@ -107,6 +107,7 @@ function update_image($course_id, $image)
     ]);
 }
 
+// ========== update video ============
 function update_video($course_id, $video)
 {
     global $connection;
@@ -150,4 +151,53 @@ function insert_lesson($lesson_title, $lesson_course, $lesson_description)
         ':course' => $lesson_course,
         ':description' => $lesson_description
     ]);
+}
+
+//  get name and cateogry of course ========
+function coures_lesson($user_id)
+{
+    global $connection;
+    $statement = $connection->prepare("
+        SELECT courses.course_id, lessons.title, courses.course_name
+        FROM lessons
+        INNER JOIN courses ON lessons.course_id = courses.course_id
+        INNER JOIN users ON courses.user_id = users.user_id
+        WHERE users.user_id = :user_id
+    ");
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
+
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+};
+// ======== get nub of free video =======
+function nb_vdo_free($user_id)
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(videos.title) FROM videos 
+        INNER JOIN lessons ON lessons.lesson_id = videos.lesson_id 
+        INNER JOIN courses ON courses.course_id = lessons.course_id 
+        INNER JOIN users ON users.user_id = courses.user_id 
+        WHERE users.user_id = :user_id");
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+// ======== get number of lesson that not free =============
+function nb_vdo_not_free($user_id)
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(videos.title) FROM videos 
+        INNER JOIN lessons ON lessons.lesson_id = videos.lesson_id 
+        INNER JOIN courses ON courses.course_id = lessons.course_id 
+        INNER JOIN users ON users.user_id = courses.user_id 
+        WHERE users.user_id = :user_id and video_type != 'free'");
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
 }

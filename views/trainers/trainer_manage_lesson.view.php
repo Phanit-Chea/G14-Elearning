@@ -169,37 +169,43 @@ Inner part START -->
 											<!-- Table item -->
 											<!-- ============loop for create list course======= -->
 											<?php
-											$courses = get_courses();
+
+											$courses = coures_lesson($user_id);
 											foreach ($courses as $course) :
 											?>
 												<tr>
 													<!-- Course item -->
 													<td>
 														<div class="d-flex juctify-content-start">
-															<!-- Image -->
-															<!-- <div class="w-100px">
-																<img src="../../assets/images/courses/4by3/<?= $course['course_image'] ?>" class="rounded" alt="" style="width: 100px; height : 100px;">
-															</div> -->
+
 															<div class="mb-0 ms-4">
 																<!-- Title -->
 																<h5><a href="#"><?php echo $course['course_name'] ?></a></h5>
 																<!-- Info -->
 																<div class="d-sm-flex">
-																	<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i><?php echo $course['lesson_count'] ?>
+																	<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i><?php $nb_vdo_free = nb_vdo_free($user_id);
+																																						foreach ($nb_vdo_free as $video) {
+																																							print_r($video['COUNT(videos.title)']);
+																																						}
+																																						?>
 																		Free</p>
-																	<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i><?php echo $course['lesson_count'] ?>
+																	<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i><?php $nb_vdo_not_free = nb_vdo_not_free($user_id);
+																																						foreach ($nb_vdo_not_free as $video) {
+																																							print_r($video['COUNT(videos.title)']);
+																																						}
+																																						?>
 																		Premium</p>
 																</div>
 															</div>
 														</div>
 													</td>
 													<!-- Enrolled item -->
-													<td class="text-center text-sm-start"><?php echo $course['sold_lesson_count'] ?></td>
-													<td class="text-center text-sm-start"><?php echo $course['sold_lesson_count'] ?></td>
-													<td class="text-center text-sm-start"><?php echo $course['sold_lesson_count'] ?></td>
+													<td class="text-center text-sm-center"><?php echo $course['course_name'] ?></td>
+													<td class="text-center text-sm-center"><?php   ?></td>
+													<td class="text-center text-sm-center"><?php  ?></td>
 
 													<!-- Action item -->
-													<td class="d-flex text-center text-sm-start p-5">
+													<td class="d-flex text-center text-sm-center p-5">
 														<form action="/trainer_edit_course" method="post">
 															<input type="hidden" name="course_id" value="<?= $course['course_id'] ?>">
 															<button type="submit" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></button>
