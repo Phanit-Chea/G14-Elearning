@@ -22,45 +22,29 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             move_uploaded_file($tmppath, $direct);
         }
     };
-    if (isset($_FILES['course_video'])){
+    if (isset($_FILES['course_video'])) {
         $vd_name = $_FILES['course_video']['name'];
         $tmp_vd_name = $_FILES['course_video']['tmp_name'];
         $error = $_FILES['course_video']['error'];
         $vd_upload_path = '';
-        if ($error === 0){
-            $vd_ex = pathinfo($vd_name,PATHINFO_EXTENSION);
+        if ($error === 0) {
+            $vd_ex = pathinfo($vd_name, PATHINFO_EXTENSION);
             $vd_ex_lc = strtolower($vd_ex);
-            $allowed_exs = array('mp4','webm','avi','flv');
+            $allowed_exs = array('mp4', 'webm', 'avi', 'flv');
 
-            if (in_array($vd_ex_lc,$allowed_exs)){
+            if (in_array($vd_ex_lc, $allowed_exs)) {
                 echo "yes";
-                $new_vd_lc = uniqid('video-',true) . '.' . $vd_ex_lc;
+                $new_vd_lc = uniqid('video-', true) . '.' . $vd_ex_lc;
                 $vd_upload_path = '../../assets/images/videos' . $new_vd_lc;
-                move_uploaded_file($tmp_vd_name,$vd_upload_path);
-
+                move_uploaded_file($tmp_vd_name, $vd_upload_path);
             }
         }
     }
-    echo $user_id;
-    echo "<br>";
-    echo $newname;
-    echo "<br>";
-    echo $course_name;
-    echo "<br>";
-    echo $course_duration;
-    echo "<br>";
-    echo $course_price;
-    echo "<br>";
-    echo $course_category;
-    echo "<br>";
-    echo $course_description;
-    echo "<br>";
-    echo $new_vd_lc;
+
 
     if (!empty($course_name) && !empty($course_duration) && !empty($course_price) && !empty($user_id) && !empty($course_category) && !empty($newname)) {
-        create_course($course_name, $course_duration, $course_price, $user_id, $course_category, $course_description, $newname,$new_vd_lc);
+        create_course($course_name, $course_duration, $course_price, $user_id, $course_category, $course_description, $newname, $new_vd_lc);
         header("Location: /trainer_manage_course");
-
         exit();
     };
 };

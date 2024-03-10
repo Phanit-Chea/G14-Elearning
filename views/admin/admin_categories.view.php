@@ -23,7 +23,6 @@ require "models/admin.model.php";
       <tr class="text-white">
         <th scope="col">ID</th>
         <th scope="col">Categories Name</th>
-        <th scope="col">Image</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -32,13 +31,12 @@ require "models/admin.model.php";
     <tbody id="search_category">
       <?php
       $categories = getData();
-      foreach ($categories as $num => $category) :
+      foreach ($categories as $category) :
 
       ?>
         <tr>
-          <td><?= $num + 1 ?></td>
+          <td><?= $category['category_id'] ?></td>
           <td><?= $category['category_name'] ?></td>
-          <td><img class="rounded-circle" src="../../assets/images/categories/<?= $category['category_image'] ?>" alt="" style="width: 50px; width: 50px;"></td>
           <td>
 
             <a onclick="return confirm('Do you want to delete this category?')" class="btn btn-sm btn-primary" href="controllers/admin/category/admin_delete_categories.controller.php?id=<?= $category['category_id'] ?>"><i class="bi bi-trash-fill"></i></a>
@@ -53,21 +51,14 @@ require "models/admin.model.php";
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body bg-secondary">
-                <form action="controllers/admin/category/admin_edit_categories.controller.php" method="post" enctype="multipart/form-data">
+                <form action="controllers/admin/category/admin_edit_categories.controller.php" method="post">
                   <input type="hidden" class="form-control" value="<?= $category['category_id'] ?>" id="id" name="id">
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control text-white" value="<?= $category['category_name'] ?>" id="name" name="name">
+                    <input type="text" class="form-control" value="<?= $category['category_name'] ?>" id="name" name="name">
                     <label for="floatingInput">Category Name</label>
                   </div>
-
-                  <!--image  -->
-                  <div class="form-floating mb-3">
-                    <label for="image" class="form-label"></label>
-                    <input type="file" name="image" class="form-control bg-dark text-white" id="image">
-                  </div>
-
                   <div class="form-floating mb-4">
-                    <input type="text" class="form-control text-white" value="<?= $category['category_description'] ?>" id="description" name="description">
+                    <input type="text" class="form-control" value="<?= $category['category_description'] ?>" id="description" name="description">
                     <label for="floatingPassword">Description</label>
                   </div>
                   <button type="submit" class="btn btn-warning text-black py-3 w-100 mb-4">Update Category</button>
@@ -94,18 +85,11 @@ require "models/admin.model.php";
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body bg-secondary">
-        <form action="/controllers/admin/category/admin_add_categories.controller.php" method="post" enctype="multipart/form-data">
+        <form action="controllers/admin/category/admin_add_categories.controller.php" method="post">
           <div class="form-floating mb-3">
             <input type="text" class="form-control" id="name" name="name">
             <label for="floatingInput">Category Name</label>
           </div>
-
-          <!--image  -->
-          <div class="form-floating mb-3">
-            <label for="image" class="form-label"></label>
-            <input type="file" name="image" class="form-control bg-dark text-white" id="image">
-          </div>
-
           <div class="form-floating mb-4">
             <input type="text" class="form-control" id="description" name="description">
             <label for="floatingPassword">Description</label>

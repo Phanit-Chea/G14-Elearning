@@ -43,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         }else{
             $isCreate =  createAccount($username, $email, $code, $newname,$set_role );
+            $user['username'] = $username;
             $user['image'] = $newname;
             $user['role_id'] = $set_role;
             $_SESSION['user'] = $user;
@@ -62,4 +63,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     }
 }
-
