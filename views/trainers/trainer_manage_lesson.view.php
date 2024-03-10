@@ -172,6 +172,7 @@ Inner part START -->
 
 											$courses = coures_lesson($user_id);
 											foreach ($courses as $course) :
+										
 											?>
 												<tr>
 													<!-- Course item -->
@@ -180,7 +181,7 @@ Inner part START -->
 
 															<div class="mb-0 ms-4">
 																<!-- Title -->
-																<h5><a href="#"><?php echo $course['course_name'] ?></a></h5>
+																<h5><a href="#"><?php echo $course['title'] ?></a></h5>
 																<!-- Info -->
 																<div class="d-sm-flex">
 																	<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i><?php $nb_vdo_free = nb_vdo_free($user_id);

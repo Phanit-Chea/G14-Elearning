@@ -140,6 +140,19 @@ function get_nb_course($user_id)
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
+// ======= get the name of lesson ========
+function name_lesson($user_id) {
+    global $connection;
+    $statement = $connection->prepare("SELECT lessons.title FROM lessons 
+        INNER JOIN courses ON courses.course_id = lessons.course_id 
+        INNER JOIN users ON users.user_id = courses.user_id 
+        WHERE users.user_id = :user_id");
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
 
 // ==== insert into lessons =======
 function insert_lesson($lesson_title, $lesson_course, $lesson_description)
