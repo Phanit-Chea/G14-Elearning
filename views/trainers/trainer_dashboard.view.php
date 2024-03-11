@@ -455,13 +455,13 @@ Footer START -->
 				<!-- Widget -->
 				<div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
 					<!-- Logo START -->
-					<a href="index.html"> <img class="h-20px" src="assets/images/logo-light.svg" alt="logo"> </a>
+					
 				</div>
 
 				<!-- Widget -->
 				<div class="col-md-4 mb-3 mb-md-0">
 					<div class="text-center text-white">
-						Copyrights ©2021 <a href="#" class="text-reset btn-link">Eduport</a>. All rights reserved.
+						2024 <a href="#" class="text-reset btn-link">E-Learning</a>. All rights reserved.
 					</div>
 				</div>
 				<!-- Widget -->

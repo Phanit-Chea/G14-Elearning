@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css"/> 
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css"/>
 <div class="table-responsive p-5 pt-3">
     <h2>Users List</h2>
     <div class="container w-50 pt-5"></div>
