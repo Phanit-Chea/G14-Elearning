@@ -7,11 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
         $text = $_GET['query'];
         $categories = $text?searchCategory($text):getData();
         $id = 1;
-        foreach ($categories as $category) :
+        foreach ($categories as $num => $category) :
     
 ?>
         <tr> 
-                <td><?=  $category['category_id']?></td> 
+                <td><?=  $num + 1 ?></td> 
                 <td><?=  $category['category_name']?></td>
                 <td><img class="rounded-circle" src="../../assets/images/categories/<?= $category['category_image'] ?>" alt="" style="width: 50px; width: 50px;"></td>
                 <td> 
