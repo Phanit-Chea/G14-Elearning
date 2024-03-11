@@ -245,19 +245,20 @@
       </div>
 
       <!-- Language -->
+      <?php if (isset($_SESSION['login']) && $_SESSION['login'] != ''):?>
       <ul class="navbar-nav navbar-nav-scroll me-3 d-none d-xl-block">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="language" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-globe me-2"></i>
-            <span class="d-none d-lg-inline-block">Language</span>
+            <span class="d-none d-lg-inline-block">Pages</span>
           </a>
           <ul class="dropdown-menu dropdown-menu-end min-w-auto" aria-labelledby="language">
-            <li> <a class="dropdown-item" href="#"><img class="fa-fw me-2" src="assets/images/flags/uk.svg" alt="">English</a></li>
-            <li> <a class="dropdown-item" href="#"><img class="fa-fw me-2" src="assets/images/flags/gr.svg" alt="">German</a></li>
-            <li> <a class="dropdown-item" href="#"><img class="fa-fw me-2" src="assets/images/flags/sp.svg" alt="">French</a></li>
+            <li> <a class="dropdown-item" href="/student"><img class="fa-fw me-2"  alt="">Student</a></li>
+            <li> <a class="dropdown-item" href="/trainer_dashboard"><img class="fa-fw me-2"  alt="">Teacher</a></li>
           </ul>
         </li>
       </ul>
+      <?php endif; ?>
 
       <!-- Signout button  -->
       <div class="navbar-nav d-none d-lg-inline-block">
@@ -266,6 +267,7 @@
         <?php else : ?>
           <a href="/signin" class="btn btn-danger-soft mb-0">Signin</a>
         <?php endif; ?>
+        <?php if (isset($_SESSION['login']) && $_SESSION['login'] != ''):?>
         <?php
         if (isset($_SESSION['user'])) {
           if ($_SESSION['user']['role_id'] != 3) { ?>
@@ -279,6 +281,7 @@
           echo '<img class="rounded-circle me-lg-2" src="../assets/images/avatar/p.jpg" alt="" style="width: 50px; height:50px;">';
         }
         ?>
+      <?php endif; ?>
       </div>
       <!-- Right header content END -->
 
