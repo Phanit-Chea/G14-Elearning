@@ -103,7 +103,7 @@ require "models/admin.model.php";
           <!--image  -->
           <div class="form-floating mb-3">
             <label for="image" class="form-label"></label>
-            <input type="file" name="image" class="form-control bg-dark text-white" id="image">
+            <input type="file" name="image" class="form-control bg-dark " id="image">
           </div>
 
           <div class="form-floating mb-4">
