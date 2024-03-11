@@ -1,5 +1,4 @@
 
-
 $(document).ready(function(){
     $('#search').keyup(function(){
         let search_text=$(this).val();
@@ -17,5 +16,3 @@ $(document).ready(function(){
         
     })
 });
-
-

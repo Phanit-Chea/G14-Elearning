@@ -86,9 +86,10 @@ require 'layouts/navbar.php';
                                             </div>
                                         </div>
 
+<!-- =============================================== -->
                                         <!-- Buttons -->
                                         <div class="mt-3 d-grid">
-                                            <a href="#" class="btn btn-outline-primary">Add to cart</a>
+                                            <a href="controllers/cart/cart.add.controller.php?id=<?= $course['course_id'] ?>" class="btn btn-outline-primary"  >Add to cart</a>
                                             <a href="#" class="btn btn-success">Buy now</a>
                                         </div>
                                         <!-- Divider -->
