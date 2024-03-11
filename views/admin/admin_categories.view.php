@@ -90,6 +90,13 @@ require "models/admin.model.php";
             <input type="text" class="form-control" id="name" name="name">
             <label for="floatingInput">Category Name</label>
           </div>
+
+          <!--image  -->
+          <div class="form-floating mb-3">
+            <label for="image" class="form-label"></label>
+            <input type="file" name="image" class="form-control bg-dark " id="image">
+          </div>
+
           <div class="form-floating mb-4">
             <input type="text" class="form-control" id="description" name="description">
             <label for="floatingPassword">Description</label>
