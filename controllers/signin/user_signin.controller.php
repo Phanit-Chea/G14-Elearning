@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['worngEmail'] = '';
                 $_SESSION['worngPassword'] = '';
             } elseif ($_SESSION['user']['role_id'] == 2) {
-                header("location:/");
+                header("location:/student");
                 $_SESSION['login'] = 'login';
                 $_SESSION['worngEmail'] = '';
                 $_SESSION['worngPassword'] = '';

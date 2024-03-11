@@ -8,7 +8,7 @@
 			<div class="container">
 				<!-- Logo START -->
 				<a class="navbar-brand" href="/trainers">
-					<img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
+					<img class="light-mode-item navbar-brand-item" src="assets/images/courses/4by3/photo_2024-03-04_07-59-04.jpg" alt="logo">
 					<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
 				</a>
 				<!-- Logo END -->
