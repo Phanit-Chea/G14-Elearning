@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $_SESSION['login'] = 'login';
         if($role_id){
             $isCreate =  createAccount($username, $email, $code, $newname, $role_id);
+            $user = get_values_from_input($email);
             $user['role_id'] = $role_id;
             $_SESSION['user'] = $user;
             header('Location: /admin');
@@ -44,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         }else{
             $isCreate =  createAccount($username, $email, $code, $newname,$set_role );
             $user['username'] = $username;
+            $user = get_values_from_input($email);
             $user['image'] = $newname;
             $user['role_id'] = $set_role;
             $_SESSION['user'] = $user;
