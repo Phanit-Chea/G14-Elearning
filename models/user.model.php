@@ -11,6 +11,7 @@ function createAccount(string $name, string $email, string $password, $image, $r
         ':role_id' =>  $role_id,
         ':image' => $image
     ]);
+    // return $statement->rowCount() > 0;
     return $statement->rowCount() > 0;
 }
 

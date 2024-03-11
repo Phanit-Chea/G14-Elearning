@@ -1,3 +1,6 @@
+<?php
+require "models/cart.model.php";
+?>
 <!-- Header START -->
 <header class="navbar-light navbar-sticky navbar-transparent">
   <!-- Logo Nav START -->
@@ -235,11 +238,22 @@
       </div>
       <!-- Main navbar END -->
 
+      <!-- ================================================= cart =============================================== -->
       <!-- Right header content START -->
       <!-- Add to cart -->
+      <?php
+      $count = 0;
+      if(isset($_SESSION['user'])){
+        $user_id = $_SESSION['user']['user_id'];
+        $carts = getCart($user_id);
+        $count = (count($carts));
+      }
+      
+      ?>
+
       <div class="navbar-nav position-relative overflow-visible me-3">
-        <a href="#" class="nav-link"> <i class="fas fa-shopping-cart fs-5"></i></a>
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-success mt-xl-2 ms-n1">5
+        <a href="/cart" class="nav-link"> <i class="fas fa-shopping-cart fs-5"></i></a>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-success mt-xl-2 ms-n1"><?php echo($count) ?>
           <span class="visually-hidden">unread messages</span>
         </span>
       </div>
@@ -263,9 +277,9 @@
       <div class="navbar-nav d-none d-lg-inline-block">
         <?php if (isset($_SESSION['login']) && $_SESSION['login'] == 'login') : ?>
           <a href="../controllers/signout/signout.controller.php" class="btn btn-danger-soft mb-0"><i class="fas fa-sign-in-alt me-2"></i>Sign out</a>
-        <?php else : ?>
-          <a href="/signin" class="btn btn-danger-soft mb-0">Signin</a>
-        <?php endif; ?>
+          <?php else : ?>
+            <a href="/signin" class="btn btn-danger-soft mb-0">Signin</a>
+            <?php endif; ?>
         <?php
         if (isset($_SESSION['user'])) {
           if ($_SESSION['user']['role_id'] != 3) { ?>
