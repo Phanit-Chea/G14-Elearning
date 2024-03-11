@@ -98,25 +98,20 @@ $count = count($carts);
 
                       <div class="form-outline form-white mb-4">
                         <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
-                          placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                          placeholder="005 675 879" minlength="19" maxlength="19" />
                         <label class="form-label" for="typeText">Card Number</label>
                       </div>
 
-                      <div class="row mb-4">
-                        <div class="col-md-6">
-                          <div class="form-outline form-white">
-                            <input type="text" id="typeExp" class="form-control form-control-lg"
-                              placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7" />
-                            <label class="form-label" for="typeExp">Expiration</label>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-outline form-white">
-                            <input type="password" id="typeText" class="form-control form-control-lg"
-                              placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
-                            <label class="form-label" for="typeText">Cvv</label>
-                          </div>
-                        </div>
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                          placeholder="+123 567 901" minlength="19" maxlength="19" />
+                        <label class="form-label" for="typeText">Phone Number</label>
+                      </div>
+
+                      <div class="form-outline form-white mb-4">
+                        <input type="date" id="typeText" class="form-control form-control-lg" siez="17"
+                          placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                        <label class="form-label" for="typeText">Card Exp.Date</label>
                       </div>
 
                     </form>
