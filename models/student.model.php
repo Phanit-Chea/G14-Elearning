@@ -1,19 +1,33 @@
 <?php
-// ====== 
-function course_view(): array
+// ====== course detail =====================
+function course_view_all(): array
 {
     global $connection;
-    $statement = $connection->prepare("SELECT courses.course_name,courses.course_id, categories.category_name, courses.course_price, users.image, courses.course_image, COUNT(student_enrollment.user_id)
-    FROM student_enrollment
-    INNER JOIN courses ON courses.course_id = student_enrollment.course_id
+    $statement = $connection->prepare("SELECT courses.course_name, courses.course_id, categories.category_name, courses.course_price, users.image, courses.course_image
+    FROM courses
     INNER JOIN categories ON categories.category_id = courses.category_id
-    INNER JOIN users ON users.user_id = courses.user_id
-    GROUP BY courses.course_id, courses.course_name, categories.category_name, courses.course_price, users.image, courses.course_image;");
+    INNER JOIN users ON users.user_id = courses.user_id 
+    GROUP BY courses.course_id, courses.course_name, categories.category_name, courses.course_price, users.image, courses.course_image");
     $statement->execute();
     $courses = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $courses;
 }
-
+function course_view($user_id): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT courses.course_name, courses.course_id, categories.category_name, courses.course_price, users.image, courses.course_image
+    FROM courses
+    INNER JOIN categories ON categories.category_id = courses.category_id
+    INNER JOIN users ON users.user_id = courses.user_id 
+    WHERE users.user_id = :user_id
+    GROUP BY courses.course_id, courses.course_name, categories.category_name, courses.course_price, users.image, courses.course_image");
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
+    $courses = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $courses;
+}
+// ============= get top course =============
 function top_courses(): array
 {
     global $connection;
@@ -22,15 +36,19 @@ function top_courses(): array
     $top_courses = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $top_courses;
 }
-function get_course(int $id): array {
+// =========== get one coure ========
+function get_course(int $course_id): array
+{
     global $connection;
-    $statement = $connection->prepare("SELECT * FROM courses WHERE course_id = :id;");
+    $statement = $connection->prepare("SELECT * FROM courses WHERE course_id= :id");
     $statement->execute([
-        ':id' => $id
+        ':id' => $course_id
     ]);
     return $statement->fetch(PDO::FETCH_ASSOC);
 }
-function get_name_trainer($id) {
+// =========== get the specifc name of trainer ==============
+function get_name_trainer($id)
+{
     global $connection;
     $statement = $connection->prepare("SELECT users.username,users.image,users.email from courses inner join users on users.user_id = courses.user_id where courses.course_id = :id");
     $statement->execute([
@@ -39,3 +57,28 @@ function get_name_trainer($id) {
     return $statement->fetch();
 }
 
+// =========== get the list of lesson ============
+function get_name_lessons($course_id)
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT lessons.lesson_id,lessons.title, courses.course_name, users.username 
+                                      FROM lessons 
+                                      INNER JOIN courses ON courses.course_id = lessons.course_id 
+                                      INNER JOIN users ON users.user_id = courses.user_id 
+                                      WHERE lessons.course_id = :course_id");
+    $statement->execute([
+        ':course_id' => $course_id
+    ]);
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+};
+
+// ======= get video by in each lesson
+function video_free( $lesson_id) {
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM videos where videos.lesson_id = :lesson_id");
+    $statement->execute([
+        ':lesson_id' => $lesson_id,
+    ]);
+
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}

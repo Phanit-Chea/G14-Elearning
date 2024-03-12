@@ -66,7 +66,7 @@ Video START -->
 				<div class="card card-body shadow p-2">
 					<div class="position-relative">
 						<!-- Image -->
-						<img src="assets/images/about/12.jpg" class="card-img rounded-2" alt="...">
+						<img src="assets/images/courses/4by3/bg.jpg" class="card-img rounded-2" alt="...">
 						<div class="card-img-overlay">
 							<!-- Video link -->
 							<div class="position-absolute top-50 start-50 translate-middle">
@@ -83,41 +83,41 @@ Video START -->
 </section>
 <!-- =======================
 Video END -->
-<?php 
-if (isset($_SESSION['login']) && $_SESSION['login'] != ''){?>
-<!-- =======================
-Category START --> 
-
-
-<section>
-
-	<div class="container">
-		<div class="row g-4">
 <?php
-      $categories = getData();
-      foreach ($categories as $num => $category) :
+if (isset($_SESSION['login']) && $_SESSION['login'] != '') { ?>
+	<!-- =======================
+Category START -->
 
-?>
-			<!-- Category item -->
-			<div class="col-sm-6 col-lg-4 col-xl-3">
-				<div class="card card-body shadow rounded-3">
-					<div class="d-flex align-items-center">
-						<!-- Icon -->
-						<div class="icon-lg bg-blue bg-opacity-10 rounded-circle text-blue"><i class="fas fa-photo-video"></i></div>
-						<div class="ms-3">
-							<h5 class="mb-0"><a href="#" class="stretched-link" value="<?= $category['category_name'] ?>"></a><?= $category['category_name'] ?></h5>
-							<span>38 Courses</span>
+
+	<section>
+
+		<div class="container">
+			<div class="row g-4">
+				<?php
+				$categories = getData();
+				foreach ($categories as $num => $category) :
+
+				?>
+					<!-- Category item -->
+					<div class="col-sm-6 col-lg-4 col-xl-3">
+						<div class="card card-body shadow rounded-3">
+							<div class="d-flex align-items-center">
+								<!-- Icon -->
+								<div class="icon-lg bg-blue bg-opacity-10 rounded-circle text-blue"><i class="fas fa-photo-video"></i></div>
+								<div class="ms-3">
+									<h5 class="mb-0"><a href="#" class="stretched-link" value="<?= $category['category_name'] ?>"></a><?= $category['category_name'] ?></h5>
+									<span>38 Courses</span>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			
-			<?php endforeach; ?>
-		</div>
-	</div>
-</section>
 
-<!-- =======================
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
+
+	<!-- =======================
 Category END -->
 
 	<!-- =======================
@@ -137,64 +137,82 @@ Featured course START -->
 				<?php
 				require 'database/database.php';
 				require 'models/student.model.php';
-				$courses = course_view();
-				foreach ($courses as $course) :
-					// var_dump($course);
+
+				if (isset($_SESSION['user'])) {
+					$user_id = $_SESSION['user']['user_id'];
+
+					$role = ($_SESSION['user']['role_id']);
+					if ($role == 2) {
+						$courses = course_view_all();
+					} else if ($role == 1) {
+						$courses = course_view($user_id);
+					};
+
+
+					foreach ($courses as $course) :
 
 				?>
-					<div class="col-md-6 col-lg-4 col-xxl-3">
-						<div class="card p-2 shadow h-100">
-							<div class="rounded-top overflow-hidden">
-								<div class="card-overlay-hover">
-									<!-- Image -->
-									<img style="width: 330px; height:200px" src="assets/images/courses/4by3/<?= $course['course_image'] ?>" class="card-img-top" alt="course image">
-								</div>
-								<!-- Hover element -->
-								<div class="card-img-overlay">
-									<div class="card-element-hover d-flex justify-content-end">
-										<a href="#" class="icon-md bg-white rounded-circle">
-											<i class="fas fa-shopping-cart text-danger"></i>
-										</a>
+						<div class="col-md-6 col-lg-4 col-xxl-3">
+							<div class="card p-2 shadow h-100">
+								<div class="rounded-top overflow-hidden">
+									<div class="card-overlay-hover">
+										<!-- Image -->
+										<img style="width: 330px; height:200px" src="assets/images/courses/4by3/<?= $course['course_image'] ?>" class="card-img-top" alt="course image">
+									</div>
+									<!-- Hover element -->
+									<div class="card-img-overlay">
+										<div class="card-element-hover d-flex justify-content-end">
+											<a href="#" class="icon-md bg-white rounded-circle">
+												<i class="fas fa-shopping-cart text-danger"></i>
+											</a>
+										</div>
 									</div>
 								</div>
-							</div>
-							<!-- Card body -->
-							<div class="card-body px-2">
-								<!-- Badge and icon -->
-								<div class="d-flex justify-content-between">
-									<!-- Rating and info -->
-									<ul class="list-inline hstack gap-2 mb-0">
-										<!-- Info -->
-										<li class="list-inline-item d-flex justify-content-center align-items-center">
-											<div class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></div>
-											<span class="h6 fw-light mb-0 ms-2"><?= $course['COUNT(student_enrollment.user_id)'] ?></span>
-											<p hidden><?= $course['course_id'] ?></p>
-										</li>
-										<!-- Rating -->
-										<li class="list-inline-item d-flex justify-content-center align-items-center">
-											<div class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-star"></i></div>
-											<span class="h6 fw-light mb-0 ms-2">4.5</span>
-										</li>
-									</ul>
-									<!-- Avatar -->
-									<div class="avatar avatar-sm">
-										<img class="avatar-img rounded-circle" src="<?= $course['image'] ?>" alt="avatar">
+								<!-- Card body -->
+								<div class="card-body px-2">
+									<!-- Badge and icon -->
+									<div class="d-flex justify-content-between">
+										<!-- Rating and info -->
+										<ul class="list-inline hstack gap-2 mb-0">
+											<!-- Info -->
+											<li class="list-inline-item d-flex justify-content-center align-items-center">
+												<div class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></div>
+												<span class="h6 fw-light mb-0 ms-2">4</span>
+
+											</li>
+											<!-- Rating -->
+											<li class="list-inline-item d-flex justify-content-center align-items-center">
+												<div class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-star"></i></div>
+												<span class="h6 fw-light mb-0 ms-2">4.5</span>
+											</li>
+										</ul>
+										<!-- Avatar -->
+										<div class="avatar avatar-sm">
+											<img class="avatar-img rounded-circle" src="assets/images/avatar/<?= $course['image'] ?>" alt="avatar">
+										</div>
 									</div>
-								</div>
-								<!-- Divider -->
-								<hr>
-								<!-- Title -->
-								<h6 class="card-title"><a href="/student_view_course?id=<?= $course['course_id'] ?>"><?= $course['course_name'] ?></a></h6>
-								<!-- Badge and Price -->
-								<div class="d-flex justify-content-between align-items-center mb-0">
-									<div><a href="#" class="badge bg-info bg-opacity-10 text-info me-2"><i class="fas fa-circle small fw-bold"></i> <?= $course['category_name'] ?> </a></div>
-									<!-- Price -->
-									<h5 class="text-success mb-0">$<?= $course['course_price'] ?></h5>
+									<!-- Divider -->
+									<hr>
+									<!-- Title -->
+									<form action="/student_view_course" method="post">
+										<input type="hidden" value="<?= $course['course_id'] ?>" name="course_id">
+										<h6 class="card-title">
+											<button type="submit" class="border-0 text-success">
+												<h5><?= $course['course_name'] ?></h5>
+											</button>
+										</h6>
+									</form>
+
+									<!-- Badge and Price -->
+									<div class="d-flex justify-content-between align-items-center mb-0">
+										<div><a href="#" class="badge bg-info bg-opacity-10 text-info me-2"><i class="fas fa-circle small fw-bold"></i> <?= $course['category_name'] ?> </a></div>
+										<!-- Price -->
+										<h5 class="text-success mb-0">$<?= $course['course_price'] ?></h5>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				<?php endforeach; ?>
+					<?php endforeach; ?>
 
 
 
@@ -262,7 +280,7 @@ IT courses START -->
 				</div>
 			</div>
 			<?php
-			$top_courses = top_courses();
+					$top_courses = top_courses();
 
 
 			?>
@@ -337,7 +355,7 @@ Live courses START -->
 									<div class="card p-2">
 										<div class="position-relative">
 											<!-- Image -->
-											<img src="assets/images/courses/4by3/18.jpg" class="card-img rounded-2" alt="Card image">
+											<img src="assets/images/courses/4by3/inVistion.jpg" class="card-img rounded-2" alt="Card image">
 											<div class="card-img-overlay">
 												<div class="position-absolute top-50 start-50 translate-middle">
 													<!-- Video link -->
@@ -359,16 +377,16 @@ Live courses START -->
 													<h6 class="mb-1 fw-normal"><i class="fas fa-circle fw-bold text-success small me-2"></i>Live Students</h6>
 													<ul class="avatar-group mb-2 mb-sm-0">
 														<li class="avatar avatar-xs">
-															<img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
+															<img class="avatar-img rounded-circle" src="assets/images/courses/4by3/rady.jpg" alt="avatar">
 														</li>
 														<li class="avatar avatar-xs">
-															<img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar">
+															<img class="avatar-img rounded-circle" src="assets/images/courses/4by3/rady.jpg" alt="avatar">
 														</li>
 														<li class="avatar avatar-xs">
-															<img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
+															<img class="avatar-img rounded-circle" src="assets/images/courses/4by3/rady.jpg" alt="avatar">
 														</li>
 														<li class="avatar avatar-xs">
-															<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">
+															<img class="avatar-img rounded-circle" src="assets/images/courses/4by3/rady.jpg" alt="avatar">
 														</li>
 														<li class="avatar avatar-xs">
 															<div class="avatar-img rounded-circle bg-primary">
@@ -390,7 +408,7 @@ Live courses START -->
 									<div class="card p-2">
 										<div class="position-relative">
 											<!-- Image -->
-											<img src="assets/images/courses/4by3/22.jpg" class="card-img rounded-2" alt="Card image">
+											<img src="assets/images/courses/4by3/PHP max.png" class="card-img rounded-2" alt="Card image">
 											<div class="card-img-overlay">
 												<div class="position-absolute top-50 start-50 translate-middle">
 													<!-- Video link -->
@@ -412,16 +430,16 @@ Live courses START -->
 													<h6 class="mb-1 fw-normal"><i class="fas fa-circle fw-bold text-success small me-2"></i>Live Students</h6>
 													<ul class="avatar-group mb-2 mb-sm-0">
 														<li class="avatar avatar-xs">
-															<img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
+															<img class="avatar-img rounded-circle" src="assets/images/courses/4by3/himhey.jpg" alt="avatar">
 														</li>
 														<li class="avatar avatar-xs">
-															<img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar">
+															<img class="avatar-img rounded-circle" src="assets/images/courses/4by3/himhey.jpg" alt="avatar">
 														</li>
 														<li class="avatar avatar-xs">
-															<img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
+															<img class="avatar-img rounded-circle" src="assets/images/courses/4by3/himhey.jpg" alt="avatar">
 														</li>
 														<li class="avatar avatar-xs">
-															<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">
+															<img class="avatar-img rounded-circle" src="assets/images/courses/4by3/himhey.jpg" alt="avatar">
 														</li>
 														<li class="avatar avatar-xs">
 															<div class="avatar-img rounded-circle bg-primary">
@@ -557,6 +575,6 @@ Action box START -->
 </section>
 <!-- =======================
 Action box END -->
-
+<?php } ?>
 </main>
 <!-- **************** MAIN CONTENT END **************** -->
