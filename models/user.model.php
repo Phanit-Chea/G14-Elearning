@@ -28,3 +28,11 @@ function get_values_from_input(string $email)
         return [];
     }
 }
+
+function deleteAccount($id){
+    global $connection;
+    $statement = $connection->prepare("DELETE from users where user_id = :user_id");
+    $statement->execute([':user_id' => $id]);
+    return $statement->rowCount() > 0;
+    
+}
