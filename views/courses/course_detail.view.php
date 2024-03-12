@@ -10,9 +10,9 @@
 
         ?>
         <!-- Page content START -->
-        <section class="pt-3 pt-xl-3">
-            <div class="p-5" data-sticky-container="">
-                <div class="row g-4">
+        <section class="pt-3 pt-xl- 3">
+            <div class="p-5 d-flex " data-sticky-container="">
+                <div class="row g-4 ">
                     <!-- Main content START -->
                     <div class="col-xl-8 bg bg-white rounded border" style="width: 90%; margin-top: 30px;">
 
@@ -152,9 +152,7 @@
                     </div>
                 </div>
                 <!-- Main content END -->
-
-                <!-- Right sidebar START -->
-                <div class="col-xl-4 pt-7">
+                <div class="col-xl-4 pt-2">
                     <div data-sticky="" data-margin-top="80" data-sticky-for="768">
                         <div class="row g-4">
                             <div class="col-md-6 col-xl-12">
@@ -235,6 +233,9 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Right sidebar START -->
+
             </div>
 
 
