@@ -189,19 +189,7 @@ Page content START -->
 								</div>
 							</div>
 						</div>
-						<!-- Counter item -->
-						<!-- <div class="col-sm-6 col-lg-4">
-								<div class="d-flex justify-content-center align-items-center p-4 bg-info bg-opacity-10 rounded-3">
-									<span class="display-6 text-info mb-0"><i class="fas fa-gem fa-fw"></i></span>
-									<div class="ms-4">
-										<div class="d-flex">
-											<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="12" data-purecounter-delay="300">0</h5>
-											<span class="mb-0 h5">K</span>
-										</div>
-										<span class="mb-0 h6 fw-light">Enrolled Students</span>
-									</div>
-								</div>
-							</div> -->
+					
 					</div>
 					<!-- Counter boxes END -->
 
