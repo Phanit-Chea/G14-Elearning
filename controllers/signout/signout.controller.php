@@ -1,5 +1,8 @@
 <?php 
 session_start();
 // session_unset();
-header('Location: /signin');
+$_SESSION['login'] = '';
+
+
+header('Location: /');
 ?>

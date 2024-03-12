@@ -7,12 +7,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
         $text = $_GET['query'];
         $categories = $text?searchCategory($text):getData();
         $id = 1;
-        foreach ($categories as $category) :
+        foreach ($categories as $num => $category) :
     
 ?>
         <tr> 
-                <td><?=  $category['category_id']?></td> 
-                <td><?=  $category['category_name']?></td> 
+                <td><?=  $num + 1 ?></td> 
+                <td><?=  $category['category_name']?></td>
+                <td><img class="rounded-circle" src="../../assets/images/categories/<?= $category['category_image'] ?>" alt="" style="width: 50px; width: 50px;"></td>
                 <td> 
                     <a onclick="return confirm('Do you want to delete this category?')" class="btn btn-sm btn-primary" href="controllers/admin/category/admin_delete_categories.controller.php?id=<?= $category['category_id'] ?>"><i class="bi bi-trash-fill"></i></a> 
                     <button type='button' class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#edit-modal<?= $category['category_id'] ?>"><i class="bi bi-pencil-square"></i></button> 
@@ -32,6 +33,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
                           <input type="text" class="form-control" value="<?= $category['category_name'] ?>" id="name" name="name"> 
                           <label for="floatingInput">Category Name</label> 
                       </div> 
+                      <!--image  -->
+                    <div class="form-floating mb-3">
+                        <label for="image" class="form-label"></label>
+                        <input type="file" name="image" class="form-control bg-dark text-white" id="image">
+                    </div>
+
                       <div class="form-floating mb-4"> 
                           <input type="text" class="form-control" value="<?=  $category['category_description'] ?>" id="description" name="description"> 
                           <label for="floatingPassword">Description</label> 

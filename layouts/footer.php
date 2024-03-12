@@ -1,7 +1,7 @@
 
 <!-- =======================
 Footer START -->
-<footer class="pt-5">
+<footer class="pt-5 bg-white">
 	<div class="container">
 		<!-- Row START -->
 		<div class="row g-4">
@@ -10,7 +10,7 @@ Footer START -->
 			<div class="col-lg-3">
 				<!-- logo -->
 				<a class="me-0" href="index.html">
-					<img class="light-mode-item h-40px" src="assets/images/logo.svg" alt="logo">
+					<img class="light-mode-item h-40px" src="assets/images/courses/4by3/photo_2024-03-04_07-59-04.jpg" alt="logo" >
 					<img class="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo">
 				</a>
 				<p class="my-3">Eduport education theme, built specifically for the education centers which is dedicated to teaching and involve learners.</p>
@@ -96,7 +96,7 @@ Footer START -->
 			<div class="container px-0">
 				<div class="d-md-flex justify-content-between align-items-center py-3 text-center text-md-left">
 					<!-- copyright text -->
-					<div class="text-primary-hover"> Copyrights <a href="#" class="text-body">©2021 Eduport</a>. All rights reserved. </div>
+					<div class="text-primary-hover"></div>
 					<!-- copyright links-->
 					<div class=" mt-3 mt-md-0">
 						<ul class="list-inline mb-0">
