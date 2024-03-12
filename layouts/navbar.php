@@ -285,7 +285,7 @@ require "models/cart.model.php";
           <?php
           if (isset($_SESSION['user'])) {
             if ($_SESSION['user']['role_id'] != 3) { ?>
-              <a href="/student">
+              <a href="/trainer_dashboard">
                 <img class="rounded-circle me-lg-2" src="../assets/images/avatar/<?= isset($_SESSION['user']) ? $_SESSION['user']['image'] : 'p.jpg' ?>" alt="" style="width: 50px; height:50px;"></a>
           <?php }
           } else {
