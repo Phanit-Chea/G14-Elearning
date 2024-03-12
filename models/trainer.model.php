@@ -229,3 +229,13 @@ function nb_vdo_not_free($user_id)
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
+
+// ======== delete course =================
+function  delete_course($course_id){
+    global $connection;
+    $statement = $connection->prepare("DELETE from courses where course_id = :course_id;");
+    $statement->execute([
+        ':course_id'=>$course_id
+    ]);
+
+}
