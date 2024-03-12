@@ -87,7 +87,7 @@ Page Banner START -->
 										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
 										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled
 											Students</li>
-										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i><?php echo(total_course($user_id)); ?> Courses</li>
+										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i><?php echo (total_course($user_id)); ?> Courses</li>
 										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled Students</li>
 
 									</ul>
@@ -170,7 +170,7 @@ Page content START -->
 								<span class="display-6 text-warning mb-0"><i class="fas fa-tv fa-fw"></i></span>
 								<div class="ms-4">
 									<div class="d-flex">
-										<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="<?php echo(total_course($user_id)); ?>" data-purecounter-delay="200"><?php echo(total_course($user_id)); ?></h5>
+										<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="<?php echo (total_course($user_id)); ?>" data-purecounter-delay="200"><?php echo (total_course($user_id)); ?></h5>
 									</div>
 									<span class="mb-0 h6 fw-light">Total Courses</span>
 								</div>
@@ -189,7 +189,7 @@ Page content START -->
 								</div>
 							</div>
 						</div>
-					
+
 					</div>
 					<!-- Counter boxes END -->
 
