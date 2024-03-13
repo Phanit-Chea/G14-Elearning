@@ -5,6 +5,7 @@ $routes = [
     '/trainers' => 'controllers/trainers/trainer.controller.php',
     '/student_view_course' => 'controllers/students/student_view_course.controller.php',
     '/signin' => 'controllers/signin/signin.controller.php',
+    '/student_view_video'=>'controllers/students/student_view_video.controller.php',
 ];
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
