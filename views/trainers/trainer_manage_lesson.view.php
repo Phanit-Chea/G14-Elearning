@@ -211,9 +211,9 @@ Inner part START -->
 													</td>
 													<!-- Action item -->
 													<td class="d-flex text-center text-sm-center ">
-														<form action="/trainer_edit_course" method="post">
+														<form action="" method="post">
 															<input type="hidden" name="course_id" value="<?= $course['course_id'] ?>">
-															<button type="submit" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></button>
+															<button type="submit" class="btn btn-sm btn-success-soft btn-round me-1 mb-0" ><i class="far fa-fw fa-edit" data-bs-toggle="modal" data-bs-target="#edit_modal"></i></button>
 														</form>
 														<form action="">
 															<input type="hidden" name="course_id" value="<?= $course['course_id'] ?>">
@@ -265,7 +265,7 @@ Inner part END -->
 
 	?>
 
-
+<!-- ============ create lesson===================== -->
 	<div class="modal fade" id="add_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -303,6 +303,44 @@ Inner part END -->
 		</div>
 	</div>
 
+
+	<!-- ============== edit lesson  -->
+	<div class="modal fade" id="edit_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header bg-sucess">
+					<h5 class="modal-title text-primary" id="exampleModalLabel">New Lesson</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body bg-secondary">
+					<form action="controllers/trainers/trainer_create_lesson.controller.php" method="post">
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" id="name" name="lesson_title">
+							<label for="name">Lesson Title</label>
+						</div>
+
+						<div class="form-floating mb-4">
+							<select class="form-select" id="category" name="lesson_course" aria-label="Select Course">
+								<option selected disabled>Select Course</option>
+								<?php
+								$courses = get_nb_course($user_id);
+								foreach ($courses as $course) :
+								?>
+									<option value="<?= $course['course_id'] ?>"><?= $course['course_name'] ?></option>
+								<?php endforeach; ?>
+							</select>
+							<label for="category">Course</label>
+						</div>
+						<div class="form-floating mb-4">
+							<input type="text" class="form-control" id="description" name="lesson_description">
+							<label for="description">Description</label>
+						</div>
+						<button type="submit" class="btn btn-primary py-3 w-100 mb-4">Add Lesson</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- =======================
 Footer START -->
 
