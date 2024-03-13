@@ -19,7 +19,7 @@ function getCart($userId): array
 {
     global $connection;
     $statement = $connection->prepare("
-        SELECT courses.course_image,cart.user_id,cart.cart_id, courses.course_name,courses.course_price 
+        SELECT courses.course_image,cart.user_id,cart.cart_id, cart.courses_id, courses.course_name,courses.course_price 
         FROM cart 
         INNER join courses ON courses.course_id = cart.courses_id 
         where cart.user_id = :userId;
