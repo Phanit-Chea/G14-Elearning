@@ -122,14 +122,14 @@
                                                 ?>
                                                     <div class="d-sm-flex justify-content-sm-between align-items-center">
                                                         <div class="d-flex">
-                                                            <a href="#" class="btn btn-danger-soft btn-round mb-0"><i class="fas fa-play"></i></a>
+                                                            <a href="#" class="btn btn-danger-soft btn-round mb-0"onclick="return confirm('please payment!!')"><i class="fas fa-play"></i></a>
                                                             <div class="ms-2 ms-sm-3 mt-1 mt-sm-0">
                                                                 <h6 class="mb-0"><?= $video['video_name'] ?></h6>
                                                                 <p class="mb-2 mb-sm-0 small">10m 56s</p>
                                                             </div>
                                                         </div>
                                                         <!-- Button -->
-                                                        <a href="#" class="btn btn-sm btn-success mb-0"><?= $video['video_type'] ?></a>
+                                                        <a href="controllers/cart/cart.add.controller.php?id=<?= $courses['course_id'] ?>" class="btn btn-sm btn-success mb-0"><?= $video['video_type'] ?></a>
                                                     </div>
 
                                                     <!-- Divider -->
@@ -181,7 +181,7 @@
                                     <!-- Buttons -->
                                     <div class="mt-3 d-grid">
                                         <a href="controllers/cart/cart.add.controller.php?id=<?= $courses['course_id'] ?>" class="btn btn-outline-primary">Add to cart</a>
-                                        <a href="#" class="btn btn-success">Buy now</a>
+                                        <a href="controllers/cart/cart.add.controller.php?id=<?= $courses['course_id'] ?>"  class="btn btn-success">Buy now</a>
                                     </div>
                                     <!-- Divider -->
                                     <hr>
