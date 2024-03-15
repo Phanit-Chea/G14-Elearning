@@ -19,6 +19,7 @@ $routes = [
     '/trainer_manage_lesson'=>'controllers/trainers/trainer_manage_lesson.controller.php',
     '/trainer_create_course' => 'controllers/trainers/trainer_create_lesson.controller.php',
     '/trainer_delete_course'=>'controllers/trainers/trainer_delete_course.controller.php',
+    '/trainer_delete_lesson'=>'controllers/trainers/trainer_delete_lesson.controller.php',
     '/signup' => 'controllers/signup/signup.controller.php',
     '/signin' => 'controllers/signin/signin.controller.php',
     '/student' =>'controllers/student/student.controller.php',

@@ -215,10 +215,16 @@ Inner part START -->
 															<input type="hidden" name="course_id" value="<?= $course['course_id'] ?>">
 															<button type="submit" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></button>
 														</form>
-														<form action="">
-															<input type="hidden" name="course_id" value="<?= $course['course_id'] ?>">
-															<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
+														<form action="/trainer_delete_lesson" method="post" onsubmit="return confirmDelete();">
+    														<input type="hidden" name="lesson_id" value="<?= $course['lesson_id'] ?>">
+    														<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
 														</form>
+
+														<script>
+															function confirmDelete() {
+																return confirm("Are you sure you want to delete this lesson?");
+															}
+														</script>
 													</td>
 
 												</tr>
