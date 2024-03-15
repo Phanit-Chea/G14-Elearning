@@ -250,14 +250,14 @@ require "models/cart.model.php";
       }
 
       ?>
-
+        <?php if (isset($_SESSION['login']) && $_SESSION['login'] == 'login') : ?>
       <div class="navbar-nav position-relative overflow-visible me-3">
         <a href="/cart" class="nav-link"> <i class="fas fa-shopping-cart fs-5"></i></a>
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-success mt-xl-2 ms-n1"><?php echo ($count) ?>
           <span class="visually-hidden">unread messages</span>
         </span>
       </div>
-
+        <?php endif; ?>
       <!-- Language -->
       <?php if (isset($_SESSION['login']) && $_SESSION['login'] != '') : ?>
         <ul class="navbar-nav navbar-nav-scroll me-3 d-none d-xl-block">
@@ -285,7 +285,7 @@ require "models/cart.model.php";
           <?php
           if (isset($_SESSION['user'])) {
             if ($_SESSION['user']['role_id'] != 3) { ?>
-              <a href="/trainer_dashboard">
+              <a href="/student">
                 <img class="rounded-circle me-lg-2" src="../assets/images/avatar/<?= isset($_SESSION['user']) ? $_SESSION['user']['image'] : 'p.jpg' ?>" alt="" style="width: 50px; height:50px;"></a>
           <?php }
           } else {
