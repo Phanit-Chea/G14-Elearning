@@ -46,6 +46,23 @@ function get_categories()
     return $result;
 };
 
+// ======== total course =========
+function total_course($user_id) {
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(c.course_name) AS total FROM courses c where c.user_id = :user_id;");
+    $statement->execute([
+        ':user_id'=>$user_id
+    ]);
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result['total'];
+};
+
+// ======== total student in each course ============
+
+// function total_student_in_course(){
+//     global $connection;
+//     $statement = $connection->prepare(" SELECT count(users.user_id) from courses INNER JOIN users on users.user_id = courses.user_id where users.role_id  = 2 group by users.username ")
+// }
 //================Edit profile========================
 function edit_profile(string $username, string $email, string $image, string $password, int $id)
 {
@@ -187,7 +204,7 @@ function coures_lesson($user_id)
 {
     global $connection;
     $statement = $connection->prepare("
-        SELECT courses.course_id, lessons.title, courses.course_name
+        SELECT lessons.lesson_id,courses.course_id, lessons.title, courses.course_name
         FROM lessons
         INNER JOIN courses ON lessons.course_id = courses.course_id
         INNER JOIN users ON courses.user_id = users.user_id
@@ -204,11 +221,11 @@ function coures_lesson($user_id)
 function nb_vdo_free($user_id)
 {
     global $connection;
-    $statement = $connection->prepare("SELECT COUNT(videos.title) FROM videos 
+    $statement = $connection->prepare("SELECT COUNT(videos.video_name) FROM videos 
         INNER JOIN lessons ON lessons.lesson_id = videos.lesson_id 
         INNER JOIN courses ON courses.course_id = lessons.course_id 
         INNER JOIN users ON users.user_id = courses.user_id 
-        WHERE users.user_id = :user_id");
+        WHERE lessons.lesson_id = :user_id");
     $statement->execute([
         ':user_id' => $user_id
     ]);
@@ -219,14 +236,24 @@ function nb_vdo_free($user_id)
 function nb_vdo_not_free($user_id)
 {
     global $connection;
-    $statement = $connection->prepare("SELECT COUNT(videos.title) FROM videos 
+    $statement = $connection->prepare("SELECT COUNT(videos.video_name) FROM videos 
         INNER JOIN lessons ON lessons.lesson_id = videos.lesson_id 
         INNER JOIN courses ON courses.course_id = lessons.course_id 
         INNER JOIN users ON users.user_id = courses.user_id 
-        WHERE users.user_id = :user_id and video_type != 'free'");
+        WHERE lessons.lesson_id = :user_id and video_type != 'free'");
     $statement->execute([
         ':user_id' => $user_id
     ]);
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
+}
+
+// ======== delete course =================
+function  delete_course($course_id){
+    global $connection;
+    $statement = $connection->prepare("DELETE from courses where course_id = :course_id;");
+    $statement->execute([
+        ':course_id'=>$course_id
+    ]);
+
 }

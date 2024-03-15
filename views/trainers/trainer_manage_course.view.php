@@ -198,10 +198,18 @@ Inner part START -->
 															<input type="hidden" name="course_id" value="<?= $course['course_id'] ?>">
 															<button type="submit" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></button>
 														</form>
-														<form action="" method="post">
+														<form action="/trainer_delete_course" method="post" onsubmit="return confirmDelete();">
 															<input type="hidden" name="course_id" value="<?= $course['course_id'] ?>">
-															<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
+															<button class="btn btn-sm btn-danger-soft btn-round mb-0">
+																<i class="fas fa-fw fa-times"></i>
+															</button>
 														</form>
+
+														<script>
+															function confirmDelete() {
+																return confirm("Are you sure you want to delete this course?");
+															}
+														</script>
 													</td>
 												</tr>
 											<?php endforeach; ?>
@@ -244,7 +252,11 @@ Inner part END -->
 	</main>
 	<!-- **************** MAIN CONTENT END **************** -->
 	<!-- <div class="container"> -->
-
+	<?php
+	if (isset($_SESSION['user'])) {
+		$user_id = $_SESSION['user']['user_id'];
+	}
+	?>
 	<!-- //=========form for create course============= -->
 	<!-- Modal -->
 	<div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -258,30 +270,34 @@ Inner part END -->
 				<div class="modal-body">
 
 					<form action="controllers/trainers/trainer_create_course.controller.php" method="POST" enctype="multipart/form-data" class="w-100">
-						<div class="form-group mt-3">
-							<input type="hidden" name="id" value="">
+						<div class="form-group mt-1">
+							<label for="course_duration">Course name</label>
+							<input type="hidden" name="user_id" value="<?php echo $user_id ?>">
 							<input type="text" class="form-control bg-white" name="course_name" placeholder="course_name" value="" required>
 						</div>
-						<div class="form-group mt-3">
-							<input type="number" class="form-control bg-white" name="course_duration" placeholder="Course duration" value="" required>
+						<div class="form-group mt-1 d-flex justify-content-between">
+							<div class="form-group mt-1">
+								<label for="course_duration">Course duration</label>
+								<input type="number" class="form-control bg-white" name="course_duration" placeholder="Course duration" value="" required>
+							</div>
+							<div class="form-group mt-1">
+								<label for="course_duration">Course price</label>
+								<input type="text" class="form-control decimal-input" name="course_price" placeholder="Course Price" aria-label="Decimal Input" value="" required>
+							</div>
 						</div>
-						<div class="form-group mt-3">
-							<input type="text" class="form-control decimal-input" name="course_price" placeholder="Course Price" aria-label="Decimal Input" value="" required>
+						<div class="form-group mt-1 ">
+							<div class="form-group mt-1">
+								<label for="course_duration">Course image</label>
+								<input class="form-control form-control-sm" id="formFileSm" type="file" name="course_image" placeholder="Course Image" required>
+							</div>
+							<div class="form-group mt-1">
+								<label for="course_duration">Course video</label>
+								<input class="form-control form-control-sm" id="formFileSm" type="file" name="course_video" placeholder="Course Image" required>
+							</div>
 						</div>
-						<div class="form-group mt-3">
-							<input class="form-control form-control-sm" id="formFileSm" type="file" name="course_image" placeholder="Course Image" required>
-						</div>
-						<select class="form-select mt-3" aria-label="Default select example" name="teacher" required>
 
-							<option selected>Who are you?</option>
-							<?php
-							$trainers = get_trainers();
-							foreach ($trainers as $trainer) :
-							?>
-								<option value="<?php echo $trainer['user_id'] ?>"><?php echo $trainer['username'] ?></option>
-							<?php endforeach; ?>
 
-						</select>
+						<label for="course_duration">Course category</label>
 						<select class="form-select mt-3" aria-label="Default select example" name="course_category" required>
 							<option selected>Select categories</option>
 							<?php
@@ -291,6 +307,7 @@ Inner part END -->
 								<option value="<?php echo $category['category_id'] ?>"><?php echo $category['category_name'] ?></option>
 							<?php endforeach; ?>
 						</select>
+						<label for="course_duration">Course description</label>
 						<textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="3" name="description" required>Course description</textarea>
 						<button type="submit" class="btn btn-primary m-4">Create</button>
 						<button class="btn btn-danger m-4" id="modal" data-bs-dismiss="modal">cancel</button>

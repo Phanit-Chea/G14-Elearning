@@ -10,9 +10,9 @@
 
         ?>
         <!-- Page content START -->
-        <section class="pt-3 pt-xl-3">
-            <div class="p-5" data-sticky-container="">
-                <div class="row g-4">
+        <section class="pt-3 pt-xl- 3">
+            <div class="p-5 d-flex " data-sticky-container="">
+                <div class="row g-4 ">
                     <!-- Main content START -->
                     <div class="col-xl-8 bg bg-white rounded border" style="width: 90%; margin-top: 30px;">
 
@@ -122,14 +122,14 @@
                                                 ?>
                                                     <div class="d-sm-flex justify-content-sm-between align-items-center">
                                                         <div class="d-flex">
-                                                            <a href="#" class="btn btn-danger-soft btn-round mb-0"><i class="fas fa-play"></i></a>
+                                                            <a href="#" class="btn btn-danger-soft btn-round mb-0"onclick="return confirm('please payment!!')"><i class="fas fa-play"></i></a>
                                                             <div class="ms-2 ms-sm-3 mt-1 mt-sm-0">
                                                                 <h6 class="mb-0"><?= $video['video_name'] ?></h6>
                                                                 <p class="mb-2 mb-sm-0 small">10m 56s</p>
                                                             </div>
                                                         </div>
                                                         <!-- Button -->
-                                                        <a href="#" class="btn btn-sm btn-success mb-0"><?= $video['video_type'] ?></a>
+                                                        <a href="controllers/cart/cart.add.controller.php?id=<?= $courses['course_id'] ?>" class="btn btn-sm btn-success mb-0"><?= $video['video_type'] ?></a>
                                                     </div>
 
                                                     <!-- Divider -->
@@ -152,9 +152,7 @@
                     </div>
                 </div>
                 <!-- Main content END -->
-
-                <!-- Right sidebar START -->
-                <div class="col-xl-4 pt-7">
+                <div class="col-xl-4 pt-2">
                     <div data-sticky="" data-margin-top="80" data-sticky-for="768">
                         <div class="row g-4">
                             <div class="col-md-6 col-xl-12">
@@ -183,7 +181,7 @@
                                     <!-- Buttons -->
                                     <div class="mt-3 d-grid">
                                         <a href="controllers/cart/cart.add.controller.php?id=<?= $courses['course_id'] ?>" class="btn btn-outline-primary">Add to cart</a>
-                                        <a href="#" class="btn btn-success">Buy now</a>
+                                        <a href="controllers/cart/cart.add.controller.php?id=<?= $courses['course_id'] ?>"  class="btn btn-success">Buy now</a>
                                     </div>
                                     <!-- Divider -->
                                     <hr>
@@ -235,6 +233,9 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Right sidebar START -->
+
             </div>
 
 
