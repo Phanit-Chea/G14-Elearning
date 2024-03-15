@@ -292,7 +292,7 @@ Inner part END -->
 							</div>
 							<div class="form-group mt-1">
 								<label for="course_duration">Course video</label>
-								<input class="form-control form-control-sm" id="formFileSm" type="file" name="course_video" placeholder="Course Image" required>
+								<input class="form-control form-control-sm" id="formFileSm" type="text" name="course_video" placeholder="Insert the link of video" required>
 							</div>
 						</div>
 

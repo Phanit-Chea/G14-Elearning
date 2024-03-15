@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $course_category = intval($_POST['course_category']);
     $user_id = intval($_POST['user_id']);
     $course_description = $_POST['description'];
+    $course_video = $_POST['course_video'];
     $newname = '';
 
     if (isset($_FILES['course_image'])) {
@@ -23,35 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             move_uploaded_file($tmppath, $direct);
         }
     }
-
-    if (isset($_FILES['course_video'])) {
-        $vd_name = $_FILES['course_video']['name'];
-        $tmp_vd_name = $_FILES['course_video']['tmp_name'];
-        $error = $_FILES['course_video']['error'];
-        $vd_upload_path = '';
-
-        if ($error === 0) {
-            $vd_ex = pathinfo($vd_name, PATHINFO_EXTENSION);
-            $vd_ex_lc = strtolower($vd_ex);
-            $allowed_exs = array('mp4', 'webm', 'avi', 'flv');
-
-            if (in_array($vd_ex_lc, $allowed_exs)) {
-                echo "yes";
-                $new_vd_lc = uniqid('video-', true) . '.' . $vd_ex_lc;
-                $vd_upload_path = '../../assets/images/videos/' . $new_vd_lc;
-                move_uploaded_file($tmp_vd_name, $vd_upload_path);
-            }
-        }
-    }
-
-    echo $course_name . "<br>";
-    echo $course_duration . "<br>";
-    echo $course_price . "<br>";
-    echo $user_id . "<br>";
-    echo $newname . "<br>";
-    echo $new_vd_lc . "<br>";
-
-    create_course($course_name, $course_duration, $course_price, $user_id, $course_category, $course_description, $newname, $new_vd_lc);
+    create_course($course_name, $course_duration, $course_price, $user_id, $course_category, $course_description, $newname, $course_video);
     header("Location: /trainer_manage_course");
     exit();
 }
