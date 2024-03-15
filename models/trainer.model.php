@@ -47,14 +47,15 @@ function get_categories()
 };
 
 //================Edit profile========================
-function edit_profile(string $username, string $email, string $image, int $id)
+function edit_profile(string $username, string $email, string $image, string $password, int $id)
 {
     global $connection;
-    $statement = $connection->prepare("UPDATE users SET username = :username, email = :email, image = :image WHERE user_id = :user_id ");
+    $statement = $connection->prepare("UPDATE users SET username = :username, email = :email, image = :image, password = :password WHERE user_id = :user_id ");
     $statement->execute([
         ':username' => $username,
         ':email' => $email,
         ':image' => $image,
+        ':password' => $password,
         ':user_id' => $id
     ]);
     return $statement->rowCount() > 0;

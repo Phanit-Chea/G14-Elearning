@@ -28,7 +28,7 @@ require 'layouts/trainer/navbar.php';
       <div class="card shadow">
         <div class="card-body">
           <h5 class="card-title fw-bold ">Edit your profile</h5>
-          <form action="#" method="POST" id="myForm" onsubmit="return validateForm()">
+          <form action="/trainer_dashboard" method="POST" id="myForm" onsubmit="return validateForm()">
             <div class="mb-3">
               <label for="name" class="form-label fw-bold">Name</label>
               <input type="text" class="form-control" id="name" placeholder="Enter your new name" value="<?php echo $username; ?>">

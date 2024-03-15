@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $image = $_POST['image'];
-    edit_profile($username, $email, $image, $id) ;
+    $password = $_POST['password'];
+    edit_profile($username, $email, $image, $password, $id) ;
     header("location: /trainer_dashboard");
 }
