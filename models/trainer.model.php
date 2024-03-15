@@ -257,3 +257,12 @@ function  delete_course($course_id){
     ]);
 
 }
+
+//============ delete lesson ===============
+function delete_lesson($lesson_id){
+    global $connection;
+    $statement = $connection->prepare("DELETE FROM lessons WHERE lesson_id = :lesson_id");
+    $statement->execute([
+        ":lesson_id" => $lesson_id
+    ]);
+}
