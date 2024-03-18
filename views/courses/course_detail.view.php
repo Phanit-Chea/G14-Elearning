@@ -87,17 +87,15 @@
                                 ?>
                                         <div class="col-sm-6 col-lg-4 col-xl-3">
                                             <div class="card shadow h-100">
-                                                <!-- <img src="assets/images/courses/4by3/<?= $lessons[$j]['lessons_image'] ?>" class="card-img-top" alt="course image"> -->
+                           
                                                 <div class="video-player rounded-3">
-                                                    <video controls="" crossorigin="anonymous" playsinline="" poster="assets/images/courses/4by3/<?= $lessons[$j]['lessons_image'] ?>">
-                                                        <source src="assets/images/videos/<?=$videos[$j]['file_path'] ?>" type="video/mp4" size="360">
-                                                        <source src="assets/images/videos/720p.mp4" type="video/mp4" size="720">
-                                                        <source src="assets/images/videos/1080p.mp4" type="video/mp4" size="1080">
+                                                    <video controls crossorigin="anonymous" playsinline="" poster="assets/images/courses/4by3/<?= $lessons[$j]['lessons_image'] ?>">
+                                                        <source src="assets/images/videos//<?= $videos[$j]['file_path'] ?>" type="video/mp4" size="360">
+                                                        <source src="assets/images/videos/<?= $videos[$j]['file_path'] ?>" type="video/mp4" size="720">
+                                                        <source src="assets/images/videos/<?= $videos[$j]['file_path'] ?>" type="video/mp4" size="1080">
                                                         <!-- Caption files -->
-                                                        <track kind="captions" label="English" srclang="en" src="assets/images/videos/en.vtt.txt" default="">
-                                                        <track kind="captions" label="French" srclang="fr" src="assets/images/videos/fr.vtt.txt">
-                                                        </track>
-                                                        </track>
+                                                        <track kind="captions" label="English" srclang="en" src="assets/images/videos/en.vtt" default>
+                                                        <track kind="captions" label="French" srclang="fr" src="assets/images/videos/fr.vtt">
                                                     </video>
                                                 </div>
                                                 <div class="card-body pb-0 d-flex align-items-center justify-content-center flex-column">
@@ -118,14 +116,8 @@
 
                     <?php endfor; ?>
                 </div>
-
-
-                <!-- Tabs content END -->
             </div>
         </section>
-
-
-
     </main>
 
 
