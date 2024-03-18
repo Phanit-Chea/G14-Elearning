@@ -1,4 +1,5 @@
 <?php
+ob_start();
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
@@ -19,6 +20,8 @@ $routes = [
     '/trainer_create_course' => 'controllers/trainers/trainer_create_lesson.controller.php',
     '/trainer_manage_video'=> 'controllers/trainers/trainer_manage_video.controller.php',
     '/trainer_video_detail'=> 'controllers/trainers/trainer_video_detail.controller.php',
+    '/trainer_delete_course'=>'controllers/trainers/trainer_delete_course.controller.php',
+    '/trainer_delete_lesson'=>'controllers/trainers/trainer_delete_lesson.controller.php',
     '/signup' => 'controllers/signup/signup.controller.php',
     '/signin' => 'controllers/signin/signin.controller.php',
     '/student' =>'controllers/student/student.controller.php',

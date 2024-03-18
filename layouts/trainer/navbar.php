@@ -1,4 +1,5 @@
 <script src="../../vendor/js/search_category.js" defer></script>
+
 <body>
 
 	<!-- Header START -->
@@ -7,7 +8,7 @@
 		<nav class="navbar navbar-expand-xl fixed-top bg-white">
 			<div class="container">
 				<!-- Logo START -->
-				<a class="navbar-brand" href="/trainers">
+				<a class="navbar-brand" href="/">
 					<img class="light-mode-item navbar-brand-item" src="assets/images/courses/4by3/photo_2024-03-04_07-59-04.jpg" alt="logo">
 					<img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
 				</a>
@@ -49,7 +50,7 @@
 									<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
 										<li> <a class="dropdown-item" href="/trainer_dashboard"><i class="bi bi-grid-fill fa-fw me-1"></i>Dashboard</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_course"><i class="bi bi-basket-fill fa-fw me-1"></i>Course</a> </li>
-										<a class="list-group-item active" href="/trainer_manage_lesson"><i class="bi bi-basket fa-fw me-2"></i>My Lessons</a>
+										<a class="list-group-item" href="/trainer_manage_lesson"><i class="bi bi-basket fa-fw me-2"></i>My Lessons</a>
 										<li> <a class="dropdown-item" href="/trainer_manage_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Category</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_earning"><i class="fas fa-chart-line fa-fw me-1"></i>Earnings</a> </li>
 										<li> <a class="dropdown-item" href="/trainer_manage_students"><i class="fas fa-user-graduate fa-fw me-1"></i>Students</a> </li>
@@ -81,8 +82,8 @@
 
 				<!-- Profile START -->
 				<div class="dropdown ms-1 ms-lg-0">
-					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-						<img class="avatar-img rounded-circle" src="assets/images/avatar/<?php echo $profileImage;?>" alt="avatar">
+					<a class="avatar avatar-sm p-0" href="" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+						<img class="avatar-img rounded-circle" src="assets/images/avatar/<?php echo $profileImage; ?>" alt="avatar">
 					</a>
 					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
 						<!-- Profile info -->
@@ -90,22 +91,22 @@
 							<div class="d-flex align-items-center">
 								<!-- Avatar -->
 								<div class="avatar me-3">
-									<img class="avatar-img rounded-circle shadow" src="assets/images/avatar/01.jpg" alt="avatar">
+									<img class="avatar-img rounded-circle shadow" src="assets/images/avatar/<?php echo $profileImage; ?>" alt="avatar">
 								</div>
 								<div>
-									<a class="h6" href="#">Lori Ferguson</a>
-									<p class="small m-0">example@gmail.com</p>
+									<a class="h6" href="#"><?php echo $username; ?></a>
+									<p class="small m-0"></p>
 								</div>
 							</div>
 							<hr>
 						</li>
 						<!-- Links -->
-						<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a>
+						<li><a class="dropdown-item" href="/trainer_edit_profile"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a>
 						</li>
 						<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a>
 						</li>
 						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
-						<li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+						<li><a class="dropdown-item bg-danger-soft-hover" href="/signin"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
 						<li>
 							<hr class="dropdown-divider">
 						</li>

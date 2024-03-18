@@ -9,7 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $course_category = intval($_POST['course_category']);
     $user_id = intval($_POST['user_id']);
     $course_description = $_POST['description'];
+
     $newname = '';
+
     if (isset($_FILES['course_image'])) {
         $course_image = $_FILES['course_image'];
         $imagename = $course_image['name'];
@@ -21,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if ($img_error == 0) {
             move_uploaded_file($tmppath, $direct);
         }
-    };
+    }
     if (isset($_FILES['course_video'])) {
         $vd_name = $_FILES['course_video']['name'];
         $tmp_vd_name = $_FILES['course_video']['tmp_name'];
@@ -38,13 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $vd_upload_path = '../../assets/images/videos' . $new_vd_lc;
                 move_uploaded_file($tmp_vd_name, $vd_upload_path);
             }
-        }
+        };
     }
-
-
-    if (!empty($course_name) && !empty($course_duration) && !empty($course_price) && !empty($user_id) && !empty($course_category) && !empty($newname)) {
-        create_course($course_name, $course_duration, $course_price, $user_id, $course_category, $course_description, $newname, $new_vd_lc);
-        header("Location: /trainer_manage_course");
-        exit();
-    };
+    create_course($course_name, $course_duration, $course_price, $user_id, $course_category, $course_description, $newname,  $new_vd_lc);
+    header("Location: /trainer_manage_course");
+    exit();
 };

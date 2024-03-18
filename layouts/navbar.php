@@ -7,7 +7,7 @@ require "models/cart.model.php";
   <nav class="navbar navbar-expand-xl fixed-top bg-white">
     <div class="container">
       <!-- Logo START -->
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="/">
         <img class="light-mode-item navbar-brand-item" src="assets/images/courses/4by3/photo_2024-03-04_07-59-04.jpg" alt="logo">
         <img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
       </a>
@@ -243,34 +243,35 @@ require "models/cart.model.php";
       <!-- Add to cart -->
       <?php
       $count = 0;
-      if(isset($_SESSION['user'])){
+      if (isset($_SESSION['user'])) {
         $user_id = $_SESSION['user']['user_id'];
         $carts = getCart($user_id);
         $count = (count($carts));
       }
-      
+
       ?>
+        <?php if (isset($_SESSION['login']) && $_SESSION['login'] == 'login') : ?>
       <div class="navbar-nav position-relative overflow-visible me-3">
         <a href="/cart" class="nav-link"> <i class="fas fa-shopping-cart fs-5"></i></a>
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-success mt-xl-2 ms-n1"><?php echo($count) ?>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-success mt-xl-2 ms-n1"><?php echo ($count) ?>
           <span class="visually-hidden">unread messages</span>
         </span>
       </div>
-      
-      <!-- pages-->
-      <?php if (isset($_SESSION['login']) && $_SESSION['login'] != ''):?>
-      <ul class="navbar-nav navbar-nav-scroll me-3 d-none d-xl-block">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="language" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-globe me-2"></i>
-            <span class="d-none d-lg-inline-block">Pages</span>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end min-w-auto" aria-labelledby="language">
-            <li> <a class="dropdown-item" href="/student"><img class="fa-fw me-2"  alt="">Student</a></li>
-            <li> <a class="dropdown-item" href="/trainer_dashboard"><img class="fa-fw me-2"  alt="">Teacher</a></li>
-          </ul>
-        </li>
-      </ul>
+        <?php endif; ?>
+      <!-- Language -->
+      <?php if (isset($_SESSION['login']) && $_SESSION['login'] != '') : ?>
+        <ul class="navbar-nav navbar-nav-scroll me-3 d-none d-xl-block">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="language" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-globe me-2"></i>
+              <span class="d-none d-lg-inline-block">Pages</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end min-w-auto" aria-labelledby="language">
+              <li> <a class="dropdown-item" href="/student"><img class="fa-fw me-2" alt="">Student</a></li>
+              <li> <a class="dropdown-item" href="/trainer_dashboard"><img class="fa-fw me-2" alt="">Teacher</a></li>
+            </ul>
+          </li>
+        </ul>
       <?php endif; ?>
 
       <!-- Signout button  -->
@@ -280,21 +281,22 @@ require "models/cart.model.php";
         <?php else : ?>
           <a href="/signin" class="btn btn-danger-soft mb-0">Signin</a>
         <?php endif; ?>
-        <?php if (isset($_SESSION['login']) && $_SESSION['login'] != ''):?>
-        <?php
-        if (isset($_SESSION['user'])) {
-          if ($_SESSION['user']['role_id'] != 3) { ?>
-            <img class="rounded-circle me-lg-2" src="../assets/images/avatar/<?= isset($_SESSION['user']) ? $_SESSION['user']['image'] : 'p.jpg' ?>" alt="" style="width: 50px; height:50px;">
-        <?php }
-        } else {
-          $imgPF = "../assets/images/avatar/p.jpg";
-        }
-        ?>
-        <?php if (isset($imgPF)) {
-          echo '<img class="rounded-circle me-lg-2" src="../assets/images/avatar/p.jpg" alt="" style="width: 50px; height:50px;">';
-        }
-        ?>
-      <?php endif; ?>
+        <?php if (isset($_SESSION['login']) && $_SESSION['login'] != '') : ?>
+          <?php
+          if (isset($_SESSION['user'])) {
+            if ($_SESSION['user']['role_id'] != 3) { ?>
+              <a href="/student">
+                <img class="rounded-circle me-lg-2" src="../assets/images/avatar/<?= isset($_SESSION['user']) ? $_SESSION['user']['image'] : 'p.jpg' ?>" alt="" style="width: 50px; height:50px;"></a>
+          <?php }
+          } else {
+            $imgPF = "../assets/images/avatar/p.jpg";
+          }
+          ?>
+          <?php if (isset($imgPF)) {
+            echo '<img class="rounded-circle me-lg-2" src="../assets/images/avatar/p.jpg" alt="" style="width: 50px; height:50px;">';
+          }
+          ?>
+        <?php endif; ?>
       </div>
       <!-- Right header content END -->
 

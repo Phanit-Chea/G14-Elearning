@@ -3,9 +3,15 @@ session_start();
 require 'layouts/navbar.php';
 // require 'models/cart.model.php';
 
-$user_id = $_SESSION['user']['user_id'];
-$carts = getCart($user_id);
+// $user_id = $_SESSION['user']['user_id'];
+// $carts = getCart($user_id);
+
+$userId = $_SESSION['user']['user_id'] ?? null;
+$carts = $userId ? getCart($userId) : [];
 $count = count($carts);
+
+require 'controllers/payment/payment.controller.php';
+
 ?>
 
 <section class="h-100 h-custom" style="background-color: #eee;">
@@ -27,10 +33,10 @@ $count = count($carts);
                     <p class="mb-1">Order cart</p>
                     <p class="mb-0">You have <?php echo($count)?> items in your cart</p>
                   </div>
-                  <div>
+                  <!-- <div>
                     <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!"
                         class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
-                  </div>
+                  </div> -->
                 </div>
 
                 <!-- =============== display cart ========= -->
@@ -89,37 +95,42 @@ $count = count($carts);
                         class="fab fa-cc-amex fa-2x me-2"></i></a>
                     <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a>
 
-                    <form class="mt-4">
+                    <form action='#' method="POST" class="mt-4">
                       <div class="form-outline form-white mb-4">
-                        <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
-                          placeholder="Cardholder's Name" />
-                        <label class="form-label" for="typeName">Cardholder's Name</label>
+                        <label class="form-label" pattern="^(?!(000|666|9))\d{3} (?!00)\d{2} (?!0000)\d{4}$" for="typeName">Cardholder's Name</label>
+                        <input type="text" id="typeName" name='cardName' class="form-control form-control-lg" siez="17" placeholder="Cardholder's Name" />
+                        <!-- <p class="text-danger"><?= $cardNameMsg ?></p> -->
                       </div>
 
                       <div class="form-outline form-white mb-4">
-                        <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
-                          placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
                         <label class="form-label" for="typeText">Card Number</label>
+                        <input type="number" id="typeText" name="cardNumber" class="form-control form-control-lg" siez="17" placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                        <!-- <p class="text-danger"><?= $cardNumberMsg ?></p> -->
                       </div>
 
                       <div class="row mb-4">
                         <div class="col-md-6">
                           <div class="form-outline form-white">
-                            <input type="text" id="typeExp" class="form-control form-control-lg"
-                              placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7" />
                             <label class="form-label" for="typeExp">Expiration</label>
+                            <input type="text" name="expDate" id="typeExp" class="form-control form-control-lg" placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7" />
+                            <!-- <p class="text-danger"><?= $expDateMsg ?></p> -->
                           </div>
                         </div>
+
                         <div class="col-md-6">
                           <div class="form-outline form-white">
-                            <input type="password" id="typeText" class="form-control form-control-lg"
-                              placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
                             <label class="form-label" for="typeText">Cvv</label>
+                            <input type="password" name="cvv" id="typeText" class="form-control form-control-lg" placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                            <!-- <p class="text-danger"><?= $cvvMsg ?></p> -->
                           </div>
                         </div>
                       </div>
 
-                    </form>
+                      <!-- <div class="form-outline form-white mb-4">
+                        <label class="form-label" for="typeText">Card Number</label>
+                        <input type="date" id="typeText" name="cardNumber" class="form-control form-control-lg" siez="17" placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" /> -->
+                        <!-- <p class="text-danger"><?= $cardNumberMsg ?></p> -->
+                      <!-- </div> -->
 
                     <hr class="my-4">
 
@@ -134,14 +145,15 @@ $count = count($carts);
                       <p class="mb-2"><?= $totalPrice . "$" ?></p>
                     </div>
 
-                    <button type="button" class="btn btn-info btn-block btn-lg">
-                      <div class="d-flex justify-content-between">
-                        <!-- <span>$4818.00</span> -->
-                        <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
-                      </div>
+                    <button type="submit" class="w-100 btn btn-info btn-lg">
+                          <div class="d-flex justify-content-center">
+                            <span>Checkout</span>
+                          </div>
                     </button>
 
                   </div>
+                  </form>
+
                 </div>
 
               </div>

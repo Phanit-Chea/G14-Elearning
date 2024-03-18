@@ -60,14 +60,14 @@ Page Banner START -->
 						<!-- Avatar -->
 						<div class="col-auto">
 							<div class="avatar avatar-xxl position-relative mt-n3">
-								<img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/p.jpg" alt="">
+								<img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/<?php echo $profileImage; ?>" alt="">
 								<span class="badge bg-success text-white rounded-pill position-absolute top-50 start-100 translate-middle mt-4 mt-md-5 ms-n3 px-md-3">Pro</span>
 							</div>
 						</div>
 						<!-- Profile info -->
 						<div class="col d-sm-flex justify-content-between align-items-center">
 							<div>
-								<h1 class="my-1 fs-4">Lori Stevens</h1>
+								<h1 class="my-1 fs-4"><?php echo $username; ?> </h1>
 								<ul class="list-inline mb-0">
 									<li class="list-inline-item me-3 mb-1 mb-sm-0">
                     <span class="h6">255</span>
@@ -129,7 +129,7 @@ Page content START -->
 							<div class="bg-dark border rounded-3 pb-0 p-3 w-100">
 								<!-- Dashboard menu -->
 								<div class="list-group list-group-dark list-group-borderless">
-									<a class="list-group-item active" href="student-dashboard.html"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
+									<a class="list-group-item active" href="#"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
 									<a class="list-group-item" href="student-subscription.html"><i class="bi bi-card-checklist fa-fw me-2"></i>My Subscriptions</a>
 									<a class="list-group-item" href="student-course-list.html"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
 									<a class="list-group-item" href="student-payment-info.html"><i class="bi bi-credit-card-2-front fa-fw me-2"></i>Payment info</a>
