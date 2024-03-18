@@ -35,8 +35,23 @@
 							<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
 							<ul class="dropdown-menu" aria-labelledby="pagesMenu">
 								<!-- Dropdown submenu -->
-								<li> <a class="dropdown-item" href="/student">Student</a></li>
-								<li> <a class="dropdown-item" href="/">Home</a></li>
+								<?php
+								$router_student = '/';
+								$router_teacher = '/';
+								if (isset($_SESSION['user'])) {
+									$user_id = $_SESSION['user']['user_id'];
+									$role = $_SESSION['user']['role_id'];
+									if ($role == 2) {
+										$router_student = '/student';
+									} else if ($role == 1 || $role == 3) {
+										$router_teacher = '/';
+									}
+
+								?>
+									?>
+									<li> <a class="dropdown-item" href="<?=$router_student?>">Student</a></li>
+									<li> <a class="dropdown-item" href="<?=$router_teacher?>">Home</a></li>
+								<?php }; ?>
 							</ul>
 						</li>
 

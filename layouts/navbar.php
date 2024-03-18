@@ -250,14 +250,14 @@ require "models/cart.model.php";
       }
 
       ?>
-        <?php if (isset($_SESSION['login']) && $_SESSION['login'] == 'login') : ?>
-      <div class="navbar-nav position-relative overflow-visible me-3">
-        <a href="/cart" class="nav-link"> <i class="fas fa-shopping-cart fs-5"></i></a>
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-success mt-xl-2 ms-n1"><?php echo ($count) ?>
-          <span class="visually-hidden">unread messages</span>
-        </span>
-      </div>
-        <?php endif; ?>
+      <?php if (isset($_SESSION['login']) && $_SESSION['login'] == 'login') : ?>
+        <div class="navbar-nav position-relative overflow-visible me-3">
+          <a href="/cart" class="nav-link"> <i class="fas fa-shopping-cart fs-5"></i></a>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-success mt-xl-2 ms-n1"><?php echo ($count) ?>
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </div>
+      <?php endif; ?>
       <!-- Language -->
       <?php if (isset($_SESSION['login']) && $_SESSION['login'] != '') : ?>
         <ul class="navbar-nav navbar-nav-scroll me-3 d-none d-xl-block">
@@ -267,8 +267,21 @@ require "models/cart.model.php";
               <span class="d-none d-lg-inline-block">Pages</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-end min-w-auto" aria-labelledby="language">
-              <li> <a class="dropdown-item" href="/student"><img class="fa-fw me-2" alt="">Student</a></li>
-              <li> <a class="dropdown-item" href="/trainer_dashboard"><img class="fa-fw me-2" alt="">Teacher</a></li>
+              <?php
+              $router = '/';
+              if (isset($_SESSION['user'])) {
+                $user_id = $_SESSION['user']['user_id'];
+                $role = $_SESSION['user']['role_id'];
+                if ($role == 2) {
+                  $router = '/student';
+                } else if ($role == 1 || $role == 3) {
+                  $router = '/trainer_manage_students';
+                }
+
+              ?>
+                <li> <a class="dropdown-item" href="<?= $router ?>"><img class="fa-fw me-2" alt="">Student</a></li>
+                <li> <a class="dropdown-item" href="<?= $router ?>"><img class="fa-fw me-2" alt="">Teacher</a></li>
+              <?php }; ?>
             </ul>
           </li>
         </ul>
