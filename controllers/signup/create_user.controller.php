@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             if($_SESSION['user']['role_id'] == 1){
                 header("location:/trainer_dashboard");
             }else{
-                header("location:/student");
+                header("location:/");
 
             }
             $_SESSION['duplicate']="";
