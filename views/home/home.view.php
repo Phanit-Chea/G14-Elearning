@@ -132,14 +132,14 @@ Featured course START -->
 	<section class="pt-0 pt-md-5">
 		<div class="container">
 			<!-- Title -->
-			<div class="row mb-4">
+			<div class="row mb-4 ">
 				<div class="col-lg-8 text-center mx-auto">
 					<h2 class="fs-1 mb-0">Featured Courses</h2>
 					<p class="mb-0">Explore top picks of the week </p>
 				</div>
 			</div>
 
-			<div class="row g-4">
+			<div class="row g-4 ">
 				<!-- Card Item START -->
 				<?php
 				require 'database/database.php';
@@ -151,7 +151,7 @@ Featured course START -->
 					$role = ($_SESSION['user']['role_id']);
 					if ($role == 2) {
 						$courses = course_view_all();
-					} else if ($role == 1) {
+					} else if ($role == 1 or $role == 3) {
 						$courses = course_view($user_id);
 					};
 
@@ -159,12 +159,19 @@ Featured course START -->
 					foreach ($courses as $course) :
 
 				?>
-						<div class="col-md-6 col-lg-4 col-xxl-3">
-							<div class="card p-2 shadow h-100">
+						<div class="col-md-4 col-lg-4 col-xl-4">
+							<div class="card p-2 shadow h-100 ">
 								<div class="rounded-top overflow-hidden">
 									<div class="card-overlay-hover">
 										<!-- Image -->
-										<img style="width: 330px; height:200px" src="assets/images/courses/4by3/<?= $course['course_image'] ?>" class="card-img-top" alt="course image">
+										<!-- <a href="">
+
+											</a> -->
+										<form action="/student_view_course" method="post">
+											<input type="hidden" value="<?= $course['course_id'] ?>" name="course_id">
+											<a href="/student_view_course" onclick="this.parentNode.submit(); return false;">
+												<img style="width: 337px; height: 200px" src="assets/images/courses/4by3/<?= $course['course_image'] ?>" class="card-img-top" alt="course image">
+											</a>										</form>
 									</div>
 									<!-- Hover element -->
 									<div class="card-img-overlay">
