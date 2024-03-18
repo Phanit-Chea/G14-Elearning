@@ -61,7 +61,7 @@ function get_name_trainer($id)
 function get_name_lessons($course_id)
 {
     global $connection;
-    $statement = $connection->prepare("SELECT lessons.lesson_id,lessons.title, courses.course_name, users.username 
+    $statement = $connection->prepare("SELECT lessons.lesson_id, lessons.title, lessons.lessons_image, courses.course_name, users.username 
                                       FROM lessons 
                                       INNER JOIN courses ON courses.course_id = lessons.course_id 
                                       INNER JOIN users ON users.user_id = courses.user_id 
@@ -70,7 +70,7 @@ function get_name_lessons($course_id)
         ':course_id' => $course_id
     ]);
     return $statement->fetchAll(PDO::FETCH_ASSOC);
-};
+}
 
 // ======= get video by in each lesson
 function video_free( $lesson_id) {
@@ -81,4 +81,14 @@ function video_free( $lesson_id) {
     ]);
 
     return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// =========== get all videos ================
+function get_all_videos($lesson_id){
+global $connection;
+$statement = $connection->prepare("SELECT * from videos where lesson_id = :lesson_id;");
+$statement->execute([
+    ':lesson_id'=>$lesson_id
+]);
+return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
