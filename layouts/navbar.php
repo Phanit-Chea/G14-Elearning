@@ -250,15 +250,14 @@ require "models/cart.model.php";
       }
       
       ?>
-
       <div class="navbar-nav position-relative overflow-visible me-3">
         <a href="/cart" class="nav-link"> <i class="fas fa-shopping-cart fs-5"></i></a>
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-success mt-xl-2 ms-n1"><?php echo($count) ?>
           <span class="visually-hidden">unread messages</span>
         </span>
       </div>
-
-      <!-- Language -->
+      
+      <!-- pages-->
       <?php if (isset($_SESSION['login']) && $_SESSION['login'] != ''):?>
       <ul class="navbar-nav navbar-nav-scroll me-3 d-none d-xl-block">
         <li class="nav-item dropdown">

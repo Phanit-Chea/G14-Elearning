@@ -121,7 +121,7 @@ function update_video($course_id, $video)
 function insert_video($video_path, $course_name)
 {
     global $connection;
-    $statement = $connection->prepare("INSERT INTO videos (title, file_path, video_type) VALUES (:title, :file_path, :video_type);");
+    $statement = $connection->prepare("INSERT INTO videos (video_name, file_path, video_type) VALUES (:title, :file_path, :video_type);");
     $statement->execute([
         ':title' => $course_name,
         ':file_path' => $video_path,
@@ -213,4 +213,11 @@ function nb_vdo_not_free($user_id)
     ]);
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
+}
+// =======display_video=========
+function getAllvideo(){
+    global $connection;
+    $statement = $connection->prepare("select * from videos");
+    $statement->execute();
+    return $statement->fetchAll();
 }
