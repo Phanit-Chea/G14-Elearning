@@ -164,7 +164,7 @@ require 'models/trainer.model.php';
                             <div class="card-body">
                                 <h5 class="card-title"><?= $value['video_name'] ?>
                                     <a href="#?id=<?= $value['video_id'] ?>" data-bs-toggle="modal" data-bs-target="#edit<?= $value['video_id'] ?>" class="btn "><i class="bi bi-pencil-square"></i></a>
-                                    <a href="/" class="btn"><i class="bi bi-trash-fill"></i></a>
+                                    <a href="controllers/trainers/trainer_delete_videos.controller.php?id=<?= $value['video_id'] ?>" class="btn"><i class="bi bi-trash-fill"></i></a>
                                     <style>
                                         .btn:hover {
                                             background-color: #13d288;

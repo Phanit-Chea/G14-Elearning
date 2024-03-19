@@ -310,3 +310,12 @@ function edit_lesson($lesson_id, $new_lesson_title, $new_lesson_description) {
         return false;
     }
 }
+// ============delete vidoes course===========
+function delete_videos($video_id){
+    global $connection;
+    $statement = $connection->prepare("DELETE FROM videos WHERE video_id = :video_id");
+    $statement->execute([
+        ':video_id'=>$video_id
+    ]);
+    return $statement->fetch();
+}
