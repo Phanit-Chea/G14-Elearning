@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'layouts/trainer/navbar.php';
 require 'models/trainer.model.php';
 ?>
@@ -162,16 +163,42 @@ require 'models/trainer.model.php';
                             </video>
                             <div class="card-body">
                                 <h5 class="card-title"><?= $value['video_name'] ?>
-                                <a href="/" class="btn "><i class="bi bi-pencil-square"></i></a>
-                                <a href="/" class="btn"><i class="bi bi-trash-fill"></i></a>
-                                <style>
-                                    .btn:hover {
-                                        background-color:#13d288;
-                                        border: none;
-                                    }
-                                </style>
+                                    <a href="#?id=<?= $value['video_id'] ?>" data-bs-toggle="modal" data-bs-target="#edit<?= $value['video_id'] ?>" class="btn "><i class="bi bi-pencil-square"></i></a>
+                                    <a href="/" class="btn"><i class="bi bi-trash-fill"></i></a>
+                                    <style>
+                                        .btn:hover {
+                                            background-color: #13d288;
+                                            border: none;
+                                        }
+                                    </style>
                                 </h5>
                                 <!-- <p class="card-text">Some title and make up the</p> -->
+                            </div>
+                        </div>
+                        <div class="modal fade" id="edit<?= $value['video_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content bg-secondary">
+                                    <div class="modal-header ">
+                                        <h5 class="modal-title" id="exampleModalLabel">Update Course</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <form action="controllers/trainers/trainer_update_video.controller.php?id=<?php echo $value['video_id']; ?>&image=<?php echo $value['file_path']; ?>" method="POST" enctype="multipart/form-data" class="w-100">
+                                            <div class="form-group mt-3">
+                                                <!-- <input type="hidden" name="id" value=""> -->
+                                                <input type="text" class="form-control bg-white" name="course_name" placeholder="course_name" value="<?= $value['video_name'] ?>" required>
+                    
+                                            </div>
+                                            <div class="form-group mt-3">
+                                                <input class="form-control form-control-sm" id="formFileSm" type="file" name="course_video" placeholder="Course Video" required>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary m-4">Save</button>
+                                            <button class="btn btn-danger m-4" id="modal" data-bs-dismiss="modal">cancel</button>
+                                        </form>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -199,7 +226,6 @@ require 'models/trainer.model.php';
         <!-- popup for create video -->
         <div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-
                 <div class="modal-content bg-secondary">
                     <div class="modal-header ">
                         <h5 class="modal-title" id="exampleModalLabel">Create Course</h5>
@@ -224,6 +250,8 @@ require 'models/trainer.model.php';
             </div>
         </div>
         <!-- end of created videos -->
+        <!-- popup for update videos -->
+
     </section>
     <!-- =======================
         Inner part END -->

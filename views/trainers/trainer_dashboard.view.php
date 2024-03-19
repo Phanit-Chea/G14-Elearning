@@ -50,32 +50,6 @@ require 'layouts/trainer/navbar.php';
 
 		<!-- =======================
 Page content START -->
-		<section class="pt-0">
-			<div class="container">
-				<div class="row">
-					<!-- Right sidebar START -->
-					<div class="col-xl-3">
-						<!-- Responsive offcanvas body START -->
-						<nav class="navbar navbar-light navbar-expand-xl mx-0">
-							<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-								<!-- Offcanvas header -->
-								<div class="offcanvas-header bg-light">
-									<h5 class="offcanvas-title" id="offcanvasNavbarLabel">My profile</h5>
-									<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-								</div>
-								<!-- Offcanvas body -->
-								<div class="offcanvas-body p-3 p-xl-0">
-									<div class="bg-dark border rounded-3 pb-0 p-3 w-100">
-										<!-- Dashboard menu -->
-										<div class="list-group list-group-dark list-group-borderless">
-											<a class="list-group-item active" href="/trainer_dashboard"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
-											<a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Category</a>
-											<a class="list-group-item" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
-											<a class="list-group-item" href="/trainer_manage_lesson"><i class="bi bi-basket fa-fw me-2"></i>My Lessons</a>
-											<a class="list-group-item" href="/trainer_manage_video"><i class="bi bi-basket fa-fw me-2"></i>My Video</a>
-											<a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
-											<a class="list-group-item" href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
-											<a class="list-group-item" href="/trainer_manage_orders"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
 
 
 <!-- Header END -->
@@ -168,10 +142,10 @@ Page content START -->
 										<a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Category</a>
 										<a class="list-group-item" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
 										<a class="list-group-item" href="/trainer_manage_lesson"><i class="bi bi-basket fa-fw me-2"></i>My Lessons</a>
+										<a class="list-group-item" href="/trainer_manage_video"><i class="bi bi-basket fa-fw me-2"></i>My Videos</a>
 										<a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
 										<a class="list-group-item" href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
 										<a class="list-group-item" href="/trainer_manage_orders"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
-
 										<a class="list-group-item" href="/trainer_edit_profile"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
 										<a class="list-group-item" href="/trainer_manage_payout"><i class="bi bi-wallet2 fa-fw me-2"></i>Payouts</a>
 

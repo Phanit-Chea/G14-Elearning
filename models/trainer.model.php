@@ -272,3 +272,14 @@ function delete_lesson($lesson_id){
         ":lesson_id" => $lesson_id
     ]);
 }
+// ==========update videos course=========
+function update_vides($video_id, $courseName,$vd_name){
+    global $connection;
+    $statement = $connection->prepare("UPDATE videos SET video_name = :video_name , file_path = :file_path WHERE video_id = :video_id");
+    $statement->execute([
+        'video_name'=>$vd_name,
+        'file_path'=>$courseName,
+        'video_id'=>$video_id
+    ]);
+    return $statement->fetchAll();
+}
