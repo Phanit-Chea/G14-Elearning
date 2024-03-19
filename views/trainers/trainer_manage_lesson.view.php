@@ -157,7 +157,8 @@ Inner part START -->
 										<!-- Table head -->
 										<thead>
 											<tr>
-												<th scope="col" class="border-0 rounded-start">Lesson Title</th>
+												<th scope="col" class="border-0 rounded-start">Image</th>
+												<th scope="col" class="border-0 text-center">Lesson Title</th>
 												<th scope="col" class="border-0 text-center">Course</th>
 												<th scope="col" class="border-0 text-center">Video free</th>
 												<th scope="col" class="border-0 text-center">Video primium</th>
@@ -170,21 +171,41 @@ Inner part START -->
 											<!-- Table item -->
 											<!-- ============loop for create list course======= -->
 											<?php
+											
+											$newname = '';
+
+											if (isset($_FILES['image'])) {
+												$course_image = $_FILES['image'];
+												$imagename = $course_image['name'];
+												$tmppath = $course_image['tmp_name'];
+												$img_error = $course_image['error'];
+												$ext = pathinfo($imagename, PATHINFO_EXTENSION);
+												$newname = uniqid("", true) . "." . $ext;
+												$direct = "../../assets/images/courses/4by3/" . $newname;
+												if ($img_error == 0) {
+													move_uploaded_file($tmppath, $direct);
+												}
+											}
 
 											$courses = coures_lesson($user_id);
-											foreach ($courses as $course) :
+											foreach ($lessons as $lesson) :
 
 
 											?>
 												<tr>
 													<!-- Course item -->
+													<td>
+														<div>
+															<img src="../../assets/images/avatar/<?= $lesson['image']; ?>" alt="" class="w-70px h-70px rounded-circle">
+														</div>
+													</td>
 
 													<td>
 														<div class="d-flex juctify-content-start">
 
 															<div class="mb-0 ms-4">
 																<!-- Title -->
-																<h6><a href="#"><?php echo $course['title'] ?></a></h6>
+																<h6><a href="#"><?php echo $lesson['title'] ?></a></h6>
 																<!-- Info -->
 
 															</div>
@@ -192,10 +213,10 @@ Inner part START -->
 													</td>
 
 													<!-- Enrolled item -->
-													<td class="text-center text-sm-center"><?php echo $course['course_name'] ?></td>
+													<td class="text-center text-sm-center"><?php echo $lesson['course_name'] ?></td>
 
 													<td>
-														<p class="h6 fw-light mb-0 small me-3 text-center"><?php $nb_vdo_free = nb_vdo_free($course['lesson_id']);
+														<p class="h6 fw-light mb-0 small me-3 text-center"><?php $nb_vdo_free = nb_vdo_free($lesson['lesson_id']);
 																											foreach ($nb_vdo_free as $video) {
 																												print_r($video['COUNT(videos.video_name)']);
 																											}
@@ -203,7 +224,7 @@ Inner part START -->
 														</p>
 													</td>
 													<td>
-														<p class="h6 fw-light mb-0 small me-3 text-center"></i><?php $nb_vdo_not_free = nb_vdo_not_free($course['lesson_id']);
+														<p class="h6 fw-light mb-0 small me-3 text-center"></i><?php $nb_vdo_not_free = nb_vdo_not_free($lesson['lesson_id']);
 																												foreach ($nb_vdo_not_free as $video) {
 																													print_r($video['COUNT(videos.video_name)']);
 																												}
@@ -211,13 +232,13 @@ Inner part START -->
 														</p>
 													</td>
 													<!-- Action item -->
-													<td class="d-flex text-center text-sm-center ">
-														<form action="/trainer_edit_course" method="post">
-															<input type="hidden" name="course_id" value="<?= $course['course_id'] ?>">
-															<button type="submit" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></button>
+													<td class="d-flex text-center text-sm-center pb-5 pt-5">
+														<form action="#" method="post">
+															<input type="hidden" name="course_id" value="<?= $lesson ['course_id'] ?>">
+															<button type="submit" class="btn btn-sm btn-success-soft btn-round me-1 mb-0" data-bs-toggle="modal" data-bs-target="#add_modal"><i class="far fa-fw fa-edit"></i></button>
 														</form>
 														<form action="/trainer_delete_lesson" method="post" onsubmit="return confirmDelete();">
-    														<input type="hidden" name="lesson_id" value="<?= $course['lesson_id'] ?>">
+    														<input type="hidden" name="lesson_id" value="<?= $lesson['lesson_id'] ?>">
     														<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
 														</form>
 
@@ -281,7 +302,7 @@ Inner part END -->
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body bg-secondary">
-					<form action="controllers/trainers/trainer_create_lesson.controller.php" method="post">
+					<form action="controllers/trainers/trainer_create_lesson.controller.php" method="post" enctype="multipart/form-data">
 						<div class="form-floating mb-3">
 							<input type="text" class="form-control" id="name" name="lesson_title">
 							<label for="name">Lesson Title</label>
@@ -298,6 +319,9 @@ Inner part END -->
 								<?php endforeach; ?>
 							</select>
 							<label for="category">Course</label>
+						</div>
+						<div class="lesson_profile mb-4">
+							<input type="file" class="bg-white h-50px w-100" name="lesson_image">
 						</div>
 						<div class="form-floating mb-4">
 							<input type="text" class="form-control" id="description" name="lesson_description">

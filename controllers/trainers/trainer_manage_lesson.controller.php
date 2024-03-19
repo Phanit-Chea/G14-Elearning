@@ -9,5 +9,6 @@ if (isset($_SESSION["user"])) {
 if (isset($_SESSION['user'])) {
     $user_id = $_SESSION['user']['user_id'];
 }
+$lessons = get_all_lessons();
 
 require 'views/trainers/trainer_manage_lesson.view.php';

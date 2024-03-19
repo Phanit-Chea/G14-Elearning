@@ -188,15 +188,26 @@ function name_lesson($user_id) {
 }
 
 // ==== insert into lessons =======
-function insert_lesson($lesson_title, $lesson_course, $lesson_description)
+function insert_lesson(string $lesson_title, int $lesson_course, string $lesson_description, string $image)
 {
     global $connection;
-    $statement = $connection->prepare("INSERT INTO lessons (title, course_id, lesson_description) VALUES (:title, :course, :description)");
+    $statement = $connection->prepare("INSERT INTO lessons (title, course_name, lesson_description, image)
+    VALUES (:title, :course_name, :description, :image)");
     $statement->execute([
         ':title' => $lesson_title,
-        ':course' => $lesson_course,
-        ':description' => $lesson_description
+        ':course_name' => $lesson_course,
+        ':description' => $lesson_description,
+        ':image' => $image
     ]);
+}
+
+
+function get_all_lessons(){
+    global $connection;
+    $statement = $connection->prepare("SELECT lessons.*, courses.course_name FROM lessons INNER JOIN courses ON lessons.course_id = courses.course_id;");
+    $statement->execute();
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
 }
 
 //  get name and cateogry of course ========
@@ -282,4 +293,20 @@ function update_vides($video_id, $courseName,$vd_name){
         'video_id'=>$video_id
     ]);
     return $statement->fetchAll();
+}
+
+//=============== edit lesson ================
+function edit_lesson($lesson_id, $new_lesson_title, $new_lesson_description) {
+    global $connection;
+    $statement = $connection->prepare("UPDATE lessons SET title = :title, lesson_description = :lesson_description WHERE lesson_id = :lesson_id");
+    $statement->execute([
+        ":title" => $new_lesson_title,
+        ":lesson_description" => $new_lesson_description,
+        ":lesson_id" => $lesson_id
+    ]);
+    if($statement->rowCount() > 0) {
+        return true; 
+    } else {
+        return false;
+    }
 }

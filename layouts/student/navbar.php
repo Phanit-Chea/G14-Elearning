@@ -32,9 +32,22 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
 							<ul class="dropdown-menu" aria-labelledby="pagesMenu">
-								<!-- Dropdown submenu -->
-								<li> <a class="dropdown-item" href="/trainers">Trainer</a></li>
-								<li> <a class="dropdown-item" href="/">Home</a></li>
+								<?php
+								$router = '/';
+								if (isset($_SESSION['user'])) {
+									$user_id = $_SESSION['user']['user_id'];
+									$role = $_SESSION['user']['role_id'];
+									if ($role == 2) {
+										$router = '/';
+									} else if ($role == 1 || $role == 3) {
+										$router = '/';
+									}
+
+								?>
+									<!-- Dropdown submenu -->
+									<li> <a class="dropdown-item" href="<?=$router?>">Trainer</a></li>
+									<li> <a class="dropdown-item" href="<?=$router?>">Home</a></li>
+								<?php }; ?>
 							</ul>
 						</li>
 
@@ -82,7 +95,7 @@
 
 				<!-- Profile START -->
 				<div class="dropdown ms-1 ms-lg-0">
-					<a  class="avatar avatar-sm p-0" href="/student" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+					<a class="avatar avatar-sm p-0" href="/student" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
 						<img class="avatar-img rounded-circle" src="assets/images/avatar/<?php echo $profileImage; ?> " alt="avatar">
 					</a>
 					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
