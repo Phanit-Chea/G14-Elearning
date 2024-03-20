@@ -185,9 +185,7 @@ Inner part START -->
 																	</h6>
 																</form>
 
-																<!-- <a href="/student_view_course" onclick="document.forms[0].submit(); return false;">
-																	<img src="../../assets/images/courses/4by3/<?= $course['course_image'] ?>" alt="" class="rounded" style="width: 100px; height: 50px;">
-																</a> -->
+																
 
 															</div>
 															<div class="mb-0 ms-2">

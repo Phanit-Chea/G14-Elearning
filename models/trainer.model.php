@@ -328,3 +328,12 @@ function count_course($user_id)
     $course_count = $result['course_count'];
     return $course_count;
 }
+// ============delete vidoes course===========
+function delete_videos($video_id){
+    global $connection;
+    $statement = $connection->prepare("DELETE FROM videos WHERE video_id = :video_id");
+    $statement->execute([
+        ':video_id'=>$video_id
+    ]);
+    return $statement->fetch();
+}
