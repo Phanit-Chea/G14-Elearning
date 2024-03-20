@@ -144,7 +144,7 @@ Featured course START -->
 				<?php
 				require 'database/database.php';
 				require 'models/student.model.php';
-
+				
 				if (isset($_SESSION['user'])) {
 					$user_id = $_SESSION['user']['user_id'];
 

@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['login'] = 'login';
         header('Location: /admin');
         $_SESSION['worngEmail'] = '';
-        $_SESSION['worngPassword'] = '';
+        $_SESSION['worngPassword'] = ''; 
     } elseif (count($user) > 0) {
         if (password_verify($password, $user['password'])) {
             $user_id = $user['user_id']; // Store the user_id
