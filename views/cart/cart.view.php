@@ -99,21 +99,21 @@ require 'controllers/payment/payment.controller.php';
                       <div class="form-outline form-white mb-4">
                         <label class="form-label" pattern="^(?!(000|666|9))\d{3} (?!00)\d{2} (?!0000)\d{4}$" for="typeName">Cardholder's Name</label>
                         <input type="text" id="typeName" name='cardName' class="form-control form-control-lg" siez="17" placeholder="Cardholder's Name" />
-                        <!-- <p class="text-danger"><?= $cardNameMsg ?></p> -->
+                        <p class="text-danger"><?= $cardNameMsg ?></p>
                       </div>
 
                       <div class="form-outline form-white mb-4">
                         <label class="form-label" for="typeText">Card Number</label>
                         <input type="number" id="typeText" name="cardNumber" class="form-control form-control-lg" siez="17" placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
-                        <!-- <p class="text-danger"><?= $cardNumberMsg ?></p> -->
+                        <p class="text-danger"><?= $cardNumberMsg ?></p>
                       </div>
 
                       <div class="row mb-4">
                         <div class="col-md-6">
                           <div class="form-outline form-white">
                             <label class="form-label" for="typeExp">Expiration</label>
-                            <input type="text" name="expDate" id="typeExp" class="form-control form-control-lg" placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7" />
-                            <!-- <p class="text-danger"><?= $expDateMsg ?></p> -->
+                            <input type="text" name="expDate" id="typeExp" class="form-control form-control-lg" placeholder="MM/YYYY" size="5" id="exp" minlength="5" maxlength="5" />
+                            <p class="text-danger"><?= $expDateMsg ?></p>
                           </div>
                         </div>
 
@@ -121,16 +121,16 @@ require 'controllers/payment/payment.controller.php';
                           <div class="form-outline form-white">
                             <label class="form-label" for="typeText">Cvv</label>
                             <input type="password" name="cvv" id="typeText" class="form-control form-control-lg" placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
-                            <!-- <p class="text-danger"><?= $cvvMsg ?></p> -->
+                            <p class="text-danger"><?= $cvvMsg ?></p>
                           </div>
                         </div>
                       </div>
 
-                      <!-- <div class="form-outline form-white mb-4">
+                      <div class="form-outline form-white mb-4">
                         <label class="form-label" for="typeText">Card Number</label>
-                        <input type="date" id="typeText" name="cardNumber" class="form-control form-control-lg" siez="17" placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" /> -->
-                        <!-- <p class="text-danger"><?= $cardNumberMsg ?></p> -->
-                      <!-- </div> -->
+                        <input type="date" id="typeText" name="cardNumber" class="form-control form-control-lg" siez="17" placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                        <p class="text-danger"><?= $cardNumberMsg ?></p>
+                      </div>
 
                     <hr class="my-4">
 
