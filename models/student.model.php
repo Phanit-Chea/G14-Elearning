@@ -73,7 +73,8 @@ function get_name_lessons($course_id)
 }
 
 // ======= get video by in each lesson
-function video_free( $lesson_id) {
+function video_free($lesson_id)
+{
     global $connection;
     $statement = $connection->prepare("SELECT * FROM videos where videos.lesson_id = :lesson_id");
     $statement->execute([
@@ -84,11 +85,24 @@ function video_free( $lesson_id) {
 }
 
 // =========== get all videos ================
-function get_all_videos($lesson_id){
-global $connection;
-$statement = $connection->prepare("SELECT * from videos where lesson_id = :lesson_id;");
-$statement->execute([
-    ':lesson_id'=>$lesson_id
-]);
-return $statement->fetchAll(PDO::FETCH_ASSOC);
+function get_all_videos($lesson_id)
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * from videos where lesson_id = :lesson_id;");
+    $statement->execute([
+        ':lesson_id' => $lesson_id
+    ]);
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+//============= count number of lesson ============
+function count_nb_lesson($course_id)
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(lessons.lesson_id) AS lesson_count FROM lessons WHERE lessons.course_id = :course_id");
+    $statement->execute([
+        ':course_id' => $course_id
+    ]);
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result['lesson_count'];
 }

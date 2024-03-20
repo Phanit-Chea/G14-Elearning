@@ -275,7 +275,7 @@ require "models/cart.model.php";
                 if ($role == 2) {
                   $router = '/student';
                 } else if ($role == 1 || $role == 3) {
-                  $router = '/trainer_manage_students';
+                  $router = '/trainer_dashboard';
                 }
 
               ?>

@@ -33,10 +33,8 @@ Main Banner START -->
 									<div>
 										<h1 class="my-1 fs-4"><?php echo $username; ?> <i class="bi bi-patch-check-fill text-info small"></i></h1>
 										<ul class="list-inline mb-0">
-											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
-											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled
-												Students</li>
-											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i>25 Courses</li>
+											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i><?php echo count_course($user_id) ?> Courses</li>
+
 										</ul>
 									</div>
 									<!-- Button -->
@@ -157,10 +155,10 @@ Inner part START -->
 										<!-- Table head -->
 										<thead>
 											<tr>
-												<th scope="col" class="border-0 rounded-start">Course Title</th>
-												<th scope="col" class="border-0">Course Sold</th>
+												<th scope="col" class="border-0 rounded-center">Course Title</th>
+												<th scope="col" class="border-0 rounded-center">Category</th>
 												<th scope="col" class="border-0">Price</th>
-												<th scope="col" class="border-0 rounded-end">Action</th>
+												<th scope="col" class="border-0 rounded-center text-center">Action</th>
 											</tr>
 										</thead>
 
@@ -169,32 +167,42 @@ Inner part START -->
 											<!-- Table item -->
 											<!-- ============loop for create list course======= -->
 											<?php
-											$courses = get_courses();
+											$courses = get_courses($user_id);
 											foreach ($courses as $course) :
+
 											?>
 
 												<tr>
 													<td>
 														<div class="d-flex align-items-center">
 															<div class="w-60px">
-																<img src="../../assets/images/courses/4by3/<?= $course['course_image'] ?>" alt="" class="rounded" style="width: 100px; height : 50px;">
+																<form action="/student_view_course" method="post">
+																	<input type="hidden" value="<?= $course['course_id'] ?>" name="course_id">
+																	<h6 class="card-title">
+																		<button type="submit" class="border-0 text-success">
+																			<img src="../../assets/images/courses/4by3/<?= $course['course_image'] ?>" alt="" class="rounded" style="width: 100px; height: 50px;">
+																		</button>
+																	</h6>
+																</form>
+
+																<!-- <a href="/student_view_course" onclick="document.forms[0].submit(); return false;">
+																	<img src="../../assets/images/courses/4by3/<?= $course['course_image'] ?>" alt="" class="rounded" style="width: 100px; height: 50px;">
+																</a> -->
+
 															</div>
 															<div class="mb-0 ms-2">
 																<h6><a href=""><?php echo $course['course_name'] ?></a></h6>
 																<div class="d-sm-flex">
 																	<p class="h6 fw-light mb-0 small me-3">
-																		<i class="fa fa-table text-orange me-2"></i> 18 lessons
-																	</p>
-																	<p class="h6 fw-light mb-0 small">
-																		<i class="fas fa-check-circle text-success me-2"></i> 6 Completed
+																		<i class="fa fa-table text-orange me-2"></i><?php echo count_nb_lesson($course['course_id']); ?> lessons
 																	</p>
 																</div>
 															</div>
 														</div>
 													</td>
-													<td class="text-center text-sm-center"><?php echo $course['lesson_count'] ?></td>
+													<td><?php echo $course['category_name'] ?>$</td>
 													<td><?php echo $course['course_price'] ?>$</td>
-													<td class="d-flex text-center text-sm-center p-5">
+													<td class="d-flex text-center text-sm-center p-5 align-items-center justify-content-center">
 														<form action="/trainer_edit_course" method="post">
 															<input type="hidden" name="course_id" value="<?= $course['course_id'] ?>">
 															<button type="submit" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></button>
