@@ -8,20 +8,25 @@
         <?php
         $is_trainer = '#myModal';
         $display = "none";
+        $video = 'block';
+        $image = 'none';
         $width_video = "width:1150px;height:60vh";
         if (isset($_SESSION['user'])) {
             $user_id = $_SESSION['user']['user_id'];
-
             $role = $_SESSION['user']['role_id'];
             if ($role == 2) {
                 $display = "block";
                 $width_video = "width:700px;height:60vh";
+                $image = 'block';
+                $video = 'none';
                 $course = get_course($course_id);
             } else if ($role == 1 || $role == 3) {
                 $display = "none";
                 $is_trainer = "";
                 $course = get_course($course_id);
                 $width_video = "width:1150px;height:70vh";
+                $image = 'none';
+                $video = 'block';
             }
 
         ?>
@@ -33,15 +38,13 @@
                         <div class="col-xl-8">
                             <div class="col-12 ">
                                 <div class="video-player rounded-3">
-                                    <video controls="" crossorigin="anonymous" playsinline="" poster="assets/images/courses/4by3/<?= $course['course_image'] ?>" style="<?= $width_video ?>">
-                                        <source src="assets/images/videos//<?= $course['video_path_file'] ?>" type="video/mp4" size="360" style="<?= $width_video ?>">
+                                    <video controls crossorigin="anonymous" playsinline poster="assets/images/courses/4by3/<?= $course['course_image'] ?>" style="<?= $width_video; ?>">
+                                        <source src="assets/images/videos/<?= $course['video_path_file']; ?>" type="video/mp4" size="360" style="<?= $width_video; ?>">
                                         <source src="assets/images/videos/720p.mp4" type="video/mp4" size="720">
                                         <source src="assets/images/videos/1080p.mp4" type="video/mp4" size="1080">
                                         <!-- Caption files -->
-                                        <track kind="captions" label="English" srclang="en" src="assets/images/videos/en.vtt.txt" default="">
+                                        <track kind="captions" label="English" srclang="en" src="assets/images/videos/en.vtt.txt" default>
                                         <track kind="captions" label="French" srclang="fr" src="assets/images/videos/fr.vtt.txt">
-                                        </track>
-                                        </track>
                                     </video>
                                 </div>
                             </div>
@@ -172,6 +175,7 @@
                                     <div class="row g-6">
                                         <?php
                                         $videos = get_all_videos($lessons[$i]['lesson_id']);
+
                                         if (count($videos) != 0) :
                                             for ($j = 0; $j < count($videos); $j++) :
                                         ?>
@@ -179,15 +183,14 @@
                                                     <div class="card shadow h-100">
 
                                                         <div class="video-player rounded-3">
-                                                            <video controls="" crossorigin="anonymous" playsinline="" poster="assets/images/courses/4by3/<?= $lessons[$j]['lessons_image'] ?>" data-bs-toggle="modal" data-bs-target="<?= $is_trainer ?>">
+                                                            <img src="assets/images/courses/4by3/<?= $lessons[$j]['lessons_image'] ?>" alt="" style="display: <?= $display ?>;" data-bs-toggle="modal" data-bs-target="<?= $is_trainer ?>">
+                                                            <video controls crossorigin="anonymous" playsinline poster="assets/images/courses/4by3/<?= $lessons[$j]['lessons_image'] ?>" style="display: <?= $video ?> ;">
                                                                 <source src="assets/images/videos/<?= $videos[$j]['file_path'] ?>" type="video/mp4" size="360">
                                                                 <source src="assets/images/videos/<?= $videos[$j]['file_path'] ?>" type="video/mp4" size="720">
                                                                 <source src="assets/images/videos/<?= $videos[$j]['file_path'] ?>" type="video/mp4" size="1080">
                                                                 <!-- Caption files -->
-                                                                <track kind="captions" label="English" srclang="en" src="assets/images/videos/en.vtt.txt" default="">
+                                                                <track kind="captions" label="English" srclang="en" src="assets/images/videos/en.vtt.txt" default>
                                                                 <track kind="captions" label="French" srclang="fr" src="assets/images/videos/fr.vtt.txt">
-                                                                </track>
-                                                                </track>
                                                             </video>
                                                         </div>
                                                         <div class="card-body pb-0 d-flex align-items-center justify-content-center flex-column">
@@ -233,9 +236,6 @@
                     </div>
                 </div>
             </section>
-
-
-
     </main>
 <?php } ?>
 

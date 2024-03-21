@@ -137,10 +137,7 @@ Page content START -->
 										<a class="list-group-item" href="/trainer_manage_video"><i class="bi bi-basket fa-fw me-2"></i>My Videos</a>
 										<a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
 										<a class="list-group-item" href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
-										<a class="list-group-item" href="/trainer_manage_orders"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
 										<a class="list-group-item" href="/trainer_edit_profile"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
-										<a class="list-group-item" href="/trainer_manage_payout"><i class="bi bi-wallet2 fa-fw me-2"></i>Payouts</a>
-
 										<a class="list-group-item" href="instructor-delete-account.html"><i class="bi bi-trash fa-fw me-2"></i>Delete Profile</a>
 										<a class="list-group-item text-danger bg-danger-soft-hover" href="sign-in.html"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign
 											Out</a>
@@ -160,8 +157,19 @@ Page content START -->
 					<div class="row g-2">
 						<!-- Counter item -->
 						<div class="col-sm-6 col-lg-6">
+							<div class="d-flex justify-content-center align-items-center p-4 bg-purple bg-opacity-10 rounded-3">
+								<span class="display-6 text-purple mb-0"><i class="fa-solid fa-folder fa-fw"></i></span>
+								<div class="ms-4">
+									<div class="d-flex">
+										<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="<?php echo (count_category($user_id)); ?>" data-purecounter-delay="200"></h5>
+									</div>
+									<span class="mb-0 h6 fw-light">Total Category</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-lg-6">
 							<div class="d-flex justify-content-center align-items-center p-4 bg-warning bg-opacity-15 rounded-3">
-								<span class="display-6 text-warning mb-0"><i class="fas fa-tv fa-fw"></i></span>
+								<span class="display-6 text-warning mb-0"><i class="fa-regular fa-file fa-fw"></i></span>
 								<div class="ms-4">
 									<div class="d-flex">
 										<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="<?php echo (total_course($user_id)); ?>" data-purecounter-delay="200"><?php echo (total_course($user_id)); ?></h5>
@@ -171,19 +179,6 @@ Page content START -->
 							</div>
 						</div>
 						<!-- Counter item -->
-						<div class="col-sm-6 col-lg-6">
-							<div class="d-flex justify-content-center align-items-center p-4 bg-purple bg-opacity-10 rounded-3">
-								<span class="display-6 text-purple mb-0"><i class="fas fa-user-graduate fa-fw"></i></span>
-								<div class="ms-4">
-									<div class="d-flex">
-										<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="<?php echo (total_course($user_id)); ?>" data-purecounter-delay="200">0</h5>
-										<span class="mb-0 h5">K+</span>
-									</div>
-									<span class="mb-0 h6 fw-light">Total Students</span>
-								</div>
-							</div>
-						</div>
-
 					</div>
 					<!-- Counter boxes END -->
 

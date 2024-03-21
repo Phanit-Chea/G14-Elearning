@@ -8,27 +8,24 @@ require 'layouts/trainer/navbar.php';
 	<!-- **************** MAIN CONTENT START **************** -->
 	<main>
 
-		<!-- =======================
-Main Banner START -->
 		<section class="pt-0">
-			<!-- Main banner background image -->
 			<div class="container-fluid px-0">
 				<div class="bg-blue h-100px h-md-200px rounded-0" style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
 				</div>
 			</div>
 			<div class="container mt-n4">
 				<div class="row">
-					<!-- Profile banner START -->
+
 					<div class="col-12">
 						<div class="card bg-transparent card-body p-0">
 							<div class="row d-flex justify-content-between">
-								<!-- Avatar -->
+
 								<div class="col-auto mt-4 mt-md-0">
 									<div class="avatar avatar-xxl mt-n3">
 										<img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/<?php echo $profileImage; ?>" alt="">
 									</div>
 								</div>
-								<!-- Profile info -->
+
 								<div class="col d-md-flex justify-content-between align-items-center mt-4">
 									<div>
 										<h1 class="my-1 fs-4"><?php echo $username; ?> <i class="bi bi-patch-check-fill text-info small"></i></h1>
@@ -37,7 +34,7 @@ Main Banner START -->
 
 										</ul>
 									</div>
-									<!-- Button -->
+
 									<div class="d-flex align-items-center mt-2 mt-md-0">
 										<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#add-modal">
 											Create Course
@@ -47,10 +44,7 @@ Main Banner START -->
 								</div>
 							</div>
 						</div>
-						<!-- Profile banner END -->
 
-						<!-- Advanced filter responsive toggler START -->
-						<!-- Divider -->
 						<hr class="d-xl-none">
 						<div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
 							<a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
@@ -58,33 +52,28 @@ Main Banner START -->
 								<i class="fas fa-sliders-h"></i>
 							</button>
 						</div>
-						<!-- Advanced filter responsive toggler END -->
+
 					</div>
 				</div>
 			</div>
 		</section>
-		<!-- =======================
-Main Banner END -->
 
-		<!-- =======================
-Inner part START -->
 		<section class="pt-0">
 			<div class="container">
 				<div class="row">
-					<!-- Right sidebar START -->
+
 					<div class="col-xl-3">
-						<!-- Responsive offcanvas body START -->
+
 						<nav class="navbar navbar-light navbar-expand-xl mx-0">
 							<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-								<!-- Offcanvas header -->
+
 								<div class="offcanvas-header bg-light">
 									<h5 class="offcanvas-title" id="offcanvasNavbarLabel">My profile</h5>
 									<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 								</div>
-								<!-- Offcanvas body -->
+
 								<div class="offcanvas-body p-3 p-xl-0">
 									<div class="bg-dark border rounded-3 pb-0 p-3 w-100">
-										<!-- Dashboard menu -->
 										<div class="list-group list-group-dark list-group-borderless">
 											<a class="list-group-item" href="/trainer_dashboard"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
 											<a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Category</a>
@@ -93,11 +82,7 @@ Inner part START -->
 											<a class="list-group-item" href="/trainer_manage_video"><i class="bi bi-basket fa-fw me-2"></i>My Video</a>
 											<a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
 											<a class="list-group-item " href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
-											<a class="list-group-item" href="/trainer_manage_orders"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
-
 											<a class="list-group-item" href="/trainer_edit_profile"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
-											<a class="list-group-item" href="/trainer_manage_payout"><i class="bi bi-wallet2 fa-fw me-2"></i>Payouts</a>
-
 											<a class="list-group-item" href="instructor-delete-account.html"><i class="bi bi-trash fa-fw me-2"></i>Delete Profile</a>
 											<a class="list-group-item text-danger bg-danger-soft-hover" href="/signin"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign
 												Out</a>
@@ -106,26 +91,21 @@ Inner part START -->
 								</div>
 							</div>
 						</nav>
-						<!-- Responsive offcanvas body END -->
-					</div>
-					<!-- Right sidebar END -->
 
-					<!-- Main content START -->
+					</div>
+
 					<div class="col-xl-9">
-						<!-- Card START -->
+
 						<div class="card border rounded-3">
-							<!-- Card header START -->
 							<div class="card-header border-bottom">
 								<h3 class="mb-0">My Courses List</h3>
 							</div>
-							<!-- Card header END -->
 
-							<!-- Card body START -->
 							<div class="card-body">
 
-								<!-- Search and select START -->
+
 								<div class="row g-3 align-items-center justify-content-between mb-4">
-									<!-- Search -->
+
 									<div class="col-md-8">
 										<form class="rounded position-relative">
 											<input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search" id="searches">
@@ -133,9 +113,8 @@ Inner part START -->
 										</form>
 									</div>
 
-									<!-- Select option -->
 									<div id="course" class="col-md-3">
-										<!-- Short by filter -->
+
 										<form>
 											<select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm">
 												<option value="">Sort by</option>
@@ -147,12 +126,10 @@ Inner part START -->
 										</form>
 									</div>
 								</div>
-								<!-- Search and select END -->
 
-								<!-- Course list table START -->
 								<div class="table-responsive-lg border-0">
 									<table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
-										<!-- Table head -->
+
 										<thead>
 											<tr>
 												<th scope="col" class="border-0 rounded-center">Course Title</th>
@@ -162,10 +139,9 @@ Inner part START -->
 											</tr>
 										</thead>
 
-										<!-- Table body START -->
+
 										<tbody>
-											<!-- Table item -->
-											<!-- ============loop for create list course======= -->
+
 											<?php
 											$courses = get_courses($user_id);
 											foreach ($courses as $course) :
@@ -185,7 +161,7 @@ Inner part START -->
 																	</h6>
 																</form>
 
-																
+
 
 															</div>
 															<div class="mb-0 ms-2">
@@ -212,6 +188,10 @@ Inner part START -->
 															</button>
 														</form>
 
+														<form action="/student_view_course" method="post">
+															<input type="hidden" value="<?= $course['course_id'] ?>" name="course_id">
+															<button type='submit' class="btn btn-sm btn-success-soft btn-round mb-0 view-category"><i class="fa-regular fa-eye"></i></button>
+														</form>
 														<script>
 															function confirmDelete() {
 																return confirm("Are you sure you want to delete this course?");
@@ -223,16 +203,16 @@ Inner part START -->
 
 
 										</tbody>
-										<!-- Table body END -->
+
 									</table>
 								</div>
-								<!-- Course list table END -->
 
-								<!-- Pagination START -->
+
+
 								<div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
-									<!-- Content -->
+
 									<p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
-									<!-- Pagination -->
+
 									<nav class="d-flex justify-content-center mb-0" aria-label="navigation">
 										<ul class="pagination pagination-sm pagination-primary-soft mb-0 pb-0">
 											<li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
@@ -243,29 +223,27 @@ Inner part START -->
 										</ul>
 									</nav>
 								</div>
-								<!-- Pagination END -->
+
 							</div>
-							<!-- Card body START -->
+
 						</div>
-						<!-- Card END -->
+
 					</div>
-					<!-- Main content END -->
-				</div><!-- Row END -->
+
+				</div>
 			</div>
 		</section>
-		<!-- =======================
-Inner part END -->
+
 
 	</main>
-	<!-- **************** MAIN CONTENT END **************** -->
-	<!-- <div class="container"> -->
+
 	<?php
 	if (isset($_SESSION['user'])) {
 		$user_id = $_SESSION['user']['user_id'];
 	}
 	?>
 	<!-- //=========form for create course============= -->
-	<!-- Modal -->
+
 	<div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 
@@ -323,11 +301,7 @@ Inner part END -->
 			</div>
 		</div>
 	</div>
-	<!-- =======================
-Footer START -->
 
-	<!-- =======================
-Footer END -->
 
 	<!-- Back to top -->
 	<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
