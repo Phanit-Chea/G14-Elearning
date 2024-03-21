@@ -229,36 +229,8 @@ function coures_lesson($user_id)
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 };
-// ======== get nub of free video =======
-function nb_vdo_free($user_id)
-{
-    global $connection;
-    $statement = $connection->prepare("SELECT COUNT(videos.video_name) FROM videos 
-        INNER JOIN lessons ON lessons.lesson_id = videos.lesson_id 
-        INNER JOIN courses ON courses.course_id = lessons.course_id 
-        INNER JOIN users ON users.user_id = courses.user_id 
-        WHERE lessons.lesson_id = :user_id");
-    $statement->execute([
-        ':user_id' => $user_id
-    ]);
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
-}
-// ======== get number of lesson that not free =============
-function nb_vdo_not_free($user_id)
-{
-    global $connection;
-    $statement = $connection->prepare("SELECT COUNT(videos.video_name) FROM videos 
-        INNER JOIN lessons ON lessons.lesson_id = videos.lesson_id 
-        INNER JOIN courses ON courses.course_id = lessons.course_id 
-        INNER JOIN users ON users.user_id = courses.user_id 
-        WHERE lessons.lesson_id = :user_id and video_type != 'free'");
-    $statement->execute([
-        ':user_id' => $user_id
-    ]);
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
-}
+
+
 // =======display_video=========
 function getAllvideo()
 {
@@ -337,3 +309,29 @@ function delete_videos($video_id){
     ]);
     return $statement->fetch();
 }
+
+// ========== count category ===============
+function count_category($user_id){
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(category_id) AS category_count FROM categories WHERE user_id = :user_id");
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    $category_count = $result['category_count'];
+    return $category_count;
+}
+
+// ============ count in category ===============
+function nb_course_category($category_id){
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(course_id) AS course_count FROM courses WHERE category_id = :category_id");
+    $statement->execute([
+        ':category_id' => $category_id
+    ]);
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    $course_count = $result['course_count'];
+    return $course_count;
+}
+
+// ========== get one category========
