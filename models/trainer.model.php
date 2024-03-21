@@ -188,14 +188,15 @@ function name_lesson($user_id)
 }
 
 // ==== insert into lessons =======
-function insert_lesson(string $lesson_title, int $lesson_course, string $lesson_description, string $image)
+
+function insert_lesson(string $lesson_title, string $lesson_course, string $lesson_description, string $image)
 {
     global $connection;
-    $statement = $connection->prepare("INSERT INTO lessons (title, course_name, lesson_description, image)
-    VALUES (:title, :course_name, :description, :image)");
+    $statement = $connection->prepare("INSERT INTO lessons (title, course_id, lesson_description, image)
+    VALUES (:title, :course_id, :description, :image)");
     $statement->execute([
         ':title' => $lesson_title,
-        ':course_name' => $lesson_course,
+        ':course_id' => $lesson_course,
         ':description' => $lesson_description,
         ':image' => $image
     ]);
@@ -300,14 +301,17 @@ function update_vides($video_id, $courseName, $vd_name)
 }
 
 //=============== edit lesson ================
-function edit_lesson($lesson_id, $new_lesson_title, $new_lesson_description)
-{
+
+
+function edit_lesson($lesson_id, $new_lesson_title, $new_lesson_description, $image) {
+
     global $connection;
-    $statement = $connection->prepare("UPDATE lessons SET title = :title, lesson_description = :lesson_description WHERE lesson_id = :lesson_id");
+    $statement = $connection->prepare("UPDATE lessons SET title = :title, lesson_description = :lesson_description, image = :image WHERE lesson_id = :lesson_id");
     $statement->execute([
         ":title" => $new_lesson_title,
         ":lesson_description" => $new_lesson_description,
-        ":lesson_id" => $lesson_id
+        ":lesson_id" => $lesson_id,
+        ":image" => $image
     ]);
     if ($statement->rowCount() > 0) {
         return true;
