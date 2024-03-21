@@ -3,15 +3,16 @@
 require 'layouts/trainer/navbar.php';
 ?>
 
-<body>
-    <?php
 
+<body>
+
+    <?php
     $course_info = course_info($id);
     foreach ($course_info as $course) :
 
 
     ?>
-        <main class="h-100 ">
+        <main class="h-100" style="margin-top: 100px;">
             <h4 class="text-center mt-5" id="exampleModalLabel">Edit information of course</h4>
             <div class="   bg-opacity-50">
                 <form action="controllers/trainers/trainer_update_course.controller.php" method="POST" enctype="multipart/form-data" class="w-100 row g-2 d-flex justify-content-between bg bg-opacity-25" style="margin-right: 20px ;">

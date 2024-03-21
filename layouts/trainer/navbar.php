@@ -48,7 +48,6 @@
 									}
 
 								?>
-									?>
 									<li> <a class="dropdown-item" href="<?=$router_student?>">Student</a></li>
 									<li> <a class="dropdown-item" href="<?=$router_teacher?>">Home</a></li>
 								<?php }; ?>

@@ -161,7 +161,7 @@ require 'models/admin.model.php';
 								<table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
 									<thead>
 										<tr>
-											<th scope="col" class="border-0 rounded-start">Course Title</th>
+											<th scope="col" class="border-0 rounded-start">Category Title</th>
 											<th scope="col" class="border-0 rounded-end">Action</th>
 										</tr>
 									</thead>
