@@ -314,6 +314,56 @@ Inner part END -->
 		</div>
 	</div>
 
+	<!--============form edit lesson for student================-->
+
+	<?php foreach ($lessons as $lesson): ?>
+	<div class="modal fade" id="edit_modal<?= $lesson["lesson_id"] ?>" tabindex="-1" aria-labelledby="example"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header bg-sucess">
+					<h5 class="modal-title text-primary" id="exampleModalLabel<?= $lesson["lesson_id"] ?>">Edit Lesson</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body bg-secondary">
+					<form action="controllers/trainers/trainer_edit_lesson.controller.php" method="post"
+						enctype="multipart/form-data">
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" id="name" name="lesson_title"
+								value="<?php echo $lesson["title"]; ?>">
+							<label for="name">Lesson Title</label>
+						</div>
+
+						<div class="form-floating mb-4">
+							<select class="form-select" id="category" name="lesson_course" aria-label="Select Course">
+								<option selected disabled>Select Course</option>
+								<?php
+								$courses = get_nb_course($user_id);
+								foreach ($courses as $course):
+									?>
+									<option value="<?= $course['course_id'] ?>">
+										<?= $course['course_name'] ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
+							<label for="category">Course</label>
+						</div>
+						<div class="lesson_profile mb-4">
+							<input type="file" class="bg-white h-50px w-100" name="lesson_image" required>
+						</div>
+						<div class="form-floating mb-4">
+							<input type="text" class="form-control" id="description" name="lesson_description"
+								value="<?php echo $lesson["lesson_description"]; ?>">
+							<label for="description">Description</label>
+						</div>
+						<input type="hidden" name="lesson_id" value="<?php echo $lesson["lesson_id"]; ?>">
+						<button type="submit" class="btn btn-primary py-3 w-100 mb-4">Edit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php endforeach; ?>
 	<!-- =======================
 Footer START -->
 
