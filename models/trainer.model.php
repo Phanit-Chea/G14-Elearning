@@ -10,13 +10,18 @@ function get_trainers(): array
 };
 
 //===============get list course =============//
-function get_courses(): array
+function get_courses($user_id): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from courses_list;");
-    $statement->execute();
-    return $statement->fetchAll();
-};
+    $statement = $connection->prepare("SELECT courses.course_id, courses.course_name, courses.course_image, courses.course_price, categories.category_name
+    FROM courses
+    INNER JOIN categories ON categories.category_id = courses.category_id
+    WHERE courses.user_id = :user_id");
+    $statement->execute([
+        ':user_id' =>$user_id
+    ]);
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
 
 //================create course ====================//
 function create_course(string $course_name, int $duration, int $course_price, int $user_id, int $category_id, string $description, string $course_image, string $video): bool
@@ -47,22 +52,17 @@ function get_categories()
 };
 
 // ======== total course =========
-function total_course($user_id) {
+function total_course($user_id)
+{
     global $connection;
     $statement = $connection->prepare("SELECT COUNT(c.course_name) AS total FROM courses c where c.user_id = :user_id;");
     $statement->execute([
-        ':user_id'=>$user_id
+        ':user_id' => $user_id
     ]);
     $result = $statement->fetch(PDO::FETCH_ASSOC);
     return $result['total'];
 };
 
-// ======== total student in each course ============
-
-// function total_student_in_course(){
-//     global $connection;
-//     $statement = $connection->prepare(" SELECT count(users.user_id) from courses INNER JOIN users on users.user_id = courses.user_id where users.role_id  = 2 group by users.username ")
-// }
 //================Edit profile========================
 function edit_profile(string $username, string $email, string $image, string $password, int $id)
 {
@@ -76,10 +76,9 @@ function edit_profile(string $username, string $email, string $image, string $pa
         ':user_id' => $id
     ]);
     return $statement->rowCount() > 0;
-
 }
 
-// ====selectcour
+// ==== get the last user_id ============
 
 function get_last_user_id()
 {
@@ -174,7 +173,8 @@ function get_nb_course($user_id)
     return $result;
 }
 // ======= get the name of lesson ========
-function name_lesson($user_id) {
+function name_lesson($user_id)
+{
     global $connection;
     $statement = $connection->prepare("SELECT lessons.title FROM lessons 
         INNER JOIN courses ON courses.course_id = lessons.course_id 
@@ -188,21 +188,23 @@ function name_lesson($user_id) {
 }
 
 // ==== insert into lessons =======
-function insert_lesson(string $lesson_title, int $lesson_course, string $lesson_description, string $image)
+
+function insert_lesson(string $lesson_title, string $lesson_course, string $lesson_description, string $image)
 {
     global $connection;
-    $statement = $connection->prepare("INSERT INTO lessons (title, course_name, lesson_description, image)
-    VALUES (:title, :course_name, :description, :image)");
+    $statement = $connection->prepare("INSERT INTO lessons (title, course_id, lesson_description, image)
+    VALUES (:title, :course_id, :description, :image)");
     $statement->execute([
         ':title' => $lesson_title,
-        ':course_name' => $lesson_course,
+        ':course_id' => $lesson_course,
         ':description' => $lesson_description,
         ':image' => $image
     ]);
 }
 
 
-function get_all_lessons(){
+function get_all_lessons()
+{
     global $connection;
     $statement = $connection->prepare("SELECT lessons.*, courses.course_name FROM lessons INNER JOIN courses ON lessons.course_id = courses.course_id;");
     $statement->execute();
@@ -228,55 +230,29 @@ function coures_lesson($user_id)
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 };
-// ======== get nub of free video =======
-function nb_vdo_free($user_id)
-{
-    global $connection;
-    $statement = $connection->prepare("SELECT COUNT(videos.video_name) FROM videos 
-        INNER JOIN lessons ON lessons.lesson_id = videos.lesson_id 
-        INNER JOIN courses ON courses.course_id = lessons.course_id 
-        INNER JOIN users ON users.user_id = courses.user_id 
-        WHERE lessons.lesson_id = :user_id");
-    $statement->execute([
-        ':user_id' => $user_id
-    ]);
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
-}
-// ======== get number of lesson that not free =============
-function nb_vdo_not_free($user_id)
-{
-    global $connection;
-    $statement = $connection->prepare("SELECT COUNT(videos.video_name) FROM videos 
-        INNER JOIN lessons ON lessons.lesson_id = videos.lesson_id 
-        INNER JOIN courses ON courses.course_id = lessons.course_id 
-        INNER JOIN users ON users.user_id = courses.user_id 
-        WHERE lessons.lesson_id = :user_id and video_type != 'free'");
-    $statement->execute([
-        ':user_id' => $user_id
-    ]);
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
-}
+
+
 // =======display_video=========
-function getAllvideo(){
+function getAllvideo()
+{
     global $connection;
     $statement = $connection->prepare("select * from videos");
     $statement->execute();
     return $statement->fetchAll();
 }
 // ======== delete course =================
-function  delete_course($course_id){
+function  delete_course($course_id)
+{
     global $connection;
     $statement = $connection->prepare("DELETE from courses where course_id = :course_id;");
     $statement->execute([
-        ':course_id'=>$course_id
+        ':course_id' => $course_id
     ]);
-
 }
 
 //============ delete lesson ===============
-function delete_lesson($lesson_id){
+function delete_lesson($lesson_id)
+{
     global $connection;
     $statement = $connection->prepare("DELETE FROM lessons WHERE lesson_id = :lesson_id");
     $statement->execute([
@@ -284,31 +260,49 @@ function delete_lesson($lesson_id){
     ]);
 }
 // ==========update videos course=========
-function update_vides($video_id, $courseName,$vd_name){
+function update_vides($video_id, $courseName, $vd_name)
+{
     global $connection;
     $statement = $connection->prepare("UPDATE videos SET video_name = :video_name , file_path = :file_path WHERE video_id = :video_id");
     $statement->execute([
-        'video_name'=>$vd_name,
-        'file_path'=>$courseName,
-        'video_id'=>$video_id
+        'video_name' => $vd_name,
+        'file_path' => $courseName,
+        'video_id' => $video_id
     ]);
     return $statement->fetchAll();
 }
 
 //=============== edit lesson ================
-function edit_lesson($lesson_id, $new_lesson_title, $new_lesson_description) {
+
+
+function edit_lesson($lesson_id, $new_lesson_title, $new_lesson_description, $image) {
+
     global $connection;
-    $statement = $connection->prepare("UPDATE lessons SET title = :title, lesson_description = :lesson_description WHERE lesson_id = :lesson_id");
+    $statement = $connection->prepare("UPDATE lessons SET title = :title, lesson_description = :lesson_description, image = :image WHERE lesson_id = :lesson_id");
     $statement->execute([
         ":title" => $new_lesson_title,
         ":lesson_description" => $new_lesson_description,
-        ":lesson_id" => $lesson_id
+        ":lesson_id" => $lesson_id,
+        ":image" => $image
     ]);
-    if($statement->rowCount() > 0) {
-        return true; 
+    if ($statement->rowCount() > 0) {
+        return true;
     } else {
         return false;
     }
+}
+
+// ============== count number of course in each trainer ============
+function count_course($user_id)
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(course_id) AS course_count FROM courses WHERE user_id = :user_id");
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    $course_count = $result['course_count'];
+    return $course_count;
 }
 // ============delete vidoes course===========
 function delete_videos($video_id){
@@ -319,3 +313,29 @@ function delete_videos($video_id){
     ]);
     return $statement->fetch();
 }
+
+// ========== count category ===============
+function count_category($user_id){
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(category_id) AS category_count FROM categories WHERE user_id = :user_id");
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    $category_count = $result['category_count'];
+    return $category_count;
+}
+
+// ============ count in category ===============
+function nb_course_category($category_id){
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(course_id) AS course_count FROM courses WHERE category_id = :category_id");
+    $statement->execute([
+        ':category_id' => $category_id
+    ]);
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    $course_count = $result['course_count'];
+    return $course_count;
+}
+
+// ========== get one category========

@@ -21,8 +21,8 @@ function getCart($userId): array
     $statement = $connection->prepare("
         SELECT courses.course_image,cart.user_id,cart.cart_id, cart.courses_id, courses.course_name,courses.course_price 
         FROM cart 
-        INNER join courses ON courses.course_id = cart.courses_id 
-        where cart.user_id = :userId;
+        INNER join courses ON courses.course_id = cart.courses_id INNER JOIN payment ON payment.course_id = courses.course_id
+        WHERE cart.user_id = :userId and payment.user_id !=  cart.user_id and payment.course_id != cart.courses_id;
     ");
     $statement->bindParam(':userId', $userId);
     $statement->execute();

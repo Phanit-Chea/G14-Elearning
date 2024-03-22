@@ -1,5 +1,14 @@
 <?php
 require "models/admin.model.php";
+if (isset($_SESSION['user'])) :
+	$user_id = $_SESSION['user']['user_id'];
+
+	$role = ($_SESSION['user']['role_id']);
+	if ($role == 3) {
+		require 'layouts/trainer/navbar_admin.php';
+	}
+
+endif;
 ?>
 <!-- =======================
 Main Banner START -->
@@ -149,9 +158,9 @@ Featured course START -->
 					$user_id = $_SESSION['user']['user_id'];
 
 					$role = ($_SESSION['user']['role_id']);
-					if ($role == 2) {
+					if ($role == 2 or $role == 3) {
 						$courses = course_view_all();
-					} else if ($role == 1 or $role == 3) {
+					} else if ($role == 1) {
 						$courses = course_view($user_id);
 					};
 
@@ -171,7 +180,8 @@ Featured course START -->
 											<input type="hidden" value="<?= $course['course_id'] ?>" name="course_id">
 											<a href="/student_view_course" onclick="this.parentNode.submit(); return false;">
 												<img style="width: 337px; height: 200px" src="assets/images/courses/4by3/<?= $course['course_image'] ?>" class="card-img-top" alt="course image">
-											</a>										</form>
+											</a>
+										</form>
 									</div>
 									<!-- Hover element -->
 									<div class="card-img-overlay">

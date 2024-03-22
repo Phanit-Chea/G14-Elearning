@@ -6,20 +6,27 @@
     <main>
 
         <?php
+        $is_trainer = '#myModal';
         $display = "none";
+        $video = 'block';
+        $image = 'none';
         $width_video = "width:1150px;height:60vh";
         if (isset($_SESSION['user'])) {
             $user_id = $_SESSION['user']['user_id'];
-
             $role = $_SESSION['user']['role_id'];
             if ($role == 2) {
                 $display = "block";
                 $width_video = "width:700px;height:60vh";
+                $image = 'block';
+                $video = 'none';
                 $course = get_course($course_id);
             } else if ($role == 1 || $role == 3) {
                 $display = "none";
+                $is_trainer = "";
                 $course = get_course($course_id);
                 $width_video = "width:1150px;height:70vh";
+                $image = 'none';
+                $video = 'block';
             }
 
         ?>
@@ -31,15 +38,13 @@
                         <div class="col-xl-8">
                             <div class="col-12 ">
                                 <div class="video-player rounded-3">
-                                    <video controls="" crossorigin="anonymous" playsinline="" poster="assets/images/courses/4by3/<?= $course['course_image'] ?>" style="<?= $width_video ?>">
-                                        <source src="assets/images/videos//<?= $course['video_path_file'] ?>" type="video/mp4" size="360" style="<?= $width_video ?>">
+                                    <video controls crossorigin="anonymous" playsinline poster="assets/images/courses/4by3/<?= $course['course_image'] ?>" style="<?= $width_video; ?>">
+                                        <source src="assets/images/videos/<?= $course['video_path_file']; ?>" type="video/mp4" size="360" style="<?= $width_video; ?>">
                                         <source src="assets/images/videos/720p.mp4" type="video/mp4" size="720">
                                         <source src="assets/images/videos/1080p.mp4" type="video/mp4" size="1080">
                                         <!-- Caption files -->
-                                        <track kind="captions" label="English" srclang="en" src="assets/images/videos/en.vtt.txt" default="">
+                                        <track kind="captions" label="English" srclang="en" src="assets/images/videos/en.vtt.txt" default>
                                         <track kind="captions" label="French" srclang="fr" src="assets/images/videos/fr.vtt.txt">
-                                        </track>
-                                        </track>
                                     </video>
                                 </div>
                             </div>
@@ -53,9 +58,8 @@
                                 <h1 class="pt-3 pb-3"><?= $course['course_name'] ?></h1>
                                 <!-- Content -->
                                 <ul class="list-inline mb-0">
-                                    <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
-                                    <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled</li>
-                                    <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-signal text-success me-2"></i>All Lessons</li>
+                                    <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-shopping-cart text-warning me-2"></i>Sold</li>
+                                    <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-book text-orange me-2"></i><?php echo (count_nb_lesson($course_id)); ?> Lessons</li>
                                 </ul>
                             </div>
 
@@ -89,9 +93,13 @@
                                             </div>
 
                                             <!-- Buttons -->
-                                            <div class="mt-3 d-grid">
-                                                <a href="#" class="btn btn-outline-primary">Add to cart</a>
-                                                <a href="#" class="btn btn-success">Buy now</a>
+                                            <div class="mt-3">
+                                                <div class="d-grid">
+                                                    <a href="controllers/cart/cart.add.controller.php?id=<?= $course_id ?>" class="btn btn-outline-primary">Add to cart</a>
+                                                </div>
+                                                <div class="d-grid mt-2">
+                                                    <a href="controllers/cart/cart.add.controller.php?id=<?= $course_id ?>" class="btn btn-success">Buy now</a>
+                                                </div>
                                             </div>
                                             <!-- Divider -->
                                             <hr>
@@ -167,27 +175,30 @@
                                     <div class="row g-6">
                                         <?php
                                         $videos = get_all_videos($lessons[$i]['lesson_id']);
+
                                         if (count($videos) != 0) :
                                             for ($j = 0; $j < count($videos); $j++) :
                                         ?>
                                                 <div class="col-sm-6 col-lg-4 col-xl-4 ">
                                                     <div class="card shadow h-100">
-                                                        <!-- <img src="assets/images/courses/4by3/<?= $lessons[$j]['lessons_image'] ?>" class="card-img-top" alt="course image"> -->
+
                                                         <div class="video-player rounded-3">
-                                                            <video controls="" crossorigin="anonymous" playsinline="" poster="assets/images/courses/4by3/<?= $lessons[$j]['lessons_image'] ?>">
+                                                            <img src="assets/images/courses/4by3/<?= $lessons[$j]['lessons_image'] ?>" alt="" style="display: <?= $display ?>;" data-bs-toggle="modal" data-bs-target="<?= $is_trainer ?>">
+                                                            <video controls crossorigin="anonymous" playsinline poster="assets/images/courses/4by3/<?= $lessons[$j]['lessons_image'] ?>" style="display: <?= $video ?> ;">
                                                                 <source src="assets/images/videos/<?= $videos[$j]['file_path'] ?>" type="video/mp4" size="360">
                                                                 <source src="assets/images/videos/<?= $videos[$j]['file_path'] ?>" type="video/mp4" size="720">
                                                                 <source src="assets/images/videos/<?= $videos[$j]['file_path'] ?>" type="video/mp4" size="1080">
                                                                 <!-- Caption files -->
-                                                                <track kind="captions" label="English" srclang="en" src="assets/images/videos/en.vtt.txt" default="">
+                                                                <track kind="captions" label="English" srclang="en" src="assets/images/videos/en.vtt.txt" default>
                                                                 <track kind="captions" label="French" srclang="fr" src="assets/images/videos/fr.vtt.txt">
-                                                                </track>
-                                                                </track>
                                                             </video>
                                                         </div>
                                                         <div class="card-body pb-0 d-flex align-items-center justify-content-center flex-column">
-                                                            <h5 class="card-title fw-normal text-center"><a href="#"><?= $videos[$j]['video_name'] ?></a></h5>
+                                                            <h5 class="card-title fw-normal text-center">
+                                                                <a href="/" data-bs-toggle="modal" data-bs-target="<?= $is_trainer ?>"><?= $videos[$j]['video_name'] ?></a>
+                                                            </h5>
                                                         </div>
+
 
                                                     </div>
                                                 </div>
@@ -205,8 +216,26 @@
                     </div>
 
                 </div>
+                <div class="modal" tabindex="-1" id="myModal" style="display: <?= $is_trainer ?>;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Warning</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>You need to buy this course!!!!</p>
+                            </div>
+                            <div class="modal-footer">
+                                <form action="/student_view_course" method="post" enctype="multipart/form-data">
+                                    <button type="submit" class="btn btn-primary">Okay</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
-
     </main>
 <?php } ?>
 

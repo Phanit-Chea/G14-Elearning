@@ -33,10 +33,9 @@ Main Banner START -->
 									<div>
 										<h1 class="my-1 fs-4"><?php echo $username; ?> <i class="bi bi-patch-check-fill text-info small"></i></h1>
 										<ul class="list-inline mb-0">
-											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
-											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled
-												Students</li>
-											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i>25 Courses</li>
+
+											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i><?php echo (total_course($user_id)); ?> Courses</li>
+
 										</ul>
 									</div>
 									<!-- Button -->
@@ -91,15 +90,11 @@ Inner part START -->
 											<a class="list-group-item" href="/trainer_dashboard"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
 											<a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Category</a>
 											<a class="list-group-item " href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
-											<a class="list-group-item " href="/trainer_manage_lesson"><i class="bi bi-basket fa-fw me-2"></i>My Lessons</a>
-											<a class="list-group-item active" href="/trainer_manage_video"><i class="bi bi-basket fa-fw me-2"></i>My Video</a>
+											<a class="list-group-item active" href="/trainer_manage_lesson"><i class="bi bi-basket fa-fw me-2"></i>My Lessons</a>
+											<a class="list-group-item " href="/trainer_manage_video"><i class="bi bi-basket fa-fw me-2"></i>My Video</a>
 											<a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
 											<a class="list-group-item " href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
-											<a class="list-group-item" href="/trainer_manage_orders"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
-
 											<a class="list-group-item" href="/trainer_edit_profile"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
-											<a class="list-group-item" href="/trainer_manage_payout"><i class="bi bi-wallet2 fa-fw me-2"></i>Payouts</a>
-
 											<a class="list-group-item" href="instructor-delete-account.html"><i class="bi bi-trash fa-fw me-2"></i>Delete Profile</a>
 											<a class="list-group-item text-danger bg-danger-soft-hover" href="/signin"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign
 												Out</a>
@@ -215,31 +210,16 @@ Inner part START -->
 													<!-- Enrolled item -->
 													<td class="text-center text-sm-center"><?php echo $lesson['course_name'] ?></td>
 
-													<td>
-														<p class="h6 fw-light mb-0 small me-3 text-center"><?php $nb_vdo_free = nb_vdo_free($lesson['lesson_id']);
-																											foreach ($nb_vdo_free as $video) {
-																												print_r($video['COUNT(videos.video_name)']);
-																											}
-																											?>
-														</p>
-													</td>
-													<td>
-														<p class="h6 fw-light mb-0 small me-3 text-center"></i><?php $nb_vdo_not_free = nb_vdo_not_free($lesson['lesson_id']);
-																												foreach ($nb_vdo_not_free as $video) {
-																													print_r($video['COUNT(videos.video_name)']);
-																												}
-																												?>
-														</p>
-													</td>
+
 													<!-- Action item -->
 													<td class="d-flex text-center text-sm-center pb-5 pt-5">
 														<form action="#" method="post">
-															<input type="hidden" name="course_id" value="<?= $lesson ['course_id'] ?>">
+															<input type="hidden" name="course_id" value="<?= $lesson['course_id'] ?>">
 															<button type="submit" class="btn btn-sm btn-success-soft btn-round me-1 mb-0" data-bs-toggle="modal" data-bs-target="#add_modal"><i class="far fa-fw fa-edit"></i></button>
 														</form>
 														<form action="/trainer_delete_lesson" method="post" onsubmit="return confirmDelete();">
-    														<input type="hidden" name="lesson_id" value="<?= $lesson['lesson_id'] ?>">
-    														<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
+															<input type="hidden" name="lesson_id" value="<?= $lesson['lesson_id'] ?>">
+															<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
 														</form>
 
 														<script>

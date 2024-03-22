@@ -261,29 +261,10 @@ require "models/cart.model.php";
       <!-- Language -->
       <?php if (isset($_SESSION['login']) && $_SESSION['login'] != '') : ?>
         <ul class="navbar-nav navbar-nav-scroll me-3 d-none d-xl-block">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="language" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-globe me-2"></i>
-              <span class="d-none d-lg-inline-block">Pages</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end min-w-auto" aria-labelledby="language">
-              <?php
-              $router = '/';
-              if (isset($_SESSION['user'])) {
-                $user_id = $_SESSION['user']['user_id'];
-                $role = $_SESSION['user']['role_id'];
-                if ($role == 2) {
-                  $router = '/student';
-                } else if ($role == 1 || $role == 3) {
-                  $router = '/trainer_dashboard';
-                }
-
-              ?>
-                <li> <a class="dropdown-item" href="<?= $router ?>"><img class="fa-fw me-2" alt="">Student</a></li>
-                <li> <a class="dropdown-item" href="<?= $router ?>"><img class="fa-fw me-2" alt="">Teacher</a></li>
-              <?php }; ?>
-            </ul>
-          </li>
+          <a class="nav-link dropdown-toggle" href="/admin">
+            <i class="fas fa-dashboard me-2"></i>
+            <span class="d-none d-lg-inline-block">Dashboard</span>
+          </a>
         </ul>
       <?php endif; ?>
 
