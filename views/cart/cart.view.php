@@ -40,7 +40,13 @@ require 'controllers/payment/payment.controller.php';
                 </div>
 
                 <!-- =============== display cart ========= -->
-                <?php foreach ($carts as $num => $cart) : ?>
+                <!-- <?php foreach ($carts as $num => $cart) :
+                ?> -->
+
+                <?php foreach ($carts as $num => $cart) :
+                  if(!isPaymentExist($cart['courses_id'], $user_id)):
+                ?>
+
                   
                 <div class="card mb-3">
                   <div class="card-body">
@@ -73,7 +79,9 @@ require 'controllers/payment/payment.controller.php';
                     </div>
                   </div>
                 </div>
-              <?php endforeach; ?>
+              <?php endif;
+              endforeach;
+               ?>
               </div>
 
               <div class="col-lg-5">
@@ -126,11 +134,11 @@ require 'controllers/payment/payment.controller.php';
                         </div>
                       </div>
 
-                      <div class="form-outline form-white mb-4">
+                      <!-- <div class="form-outline form-white mb-4">
                         <label class="form-label" for="typeText">Card Number</label>
                         <input type="date" id="typeText" name="cardNumber" class="form-control form-control-lg" siez="17" placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
                         <p class="text-danger"><?= $cardNumberMsg ?></p>
-                      </div>
+                      </div> -->
 
                     <hr class="my-4">
 
@@ -166,3 +174,4 @@ require 'controllers/payment/payment.controller.php';
     </div>
   </div>
 </section>
+<?php endforeach ?>
