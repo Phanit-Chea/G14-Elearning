@@ -155,8 +155,6 @@ Inner part START -->
 												<th scope="col" class="border-0 rounded-start">Image</th>
 												<th scope="col" class="border-0 text-center">Lesson Title</th>
 												<th scope="col" class="border-0 text-center">Course</th>
-												<th scope="col" class="border-0 text-center">Video free</th>
-												<th scope="col" class="border-0 text-center">Video primium</th>
 												<th scope="col" class="border-0 rounded-end text-center">Action</th>
 											</tr>
 										</thead>
@@ -167,21 +165,6 @@ Inner part START -->
 											<!-- ============loop for create list course======= -->
 											<?php
 											
-											$newname = '';
-
-											if (isset($_FILES['image'])) {
-												$course_image = $_FILES['image'];
-												$imagename = $course_image['name'];
-												$tmppath = $course_image['tmp_name'];
-												$img_error = $course_image['error'];
-												$ext = pathinfo($imagename, PATHINFO_EXTENSION);
-												$newname = uniqid("", true) . "." . $ext;
-												$direct = "../../assets/images/courses/4by3/" . $newname;
-												if ($img_error == 0) {
-													move_uploaded_file($tmppath, $direct);
-												}
-											}
-
 											$courses = coures_lesson($user_id);
 											foreach ($lessons as $lesson) :
 
@@ -213,7 +196,7 @@ Inner part START -->
 
 													<!-- Action item -->
 													<td class="d-flex text-center text-sm-center pb-5 pt-5">
-														<form action="#" method="post">
+														<form action="/trainer_edit_lesson" method="post">
 															<input type="hidden" name="course_id" value="<?= $lesson['course_id'] ?>">
 															<button type="submit" class="btn btn-sm btn-success-soft btn-round me-1 mb-0" data-bs-toggle="modal" data-bs-target="#add_modal"><i class="far fa-fw fa-edit"></i></button>
 														</form>
