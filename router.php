@@ -26,6 +26,7 @@ $routes = [
     '/signin' => 'controllers/signin/signin.controller.php',
     '/student' =>'controllers/student/student.controller.php',
     '/cart' => 'controllers/cart/cart.controller.php',
+    '/student_course'=> 'controllers/student/student_course.controller.php',
 ];
 
 if (array_key_exists($uri, $routes)) {
