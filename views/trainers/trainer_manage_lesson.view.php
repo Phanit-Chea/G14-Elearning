@@ -266,7 +266,7 @@ Inner part START -->
 															?>
 														</p>
 													</td>
-													<!-- Action item -->
+													<!-- Action item  delete and update-->
 													<td class="d-flex text-center text-sm-center pb-5 pt-5">
 														<form action="" method="post">
 															<input type="hidden" name="course_id"
