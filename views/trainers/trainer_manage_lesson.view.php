@@ -382,7 +382,7 @@ Inner part END -->
 		</div>
 	</div>
 
-	<!--============form edit lesson================-->
+	<!--============form edit lesson for student================-->
 
 	<?php foreach ($lessons as $lesson): ?>
 	<div class="modal fade" id="edit_modal<?= $lesson["lesson_id"] ?>" tabindex="-1" aria-labelledby="example"
