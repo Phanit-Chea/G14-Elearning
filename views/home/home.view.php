@@ -1,3 +1,4 @@
+<script src="../../vendor/js/searchcourses.js" defer></script>
 <?php
 require "models/admin.model.php";
 if (isset($_SESSION['user'])) :
@@ -12,7 +13,6 @@ endif;
 ?>
 <!-- =======================
 Main Banner START -->
-<script src="../../vendor/js/searchcourses.js" defer></script>
 <section class="bg-light">
 	<div class="container pt-5 mt-0 mt-lg-5">
 
@@ -168,7 +168,7 @@ Featured course START -->
 					foreach ($courses as $course) :
 
 				?>
-						<div class="col-md-4 col-lg-4 col-xl-4">
+						<div class="col-md-4 col-lg-4 col-xl-4 cards">
 							<div class="card p-2 shadow h-100 ">
 								<div class="rounded-top overflow-hidden">
 									<div class="card-overlay-hover">
