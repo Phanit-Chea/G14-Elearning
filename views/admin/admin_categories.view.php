@@ -1,4 +1,5 @@
 <?php
+// session_start();
 require "models/admin.model.php";
 ?>
 <div class="table-responsive p-5 pt-3">
@@ -38,7 +39,7 @@ require "models/admin.model.php";
         <tr>
           <td><?= $num + 1 ?></td>
           <td><?= $category['category_name'] ?></td>
-          <td><img class="rounded-circle" src="../../assets/images/categories/<?= $category['category_image'] ?>" alt="" style="width: 50px; width: 50px;"></td>
+          <td><a href="/admin_categories?id=<?= $category['category_id'] ?>" class="btn bg-primary text-white">show image</a></td>
           <td>
 
             <a onclick="return confirm('Do you want to delete this category?')" class="btn btn-sm btn-primary" href="controllers/admin/category/admin_delete_categories.controller.php?id=<?= $category['category_id'] ?>"><i class="bi bi-trash-fill"></i></a>
@@ -84,6 +85,14 @@ require "models/admin.model.php";
   </table>
 </div>
 
+<!-- ========== show image ============ -->
+<?php if(isset($_GET['id'])): ?>
+  <div class="card" style="background: white; width: 500px; height: 320px; position:absolute; top: 20%; left: 40%;">
+      <img src="../../assets/images/categories/<?= getCategory($_GET['id'])['category_image'];?>" alt="" style="height: 280px;">
+      <a href="/admin_categories" class="btn bg-primary text-white" style="height: 40px; border-radius: 0px 0px 5px 5px;">close</a>
+  </div>
+<?php endif; ?>
+
 <!-- ========================= show popup form when create category ================= -->
 <!-- Modal -->
 <div class="modal fade " id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -116,3 +125,4 @@ require "models/admin.model.php";
     </div>
   </div>
 </div>
+
