@@ -2,6 +2,7 @@
 session_start();
 require 'layouts/trainer/navbar.php';
 require 'models/trainer.model.php';
+require 'models/select_cetagory.php';
 ?>
 
 <!-- Profile START -->
@@ -162,7 +163,7 @@ require 'models/trainer.model.php';
                             <div class="card-body">
                                 <h5 class="card-title"><?= $value['video_name'] ?>
                                     <a href="#?id=<?= $value['video_id'] ?>" data-bs-toggle="modal" data-bs-target="#edit<?= $value['video_id'] ?>" class="btn "><i class="bi bi-pencil-square"></i></a>
-                                    <a href="controllers/trainers/trainer_delete_videos.controller.php?id=<?= $value['video_id'] ?>" class="btn"><i class="bi bi-trash-fill"></i></a>
+                                    <a href="controllers/trainers/trainer_delete_videos.controller.php?id=<?= $value['video_id'] ?>" class="btn" onclick="return confirm('Are you sure?')"><i class="bi bi-trash-fill"></i></a>
                                     <style>
                                         .btn:hover {
                                             background-color: #13d288;
@@ -186,7 +187,18 @@ require 'models/trainer.model.php';
                                             <div class="form-group mt-3">
                                                 <!-- <input type="hidden" name="id" value=""> -->
                                                 <input type="text" class="form-control bg-white" name="course_name" placeholder="course_name" value="<?= $value['video_name'] ?>" required>
-
+                                            </div>
+                                            <div class="form-group mt-1">
+                                                <label for="course_category">Course category</label>
+                                                <select class="form-select mt-3" aria-label="Default select example" name="course_category" id="course_category" required>
+                                                    <option selected>Select categories</option>
+                                                    <?php
+                                                    $categories = select_lesson($user_id);
+                                                    foreach ($categories as $category) :
+                                                    ?>
+                                                        <option value="<?php echo $category['lesson_id'] ?>"><?php echo $category['title'] ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </div>
                                             <div class="form-group mt-3">
                                                 <input class="form-control form-control-sm" id="formFileSm" type="file" name="course_video" placeholder="Course Video" required>
@@ -236,6 +248,18 @@ require 'models/trainer.model.php';
                                 <!-- <input type="hidden" name="id" value=""> -->
                                 <input type="text" class="form-control bg-white" name="course_name" placeholder="course_name" value="" required>
                             </div>
+                            <div class="form-group mt-1">
+                                <label for="course_category">Course category</label>
+                                <select class="form-select mt-3" aria-label="Default select example" name="course_category" id="course_category" required>
+                                    <option selected>Select categories</option>
+                                    <?php
+                                    $categories = select_lesson($user_id);
+                                    foreach ($categories as $category) :
+                                    ?>
+                                        <option value="<?php echo $category['lesson_id'] ?>"><?php echo $category['title'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
                             <div class="form-group mt-3">
                                 <input class="form-control form-control-sm" id="formFileSm" type="file" name="course_video" placeholder="Course Video" required>
                             </div>
@@ -253,6 +277,5 @@ require 'models/trainer.model.php';
     </section>
     <!-- =======================
         Inner part END -->
-
 </main>
 </body>
