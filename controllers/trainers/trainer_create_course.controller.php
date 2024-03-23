@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if (in_array($vd_ex_lc, $allowed_exs)) {
                 echo "yes";
                 $new_vd_lc = uniqid('video-', true) . '.' . $vd_ex_lc;
-                $vd_upload_path = '../../assets/images/videos' . $new_vd_lc;
+                $vd_upload_path = '../../assets/images/videos/' . $new_vd_lc;
                 move_uploaded_file($tmp_vd_name, $vd_upload_path);
             }
         };

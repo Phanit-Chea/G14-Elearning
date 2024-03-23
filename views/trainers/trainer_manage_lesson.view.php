@@ -191,7 +191,7 @@ Inner part START -->
 													<!-- Course item -->
 													<td>
 														<div>
-															<img src="../../assets/images/avatar/<?= $lesson['image']; ?>" alt="" class="w-70px h-70px rounded-circle">
+															<img src="../../assets/images/courses/4by3/ $lesson['image']; ?>" alt="" class="w-70px h-70px rounded-circle">
 														</div>
 													</td>
 

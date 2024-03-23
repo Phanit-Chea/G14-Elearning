@@ -61,7 +61,7 @@ function get_name_trainer($id)
 function get_name_lessons($course_id)
 {
     global $connection;
-    $statement = $connection->prepare("SELECT lessons.lesson_id, lessons.title, lessons.lessons_image, courses.course_name, users.username 
+    $statement = $connection->prepare("SELECT lessons.lesson_id, lessons.title, lessons.image, courses.course_name, users.username 
                                       FROM lessons 
                                       INNER JOIN courses ON courses.course_id = lessons.course_id 
                                       INNER JOIN users ON users.user_id = courses.user_id 

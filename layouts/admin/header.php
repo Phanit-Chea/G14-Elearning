@@ -36,6 +36,7 @@
 
     <!-- Link and script for search Js --> 
     <script src="vendor/js/search_category_admin.js" ></script> 
+
  
 </head>
 

@@ -18,7 +18,7 @@ function get_courses($user_id): array
     INNER JOIN categories ON categories.category_id = courses.category_id
     WHERE courses.user_id = :user_id");
     $statement->execute([
-        ':user_id' =>$user_id
+        ':user_id' => $user_id
     ]);
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -42,14 +42,17 @@ function create_course(string $course_name, int $duration, int $course_price, in
 };
 
 //==================get list categories ================
-function get_categories()
+function get_categories($user_id)
 {
     global $connection;
-    $statement = $connection->prepare("SELECT category_id, category_name FROM categories");
-    $statement->execute();
+    $statement = $connection->prepare("SELECT category_id, category_name FROM categories WHERE user_id = :user_id");
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $result;
-};
+}
+
 
 // ======== total course =========
 function total_course($user_id)
@@ -275,7 +278,8 @@ function update_vides($video_id, $courseName, $vd_name)
 //=============== edit lesson ================
 
 
-function edit_lesson($lesson_id, $new_lesson_title, $new_lesson_description, $image) {
+function edit_lesson($lesson_id, $new_lesson_title, $new_lesson_description, $image)
+{
 
     global $connection;
     $statement = $connection->prepare("UPDATE lessons SET title = :title, lesson_description = :lesson_description, image = :image WHERE lesson_id = :lesson_id");
@@ -305,17 +309,19 @@ function count_course($user_id)
     return $course_count;
 }
 // ============delete vidoes course===========
-function delete_videos($video_id){
+function delete_videos($video_id)
+{
     global $connection;
     $statement = $connection->prepare("DELETE FROM videos WHERE video_id = :video_id");
     $statement->execute([
-        ':video_id'=>$video_id
+        ':video_id' => $video_id
     ]);
     return $statement->fetch();
 }
 
 // ========== count category ===============
-function count_category($user_id){
+function count_category($user_id)
+{
     global $connection;
     $statement = $connection->prepare("SELECT COUNT(category_id) AS category_count FROM categories WHERE user_id = :user_id");
     $statement->execute([
@@ -327,7 +333,8 @@ function count_category($user_id){
 }
 
 // ============ count in category ===============
-function nb_course_category($category_id){
+function nb_course_category($category_id)
+{
     global $connection;
     $statement = $connection->prepare("SELECT COUNT(course_id) AS course_count FROM courses WHERE category_id = :category_id");
     $statement->execute([

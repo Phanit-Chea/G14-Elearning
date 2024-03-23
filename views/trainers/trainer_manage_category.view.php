@@ -69,17 +69,18 @@ require 'models/admin.model.php';
 										<h1 class="my-1 fs-4"><?php echo $username; ?> <i class="bi bi-patch-check-fill text-info small"></i></h1>
 										<ul class="list-inline mb-0">
 
-										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i><?php echo (total_course($user_id)); ?> Courses</li>
+											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i><?php echo (total_course($user_id)); ?> Courses</li>
 
-									</ul>
+										</ul>
 									</div>
-
 
 									<div class="d-flex align-items-center mt-2 mt-md-0">
-										<button type="button" class="btn btn-primary h-50 d-flex mt-3" data-bs-toggle="modal" data-bs-target="#add-modal">
+										<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#add-modal">
 											Create Category
 										</button>
+
 									</div>
+
 
 								</div>
 							</div>
@@ -167,7 +168,7 @@ require 'models/admin.model.php';
 									</thead>
 									<tbody id="search_category">
 										<?php
-										$categories = getData();
+										$categories = getData($user_id);
 										foreach ($categories as $category) :
 
 										?>
@@ -229,7 +230,7 @@ require 'models/admin.model.php';
 
 	<!-- =========================== edit category ===================================== -->
 	<?php
-	$categories = getData();
+	$categories = getData($user_id);
 	foreach ($categories as $category) :
 
 	?>
@@ -270,7 +271,8 @@ require 'models/admin.model.php';
 
 		<!-- ========================= show popup form when create category ================= -->
 
-		<div class="modal fade " id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+		<div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header bg-secondary">
@@ -283,12 +285,10 @@ require 'models/admin.model.php';
 								<input type="text" class="form-control" id="name" name="name">
 								<label for="floatingInput">Category Name</label>
 							</div>
-
 							<div class="form-floating mb-3">
 								<label for="image" class="form-label"></label>
 								<input type="file" name="image" class="form-control bg-white text-dark" id="image">
 							</div>
-
 							<div class="form-floating mb-4">
 								<input type="text" class="form-control" id="description" name="description">
 								<label for="floatingPassword">Description</label>
@@ -316,7 +316,7 @@ require 'models/admin.model.php';
 
 						<div class="card-group">
 							<div class="card">
-								<img src="assets/images/categories/<?= $category['category_image'] ?>" class="card-img-top" alt="...">
+								<img src="assets/images/categories/<?= $category['category_image'] ?>" class="card-img-top" alt="..." style="width: 500px; height: 230px;">
 								<div class="card-body">
 									<h5 class="card-title"><?= $category['category_name'] ?></h5>
 									<p class="card-text"><?= $category['category_description'] ?></p>
@@ -355,6 +355,8 @@ Footer END -->
 
 <!-- Template Functions -->
 <script src="assets/js/functions.js"></script>
+<script src="vendor/js/popup_form.js"></script>
+
 
 </body>
 

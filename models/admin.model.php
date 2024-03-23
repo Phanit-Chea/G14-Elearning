@@ -64,16 +64,28 @@ function addCate($name, $description, $image, $userId)
     ]);
 }
 
-function getData()
+function getData($user_id)
 {
     global $connection;
-    $statement = $connection->prepare("select * from categories ORDER BY category_id DESC");
+    $statement = $connection->prepare("SELECT * FROM categories WHERE user_id = :user_id ORDER BY category_id DESC");
+    $statement->execute([
+        'user_id' => $user_id
+    ]);
+    return $statement->fetchAll();
+}
+
+// ================= get all category ===========
+function get_all_categories()
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM categories ORDER BY category_id DESC");
     $statement->execute();
     return $statement->fetchAll();
 }
 
 // ===============Function Delete Category================
-function deleteCategory(int $id):bool {
+function deleteCategory(int $id): bool
+{
     global $connection;
     $statement = $connection->prepare("delete from categories where category_id = :id");
     $statement->execute([':id' => $id]);
@@ -81,7 +93,7 @@ function deleteCategory(int $id):bool {
 }
 
 // ===============Function edit Category================
-function updateCategory(string $name,  string $image, string $description, int $id) : bool
+function updateCategory(string $name,  string $image, string $description, int $id): bool
 {
     global $connection;
     $statement = $connection->prepare("UPDATE categories SET category_name = :name, category_image = :image, category_description = :description where category_id = :id");
@@ -114,4 +126,73 @@ function getCategory(int $id)
     $statement = $connection->prepare("SELECT * FROM categories WHERE category_id = :id ");
     $statement->execute([":id" => $id]);
     return $statement->fetch();
+}
+
+// ============ count the number of trainer ===============
+function count_trainer()
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(user_id) AS total FROM users WHERE role_id =1");
+    $statement->execute();
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result['total'];
+}
+
+// ========== count the number of students ====================
+function count_students()
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(user_id) AS total FROM users WHERE role_id =2");
+    $statement->execute();
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result['total'];
+}
+
+// ============== top teacher =================
+function top_teacher()
+{
+    global $connection;
+
+    $query = "
+        SELECT users.user_id,users.username, users.image, COUNT(courses.course_id) AS course_count
+        FROM courses 
+        INNER JOIN users ON users.user_id = courses.user_id 
+        GROUP BY users.user_id, users.username, users.image 
+        ORDER BY course_count DESC
+        LIMIT 3
+    ";
+
+    $statement = $connection->prepare($query);
+    $statement->execute();
+
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+// ========== count course in each category===========
+function course_category($user_id)
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT courses.course_name, courses.course_image FROM courses WHERE courses.user_id = :user_id");
+
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
+
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+// ========== select recent sale =========
+function select_sale_recent()
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT payment.date, users.username, courses.course_price,users.email,users.image,courses.course_id,courses.course_name
+    FROM payment
+    INNER JOIN users ON users.user_id = payment.user_id
+    INNER JOIN courses ON courses.course_id = payment.course_id
+    ORDER BY payment.date DESC");
+
+    $statement->execute();
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
 }
