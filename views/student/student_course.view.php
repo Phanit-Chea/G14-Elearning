@@ -1,5 +1,6 @@
 <?php
 require 'layouts/student_course/navbar.php';
+require 'models/store_course_student.php';
 ?>
 
 <main>
@@ -88,10 +89,6 @@ require 'layouts/student_course/navbar.php';
                                         <a class="list-group-item active" href="#"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
                                         <a class="list-group-item" href="student-payment-info.html"><i class="bi bi-credit-card-2-front fa-fw me-2"></i>Payment info</a>
                                         <a class="list-group-item" href="/student_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
-                                        <a class="list-group-item" href="student-bookmark.html"><i class="bi bi-cart-check fa-fw me-2"></i>Wishlist</a>
-                                        <a class="list-group-item" href="instructor-edit-profile.html"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
-                                        <a class="list-group-item" href="instructor-delete-account.html"><i class="bi bi-trash fa-fw me-2"></i>Delete Profile</a>
-                                        <a class="list-group-item text-danger bg-danger-soft-hover" href="#"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign Out</a>
                                     </div>
                                 </div>
                             </div>
@@ -99,29 +96,25 @@ require 'layouts/student_course/navbar.php';
                     </nav>
                     <!-- Responsive offcanvas body END -->
                 </div>
-                <!-- ============================================================== -->
-                <div class="card border-success mb-3" style="max-width: 18rem;">
-                    <div class="card-body text-success">
-                        <h5 class="card-title">Card title</h5>
-                        <img src="../../assets/images/avatar/65e35a551d03f7.05234186.jpg" class="card-img-top" alt="...">
-                    </div>
+                <!-- ====================display image course after user buy courses========================================== -->
+
+                <div class="col-xl-9 d-flex" style="display:flex;flex-wrap:wrap">
+                    <?php
+                   $card_course = store_course_student($_SESSION['user']['user_id']);
+                   foreach( $card_course as $cards):
+                   ?>
+                        <div class="card" style="width: 16rem; margin-right:10px;">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $cards['course_name'] ?>
+                                <img src="assets/images/courses/4by3/<?=$cards['course_image']?>" class="card-img-top" alt="...">
+                                </h5>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
+
                 <!-- ============================================================== -->
                 <!-- Pagination START -->
-                <div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
-                    <!-- Content -->
-                    <p class="mb-0 text-center text-sm-start"></p>
-                    <!-- Pagination -->
-                    <nav class="d-flex justify-content-center mb-0" aria-label="navigation">
-                        <ul class="pagination pagination-sm pagination-primary-soft mb-0 pb-0">
-                            <li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
-                            <li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
-                        </ul>
-                    </nav>
-                </div>
             </div>
         </div>
 

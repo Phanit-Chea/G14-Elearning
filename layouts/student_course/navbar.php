@@ -1,7 +1,7 @@
 <body>
 
 	<!-- Header START -->
-	<header class="navbar-light navbar-sticky">
+	<header class="navbar-light navbar-sticky fixed-top bg-white">
 		<!-- Logo Nav START -->
 		<nav class="navbar navbar-expand-xl">
 			<div class="container">
