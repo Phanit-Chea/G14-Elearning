@@ -1,6 +1,6 @@
 ﻿﻿<script src="../../vendor/js/searchcourseontrainer.js" defer></script>
 <?php
-require 'layouts/trainer/navbar.php';
+require './layouts/trainer/navbar.php';
 ?>
 
 <body class="pt-0">
@@ -13,7 +13,8 @@ Main Banner START -->
 		<section class="pt-0">
 			<!-- Main banner background image -->
 			<div class="container-fluid px-0">
-				<div class="bg-blue h-100px h-md-200px rounded-0" style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
+				<div class="bg-blue h-100px h-md-200px rounded-0"
+					style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
 				</div>
 			</div>
 			<div class="container mt-n4">
@@ -25,22 +26,31 @@ Main Banner START -->
 								<!-- Avatar -->
 								<div class="col-auto mt-4 mt-md-0">
 									<div class="avatar avatar-xxl mt-n3">
-										<img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/<?php echo $profileImage; ?>" alt="">
+										<img class="avatar-img rounded-circle border border-white border-3 shadow"
+											src="assets/images/avatar/<?php echo $profileImage; ?>" alt="">
 									</div>
 								</div>
 								<!-- Profile info -->
 								<div class="col d-md-flex justify-content-between align-items-center mt-4">
 									<div>
-										<h1 class="my-1 fs-4"><?php echo $username; ?> <i class="bi bi-patch-check-fill text-info small"></i></h1>
+										<h1 class="my-1 fs-4">
+											<?php echo $username; ?> <i
+												class="bi bi-patch-check-fill text-info small"></i>
+										</h1>
 										<ul class="list-inline mb-0">
-
-											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i><?php echo (total_course($user_id)); ?> Courses</li>
-
+											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i
+													class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
+											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i
+													class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled
+												Students</li>
+											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i
+													class="fas fa-book text-purple me-2"></i>25 Courses</li>
 										</ul>
 									</div>
 									<!-- Button -->
 									<div class="d-flex align-items-center mt-2 mt-md-0">
-										<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#add_modal">
+										<button type="button" class="btn btn-success" data-bs-toggle="modal"
+											data-bs-target="#add_modal">
 											Create Lesson
 										</button>
 
@@ -55,7 +65,8 @@ Main Banner START -->
 						<hr class="d-xl-none">
 						<div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
 							<a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
-							<button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+							<button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas"
+								data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
 								<i class="fas fa-sliders-h"></i>
 							</button>
 						</div>
@@ -76,27 +87,45 @@ Inner part START -->
 					<div class="col-xl-3">
 						<!-- Responsive offcanvas body START -->
 						<nav class="navbar navbar-light navbar-expand-xl mx-0">
-							<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+							<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+								aria-labelledby="offcanvasNavbarLabel">
 								<!-- Offcanvas header -->
 								<div class="offcanvas-header bg-light">
 									<h5 class="offcanvas-title" id="offcanvasNavbarLabel">My profile</h5>
-									<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+									<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+										aria-label="Close"></button>
 								</div>
 								<!-- Offcanvas body -->
 								<div class="offcanvas-body p-3 p-xl-0">
 									<div class="bg-dark border rounded-3 pb-0 p-3 w-100">
 										<!-- Dashboard menu -->
 										<div class="list-group list-group-dark list-group-borderless">
-											<a class="list-group-item" href="/trainer_dashboard"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
-											<a class="list-group-item" href="/trainer_manage_category"><i class="bi bi-basket fa-fw me-2"></i>My Category</a>
-											<a class="list-group-item " href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
-											<a class="list-group-item active" href="/trainer_manage_lesson"><i class="bi bi-basket fa-fw me-2"></i>My Lessons</a>
-											<a class="list-group-item " href="/trainer_manage_video"><i class="bi bi-basket fa-fw me-2"></i>My Video</a>
-											<a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
-											<a class="list-group-item " href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
-											<a class="list-group-item" href="/trainer_edit_profile"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
-											<a class="list-group-item" href="instructor-delete-account.html"><i class="bi bi-trash fa-fw me-2"></i>Delete Profile</a>
-											<a class="list-group-item text-danger bg-danger-soft-hover" href="/signin"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign
+											<a class="list-group-item" href="/trainer_dashboard"><i
+													class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
+											<a class="list-group-item" href="/trainer_manage_category"><i
+													class="bi bi-basket fa-fw me-2"></i>My Category</a>
+											<a class="list-group-item " href="/trainer_manage_course"><i
+													class="bi bi-basket fa-fw me-2"></i>My Courses</a>
+											<a class="list-group-item active" href="/trainer_manage_lesson"><i
+													class="bi bi-basket fa-fw me-2"></i>My Lessons</a>
+											<a class="list-group-item" href="/trainer_manage_video"><i
+													class="bi bi-basket fa-fw me-2"></i>My Video</a>
+											<a class="list-group-item" href="/trainer_manage_earning"><i
+													class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
+											<a class="list-group-item " href="/trainer_manage_students"><i
+													class="bi bi-people fa-fw me-2"></i>Students</a>
+											<a class="list-group-item" href="/trainer_manage_orders"><i
+													class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
+
+											<a class="list-group-item" href="/trainer_edit_profile"><i
+													class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
+											<a class="list-group-item" href="/trainer_manage_payout"><i
+													class="bi bi-wallet2 fa-fw me-2"></i>Payouts</a>
+
+											<a class="list-group-item" href="instructor-delete-account.html"><i
+													class="bi bi-trash fa-fw me-2"></i>Delete Profile</a>
+											<a class="list-group-item text-danger bg-danger-soft-hover"
+												href="/signin"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign
 												Out</a>
 										</div>
 									</div>
@@ -125,8 +154,11 @@ Inner part START -->
 									<!-- Search -->
 									<div class="col-md-8">
 										<form class="rounded position-relative">
-											<input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search" id="searches">
-											<button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+											<input class="form-control pe-5 bg-transparent" type="search"
+												placeholder="Search" aria-label="Search" id="searches">
+											<button
+												class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y"
+												type="submit"><i class="fas fa-search fs-6 "></i></button>
 										</form>
 									</div>
 
@@ -134,7 +166,8 @@ Inner part START -->
 									<div id="course" class="col-md-3">
 										<!-- Short by filter -->
 										<form>
-											<select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm">
+											<select class="form-select js-choice border-0 z-index-9 bg-transparent"
+												aria-label=".form-select-sm">
 												<option value="">Sort by</option>
 												<option>Free</option>
 												<option>Newest</option>
@@ -155,8 +188,6 @@ Inner part START -->
 												<th scope="col" class="border-0 rounded-start">Image</th>
 												<th scope="col" class="border-0 text-center">Lesson Title</th>
 												<th scope="col" class="border-0 text-center">Course</th>
-												<th scope="col" class="border-0 text-center">Video free</th>
-												<th scope="col" class="border-0 text-center">Video primium</th>
 												<th scope="col" class="border-0 rounded-end text-center">Action</th>
 											</tr>
 										</thead>
@@ -166,32 +197,18 @@ Inner part START -->
 											<!-- Table item -->
 											<!-- ============loop for create list course======= -->
 											<?php
-											
-											$newname = '';
-
-											if (isset($_FILES['image'])) {
-												$course_image = $_FILES['image'];
-												$imagename = $course_image['name'];
-												$tmppath = $course_image['tmp_name'];
-												$img_error = $course_image['error'];
-												$ext = pathinfo($imagename, PATHINFO_EXTENSION);
-												$newname = uniqid("", true) . "." . $ext;
-												$direct = "../../assets/images/courses/4by3/" . $newname;
-												if ($img_error == 0) {
-													move_uploaded_file($tmppath, $direct);
-												}
-											}
 
 											$courses = coures_lesson($user_id);
-											foreach ($lessons as $lesson) :
+											foreach ($lessons as $lesson):
 
 
-											?>
+												?>
 												<tr>
 													<!-- Course item -->
 													<td>
 														<div>
-															<img src="../../assets/images/avatar/<?= $lesson['image']; ?>" alt="" class="w-70px h-70px rounded-circle">
+															<img src="../../assets/images/courses/4by3/<?= $lesson['image']; ?>"
+																alt="" class="w-70px h-70px rounded-circle">
 														</div>
 													</td>
 
@@ -200,7 +217,9 @@ Inner part START -->
 
 															<div class="mb-0 ms-4">
 																<!-- Title -->
-																<h6><a href="#"><?php echo $lesson['title'] ?></a></h6>
+																<h6><a href="#">
+																		<?php echo $lesson['title'] ?>
+																	</a></h6>
 																<!-- Info -->
 
 															</div>
@@ -208,18 +227,27 @@ Inner part START -->
 													</td>
 
 													<!-- Enrolled item -->
-													<td class="text-center text-sm-center"><?php echo $lesson['course_name'] ?></td>
-
+													<td class="text-center text-sm-center">
+														<?php echo $lesson['course_name'] ?>
+													</td>
 
 													<!-- Action item -->
 													<td class="d-flex text-center text-sm-center pb-5 pt-5">
-														<form action="#" method="post">
-															<input type="hidden" name="course_id" value="<?= $lesson['course_id'] ?>">
-															<button type="submit" class="btn btn-sm btn-success-soft btn-round me-1 mb-0" data-bs-toggle="modal" data-bs-target="#add_modal"><i class="far fa-fw fa-edit"></i></button>
+														<form action="" method="post">
+															<input type="hidden" name="course_id"
+																value="<?= $lesson['lesson_id'] ?>">
+															<button type="button"
+																class="btn btn-sm btn-success-soft btn-round me-1 mb-0"
+																data-bs-toggle="modal"
+																data-bs-target="#edit_modal<?= $lesson["lesson_id"] ?>">
+																<i class="far fa-fw fa-edit"></i></button>
 														</form>
-														<form action="/trainer_delete_lesson" method="post" onsubmit="return confirmDelete();">
-															<input type="hidden" name="lesson_id" value="<?= $lesson['lesson_id'] ?>">
-															<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
+														<form action="/trainer_delete_lesson" method="post"
+															onsubmit="return confirmDelete();">
+															<input type="hidden" name="lesson_id"
+																value="<?= $lesson['lesson_id'] ?>">
+															<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i
+																	class="fas fa-fw fa-times"></i></button>
 														</form>
 
 														<script>
@@ -244,11 +272,13 @@ Inner part START -->
 									<!-- Pagination -->
 									<nav class="d-flex justify-content-center mb-0" aria-label="navigation">
 										<ul class="pagination pagination-sm pagination-primary-soft mb-0 pb-0">
-											<li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
+											<li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i
+														class="fas fa-angle-left"></i></a></li>
 											<li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
 											<li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
 											<li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
-											<li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+											<li class="page-item mb-0"><a class="page-link" href="#"><i
+														class="fas fa-angle-right"></i></a></li>
 										</ul>
 									</nav>
 								</div>
@@ -267,7 +297,7 @@ Inner part END -->
 
 	</main>
 	<?php
-	if (isset($_SESSION['user'])) {
+	if (isset ($_SESSION['user'])) {
 		$user_id = $_SESSION['user']['user_id'];
 	}
 
@@ -282,7 +312,8 @@ Inner part END -->
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body bg-secondary">
-					<form action="controllers/trainers/trainer_create_lesson.controller.php" method="post" enctype="multipart/form-data">
+					<form action="controllers/trainers/trainer_create_lesson.controller.php" method="post"
+						enctype="multipart/form-data">
 						<div class="form-floating mb-3">
 							<input type="text" class="form-control" id="name" name="lesson_title">
 							<label for="name">Lesson Title</label>
@@ -293,9 +324,11 @@ Inner part END -->
 								<option selected disabled>Select Course</option>
 								<?php
 								$courses = get_nb_course($user_id);
-								foreach ($courses as $course) :
-								?>
-									<option value="<?= $course['course_id'] ?>"><?= $course['course_name'] ?></option>
+								foreach ($courses as $course):
+									?>
+									<option value="<?= $course['course_id'] ?>">
+										<?= $course['course_name'] ?>
+									</option>
 								<?php endforeach; ?>
 							</select>
 							<label for="category">Course</label>
@@ -314,6 +347,56 @@ Inner part END -->
 		</div>
 	</div>
 
+	<!--============form edit lesson for student================-->
+
+	<?php foreach ($lessons as $lesson): ?>
+	<div class="modal fade" id="edit_modal<?= $lesson["lesson_id"] ?>" tabindex="-1" aria-labelledby="example"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header bg-sucess">
+					<h5 class="modal-title text-primary" id="exampleModalLabel<?= $lesson["lesson_id"] ?>">Edit Lesson</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body bg-secondary">
+					<form action="controllers/trainers/trainer_edit_lesson.controller.php" method="post"
+						enctype="multipart/form-data">
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" id="name" name="lesson_title"
+								value="<?php echo $lesson["title"]; ?>">
+							<label for="name">Lesson Title</label>
+						</div>
+
+						<div class="form-floating mb-4">
+							<select class="form-select" id="category" name="lesson_course" aria-label="Select Course">
+								<option selected disabled>Select Course</option>
+								<?php
+								$courses = get_nb_course($user_id);
+								foreach ($courses as $course):
+									?>
+									<option value="<?= $course['course_id'] ?>">
+										<?= $course['course_name'] ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
+							<label for="category">Course</label>
+						</div>
+						<div class="lesson_profile mb-4">
+							<input type="file" class="bg-white h-50px w-100" name="lesson_image" required>
+						</div>
+						<div class="form-floating mb-4">
+							<input type="text" class="form-control" id="description" name="lesson_description"
+								value="<?php echo $lesson["lesson_description"]; ?>">
+							<label for="description">Description</label>
+						</div>
+						<input type="hidden" name="lesson_id" value="<?php echo $lesson["lesson_id"]; ?>">
+						<button type="submit" class="btn btn-primary py-3 w-100 mb-4">Edit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php endforeach; ?>
 	<!-- =======================
 Footer START -->
 
