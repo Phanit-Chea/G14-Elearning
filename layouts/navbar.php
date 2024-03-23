@@ -1,5 +1,6 @@
 <?php
 require "models/cart.model.php";
+require "models/payment.model.php";
 ?>
 <!-- Header START -->
 <header class="navbar-light navbar-sticky navbar-transparent">
@@ -247,7 +248,11 @@ require "models/cart.model.php";
       if (isset($_SESSION['user'])) {
         $user_id = $_SESSION['user']['user_id'];
         $carts = getCart($user_id);
-        $count = (count($carts));
+        foreach($carts as $cart){
+          if(!isPaymentExist($cart['courses_id'], $user_id)){
+            $count+=1;
+          }
+        }
       }
 
       ?>
