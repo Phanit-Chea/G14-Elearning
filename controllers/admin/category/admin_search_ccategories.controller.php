@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
 <?php if(isset($_GET['id'])): ?>
   <div class="card" style="background: white; width: 500px; height: 320px; position:absolute; top: 20%; left: 40%;">
       <img src="../../assets/images/categories/<?= getCategory($_GET['id'])['category_image'];?>" alt="" style="height: 280px;">
-      <a href="/admin_categories" class="btn bg-primary text-white" style="height: 40px; border-radius: 0px 0px 5px 5px;">close</a>
+      <a href="/admin_categories" class="btn bg-primary text-white" style="height: 40px; border-radius: 0px 0px 5px 5px;">Close</a>
 
   </div>
 <?php endif; ?>
