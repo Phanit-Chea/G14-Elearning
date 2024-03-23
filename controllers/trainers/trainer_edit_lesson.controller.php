@@ -13,6 +13,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("location: /trainer_manage_lesson");
 }
 
+
+$newname = '';
+if (isset ($_FILES['image'])) {
+    $course_image = $_FILES['image'];
+    $imagename = $course_image['name'];
+    $tmppath = $course_image['tmp_name'];
+    $img_error = $course_image['error'];
+    $ext = pathinfo($imagename, PATHINFO_EXTENSION);
+    $newname = uniqid("", true) . "." . $ext;
+    $direct = "../../assets/images/courses/4by3/" . $newname;
+    if ($img_error == 0) {
+        move_uploaded_file($tmppath, $direct);
+    }
+}
+
 $newname = '';
 if (isset ($_FILES['image'])) {
     $course_image = $_FILES['image'];

@@ -186,7 +186,7 @@ Inner part START -->
 										<thead>
 											<tr>
 												<th scope="col" class="border-0 rounded-start">Image</th>
-												<th scope="col" class="border-0 text-center">Lesson Title</th>
+												<th scope="col" class="border-0 ">Lesson Title</th>
 												<th scope="col" class="border-0 text-center">Course</th>
 												<th scope="col" class="border-0 rounded-end text-center">Action</th>
 											</tr>
@@ -197,7 +197,7 @@ Inner part START -->
 											<!-- Table item -->
 											<!-- ============loop for create list course======= -->
 											<?php
-
+											
 											$courses = coures_lesson($user_id);
 											foreach ($lessons as $lesson):
 
@@ -208,7 +208,7 @@ Inner part START -->
 													<td>
 														<div>
 															<img src="../../assets/images/courses/4by3/<?= $lesson['image']; ?>"
-																alt="" class="w-70px h-70px rounded-circle">
+																alt="" class="w-60px h-60px rounded">
 														</div>
 													</td>
 
@@ -232,7 +232,7 @@ Inner part START -->
 													</td>
 
 													<!-- Action item -->
-													<td class="d-flex text-center text-sm-center pb-5 pt-5">
+													<td class="d-flex text-center text-sm-center pb-5 pt-5 justify-content-center">
 														<form action="" method="post">
 															<input type="hidden" name="course_id"
 																value="<?= $lesson['lesson_id'] ?>">
