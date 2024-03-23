@@ -1,10 +1,11 @@
 <?php 
 require 'database/database.php'; 
-require 'models/payment.model.php'; 
+// require 'models/payment.model.php'; 
 $cardNameMsg = $cardNumberMsg = $expDateMsg = $cvvMsg = ''; 
 $oldCardName = $oldCardNumber = $oldExpDate = $oldCvv = ''; 
 $isValidForm = true; 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
+    $paymentDate= $_POST['paymentDate'];
     if (isset($_POST['cardName'])) { 
         $oldCardName = $_POST['cardName']; 
         if (strlen($_POST['cardName']) < 5) { 
@@ -40,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($isValidForm) { 
         foreach ($carts as $cart) { 
             if(!isPaymentExist($userId,$cart['courses_id'])){ 
-                purchaseCourse($cart['courses_id'], $userId); 
+                purchaseCourse($cart['courses_id'], $userId, $paymentDate); 
             } 
         } 
         header('Location: /'); 

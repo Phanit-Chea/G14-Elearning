@@ -1,5 +1,6 @@
 <?php
 require "models/cart.model.php";
+require "models/payment.model.php";
 ?>
 <!-- Header START -->
 <header class="navbar-light navbar-sticky navbar-transparent">
@@ -8,8 +9,9 @@ require "models/cart.model.php";
     <div class="container">
       <!-- Logo START -->
       <a class="navbar-brand" href="/">
-        <img class="light-mode-item navbar-brand-item" src="assets/images/courses/4by3/photo_2024-03-04_07-59-04.jpg" alt="logo">
-        <img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo">
+        <!-- <img class="light-mode-item navbar-brand-item" src="assets/images/courses/4by3/photo_2024-03-04_07-59-04.jpg" alt="logo"> -->
+        <img class="light-mode-item navbar-brand-item" src="assets/images/categories/logo.png" alt="logo" style="width: 125px; height: 75px;">
+        <!-- <img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo"> -->
       </a>
       <!-- Logo END -->
 
@@ -246,7 +248,11 @@ require "models/cart.model.php";
       if (isset($_SESSION['user'])) {
         $user_id = $_SESSION['user']['user_id'];
         $carts = getCart($user_id);
-        $count = (count($carts));
+        foreach($carts as $cart){
+          if(!isPaymentExist($cart['courses_id'], $user_id)){
+            $count+=1;
+          }
+        }
       }
 
       ?>

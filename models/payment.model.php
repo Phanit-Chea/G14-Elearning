@@ -1,11 +1,12 @@
 <?php 
 
-function purchaseCourse(int $courseId, int $userId): bool{
+function purchaseCourse(int $courseId, int $userId, string $date): bool{
     global $connection;
-    $statement = $connection->prepare("INSERT INTO payment (user_id, course_id) VALUES (:userId, :courseId)");
+    $statement = $connection->prepare("INSERT INTO payment (user_id, course_id, date) VALUES (:userId, :courseId, :date)");
     $statement->execute([
         ':userId' => $userId,
-        ':courseId' => $courseId
+        ':courseId' => $courseId,
+        ':date' => $date
     ]);
     return $statement->rowCount()>0;
 }
@@ -19,6 +20,18 @@ function isPaymentExist(int $courseId, int $userId): bool{
         ':courseId' => $courseId
     ]);
     return $statement->rowCount()>0;
+}
+
+// ========== get all payment to display on admin payment ========
+function getAllPayments(): array{
+    global $connection;
+    $statement = $connection->prepare("
+    SELECT payment.payment_id, courses.course_name, users.email, courses.course_price, payment.date
+    FROM payment 
+    INNER JOIN users ON users.user_id = payment.user_id 
+    INNER JOIN courses ON courses.course_id = payment.course_id");
+    $statement->execute();
+    return $statement->fetchAll();
 }
 
 

@@ -1,10 +1,7 @@
 <?php
 session_start();
 require 'layouts/navbar.php';
-// require 'models/cart.model.php';
-
-// $user_id = $_SESSION['user']['user_id'];
-// $carts = getCart($user_id);
+// require 'models/payment.model.php';
 
 $userId = $_SESSION['user']['user_id'] ?? null;
 $carts = $userId ? getCart($userId) : [];
@@ -33,14 +30,14 @@ require 'controllers/payment/payment.controller.php';
                     <p class="mb-1">Order cart</p>
                     <p class="mb-0">You have <?php echo($count)?> items in your cart</p>
                   </div>
-                  <!-- <div>
-                    <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!"
-                        class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
-                  </div> -->
                 </div>
 
                 <!-- =============== display cart ========= -->
-                <?php foreach ($carts as $num => $cart) : ?>
+
+                <?php foreach ($carts as $num => $cart) :
+                  if(!isPaymentExist($cart['courses_id'], $userId)):
+                ?>
+
                   
                 <div class="card mb-3">
                   <div class="card-body">
@@ -55,13 +52,9 @@ require 'controllers/payment/payment.controller.php';
 
                         <div class="ms-3">
                           <h5><?= $cart['course_name'] ?></h5>
-                          <!-- <p class="small mb-0">256GB, Navy Blue</p> -->
                         </div>
                       </div>
                       <div class="d-flex flex-row align-items-center">
-                        <!-- <div style="width: 50px;">
-                          <h5 class="fw-normal mb-0">2</h5>
-                        </div> -->
                         <div style="width: 80px;">
                           <h5 class="mb-0"><?= $cart['course_price'] . "$" ?></h5>
                         </div>
@@ -73,7 +66,9 @@ require 'controllers/payment/payment.controller.php';
                     </div>
                   </div>
                 </div>
-              <?php endforeach; ?>
+              <?php endif;
+              endforeach;
+               ?>
               </div>
 
               <div class="col-lg-5">
@@ -127,9 +122,8 @@ require 'controllers/payment/payment.controller.php';
                       </div>
 
                       <div class="form-outline form-white mb-4">
-                        <label class="form-label" for="typeText">Card Number</label>
-                        <input type="date" id="typeText" name="cardNumber" class="form-control form-control-lg" siez="17" placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
-                        <p class="text-danger"><?= $cardNumberMsg ?></p>
+                        <label class="form-label" for="typeText">Payment Date</label>
+                        <input type="date" id="typeText" name="paymentDate" class="form-control form-control-lg" />
                       </div>
 
                     <hr class="my-4">
@@ -137,8 +131,10 @@ require 'controllers/payment/payment.controller.php';
                     <?php
                     $totalPrice = 0;
                     foreach ($carts as $cart) {
+                      if(!isPaymentExist($cart['courses_id'], $user_id)){
                         $totalPrice += $cart['course_price'];
-                    }
+                      }
+                      }
                     ?>
                     <div class="d-flex justify-content-between mb-4">
                       <p class="mb-2">Total price</p>
@@ -165,4 +161,5 @@ require 'controllers/payment/payment.controller.php';
       </div>
     </div>
   </div>
+  
 </section>
