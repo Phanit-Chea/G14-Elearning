@@ -10,7 +10,7 @@ require "models/payment.model.php";
       <!-- Logo START -->
       <a class="navbar-brand" href="/">
         <!-- <img class="light-mode-item navbar-brand-item" src="assets/images/courses/4by3/photo_2024-03-04_07-59-04.jpg" alt="logo"> -->
-        <img class="light-mode-item navbar-brand-item" src="assets/images/categories/logo.png" alt="logo" style="width: 125px; height: 75px;">
+        <img class="light-mode-item navbar-brand-item" src="assets/images/courses/4by3/logo2.jpg" alt="logo" style="width: 125px; height: 75px;">
         <!-- <img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo"> -->
       </a>
       <!-- Logo END -->

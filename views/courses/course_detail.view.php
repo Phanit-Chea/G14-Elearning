@@ -183,7 +183,7 @@
                                                     <div class="card shadow h-100">
 
                                                         <div class="video-player rounded-3">
-                                                            <img src="assets/images/courses/4by3/<?= $lessons[$j]['lessons_image'] ?>" alt="" style="display: <?= $display ?>;" data-bs-toggle="modal" data-bs-target="<?= $is_trainer ?>">
+                                                            <img src="assets/images/courses/4by3/<?= $lessons[$j]['image'] ?>" alt="" style="display: <?= $display ?>;" data-bs-toggle="modal" data-bs-target="<?= $is_trainer ?>">
                                                             <video controls crossorigin="anonymous" playsinline poster="assets/images/courses/4by3/<?= $lessons[$j]['lessons_image'] ?>" style="display: <?= $video ?> ;">
                                                                 <source src="assets/images/videos/<?= $videos[$j]['file_path'] ?>" type="video/mp4" size="360">
                                                                 <source src="assets/images/videos/<?= $videos[$j]['file_path'] ?>" type="video/mp4" size="720">

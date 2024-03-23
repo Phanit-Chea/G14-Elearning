@@ -32,7 +32,7 @@ require "models/admin.model.php";
     <!-- ==================Edit Category ============== -->
     <tbody id="search_category">
       <?php
-      $categories = getData();
+      $categories = get_all_categories();
       foreach ($categories as $num => $category) :
 
       ?>
@@ -86,10 +86,10 @@ require "models/admin.model.php";
 </div>
 
 <!-- ========== show image ============ -->
-<?php if(isset($_GET['id'])): ?>
+<?php if (isset($_GET['id'])) : ?>
   <div class="card" style="background: white; width: 500px; height: 320px; position:absolute; top: 20%; left: 40%;">
-      <img src="../../assets/images/categories/<?= getCategory($_GET['id'])['category_image'];?>" alt="" style="height: 280px;">
-      <a href="/admin_categories" class="btn bg-primary text-white" style="height: 40px; border-radius: 0px 0px 5px 5px;">Close</a>
+    <img src="../../assets/images/categories/<?= getCategory($_GET['id'])['category_image']; ?>" alt="" style="height: 280px;">
+    <a href="/admin_categories" class="btn bg-primary text-white" style="height: 40px; border-radius: 0px 0px 5px 5px;">close</a>
   </div>
 <?php endif; ?>
 
@@ -125,4 +125,3 @@ require "models/admin.model.php";
     </div>
   </div>
 </div>
-

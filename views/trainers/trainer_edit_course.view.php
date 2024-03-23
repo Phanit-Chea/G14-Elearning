@@ -35,7 +35,7 @@ require 'layouts/trainer/navbar.php';
                                 <input type="text" class="form-control decimal-input" name="course_price" placeholder="Course Price" aria-label="Decimal Input" value="<?= $course['course_price'] ?>" required>
                             </div>
                             <?php
-                            $categories = get_categories();
+                            $categories = get_categories($user_id);
                             ?>
                             <select class="form-select mt-3" aria-label="Default select example" name="course_category" required>
                                 <?php foreach ($categories as $category) : ?>

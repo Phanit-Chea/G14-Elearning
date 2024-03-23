@@ -87,34 +87,42 @@ Category START -->
 
 
 	<section>
-
 		<div class="container">
 			<div class="row g-4">
 				<?php
-				$categories = getData();
-				foreach ($categories as $num => $category) :
+				if (isset($_SESSION['user'])) :
+					$user_id = $_SESSION['user']['user_id'];
+					$role = ($_SESSION['user']['role_id']);
 
+					// Fetch categories based on user role
+					if ($role == 2 || $role == 3) {
+						$categories = get_all_categories();
+					} else if ($role == 1) {
+						$categories = getData($user_id);
+					}
+
+					foreach ($categories as $num => $category) :
 				?>
-					<!-- Category item -->
-					<div class="col-sm-6 col-lg-4 col-xl-3">
-						<div class="card card-body shadow rounded-3">
-							<div class="d-flex align-items-center">
-								<!-- Icon -->
-								<div class="icon-lg bg-blue bg-opacity-10 rounded-circle text-blue"><i class="fas fa-photo-video"></i></div>
-								<div class="ms-3">
-									<h5 class="mb-0"><a href="#" class="stretched-link" value="<?= $category['category_name'] ?>"></a>
-										<?= $category['category_name'] ?>
-									</h5>
-									<span>38 Courses</span>
+						<!-- Category item -->
+						<div class="col-sm-6 col-lg-4 col-xl-3">
+							<div class="card card-body shadow rounded-3">
+								<div class="d-flex align-items-center">
+									<!-- Icon -->
+									<div class="icon-lg bg-blue bg-opacity-10 rounded-circle text-blue"><i class="fas fa-photo-video"></i></div>
+									<div class="ms-3">
+										<!-- Category Name Link -->
+										<h5 class="mb-0"><a href="#" class="stretched-link"><?= $category['category_name'] ?></a></h5>
+										<span>38 Courses</span>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-
-				<?php endforeach; ?>
+					<?php endforeach; ?>
+				<?php endif; ?>
 			</div>
 		</div>
 	</section>
+
 
 	<!-- =======================
 Category END -->
@@ -134,8 +142,6 @@ Featured course START -->
 			<div class="row g-4 ">
 				<!-- Card Item START -->
 				<?php
-				require 'database/database.php';
-				require 'models/student.model.php';
 
 				if (isset($_SESSION['user'])) {
 					$user_id = $_SESSION['user']['user_id'];

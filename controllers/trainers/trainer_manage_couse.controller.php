@@ -19,4 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['course_id'] = $course_id;
     }
 }
+if (isset($_SESSION['user'])) {
+    $user_id = $_SESSION['user']['user_id'];
+}
 require("views/trainers/trainer_manage_course.view.php");
