@@ -17,8 +17,7 @@ session_start();
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -39,8 +38,7 @@ session_start();
 
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
-        <div id="spinner"
-            class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -61,20 +59,18 @@ session_start();
                         </div>
                         <form action="controllers/signin/user_signin.controller.php" method='post'>
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput"
-                                    placeholder="name@example.com" name="email" required>
+                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" required>
                                 <label for="floatingInput">Email address</label>
-                                <?php if (isset($_SESSION['worngEmail'])): ?>
+                                <?php if (isset($_SESSION['worngEmail'])) : ?>
                                     <span style="color: red;">
                                         <?= $_SESSION['worngEmail'] ?>
                                     </span>
                                 <?php endif; ?>
                             </div>
                             <div class="form-floating mb-4">
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-                                    name="password" required>
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
                                 <label for="floatingPassword">Password</label>
-                                <?php if (isset($_SESSION['worngPassword'])): ?>
+                                <?php if (isset($_SESSION['worngPassword'])) : ?>
                                     <span style="color: red;">
                                         <?= $_SESSION['worngPassword'] ?>
                                     </span>
@@ -91,7 +87,7 @@ session_start();
                 </div>
             </div>
         </div>
-       
+
         <!-- Sign In End -->
     </div>
 
@@ -99,8 +95,8 @@ session_start();
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $('#showPasswordCheckbox').change(function () {
+        $(document).ready(function() {
+            $('#showPasswordCheckbox').change(function() {
                 var passwordInput = $('#floatingPassword');
                 if ($(this).is(':checked')) {
                     passwordInput.attr('type', 'text');
