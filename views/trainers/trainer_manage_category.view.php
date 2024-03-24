@@ -319,9 +319,7 @@ require 'models/admin.model.php';
 									<h5 class="card-title"><?= $category['category_name'] ?></h5>
 									<p class="card-text"><?= $category['category_description'] ?></p>
 								</div>
-								<div class="card-footer">
-									<small class="text-muted">Last updated 3 mins ago</small>
-								</div>
+						
 							</div>
 						</div>
 					</div>
