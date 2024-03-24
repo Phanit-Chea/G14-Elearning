@@ -17,15 +17,15 @@ $routes = [
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
 } else {
-   http_response_code(404);
-   $page = 'views/errors/404.php';
+    http_response_code(404);
+    $page = 'views/errors/404.php';
 }
 
-if(!urlIs('/add_search_category')){ 
-    require "layouts/admin/header.php"; 
-    require "layouts/admin/navbar.php"; 
-} 
-require $page; 
-if(!urlIs('/add_search_category')){ 
-    require "layouts/admin/footer.php"; 
+if (!urlIs('/add_search_category')) {
+    require "layouts/admin/header.php";
+    require "layouts/admin/navbar.php";
+}
+require $page;
+if (!urlIs('/add_search_category')) {
+    require "layouts/admin/footer.php";
 }

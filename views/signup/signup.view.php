@@ -49,7 +49,7 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
                     <div class="bg-secondary rounded p-2 p-sm-4 my-2 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                        <a href="index.html" class="">
+                            <a href="index.html" class="">
                                 <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Elearning</h3>
                             </a>
                             <h3>Sign up</h3>

@@ -106,3 +106,31 @@ function count_nb_lesson($course_id)
     $result = $statement->fetch(PDO::FETCH_ASSOC);
     return $result['lesson_count'];
 }
+
+// ============== total course for student ==============
+function count_course($user_id) {
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(payment.course_id) 
+    FROM payment 
+    WHERE payment.user_id = :user_id;");
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
+
+    $result = $statement->fetchColumn();
+    return $result;
+}
+// ========== count total spending ====================
+function total_spending($user_id) {
+    global $connection;
+    $statement = $connection->prepare("SELECT SUM(courses.course_price)
+        FROM payment
+        INNER JOIN courses ON courses.course_id = payment.course_id
+        WHERE payment.user_id = :user_id");
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
+
+    $result = $statement->fetchColumn();
+    return $result;
+}
