@@ -130,7 +130,6 @@ require 'layouts/trainer/navbar.php';
                                         <a class="list-group-item" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
                                         <a class="list-group-item " href="/trainer_manage_lesson"><i class="bi bi-basket fa-fw me-2"></i>My Lessons</a>
                                         <a class="list-group-item " href="/trainer_manage_video"><i class="bi bi-basket fa-fw me-2"></i>My Video</a>
-                                        <a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
                                         <a class="list-group-item active" href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
                                         <a class="list-group-item" href="/trainer_edit_profile"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
                                         <a class="list-group-item" href="/trainer_edit_profile"><i class="bi bi-trash fa-fw me-2"></i>Delete Profile</a>
@@ -190,273 +189,45 @@ require 'layouts/trainer/navbar.php';
                                     <thead>
                                         <tr>
                                             <th scope="col" class="border-0 rounded-start">Student name</th>
-                                            <th scope="col" class="border-0">Progress</th>
-                                            <th scope="col" class="border-0">Courses</th>
+                                            <th scope="col" class="border-0">Email</th>
                                             <th scope="col" class="border-0">Enrolled date</th>
-                                            <th scope="col" class="border-0 rounded-end">Action</th>
+
                                         </tr>
                                     </thead>
 
                                     <!-- Table body START -->
                                     <tbody>
                                         <!-- Table item -->
-                                        <tr>
-                                            <!-- Table data -->
-                                            <td>
-                                                <div class="d-flex align-items-center position-relative">
-                                                    <!-- Image -->
-                                                    <div class="avatar avatar-md mb-2 mb-md-0">
-                                                        <img src="assets/images/avatar/01.jpg" class="rounded" alt="">
-                                                    </div>
-                                                    <div class="mb-0 ms-2">
+                                        <?php
+                                        $students = get_student($user_id);
+                                        foreach ($students as $student) :
+
+                                        ?>
+                                            <tr>
+                                                <!-- Table data -->
+                                                <td>
+                                                    <div class="d-flex align-items-center position-relative">
+
                                                         <!-- Title -->
-                                                        <h6 class="mb-0"><a href="#" class="stretched-link">Lori
-                                                                Stevens</a></h6>
-                                                        <!-- Address -->
-                                                        <span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>Mumbai</span>
+                                                        <h5 class="mb-0"><a href="#" class="stretched-link"><?= $student['username'] ?>
+                                                            </a></h5>
+
+
                                                     </div>
-                                                </div>
-                                            </td>
+                                                </td>
 
-                                            <!-- Table data -->
-                                            <td class="text-center text-sm-start">
-                                                <div class=" overflow-hidden">
-                                                    <h6 class="mb-0">85%</h6>
-                                                    <div class="progress progress-sm bg-primary bg-opacity-10">
-                                                        <div class="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
+                                                <!-- Table data -->
+                                                <td class="text-center text-sm-start">
+                                                    <h6 class="mb-0"><?= $student['email'] ?></h6>
 
-                                            <!-- Table data -->
-                                            <td>10</td>
+                                                </td>
 
-                                            <!-- Table data -->
-                                            <td>4/9/2021</td>
+                                                <td><?= $student['date'] ?></td>
 
-                                            <!-- Table data -->
-                                            <td>
-                                                <a href="#" class="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i class="far fa-envelope"></i></a>
-                                                <button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i class="fas fa-ban"></i></button>
-                                            </td>
-                                        </tr>
 
-                                        <!-- Table item -->
-                                        <tr>
-                                            <!-- Table data -->
-                                            <td>
-                                                <div class="d-flex align-items-center position-relative">
-                                                    <!-- Image -->
-                                                    <div class="avatar avatar-md mb-2 mb-md-0">
-                                                        <img src="assets/images/avatar/03.jpg" class="rounded" alt="">
-                                                    </div>
-                                                    <div class="mb-0 ms-2">
-                                                        <!-- Title -->
-                                                        <h6 class="mb-0"><a href="#" class="stretched-link">Dennis
-                                                                Barrett</a></h6>
-                                                        <!-- Address -->
-                                                        <span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>New
-                                                            york</span>
-                                                    </div>
-                                                </div>
-                                            </td>
+                                            </tr>
+                                        <?php endforeach; ?>
 
-                                            <!-- Table data -->
-                                            <td class="text-center text-sm-start">
-                                                <div class=" overflow-hidden">
-                                                    <h6 class="mb-0">40%</h6>
-                                                    <div class="progress progress-sm bg-primary bg-opacity-10">
-                                                        <div class="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td>12</td>
-
-                                            <!-- Table data -->
-                                            <td>9/7/2021</td>
-
-                                            <!-- Table data -->
-                                            <td>
-                                                <a href="#" class="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i class="far fa-envelope"></i></a>
-                                                <button class="btn btn-danger btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Unblock"><i class="fas fa-ban"></i></button>
-                                            </td>
-                                        </tr>
-
-                                        <!-- Table item -->
-                                        <tr>
-                                            <!-- Table data -->
-                                            <td>
-                                                <div class="d-flex align-items-center position-relative">
-                                                    <!-- Image -->
-                                                    <div class="avatar avatar-md mb-2 mb-md-0">
-                                                        <img src="assets/images/avatar/04.jpg" class="rounded" alt="">
-                                                    </div>
-                                                    <div class="mb-0 ms-2">
-                                                        <!-- Title -->
-                                                        <h6 class="mb-0"><a href="#" class="stretched-link">Billy
-                                                                Vasquez</a></h6>
-                                                        <!-- Address -->
-                                                        <span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>Paris</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td class="text-center text-sm-start">
-                                                <div class=" overflow-hidden">
-                                                    <h6 class="mb-0">62%</h6>
-                                                    <div class="progress progress-sm bg-primary bg-opacity-10">
-                                                        <div class="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" style="width: 62%" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td>08</td>
-
-                                            <!-- Table data -->
-                                            <td>10/5/2021</td>
-
-                                            <!-- Table data -->
-                                            <td>
-                                                <a href="#" class="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i class="far fa-envelope"></i></a>
-                                                <button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i class="fas fa-ban"></i></button>
-                                            </td>
-                                        </tr>
-
-                                        <!-- Table item -->
-                                        <tr>
-                                            <!-- Table data -->
-                                            <td>
-                                                <div class="d-flex align-items-center position-relative">
-                                                    <!-- Image -->
-                                                    <div class="avatar avatar-md mb-2 mb-md-0">
-                                                        <img src="assets/images/avatar/09.jpg" class="rounded" alt="">
-                                                    </div>
-                                                    <div class="mb-0 ms-2">
-                                                        <!-- Title -->
-                                                        <h6 class="mb-0"><a href="#" class="stretched-link">Carolyn
-                                                                Ortiz</a></h6>
-                                                        <!-- Address -->
-                                                        <span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>Delhi</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td class="text-center text-sm-start">
-                                                <div class=" overflow-hidden">
-                                                    <h6 class="mb-0">60%</h6>
-                                                    <div class="progress progress-sm bg-primary bg-opacity-10">
-                                                        <div class="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td>06</td>
-
-                                            <!-- Table data -->
-                                            <td>20/4/2021</td>
-
-                                            <!-- Table data -->
-                                            <td>
-                                                <a href="#" class="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i class="far fa-envelope"></i></a>
-                                                <button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i class="fas fa-ban"></i></button>
-                                            </td>
-                                        </tr>
-
-                                        <!-- Table item -->
-                                        <tr>
-                                            <!-- Table data -->
-                                            <td>
-                                                <div class="d-flex align-items-center position-relative">
-                                                    <!-- Image -->
-                                                    <div class="avatar avatar-md mb-2 mb-md-0">
-                                                        <img src="assets/images/avatar/07.jpg" class="rounded" alt="">
-                                                    </div>
-                                                    <div class="mb-0 ms-2">
-                                                        <!-- Title -->
-                                                        <h6 class="mb-0"><a href="#" class="stretched-link">Larry
-                                                                Lawson</a></h6>
-                                                        <!-- Address -->
-                                                        <span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>London</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td class="text-center text-sm-start">
-                                                <div class=" overflow-hidden">
-                                                    <h6 class="mb-0">35%</h6>
-                                                    <div class="progress progress-sm bg-primary bg-opacity-10">
-                                                        <div class="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td>04</td>
-
-                                            <!-- Table data -->
-                                            <td>12/7/2021</td>
-
-                                            <!-- Table data -->
-                                            <td>
-                                                <a href="#" class="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i class="far fa-envelope"></i></a>
-                                                <button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i class="fas fa-ban"></i></button>
-                                            </td>
-                                        </tr>
-
-                                        <!-- Table item -->
-                                        <tr>
-                                            <!-- Table data -->
-                                            <td>
-                                                <div class="d-flex align-items-center position-relative">
-                                                    <!-- Image -->
-                                                    <div class="avatar avatar-md mb-2 mb-md-0">
-                                                        <img src="assets/images/avatar/06.jpg" class="rounded" alt="">
-                                                    </div>
-                                                    <div class="mb-0 ms-2">
-                                                        <!-- Title -->
-                                                        <h6 class="mb-0"><a href="#" class="stretched-link">Frances
-                                                                Guerrero</a></h6>
-                                                        <!-- Address -->
-                                                        <span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>Pune</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td class="text-center text-sm-start">
-                                                <div class=" overflow-hidden">
-                                                    <h6 class="mb-0">42%</h6>
-                                                    <div class="progress progress-sm bg-primary bg-opacity-10">
-                                                        <div class="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" style="width: 42%" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <!-- Table data -->
-                                            <td>14</td>
-
-                                            <!-- Table data -->
-                                            <td>8/8/2021</td>
-
-                                            <!-- Table data -->
-                                            <td>
-                                                <a href="#" class="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i class="far fa-envelope"></i></a>
-                                                <button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i class="fas fa-ban"></i></button>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                     <!-- Table body END -->
                                 </table>

@@ -43,8 +43,7 @@ require 'layouts/trainer/navbar.php';
 	</ul>
 </div>
 <!-- Profile START -->
-</div>
-</nav>
+
 <!-- Logo Nav END -->
 </header>
 
@@ -135,7 +134,6 @@ Page content START -->
 										<a class="list-group-item" href="/trainer_manage_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
 										<a class="list-group-item" href="/trainer_manage_lesson"><i class="bi bi-basket fa-fw me-2"></i>My Lessons</a>
 										<a class="list-group-item" href="/trainer_manage_video"><i class="bi bi-basket fa-fw me-2"></i>My Videos</a>
-										<a class="list-group-item" href="/trainer_manage_earning"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
 										<a class="list-group-item" href="/trainer_manage_students"><i class="bi bi-people fa-fw me-2"></i>Students</a>
 										<a class="list-group-item" href="/trainer_edit_profile"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
 										<a class="list-group-item" href="instructor-delete-account.html"><i class="bi bi-trash fa-fw me-2"></i>Delete Profile</a>
@@ -156,7 +154,7 @@ Page content START -->
 					<!-- Counter boxes START -->
 					<div class="row g-2">
 						<!-- Counter item -->
-						<div class="col-sm-6 col-lg-6">
+						<div class="col-sm-6 col-lg-4">
 							<div class="d-flex justify-content-center align-items-center p-4 bg-purple bg-opacity-10 rounded-3">
 								<span class="display-6 text-purple mb-0"><i class="fa-solid fa-folder fa-fw"></i></span>
 								<div class="ms-4">
@@ -167,7 +165,7 @@ Page content START -->
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-6 col-lg-6">
+						<div class="col-sm-6 col-lg-4">
 							<div class="d-flex justify-content-center align-items-center p-4 bg-warning bg-opacity-15 rounded-3">
 								<span class="display-6 text-warning mb-0"><i class="fa-regular fa-file fa-fw"></i></span>
 								<div class="ms-4">
@@ -178,43 +176,126 @@ Page content START -->
 								</div>
 							</div>
 						</div>
+						<div class="col-sm-6 col-lg-4">
+							<div class="d-flex justify-content-center align-items-center p-4 bg-info bg-opacity-10 rounded-3">
+								<span class="display-6 text-info mb-0"><i class="fas fa-gem fa-fw"></i></span>
+								<div class="ms-4">
+									<div class="d-flex">
+										<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="<?php echo (total_customer($user_id)) ?>" data-purecounter-delay="300">0</h5>
+										<span class="mb-0 h5"></span>
+									</div>
+									<span class="mb-0 h6 fw-light">Student bought</span>
+								</div>
+							</div>
+						</div>
 						<!-- Counter item -->
 					</div>
 					<!-- Counter boxes END -->
 
 					<!-- Chart START -->
-					<div class="row mt-5">
+					<div class="row mt-3" style="margin-left: 30px;">
+
+
+						<div class="col-sm-6 col-md-6 ">
+							<span class="badge bg-dark text-white">Total This month</span>
+							<h4 class="text-primary my-2"><?php echo (total_Revenue($user_id)) ?>$</h4>
+							<p class="mb-0"><span class="text-success me-1">0.20%<i class="bi bi-arrow-up"></i></span>vs last month</p>
+						</div>
+
+
+					</div>
+					<div class="row">
 						<div class="col-12">
-							<div class="card card-body border p-4 h-100 d-flex justify-content-around">
-								<div class="row g-2 ">
-									<!-- Content -->
-									<div class="col-sm-6 col-md-6 d-flex justify-content-center flex-column align-items-center">
-										<span class="badge bg-dark text-white">Current Month</span>
-										<h4 class="text-primary my-2">$35000</h4>
-										<p class="mb-0"><span class="text-success me-1">0.20%<i class="bi bi-arrow-up"></i></span>vs last month</p>
-									</div>
-									<!-- Content -->
-									<div class="col-sm-6 col-md-6 d-flex justify-content-center flex-column align-items-center">
-										<span class="badge bg-dark text-white">Last Month</span>
-										<h4 class="my-2">$28000</h4>
-										<p class="mb-0"><span class="text-danger me-1">0.10%<i class="bi bi-arrow-down"></i></span>Then last month</p>
+							<div class="card border rounded-3 mt-5">
+								<!-- Card header START -->
+								<div class="card-header border-bottom">
+									<div class="d-sm-flex justify-content-sm-between align-items-center">
+										<h3 class="mb-2 mb-sm-0">Most Selling Courses</h3>
+										<a href="#" class="btn btn-sm btn-primary-soft mb-0">View all</a>
 									</div>
 								</div>
+								<!-- Card header END -->
 
-								<!-- Apex chart -->
-								<div id="ChartPayout"></div>
+								<!-- Card body START -->
+								<div class="card-body">
+									<div class="table-responsive-lg border-0 rounded-3">
+										<!-- Table START -->
+										<table class="table table-dark-gray align-middle p-4 mb-0">
+											<!-- Table head -->
+											<thead>
+												<tr>
+													<th scope="col" class="border-0 rounded-start">Course Name</th>
+													<th scope="col" class="border-0">Selling</th>
+													<th scope="col" class="border-0">Amount</th>
 
+												</tr>
+											</thead>
+											<!-- Table body START -->
+											<tbody>
+
+												<!-- Table item -->
+												<?php
+												$most_selling = most_selling($user_id);
+												foreach ($most_selling as $course) :
+
+												?>
+													<tr>
+
+														<!-- Course item -->
+														<td>
+															<div class="d-flex align-items-center">
+																<!-- Image -->
+																<div class="w-100px w-md-60px">
+																	<img src="assets/images/courses/4by3/<?= $course['course_image'] ?>" class="rounded" alt="">
+																</div>
+																<!-- Title -->
+																<h6 class="mb-0 ms-2">
+																	<a href="#"><?= $course['course_name'] ?></a>
+																</h6>
+															</div>
+														</td>
+														<!-- Selling item -->
+														<td><?= $course['course_count'] ?></td>
+														<!-- Amount item -->
+														<td>$<?= $course['total_price'] ?></td>
+														<!-- Period item -->
+
+													</tr>
+												<?php endforeach; ?>
+
+
+
+											</tbody>
+											<!-- Table body END -->
+										</table>
+										<!-- Table END -->
+									</div>
+
+									<!-- Pagination -->
+									<div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-3">
+										<!-- Content -->
+										<p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
+										<!-- Pagination -->
+										<nav class="d-flex justify-content-center mb-0" aria-label="navigation">
+											<ul class="pagination pagination-sm pagination-primary-soft mb-0 pb-0">
+												<li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
+												<li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
+												<li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
+												<li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
+												<li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+								<!-- Card body START -->
 							</div>
 						</div>
 					</div>
-					<!-- Chart END -->
 
-					<!-- Course List table START -->
-
-					<!-- Course List table END -->
 				</div>
-				<!-- Main content END -->
-			</div><!-- Row END -->
+
+
+			</div>
 		</div>
 	</section>
 	<!-- =======================

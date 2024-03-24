@@ -346,3 +346,72 @@ function nb_course_category($category_id)
 }
 
 // ========== get one category========
+function total_Revenue($user_id)
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT SUM(courses.course_price) AS total_price
+    FROM payment
+    INNER JOIN courses ON courses.course_id = payment.course_id
+    INNER JOIN users ON users.user_id = courses.user_id
+    WHERE users.user_id = :user_id");
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
+
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $result['total_price'];
+}
+// ============== count customer=================
+function total_customer($user_id)
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT COUNT(payment.user_id) AS user_count
+    FROM payment
+    INNER JOIN courses ON courses.course_id = payment.course_id
+    INNER JOIN users ON users.user_id = courses.user_id
+    WHERE courses.user_id = :user_id");
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
+
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $result['user_count'];
+}
+
+// ============= top course selling =================
+function most_selling($user_id)
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT courses.course_name, courses.course_image, COUNT(courses.course_id) AS course_count, SUM(courses.course_price) AS total_price
+    FROM payment
+    INNER JOIN courses ON courses.course_id = payment.course_id
+    WHERE courses.user_id = :user_id
+    GROUP BY courses.course_id order by course_count DESC");
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
+
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;
+}
+
+// ============= get student ==============
+function get_student($user_id)
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT users.username, users.email, payment.date
+    FROM payment
+    INNER JOIN users ON users.user_id = payment.user_id
+    INNER JOIN courses ON payment.course_id = courses.course_id
+    WHERE courses.user_id = :user_id");
+    $statement->execute([
+        ':user_id' => $user_id
+    ]);
+
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;
+}
