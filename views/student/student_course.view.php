@@ -87,7 +87,7 @@ require 'models/store_course_student.php';
                                     <!-- Dashboard menu -->
                                     <div class="list-group list-group-dark list-group-borderless">
                                         <a class="list-group-item active" href="#"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
-                                        <a class="list-group-item" href="student-payment-info.html"><i class="bi bi-credit-card-2-front fa-fw me-2"></i>Payment info</a>
+                                        <a class="list-group-item" href="/student"><i class="bi bi-credit-card-2-front fa-fw me-2"></i>Payment info</a>
                                         <a class="list-group-item" href="/student_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
                                     </div>
                                 </div>
