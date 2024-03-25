@@ -57,18 +57,11 @@
 							<ul class="dropdown-menu" aria-labelledby="accounntMenu">
 								<!-- Dropdown submenu -->
 								<li class="dropdown-submenu dropend">
-									<a class="dropdown-item dropdown-toggle" href="/trainers"><i class="fas fa-user-tie fa-fw me-1"></i>Instructor</a>
+									<a class="dropdown-item dropdown-toggle" href="/trainers"><i class="fas fa-user-tie fa-fw me-1"></i>My Account</a>
 									<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-										<li> <a class="dropdown-item" href="/trainer_dashboard"><i class="bi bi-grid-fill fa-fw me-1"></i>Dashboard</a> </li>
-										<li> <a class="dropdown-item" href="/trainer_manage_course"><i class="bi bi-basket-fill fa-fw me-1"></i>Course</a> </li>
-										<li> <a class="dropdown-item" href="/trainer_create_course"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create
-												Course</a> </li>
-										<li> <a class="dropdown-item" href="/trainer_manage_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Category</a> </li>
-										<li> <a class="dropdown-item" href="/trainer_create_category"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create Category</a> </li>
-										<li> <a class="dropdown-item" href="/trainer_manage_earning"><i class="fas fa-chart-line fa-fw me-1"></i>Earnings</a> </li>
-										<li> <a class="dropdown-item" href="/trainer_manage_students"><i class="fas fa-user-graduate fa-fw me-1"></i>Students</a> </li>
-										<li> <a class="dropdown-item" href="/trainer_manage_orders"><i class="bi bi-cart-check-fill fa-fw me-1"></i>Orders</a> </li>
-										<li> <a class="dropdown-item" href="/trainer_manage_payout"><i class="fas fa-wallet fa-fw me-1"></i>Payout</a> </li>
+										<li> <a class="dropdown-item" href="/student_course"><i class="bi bi-grid-fill fa-fw me-1"></i>My course</a> </li>
+										<li> <a class="dropdown-item" href="/student"><i class="bi bi-basket-fill fa-fw me-1"></i>Payment Info</a> </li>
+										
 									</ul>
 								</li>
 

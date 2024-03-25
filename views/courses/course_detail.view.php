@@ -8,7 +8,7 @@
         <?php
         $is_trainer = '#myModal';
         $display = "none";
-        $video = 'block';
+        $video = 'none';
         $image = 'none';
         $width_video = "width:1150px;height:60vh";
         if (isset($_SESSION['user'])) {
@@ -147,6 +147,10 @@
                         </div>
 
                     </div>
+                    <?php
+                    echo ($video);
+                    echo ($display);
+                    ?>
                     <div class="col-12">
                         <div class="col-12 pt-3 pb-3">
                             <h4 class="">The lessons in this course</h4>
@@ -184,7 +188,7 @@
 
                                                         <div class="video-player rounded-3">
                                                             <img src="assets/images/courses/4by3/<?= $lessons[$j]['image'] ?>" alt="" style="display: <?= $display ?>;" data-bs-toggle="modal" data-bs-target="<?= $is_trainer ?>">
-                                                            <video controls crossorigin="anonymous" playsinline poster="assets/images/courses/4by3/<?= $lessons[$j]['lessons_image'] ?>" style="display: <?= $video ?> ;">
+                                                            <video controls crossorigin="anonymous" playsinline poster="assets/images/courses/4by3/<?= $lessons[$j]['image'] ?>" style="display: <?= $video ?>;">
                                                                 <source src="assets/images/videos/<?= $videos[$j]['file_path'] ?>" type="video/mp4" size="360">
                                                                 <source src="assets/images/videos/<?= $videos[$j]['file_path'] ?>" type="video/mp4" size="720">
                                                                 <source src="assets/images/videos/<?= $videos[$j]['file_path'] ?>" type="video/mp4" size="1080">

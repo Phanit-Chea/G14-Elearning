@@ -80,9 +80,9 @@ require 'models/store_course_student.php';
                                 <div class="bg-dark border rounded-3 pb-0 p-3 w-100">
                                     <!-- Dashboard menu -->
                                     <div class="list-group list-group-dark list-group-borderless">
-                                
-                                        <a class="list-group-item" href="/student"><i class="bi bi-credit-card-2-front fa-fw me-2"></i>Payment info</a>
+                                        <a class="list-group-item" href="/dashboard_student"><i class="bi bi-basket fa-fw me-2"></i>Dashboard</a>
                                         <a class="list-group-item" href="/student_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
+                                        <a class="list-group-item" href="/student"><i class="bi bi-credit-card-2-front fa-fw me-2"></i>Payment info</a>
                                     </div>
                                 </div>
                             </div>

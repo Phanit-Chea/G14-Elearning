@@ -1,42 +1,20 @@
-<?php 
-	require 'models/information_payment.php';
-	require('layouts/student/navbar.php')
- ?>
-<link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css"/>
+<?php
+require 'models/information_payment.php';
+require('layouts/student/navbar.php')
+?>
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css" />
 <!-- Profile START -->
 <div class="dropdown ms-1 ms-lg-0">
 	<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
 		<!-- Profile info -->
-		<li class="px-3">
-			<div class="d-flex align-items-center">
-				<!-- Avatar -->
-				<div class="avatar me-3">
-					<img class="avatar-img rounded-circle shadow" src="assets/images/avatar/01.jpg" alt="avatar">
-				</div>
-				<div>
-					<a class="h6" href="#">Lori Ferguson</a>
-					<p class="small m-0">elearning@gmail.com</p>
-				</div>
-			</div>
-			<hr>
-		</li>
+
 		<!-- Links -->
 		<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
-		<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
-		<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
 		<li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
 		<li>
 			<hr class="dropdown-divider">
 		</li>
-		<!-- Dark mode switch START -->
-		<li>
-			<div class="modeswitch-wrap" id="darkModeSwitch">
-				<div class="modeswitch-item">
-					<div class="modeswitch-icon"></div>
-				</div>
-				<span>Dark mode</span>
-			</div>
-		</li>
+
 		<!-- Dark mode switch END -->
 	</ul>
 </div>
@@ -49,10 +27,7 @@
 
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
-
-	<!-- =======================
-Page Banner START -->
-	<section class="pt-0">
+	<section class="pt-0 " style="margin-bottom: 0px;">
 		<div class="container-fluid px-0">
 			<div class="card bg-blue h-100px h-md-200px rounded-0" style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
 			</div>
@@ -73,7 +48,7 @@ Page Banner START -->
 							<div class="col d-sm-flex justify-content-between align-items-center">
 								<div>
 									<h1 class="my-1 fs-4"><?php echo $username; ?> </h1>
-									
+
 								</div>
 								<!-- Button -->
 							</div>
@@ -94,17 +69,13 @@ Page Banner START -->
 			</div>
 		</div>
 	</section>
-	<!-- =======================
-Page Banner END -->
 
-	<!-- =======================
-Page content START -->
-	<section class="pt-0">
+	<section class="pt-0 mb-0" style="margin-top: 0px;">
 		<div class="container">
-			<div class="row">
+			<div class="row d-flex justify-content-center" style="margin-top: 0;">
 
 				<!-- Right sidebar START -->
-				<div class="col-xl-3">
+				<div class="col-xl-3 mt-5">
 					<!-- Responsive offcanvas body START -->
 					<nav class="navbar navbar-light navbar-expand-xl mx-0">
 						<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -118,7 +89,7 @@ Page content START -->
 								<div class="bg-dark border rounded-3 pb-0 p-3 w-100">
 									<!-- Dashboard menu -->
 									<div class="list-group list-group-dark list-group-borderless">
-										
+										<a class="list-group-item" href="/dashboard_student"><i class="bi bi-basket fa-fw me-2"></i>Dashboard</a>
 										<a class="list-group-item" href="/student_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
 										<a class="list-group-item" href="/student"><i class="bi bi-credit-card-2-front fa-fw me-2"></i>Payment info</a>
 									</div>
@@ -128,12 +99,11 @@ Page content START -->
 					</nav>
 					<!-- Responsive offcanvas body END -->
 				</div>
-				<!-- Right sidebar END -->
-
-				<!-- Main content START -->
 				<div class="col-xl-9">
-					<!-- Counter boxes START -->
-					<div class="table-responsive p-5 ">
+					<div class="card-header border-bottom">
+						<h3 class="mb-0">My Payment List</h3>
+					</div>
+					<div class="table-responsive p-1 ">
 						<div class="container w-50 pt-5"></div>
 						<table id="example" class="table table-striped table-bordered" style="width:100%">
 							<thead>
@@ -143,38 +113,36 @@ Page content START -->
 									<th scope="col">Date</th>
 								</tr>
 							</thead>
+
 							<tbody>
-							<?php 
-								$information_payment =information_student_patment();
-								foreach($information_payment as $information) :
-							?>
+								<?php
+								$information_payment = information_student_patment($user_id);
+								foreach ($information_payment as $information) :
+								?>
 									<tr>
 										<td class="">
 											<?php echo $information['course_name'] ?>
 										</td>
 										<td>
 
-										<?php echo $information['course_price'] ?>
+											<?php echo $information['course_price'] ?>
 										</td>
 
 										<td>
-										<?php echo $information['date'] ?>
+											<?php echo $information['date'] ?>
 										</td>
 
 									</tr>
-							<?php endforeach ;?>
+								<?php endforeach; ?>
 							</tbody>
 						</table>
 					</div>
-					<!-- Counter boxes END -->
-					<!-- Main content END -->
-				</div><!-- Row END -->
+				</div>
 
 			</div>
 		</div>
 	</section>
-	<!-- =======================
-Page content END -->
+
 
 </main>
 <!-- **************** MAIN CONTENT END **************** -->
@@ -196,9 +164,9 @@ Page content END -->
 <script defer src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
 <script defer src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap4.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#example').DataTable();
-    });
+	$(document).ready(function() {
+		$('#example').DataTable();
+	});
 </script>
 
 </body>
