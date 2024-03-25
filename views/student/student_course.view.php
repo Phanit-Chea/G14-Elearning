@@ -101,7 +101,6 @@ require 'models/store_course_student.php';
                 <div class="col-xl-9 d-flex" style="display:flex;flex-wrap:wrap">
                     <?php
                    $card_course = store_course_student($_SESSION['user']['user_id']);
-                   var_dump($card_course);
                    foreach( $card_course as $cards):
                    ?>
                         <div class="card" style="width: 16rem; margin-right:10px;">
