@@ -80,9 +80,9 @@ require 'models/store_course_student.php';
                                 <div class="bg-dark border rounded-3 pb-0 p-3 w-100">
                                     <!-- Dashboard menu -->
                                     <div class="list-group list-group-dark list-group-borderless">
-                                
-                                        <a class="list-group-item" href="/student"><i class="bi bi-credit-card-2-front fa-fw me-2"></i>Payment info</a>
+                                        <a class="list-group-item" href="/dashboard_student"><i class="bi bi-basket fa-fw me-2"></i>Dashboard</a>
                                         <a class="list-group-item" href="/student_course"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
+                                        <a class="list-group-item" href="/student"><i class="bi bi-credit-card-2-front fa-fw me-2"></i>Payment info</a>
                                     </div>
                                 </div>
                             </div>
@@ -100,7 +100,14 @@ require 'models/store_course_student.php';
                         <div class="card" style="width: 16rem; margin-right:10px;">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $cards['course_name'] ?>
-                                    <img src="assets/images/courses/4by3/<?= $cards['course_image'] ?>" class="card-img-top" alt="...">
+                                    <video controls crossorigin="anonymous" playsinline poster="assets/images/courses/4by3/<?= $cards['course_image'] ?>" >
+                                        <source src="assets/images/videos/<?= $cards['video_path_file']; ?>" type="video/mp4" size="360" style="<?= $width_video; ?>">
+                                        <source src="assets/images/videos/720p.mp4" type="video/mp4" size="720">
+                                        <source src="assets/images/videos/1080p.mp4" type="video/mp4" size="1080">
+                                        <!-- Caption files -->
+                                        <track kind="captions" label="English" srclang="en" src="assets/images/videos/en.vtt.txt" default>
+                                        <track kind="captions" label="French" srclang="fr" src="assets/images/videos/fr.vtt.txt">
+                                    </video>
                                 </h5>
                             </div>
                         </div>

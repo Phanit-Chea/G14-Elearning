@@ -79,6 +79,8 @@ require 'models/admin.model.php';
 											Create Category
 										</button>
 
+
+
 									</div>
 
 
@@ -319,7 +321,7 @@ require 'models/admin.model.php';
 									<h5 class="card-title"><?= $category['category_name'] ?></h5>
 									<p class="card-text"><?= $category['category_description'] ?></p>
 								</div>
-						
+
 							</div>
 						</div>
 					</div>
@@ -339,20 +341,17 @@ Footer START -->
 
 <!-- =======================
 Footer END -->
-
-<!-- Back to top -->
 <div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
 
-<!-- Bootstrap JS -->
-<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Vendors -->
-<script src="assets/vendor/choices/js/choices.min.js"></script>
+	<!-- Vendors -->
+	<script src="assets/vendor/choices/js/choices.min.js"></script>
 
-<!-- Template Functions -->
-<script src="assets/js/functions.js"></script>
-<script src="vendor/js/popup_form.js"></script>
-
+	<!-- Template Functions -->
+	<script src="assets/js/functions.js"></script>
+	<script src="vendor/js/popup_form.js"></script>
 
 </body>
 

@@ -117,11 +117,21 @@ function total_spending($user_id)
     $statement = $connection->prepare("SELECT SUM(courses.course_price)
         FROM payment
         INNER JOIN courses ON courses.course_id = payment.course_id
-        WHERE payment.user_id = :user_id");
+        WHERE payment.user_id = :user_id group by payment.user_id");
     $statement->execute([
         ':user_id' => $user_id
     ]);
 
+    $result = $statement->fetchColumn();
+    return $result;
+}
+// ============ total course for student =============
+function student_course($user_id){
+    global $connection;
+    $statement = $connection->prepare("SELECT count(payment.course_id),payment.user_id from payment WHERE payment.user_id=:user_id;");
+    $statement->execute([
+        ':user_id'=>$user_id
+    ]);
     $result = $statement->fetchColumn();
     return $result;
 }

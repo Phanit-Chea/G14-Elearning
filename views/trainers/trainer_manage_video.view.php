@@ -9,19 +9,7 @@ require 'models/select_cetagory.php';
 <div class="dropdown ms-1 ms-lg-0">
     <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
         <!-- Profile info -->
-        <li class="px-3">
-            <div class="d-flex align-items-center">
-                <!-- Avatar -->
-                <div class="avatar me-3">
-                    <img class="avatar-img rounded-circle shadow" src="assets/images/avatar/01.jpg" alt="avatar">
-                </div>
-                <div>
-                    <a class="h6" href="#">Lori Ferguson</a>
-                    <p class="small m-0">example@gmail.com</p>
-                </div>
-            </div>
-            <hr>
-        </li>
+
         <!-- Links -->
         <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a>
         </li>
@@ -33,14 +21,7 @@ require 'models/select_cetagory.php';
             <hr class="dropdown-divider">
         </li>
         <!-- Dark mode switch START -->
-        <li>
-            <div class="modeswitch-wrap" id="darkModeSwitch">
-                <div class="modeswitch-item">
-                    <div class="modeswitch-icon"></div>
-                </div>
-                <span>Dark mode</span>
-            </div>
-        </li>
+       
         <!-- Dark mode switch END -->
     </ul>
 </div>
@@ -235,7 +216,7 @@ require 'models/select_cetagory.php';
             <div class="modal-dialog">
                 <div class="modal-content bg-secondary">
                     <div class="modal-header ">
-                        <h5 class="modal-title" id="exampleModalLabel">Create Course</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Create Video</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -243,12 +224,12 @@ require 'models/select_cetagory.php';
                         <form action="controllers/trainers/trainer_watch_video.controller.php" method="POST" enctype="multipart/form-data" class="w-100">
                             <div class="form-group mt-3">
                                 <!-- <input type="hidden" name="id" value=""> -->
-                                <input type="text" class="form-control bg-white" name="course_name" placeholder="course_name" value="" required>
+                                <input type="text" class="form-control bg-white" name="course_name" placeholder="Video name" value="" required>
                             </div>
                             <div class="form-group mt-1">
-                                <label for="course_category">Course category</label>
+                                <label for="course_category">Lessons list</label>
                                 <select class="form-select mt-3" aria-label="Default select example" name="course_category" id="course_category" required>
-                                    <option selected>Select categories</option>
+                                    <option selected>Select lesson</option>
                                     <?php
                                     $categories = select_lesson($user_id);
                                     foreach ($categories as $category) :
@@ -260,7 +241,7 @@ require 'models/select_cetagory.php';
                             <div class="form-group mt-3">
                                 <input class="form-control form-control-sm" id="formFileSm" type="file" name="course_video" placeholder="Course Video" required>
                             </div>
-                            <button type="submit" class="btn btn-primary m-4">Create</button>
+                            <button type="submit" class="btn btn-primary m-4">Create  now</button>
                             <button class="btn btn-danger m-4" id="modal" data-bs-dismiss="modal">cancel</button>
                         </form>
 

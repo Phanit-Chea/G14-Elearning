@@ -112,7 +112,7 @@ Category START -->
 									<div class="ms-3">
 										<!-- Category Name Link -->
 										<h5 class="mb-0"><a href="#" class="stretched-link"><?= $category['category_name'] ?></a></h5>
-										<span>38 Courses</span>
+										
 									</div>
 								</div>
 							</div>
@@ -189,19 +189,7 @@ Featured course START -->
 									<!-- Badge and icon -->
 									<div class="d-flex justify-content-between">
 										<!-- Rating and info -->
-										<ul class="list-inline hstack gap-2 mb-0">
-											<!-- Info -->
-											<li class="list-inline-item d-flex justify-content-center align-items-center">
-												<div class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></div>
-												<span class="h6 fw-light mb-0 ms-2">4</span>
-
-											</li>
-											<!-- Rating -->
-											<li class="list-inline-item d-flex justify-content-center align-items-center">
-												<div class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-star"></i></div>
-												<span class="h6 fw-light mb-0 ms-2">4.5</span>
-											</li>
-										</ul>
+									
 										<!-- Avatar -->
 										<div class="avatar avatar-sm">
 											<img class="avatar-img rounded-circle" src="assets/images/avatar/<?= $course['image'] ?>" alt="avatar">
@@ -246,6 +234,7 @@ Featured course START -->
 Featured course END -->
 
 	<!-- Action box START -->
+
 	<section class="py-0">
 		<div class="container">
 			<div class="row g-4">
@@ -261,7 +250,6 @@ Featured course END -->
 							<div class="col-sm-8 position-relative">
 								<h3 class="mb-1">Earn a Certificate</h3>
 								<p class="mb-3 h5 fw-light lead">Get the right professional certificate program for you.</p>
-								<a href="#" class="btn btn-primary mb-0">View Programs</a>
 							</div>
 						</div>
 					</div>
@@ -279,7 +267,6 @@ Featured course END -->
 							<div class="col-sm-8 position-relative">
 								<h3 class="mb-1">Best Rated Courses</h3>
 								<p class="mb-3 h5 fw-light lead">Enroll now in the most popular and best rated courses.</p>
-								<a href="#" class="btn btn-warning mb-0">View Courses</a>
 							</div>
 						</div>
 					</div>
@@ -287,56 +274,6 @@ Featured course END -->
 			</div>
 		</div>
 	</section>
-	<!-- =======================
-Action box END -->
-
-	<!-- =======================
-IT courses START -->
-	<section>
-		<div class="container">
-			<!-- Title -->
-			<div class="row mb-4">
-				<div class="col-lg-8 text-center mx-auto">
-					<h2 class="fs-1">Top Courses </h2>
-					<p class="mb-0">These are the top that we sold a lot more than another course in our system</p>
-				</div>
-			</div>
-			<?php
-					$top_courses = top_courses();
-
-
-			?>
-			<div id="course" class="row g-3">
-				<?php foreach ($top_courses as $course) : ?>
-
-					<!-- Course item -->
-					<div class="col-md-6 col-lg-4 col-xxl-3">
-						<!-- Image -->
-						<div class="card card-metro overflow-hidden rounded-3">
-							<img style="width: 360px; height:200px" src="assets/images/courses/4by3/<?= $course['course_image'] ?>" alt="">
-							<!-- Image overlay -->
-							<div class="card-img-overlay d-flex">
-								<!-- Info -->
-								<div class="mt-auto card-text">
-									<a href="#" class="text-white mt-auto h5 stretched-link">
-										<?= $course['course_name'] ?>
-									</a>
-									<div class="text-white">
-										<?= $course['COUNT(history_user_buy_course.user_id)'] ?>Sold
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				<?php endforeach; ?>
-			</div> <!-- Row END -->
-		</div>
-	</section>
-	<!-- =======================
-IT courses END -->
-
-	<!-- =======================
-Live courses START -->
 	<section class="bg-light position-relative">
 
 		<!-- SVG decoration -->
@@ -371,7 +308,6 @@ Live courses START -->
 					<h2 class="fs-1">Today's Top Free Live Courses</h2>
 					<p>How promotion excellent curiosity yet attempted happiness prosperous impression had conviction For
 						every delay death ask to style Me mean able my by in they Extremity now strangers contained.</p>
-					<a href="#" class="btn btn-orange mb-0">Get premium courses</a>
 				</div>
 
 				<!-- Course video START -->
@@ -399,7 +335,7 @@ Live courses START -->
 										<!-- Card body -->
 										<div class="card-body">
 											<!-- Title -->
-											<h5><a href="#">Learn the French Language: Complete Course</a></h5>
+											<h5><a href="#">Learn the tips to design in here</a></h5>
 											<!-- Avatar group and button -->
 											<div class="d-sm-flex justify-content-sm-between align-items-center mt-3">
 												<!-- Avatar Group -->
@@ -426,8 +362,7 @@ Live courses START -->
 														</li>
 													</ul>
 												</div>
-												<!-- Button -->
-												<button class="btn btn-sm btn-success mb-0">Join now</button>
+
 											</div>
 										</div>
 									</div>
@@ -453,7 +388,7 @@ Live courses START -->
 										<!-- Card body -->
 										<div class="card-body">
 											<!-- Title -->
-											<h5><a href="#">Time Management Mastery: Do More, Stress Less</a></h5>
+											<h5><a href="#">Learning PHP for all course in here</a></h5>
 											<!-- Avatar group and button -->
 											<div class="d-sm-flex justify-content-sm-between align-items-center mt-3">
 												<!-- Avatar Group -->
@@ -480,66 +415,11 @@ Live courses START -->
 														</li>
 													</ul>
 												</div>
-												<!-- Button -->
-												<button class="btn btn-sm btn-success mb-0">Join now</button>
 											</div>
 										</div>
 									</div>
 								</div>
-								<!-- Card END -->
 
-								<!-- Card START -->
-								<div>
-									<div class="card p-2">
-										<div class="position-relative">
-											<!-- Image -->
-											<img src="assets/images/courses/4by3/21.jpg" class="card-img rounded-2" alt="Card image">
-											<div class="card-img-overlay">
-												<div class="position-absolute top-50 start-50 translate-middle">
-													<!-- Video link -->
-													<a href="https://www.youtube.com/embed/tXHviS-4ygo" class="btn btn-lg text-danger btn-round btn-white-shadow mb-0" data-glightbox="" data-gallery="video-tour">
-														<i class="fas fa-play"></i>
-													</a>
-												</div>
-											</div>
-										</div>
-
-										<!-- Card body -->
-										<div class="card-body">
-											<!-- Title -->
-											<h5><a href="#">English for Beginners: Intensive Spoken English Course</a></h5>
-											<!-- Avatar group and button -->
-											<div class="d-sm-flex justify-content-sm-between align-items-center mt-3">
-												<!-- Avatar Group -->
-												<div>
-													<h6 class="mb-1 fw-normal"><i class="fas fa-circle fw-bold text-success small me-2"></i>Live
-														Students</h6>
-													<ul class="avatar-group mb-2 mb-sm-0">
-														<li class="avatar avatar-xs">
-															<img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
-														</li>
-														<li class="avatar avatar-xs">
-															<img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar">
-														</li>
-														<li class="avatar avatar-xs">
-															<img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
-														</li>
-														<li class="avatar avatar-xs">
-															<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">
-														</li>
-														<li class="avatar avatar-xs">
-															<div class="avatar-img rounded-circle bg-primary">
-																<span class="text-white position-absolute top-50 start-50 translate-middle small">1K+</span>
-															</div>
-														</li>
-													</ul>
-												</div>
-												<!-- Button -->
-												<button class="btn btn-sm btn-success mb-0">Join now</button>
-											</div>
-										</div>
-									</div>
-								</div>
 								<!-- Card END -->
 							</div>
 						</div>
@@ -575,40 +455,7 @@ Action box START -->
 				</figure>
 				<!-- SVG decoration END -->
 
-				<div class="bg-dark p-4 p-sm-5 rounded-3">
-					<div class="row justify-content-center position-relative">
-						<!-- Svg decoration START -->
-						<figure class="fill-white opacity-1 position-absolute top-50 start-0 translate-middle-y">
-							<svg width="141px" height="141px">
-								<path d="M140.520,70.258 C140.520,109.064 109.062,140.519 70.258,140.519 C31.454,140.519 -0.004,109.064 -0.004,70.258 C-0.004,31.455 31.454,-0.003 70.258,-0.003 C109.062,-0.003 140.520,31.455 140.520,70.258 Z" />
-							</svg>
-						</figure>
-						<!-- SVG decoration END -->
 
-						<!-- Action box -->
-						<div class="col-11 position-relative">
-							<div class="row align-items-center">
-								<!-- Title -->
-								<div class="col-lg-7">
-									<h3 class="text-white mb-0">Create your first online assessment</h3>
-									<p class="text-white small">Boost up your knowledge, grow your skill with the most
-										reliable online courses and certifications</p>
-									<!-- List -->
-									<ul class="list-inline mb-0 justify-content-center justify-content-lg-start">
-										<li class="list-inline-item text-white me-2"> <i class="bi bi-check-circle-fill text-success me-2"></i>Free registration
-										</li>
-										<li class="list-inline-item text-white me-2"> <i class="bi bi-check-circle-fill text-success me-2"></i>Powerful features
-										</li>
-									</ul>
-								</div>
-								<!-- Content and input -->
-								<div class="col-lg-5 text-lg-end mt-3 mt-lg-0">
-									<a href="#" class="btn btn-warning mb-0">Sign Up for Free</a>
-								</div>
-							</div> <!-- Row END -->
-						</div>
-					</div>
-				</div>
 			</div>
 		</div> <!-- Row END -->
 	</div>

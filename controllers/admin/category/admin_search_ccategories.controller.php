@@ -5,7 +5,7 @@ require "models/admin.model.php";
 if ($_SERVER['REQUEST_METHOD'] === 'GET'){
     if (isset($_GET['query'])) {
         $text = $_GET['query'];
-        $categories = $text?searchCategory($text):getData();
+        $categories = $text?searchCategory($text):getData(3);
         $id = 1;
         foreach ($categories as $num => $category) :
     

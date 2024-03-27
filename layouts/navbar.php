@@ -298,7 +298,7 @@ require "models/payment.model.php";
         <?php if (isset($_SESSION['login']) && $_SESSION['login'] == 'login') : ?>
           <a href="../controllers/signout/signout.controller.php" class="btn btn-danger-soft mb-0"><i class="fas fa-sign-in-alt me-2"></i>Sign out</a>
         <?php else : ?>
-          <a href="/signin" class="btn btn-danger-soft mb-0">Signin</a>
+          <a href="/signin" class="btn btn-danger-soft mb-0">Sign in</a>
         <?php endif; ?>
         <?php if (isset($_SESSION['login']) && $_SESSION['login'] != '') : ?>
           <?php

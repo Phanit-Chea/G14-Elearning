@@ -3,19 +3,15 @@ require 'layouts/trainer/navbar.php';
 ?>
 
 <main>
-	<!-- =======================
-Page banner video START -->
 	<section class="py-0 pb-lg-5">
 		<div class="container">
 			<div class="row g-3">
-				<!-- Course video START -->
 				<div class="col-12">
 					<div class="video-player rounded-3">
 						<video controls="" crossorigin="anonymous" playsinline="" poster="assets/images/videos/poster.jpg">
 							<source src="assets/images/videos/360p.mp4" type="video/mp4" size="360">
 							<source src="assets/images/videos/720p.mp4" type="video/mp4" size="720">
 							<source src="assets/images/videos/1080p.mp4" type="video/mp4" size="1080">
-							<!-- Caption files -->
 							<track kind="captions" label="English" srclang="en" src="assets/images/videos/en.vtt.txt" default="">
 							<track kind="captions" label="French" srclang="fr" src="assets/images/videos/fr.vtt.txt">
 							</track>
@@ -23,50 +19,33 @@ Page banner video START -->
 						</video>
 					</div>
 				</div>
-				<!-- Course video END -->
 
-				<!-- Playlist responsive toggler START -->
 				<div class="col-12">
 					<button class="btn btn-primary d-lg-none mb-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
 						<i class="bi bi-camera-video me-1"></i> Playlist
 					</button>
 				</div>
-				<!-- Playlist responsive toggler END -->
 			</div>
 		</div>
 	</section>
-	<!-- =======================
-Page banner video END -->
 
-	<!-- =======================
-Page content START -->
 	<section class="pt-0">
 		<div class="container">
 			<div class="row g-lg-5">
-
-				<!-- Main content START -->
 				<div class="col-lg-8">
 					<div class="row g-4">
-
-						<!-- Course title START -->
 						<div class="col-12">
-							<!-- Title -->
 							<h1>The Complete Digital Marketing Course - 12 Courses in 1</h1>
-							<!-- Content -->
 							<ul class="list-inline mb-0">
 								<li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
 								<li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled</li>
 								<li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-signal text-success me-2"></i>All levels</li>
 							</ul>
 						</div>
-						<!-- Course title END -->
 
-						<!-- Instructor detail START -->
 						<div class="col-12">
 							<div class="d-sm-flex justify-content-sm-between align-items-center">
-								<!-- Avatar detail -->
 								<div class="d-flex align-items-center">
-									<!-- Avatar image -->
 									<div class="avatar avatar-lg">
 										<img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
 									</div>
@@ -76,15 +55,14 @@ Page content START -->
 									</div>
 								</div>
 
-								<!-- Button -->
 								<div class="d-flex mt-2 mt-sm-0">
 									<a class="btn btn-danger-soft btn-sm mb-0" href="#">Follow</a>
-									<!-- Share button with dropdown -->
+
 									<div class="dropdown ms-2">
 										<a href="#" class="btn btn-sm mb-0 btn-info-soft small" role="button" id="dropdownShare" data-bs-toggle="dropdown" aria-expanded="false">
 											share
 										</a>
-										<!-- dropdown button -->
+
 										<ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare">
 											<li><a class="dropdown-item" href="#"><i class="fab fa-twitter-square me-2"></i>Twitter</a></li>
 											<li><a class="dropdown-item" href="#"><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>
@@ -95,39 +73,34 @@ Page content START -->
 								</div>
 							</div>
 						</div>
-						<!-- Instructor detail END -->
 
-						<!-- Course detail START -->
 						<div class="col-12">
-							<!-- Tabs START -->
+
 							<ul class="nav nav-pills nav-pills-bg-soft px-3" id="course-pills-tab" role="tablist">
-								<!-- Tab item -->
+
 								<li class="nav-item me-2 me-sm-4" role="presentation">
 									<button class="nav-link mb-0 active" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="true">Overview</button>
 								</li>
-								<!-- Tab item -->
+
 								<li class="nav-item me-2 me-sm-4" role="presentation">
 									<button class="nav-link mb-0" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-2" type="button" role="tab" aria-controls="course-pills-2" aria-selected="false">Reviews</button>
 								</li>
-								<!-- Tab item -->
+
 								<li class="nav-item me-2 me-sm-4" role="presentation">
 									<button class="nav-link mb-0" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-3" type="button" role="tab" aria-controls="course-pills-3" aria-selected="false">FAQs </button>
 								</li>
 							</ul>
-							<!-- Tabs END -->
 
-							<!-- Tab contents START -->
 							<div class="tab-content pt-4 px-3" id="course-pills-tabContent">
-								<!-- Content START -->
+
 								<div class="tab-pane fade show active" id="course-pills-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
-									<!-- Course detail START -->
+
 									<h5 class="mb-3">Course Description</h5>
 									<p class="mb-3">Welcome to the <strong> Digital Marketing Ultimate Course Bundle - 12 Courses in 1 (Over 36 hours of content)</strong></p>
 									<p class="mb-3">In this practical hands-on training, you’re going to learn to become a digital marketing expert with this <strong> ultimate course bundle that includes 12 digital marketing courses in 1!</strong></p>
 									<p class="mb-3">If you wish to find out the skills that should be covered in a basic digital marketing course syllabus in India or anywhere around the world, then reading this blog will help. Before we delve into the advanced <strong><a href="#" class="text-reset text-decoration-underline">digital marketing course</a></strong> syllabus, let’s look at the scope of digital marketing and what the future holds.</p>
 									<p class="mb-0">We focus a great deal on the understanding of behavioral psychology and influence triggers which are crucial for becoming a well rounded Digital Marketer. We understand that theory is important to build a solid foundation, we understand that theory alone isn’t going to get the job done so that’s why this course is packed with practical hands-on examples that you can follow step by step.</p>
 
-									<!-- List content -->
 									<h5 class="mt-4">What you’ll learn</h5>
 
 									<div class="row mb-3">
@@ -154,23 +127,21 @@ Page content START -->
 									</div>
 
 									<p class="mb-0">As it so contrasted oh estimating instrument. Size like body someone had. Are conduct viewing boy minutes warrant the expense? Tolerably behavior may admit daughters offending her ask own. Praise effect wishes change way and any wanted. Lively use looked latter regard had. Do he it part more last in. </p>
-									<!-- Course detail END -->
+
 
 								</div>
-								<!-- Content END -->
 
-								<!-- Content START -->
 								<div class="tab-pane fade" id="course-pills-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
-									<!-- Review START -->
+
 									<div class="row mb-4">
 										<h5 class="mb-4">Our Student Reviews</h5>
 
-										<!-- Rating info -->
+
 										<div class="col-md-4 mb-3 mb-md-0">
 											<div class="text-center">
-												<!-- Info -->
+
 												<h2 class="mb-0">4.5</h2>
-												<!-- Star -->
+
 												<ul class="list-inline mb-0">
 													<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
 													<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
@@ -182,12 +153,12 @@ Page content START -->
 											</div>
 										</div>
 
-										<!-- Progress-bar and star -->
+
 										<div class="col-md-8">
 											<div class="row align-items-center text-center">
-												<!-- Progress bar and Rating -->
+
 												<div class="col-6 col-sm-8">
-													<!-- Progress item -->
+
 													<div class="progress progress-sm bg-warning bg-opacity-15">
 														<div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
 														</div>
@@ -195,7 +166,7 @@ Page content START -->
 												</div>
 
 												<div class="col-6 col-sm-4">
-													<!-- Star item -->
+
 													<ul class="list-inline mb-0">
 														<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
 														<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
@@ -205,9 +176,9 @@ Page content START -->
 													</ul>
 												</div>
 
-												<!-- Progress bar and Rating -->
+
 												<div class="col-6 col-sm-8">
-													<!-- Progress item -->
+
 													<div class="progress progress-sm bg-warning bg-opacity-15">
 														<div class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
 														</div>
@@ -215,7 +186,7 @@ Page content START -->
 												</div>
 
 												<div class="col-6 col-sm-4">
-													<!-- Star item -->
+
 													<ul class="list-inline mb-0">
 														<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
 														<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
@@ -225,9 +196,9 @@ Page content START -->
 													</ul>
 												</div>
 
-												<!-- Progress bar and Rating -->
+
 												<div class="col-6 col-sm-8">
-													<!-- Progress item -->
+
 													<div class="progress progress-sm bg-warning bg-opacity-15">
 														<div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
 														</div>
@@ -235,7 +206,7 @@ Page content START -->
 												</div>
 
 												<div class="col-6 col-sm-4">
-													<!-- Star item -->
+
 													<ul class="list-inline mb-0">
 														<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
 														<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
@@ -245,9 +216,9 @@ Page content START -->
 													</ul>
 												</div>
 
-												<!-- Progress bar and Rating -->
+
 												<div class="col-6 col-sm-8">
-													<!-- Progress item -->
+
 													<div class="progress progress-sm bg-warning bg-opacity-15">
 														<div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
 														</div>
@@ -255,7 +226,7 @@ Page content START -->
 												</div>
 
 												<div class="col-6 col-sm-4">
-													<!-- Star item -->
+
 													<ul class="list-inline mb-0">
 														<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
 														<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
@@ -265,9 +236,9 @@ Page content START -->
 													</ul>
 												</div>
 
-												<!-- Progress bar and Rating -->
+
 												<div class="col-6 col-sm-8">
-													<!-- Progress item -->
+
 													<div class="progress progress-sm bg-warning bg-opacity-15">
 														<div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
 														</div>
@@ -275,7 +246,7 @@ Page content START -->
 												</div>
 
 												<div class="col-6 col-sm-4">
-													<!-- Star item -->
+
 													<ul class="list-inline mb-0">
 														<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
 														<li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
@@ -287,21 +258,20 @@ Page content START -->
 											</div>
 										</div>
 									</div>
-									<!-- Review END -->
 
-									<!-- Student review START -->
+
 									<div class="row">
-										<!-- Review item START -->
+
 										<div class="d-md-flex my-4">
-											<!-- Avatar -->
+
 											<div class="avatar avatar-xl me-4 flex-shrink-0">
 												<img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
 											</div>
-											<!-- Text -->
+
 											<div>
 												<div class="d-sm-flex mt-1 mt-md-0 align-items-center">
 													<h5 class="me-3 mb-0">Jacqueline Miller</h5>
-													<!-- Review star -->
+
 													<ul class="list-inline mb-0">
 														<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
 														<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
@@ -310,29 +280,28 @@ Page content START -->
 														<li class="list-inline-item me-0"><i class="far fa-star text-warning"></i></li>
 													</ul>
 												</div>
-												<!-- Info -->
+
 												<p class="small mb-2">2 days ago</p>
 												<p class="mb-2">Perceived end knowledge certainly day sweetness why cordially. Ask a quick six seven offer see among. Handsome met debating sir dwelling age material. As style lived he worse dried. Offered related so visitors we private removed. Moderate do subjects to distance. </p>
 
-												<!-- Reply button -->
 												<a href="#" class="text-body mb-0"><i class="fas fa-reply me-2"></i>Reply</a>
 											</div>
 										</div>
-										<!-- Divider -->
-										<hr>
-										<!-- Review item END -->
 
-										<!-- Review item START -->
+										<hr>
+
+
+
 										<div class="d-md-flex my-4">
-											<!-- Avatar -->
+
 											<div class="avatar avatar-xl me-4 flex-shrink-0">
 												<img class="avatar-img rounded-circle" src="assets/images/avatar/07.jpg" alt="avatar">
 											</div>
-											<!-- Text -->
+
 											<div>
 												<div class="d-sm-flex mt-1 mt-md-0 align-items-center">
 													<h5 class="me-3 mb-0">Dennis Barrett</h5>
-													<!-- Review star -->
+
 													<ul class="list-inline mb-0">
 														<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
 														<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
@@ -341,32 +310,29 @@ Page content START -->
 														<li class="list-inline-item me-0"><i class="far fa-star text-warning"></i></li>
 													</ul>
 												</div>
-												<!-- Info -->
+
 												<p class="small mb-2">2 days ago</p>
 												<p class="mb-2">Handsome met debating sir dwelling age material. As style lived he worse dried. Offered related so visitors we private removed. Moderate do subjects to distance. </p>
-												<!-- Reply button -->
+
 												<a href="#" class="text-body mb-0"><i class="fas fa-reply me-2"></i>Reply</a>
 											</div>
 										</div>
-										<!-- Review item END -->
-										<!-- Divider -->
+
 										<hr>
 									</div>
-									<!-- Student review END -->
 
-									<!-- Leave Review START -->
 									<div class="mt-2">
 										<h5 class="mb-4">Leave a Review</h5>
 										<form class="row g-3">
-											<!-- Name -->
+
 											<div class="col-md-6">
 												<input type="text" class="form-control" id="inputtext" placeholder="Name" aria-label="First name">
 											</div>
-											<!-- Email -->
+
 											<div class="col-md-6">
 												<input type="email" class="form-control" placeholder="Email" id="inputEmail4">
 											</div>
-											<!-- Rating -->
+
 											<div class="col-12">
 												<select id="inputState2" class="form-select  js-choice">
 													<option selected="">★★★★★ (5/5)</option>
@@ -376,75 +342,70 @@ Page content START -->
 													<option>★☆☆☆☆ (1/5)</option>
 												</select>
 											</div>
-											<!-- Message -->
+
 											<div class="col-12">
 												<textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Your review" rows="3"></textarea>
 											</div>
-											<!-- Button -->
+
 											<div class="col-12">
 												<button type="submit" class="btn btn-primary mb-0">Post Review</button>
 											</div>
 										</form>
 									</div>
-									<!-- Leave Review END -->
+
 
 								</div>
-								<!-- Content END -->
 
-								<!-- Content START -->
 								<div class="tab-pane fade" id="course-pills-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
-									<!-- Title -->
+
 									<h5 class="mb-3">Frequently Asked Questions</h5>
-									<!-- FAQ item -->
+
 									<div class="mt-4">
 										<h6>How Digital Marketing Work?</h6>
 										<p class="mb-0">Preference any astonished unreserved Mrs. Prosperous understood Middletons in conviction an uncommonly do. Supposing so be resolving breakfast am or perfectly. It drew a hill from me. Valley by oh twenty direct me so. Departure defective arranging rapturous did believe him all had supported. Family months lasted simple set nature vulgar him. Picture for attempt joy excited ten carried manners talking how. Suspicion neglected the resolving agreement perceived at an. Comfort reached gay perhaps chamber his six detract besides add.</p>
 									</div>
 
-									<!-- FAQ item -->
+
 									<div class="mt-4">
 										<h6>What is SEO?</h6>
 										<p class="mb-0">Meant balls it if up doubt small purse. Required his you put the outlived answered position. A pleasure exertion if believed provided to. All led out world this music while asked. Paid mind even sons does he door no. Attended overcame repeated it is perceived Marianne in. I think on style child of. Servants moreover in sensible it ye possible.</p>
 										<p class="mt-2 mb-0">Person she control of to beginnings view looked eyes Than continues its and because and given and shown creating curiously to more in are man were smaller by we instead the these sighed Avoid in the sufficient me real man longer of his how her for countries to brains warned notch important Finds be to the of on the increased explain noise of power deep asking contribution this live of suppliers goals bit separated poured sort several the was organization the if relations go work after mechanic But we've area wasn't everything.</p>
 									</div>
 
-									<!-- FAQ item -->
 									<div class="mt-4">
 										<h6>Who should join this course?</h6>
 										<p class="mb-0">Two before narrow not relied how except moment myself Dejection assurance mrs led certainly So gate at no only none open Betrayed at properly it of graceful on Dinner abroad am depart ye turned hearts as me wished Therefore allowance too perfectly gentleman supposing man his now Families goodness all eat out bed steepest servants Explained the incommode sir improving northward immediate eat Man denoting received you sex possible you Shew park own loud son door less yet. </p>
 									</div>
 
-									<!-- FAQ item -->
+
 									<div class="mt-4">
 										<h6>What are the T&amp;C for this program?</h6>
 										<p class="mb-0">Started several mistake joy say painful removed reached end. State burst think end are its. Arrived off she elderly beloved him affixed noisier yet. Course regard to up he hardly. View four has said do men saw find dear shy. Talent men wicket add garden. </p>
 									</div>
 
-									<!-- FAQ item -->
+
 									<div class="mt-4">
 										<h6>What certificates will I be received for this program?</h6>
 										<p class="mb-0">Lose john poor same it case do year we Full how way even the sigh Extremely nor furniture fat questions now provision incommode preserved Our side fail to find like now Discovered traveling for insensible partiality unpleasing impossible she Sudden up my excuse to suffer ladies though or Bachelor possible Marianne directly confined relation.</p>
 									</div>
 
-									<!-- FAQ item -->
+
 									<div class="mt-4">
 										<h6>What happens after the trial ends?</h6>
 										<p class="mb-0">Preference any astonished unreserved Mrs. Prosperous understood Middletons in conviction an uncommonly do. Supposing so be resolving breakfast am or perfectly. Is drew am hill from me. Valley by oh twenty direct me so. Departure defective arranging rapturous did believe him all had supported. Family months lasted simple set nature vulgar him. Suspicion neglected he resolving agreement perceived at an. Comfort reached gay perhaps chamber his six detract besides add.</p>
 									</div>
 								</div>
-								<!-- Content END -->
+
 							</div>
-							<!-- Tab contents END -->
+
 						</div>
-						<!-- Course detail END -->
+
 					</div>
 				</div>
-				<!-- Main content END -->
 
-				<!-- Right sidebar START -->
 				<div class="col-lg-4">
 					<div class="row g-4">
-						<!-- Responsive offcanvas body START -->
+
 						<nav class="navbar navbar-light navbar-expand-lg mx-0">
 							<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
 								<div class="offcanvas-header bg-dark">
@@ -453,9 +414,9 @@ Page content START -->
 								</div>
 								<div class="offcanvas-body p-3 p-lg-0">
 									<div class="col-12">
-										<!-- Accordion START -->
+
 										<div class="accordion accordion-icon accordion-bg-light" id="accordionExample2">
-											<!-- Item -->
+
 											<div class="accordion-item mb-3">
 												<h6 class="accordion-header font-base" id="heading-1">
 													<a class="accordion-button fw-bold rounded collapsed d-block" href="#collapse-1" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
@@ -467,7 +428,7 @@ Page content START -->
 													<div class="accordion-body mt-3">
 														<div class="vstack gap-3">
 
-															<!-- Progress bar -->
+
 															<div class="overflow-hidden">
 																<div class="d-flex justify-content-between">
 																	<p class="mb-1 h6">1/3 Completed</p>
@@ -479,7 +440,7 @@ Page content START -->
 																</div>
 															</div>
 
-															<!-- Course lecture -->
+
 															<div class="d-flex justify-content-between align-items-center">
 																<div class="position-relative d-flex align-items-center">
 																	<a href="#" class="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
@@ -490,7 +451,7 @@ Page content START -->
 																<p class="mb-0 text-truncate">2m 10s</p>
 															</div>
 
-															<!-- Course lecture -->
+
 															<div class="p-2 bg-success bg-opacity-10 rounded-3">
 																<div class="d-flex justify-content-between align-items-center">
 																	<div class="position-relative d-flex align-items-center">
@@ -503,7 +464,7 @@ Page content START -->
 																</div>
 															</div>
 
-															<!-- Course lecture -->
+
 															<div class="d-flex justify-content-between align-items-center">
 																<div class="position-relative d-flex align-items-center">
 																	<a href="#" class="btn btn-danger-soft btn-round btn-sm mb-0 stretched-link position-static">
